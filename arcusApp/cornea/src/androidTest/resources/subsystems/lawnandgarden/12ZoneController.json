@@ -1,0 +1,144 @@
+{
+  "devpow:backupbatterycapable": false,
+  "irr:zonenum:z9": 9,
+  "irr:zoneState:z5": "NOT_WATERING",
+  "base:address": "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00",
+  "irr:zoneState:z4": "NOT_WATERING",
+  "irr:zoneState:z7": "NOT_WATERING",
+  "irr:zoneState:z6": "NOT_WATERING",
+  "devadv:drivercommit": "38d2635997b09e25c2a64e10b3e97037e9dbf1f4",
+  "irr:zoneState:z9": "NOT_WATERING",
+  "irr:zoneState:z8": "NOT_WATERING",
+  "irrcont:maxirrigationtime": 20,
+  "irr:zonenum:z8": 8,
+  "irr:zonenum:z7": 7,
+  "irr:zonenum:z6": 6,
+  "irr:zonenum:z5": 5,
+  "irr:zonenum:z4": 4,
+  "irr:zonenum:z3": 3,
+  "irr:zonenum:z2": 2,
+  "irr:zonenum:z1": 1,
+  "devadv:driverversion": "1.1",
+  "irr:wateringRemainingTime:z12": 0,
+  "base:images": {},
+  "irr:wateringRemainingTime:z10": 0,
+  "irr:wateringRemainingTime:z11": 0,
+  "base:caps": [
+    "irrcont",
+    "irrsched",
+    "dev",
+    "devadv",
+    "devmock",
+    "devconn",
+    "devpow",
+    "base"
+  ],
+  "devadv:drivername": "MOCK_IrrigationController12Zone",
+  "base:id": "90909fac-fa06-400d-9cb8-f7234b58aa00",
+  "irr:zoneState:z11": "NOT_WATERING",
+  "irr:zoneState:z12": "NOT_WATERING",
+  "irr:zoneState:z10": "NOT_WATERING",
+  "irr:zonecolor:z12": "BLACK",
+  "irr:zonecolor:z11": "GREY",
+  "irr:zonecolor:z10": "WHITE",
+  "irrcont:controllerState": "OFF",
+  "dev:model": "IrrigationController",
+  "dev:name": "Mock IrrigationController12Zone",
+  "dev:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "irr:zonecolor:z1": "LIGHTRED",
+  "devconn:state": "ONLINE",
+  "irr:zonecolor:z3": "ORANGE",
+  "irr:zonecolor:z2": "DARKRED",
+  "irr:zonecolor:z5": "LIGHTGREEN",
+  "irr:zonecolor:z4": "YELLOW",
+  "irr:zonecolor:z7": "LIGHTBLUE",
+  "irr:zonecolor:z6": "DARKGREEN",
+  "irr:zonecolor:z9": "VIOLET",
+  "irr:zonecolor:z8": "DARKBLUE",
+  "irr:zoneState:z1": "NOT_WATERING",
+  "irr:zonenum:z12": 12,
+  "irr:zonenum:z11": 11,
+  "irr:zoneState:z3": "NOT_WATERING",
+  "irr:zoneState:z2": "NOT_WATERING",
+  "irr:zonenum:z10": 10,
+  "dev:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "irr:zonename:z8": "Roof Garden",
+  "irr:zonename:z9": "Front Yard",
+  "devconn:signal": 79,
+  "irrcont:maxdailytransitions": 8,
+  "dev:vendor": "Mockitron",
+  "base:tags": [],
+  "irr:zonename:z1": "Veggie Garden",
+  "irr:zonename:z2": "Herb Garden",
+  "irr:zonename:z3": "Tea Garden",
+  "irr:zonename:z4": "Fruit Garden",
+  "irrcont:maxtransitions": 32,
+  "irr:zonename:z5": "Flower Garden",
+  "irr:zonename:z6": "Rose Garden",
+  "irr:zonename:z7": "Terrace Garden",
+  "dev:devtypehint": "Irrigation",
+  "devpow:linecapable": true,
+  "irrcont:budget": 100,
+  "devpow:source": "LINE",
+  "devadv:protocol": "MOCK",
+  "devadv:protocolid": "dky4McQwOsojIMS31jjougAAAAA=",
+  "irr:zonename:z10": "Back Yard",
+  "irr:zonename:z11": "East Yard",
+  "irr:zonename:z12": "West Yard",
+  "irrcont:numZones": 12,
+  "devpow:sourcechanged": 1457017740784,
+  "irrcont:rainDelay": 0,
+  "devadv:driverhash": "3OM1QnZWCavM9WQLz8/2Pl2RSvY",
+  "base:instances": {
+    "z1": [
+      "irr"
+    ],
+    "z2": [
+      "irr"
+    ],
+    "z10": [
+      "irr"
+    ],
+    "z3": [
+      "irr"
+    ],
+    "z4": [
+      "irr"
+    ],
+    "z12": [
+      "irr"
+    ],
+    "z5": [
+      "irr"
+    ],
+    "z11": [
+      "irr"
+    ],
+    "z6": [
+      "irr"
+    ],
+    "z7": [
+      "irr"
+    ],
+    "z8": [
+      "irr"
+    ],
+    "z9": [
+      "irr"
+    ]
+  },
+  "irrcont:zonesinfault": [],
+  "dev:productId": "000000",
+  "irr:wateringRemainingTime:z5": 0,
+  "irr:wateringRemainingTime:z6": 0,
+  "irr:wateringRemainingTime:z3": 0,
+  "irr:wateringRemainingTime:z4": 0,
+  "irr:wateringRemainingTime:z1": 0,
+  "irr:wateringRemainingTime:z2": 0,
+  "base:type": "dev",
+  "devconn:lastchange": 1457017740822,
+  "irr:wateringRemainingTime:z9": 0,
+  "irr:wateringRemainingTime:z7": 0,
+  "irr:wateringRemainingTime:z8": 0,
+  "devadv:added": 1457017740784
+}

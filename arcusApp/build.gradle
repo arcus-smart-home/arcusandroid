@@ -1,0 +1,50 @@
+apply from: 'common.gradle'
+
+project.ext.shortVersion = "${version_major}.${version_minor}.${version_patch}"
+project.ext.appVersionCode  = "${version_major}${version_minor}${version_patch}" as Integer
+
+buildscript {
+    apply from: 'dependencies.gradle'
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath deps.classpath.gradleTools
+        classpath deps.classpath.kotlin
+    }
+}
+
+allprojects {
+    if (Boolean.parseBoolean("${use_lint_checks}")) {
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs << "-Xlint"
+            }
+        }
+    }
+
+    // Plugins
+    repositories {
+        google()
+        jcenter()
+
+        if (Boolean.parseBoolean("${android_use_maven_local}")) {
+            mavenLocal()
+        }
+    }
+
+    // Dependencies
+    buildscript {
+        repositories {
+            google()
+            jcenter()
+
+            if (Boolean.parseBoolean("${android_use_maven_local}")) {
+                mavenLocal()
+            }
+        }
+    }
+}

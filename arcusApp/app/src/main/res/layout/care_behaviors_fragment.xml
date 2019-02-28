@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:background="#344434"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <arcus.app.common.view.Version1TextView
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:id="@+id/care_behavior_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Care Behaviors help you monitor\nyour loved ones\' daily routines and\ncan trigger a Care Alarm if those\nroutines are distrupted."
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:customFont="demi"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/care_behavior_des"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#dcdcdc"
+            android:singleLine="false"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:textSize="12sp"
+            android:text="On the dashboard, tap the + sign,\nthen Care Behaviors to get started."
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/care_behavior_mto"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:id="@+id/totalDeviceRelLayout"
+                    android:background="@color/overlay_white_with_10"
+                    tools:background="#344434">
+
+                    <arcus.app.common.view.Version1TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/rules_name"
+                        android:layout_marginLeft="10dp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/white"
+                        android:text="My Care Behaviors"/>
+
+                    <arcus.app.common.view.Version1TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/rules_count"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="false"
+                        android:layout_marginRight="10dp" />
+
+                </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/mlv_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <com.dexafree.materialList.view.MaterialListView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/care_behavior_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    app:column_count="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+</LinearLayout>

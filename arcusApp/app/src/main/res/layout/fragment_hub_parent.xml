@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:background="@color/white">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/sclera_divider_color"  />
+
+    <LinearLayout
+        android:id="@+id/error_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:background="@color/sclera_alert"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/error_banner_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/error_banner_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:paddingLeft="10dp"
+            android:lineSpacingMultiplier="1.36"
+            android:text="@string/hub_reporting_error_code"
+            app:scleraFontStyle="demi"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/sclera_video_tab"/>
+
+    <RelativeLayout
+        style="@style/ScleraColumnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttons_container"
+            android:orientation="vertical">
+
+            <arcus.app.common.view.NoSwipeViewPager
+                android:id="@+id/fragment_hub_parent_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:padding="0dp"
+            android:orientation="vertical">
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/fragment_hub_parent_next_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/fragment_hub_parent_dashboard_btn"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/hub_pairing_next_button"
+                app:buttonColorScheme="purple"/>
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/fragment_hub_parent_dashboard_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/hub_pairing_go_to_dashboard"
+                app:scleraButtonColor="purple_outline"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true" >
+
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/fob_button_action_title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_35"
+            android:paddingStart="@dimen/sclera_widget_edge_combined"
+            android:paddingEnd="@dimen/sclera_widget_edge_combined"
+            android:gravity="center_horizontal"
+            android:textColor="@color/sclera_text_color_dark"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="demi"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/fob_button_action_title" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/horizontal_divider_height"
+            android:layout_marginTop="@dimen/dp_30"
+            android:paddingBottom="@dimen/dp_8"
+            android:background="@color/sclera_divider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fob_button_action_title" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fob_button_action_recycler_view"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            style="@style/ScleraColumnLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fob_button_action_recycler_view"
+            app:layout_constraintVertical_bias="1.0">
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/generic_save_text"
+                app:buttonColorScheme="purple" />
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+                android:text="@string/cancel_text"
+                app:scleraButtonColor="purple_outline" />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

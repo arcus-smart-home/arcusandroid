@@ -1,0 +1,27 @@
+{
+  "base:caps": [
+    "subs",
+    "sublightsnswitches",
+    "base"
+  ],
+  "base:instances": {},
+  "subs:state": "ACTIVE",
+  "subs:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "subs:available": "false",
+  "base:id": "sublightsnswitches:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:address": "SERV:sublightsnswitches:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:tags": [],
+  "base:type": "subs",
+  "subs:version": "1.0",
+  "sublightsnswitches:switchDevices": [
+  ],
+  "base:images": {},
+  "subs:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "subs:hash": "G6PdszgZSN7B5ezsGVVFtIwILg8",
+  "sublightsnswitches:onDeviceCounts": {
+    "light": 2.0,
+    "dimmer": 0.0,
+    "switch": 2.0
+  },
+  "subs:name": "LightsNSwitchesSubsystem"
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="arcus.app.pairing.device.productcatalog.brandsoverview.BrandsOverviewFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/brands_result_count_container"
+        app:elevation="@dimen/dp_0"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="arcus.app.common.behavior.AppBarFlingBehaviorFix">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/brands_results_text"
+                tools:text="33 Results"
+                android:textSize="@dimen/pt_14"
+                app:scleraFontStyle="normal"
+                android:paddingLeft="@dimen/dp_24"
+                android:paddingRight="@dimen/dp_24"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sclera_video_tab_bar_height"
+                />
+
+            <View
+                android:contentDescription="@string/chevron_content_description"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_divider_height"
+                android:background="@color/sclera_divider_color"
+                />
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/brands_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sclera_widget_edge_combined"
+        android:layout_marginRight="@dimen/sclera_widget_edge_combined"
+        tools:listitem="@layout/brands_catalog_row"
+        android:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible"/>
+
+</android.support.design.widget.CoordinatorLayout>

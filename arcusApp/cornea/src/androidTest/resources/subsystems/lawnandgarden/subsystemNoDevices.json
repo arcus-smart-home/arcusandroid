@@ -1,0 +1,28 @@
+{
+  "base:caps": [
+    "subs",
+    "sublawnngarden",
+    "base"
+  ],
+  "base:instances": {},
+  "subs:state": "ACTIVE",
+  "subs:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "subs:available": true,
+  "sublawnngarden:controllers": [],
+  "base:id": "sublawnngarden:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:address": "SERV:sublawnngarden:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "sublawnngarden:nextEvent": {},
+  "sublawnngarden:scheduleStatus": {},
+  "sublawnngarden:intervalSchedules": {},
+  "base:tags": [],
+  "base:type": "subs",
+  "sublawnngarden:oddSchedules": {},
+  "sublawnngarden:weeklySchedules": {},
+  "sublawnngarden:zonesWatering": {},
+  "subs:version": "1.0",
+  "base:images": {},
+  "sublawnngarden:evenSchedules": {},
+  "subs:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "subs:hash": "mLAn1+sG1EsGaevrGspHnybRNK0",
+  "subs:name": "LawnNGardenSubsystem"
+}

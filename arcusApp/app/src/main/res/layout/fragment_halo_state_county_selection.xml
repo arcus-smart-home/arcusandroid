@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/dp_20"
+    android:overScrollMode="ifContentScrolls">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/alert_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sclera_alert_banner"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/warning_white_22x20"
+            android:paddingBottom="10dp"
+            android:paddingEnd="0dp"
+            android:paddingStart="17dp"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/pt_12"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:text="@string/error_occurred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/step_title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginStart="@dimen/dp_60"
+            android:layout_marginEnd="@dimen/dp_60"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="demi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Generic Info Title that needs to wrap to two lines"/>
+
+        <View
+            android:id="@+id/bottom_divider"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp_45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/step_title"
+            android:background="@color/sclera_divider_color"/>
+
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/state_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/sclera_widget_edge_combined"
+            android:text="@string/halo_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_divider"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/selected_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:drawableEnd="@drawable/chevron"
+            android:drawablePadding="@dimen/dp_8"
+            android:padding="@dimen/sclera_widget_edge_combined"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/state_label"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_divider"
+            tools:text="PA"/>
+
+        <ProgressBar
+            android:id="@+id/state_progress_bar"
+            style="@style/ScleraProgressIndeterminateBar"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="@dimen/dp_48"
+            android:theme="@style/ScleraProgressIndeterminateBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/selected_state"
+            app:layout_constraintTop_toTopOf="@id/selected_state"
+            />
+
+        <View
+            android:id="@+id/state_divider"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/state_label"
+            android:background="@color/sclera_divider_color"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/county_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/sclera_widget_edge_combined"
+            android:text="@string/halo_county"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/selected_county"
+            app:layout_constraintTop_toBottomOf="@+id/state_divider"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/selected_county"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:drawableEnd="@drawable/chevron"
+            android:drawablePadding="@dimen/dp_8"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:gravity="end"
+            android:maxLines="1"
+            android:padding="@dimen/sclera_widget_edge_combined"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/county_label"
+            app:layout_constraintTop_toBottomOf="@+id/state_divider"
+            app:layout_constraintHorizontal_bias="1.0"
+            tools:text="testing a loooooong county name"/>
+
+        <ProgressBar
+            android:id="@+id/county_progress_bar"
+            style="@style/ScleraProgressIndeterminateBar"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="@dimen/dp_48"
+            android:theme="@style/ScleraProgressIndeterminateBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/selected_county"
+            app:layout_constraintTop_toTopOf="@id/selected_county"/>
+
+        <View
+            android:id="@+id/county_divider"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/county_label"
+            android:background="@color/sclera_divider_color"/>
+
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:text="@string/save_text"
+            app:buttonColorScheme="purple"
+            app:layout_constraintBottom_toTopOf="@id/cancel_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/county_divider"
+            app:layout_constraintVertical_bias="1.0"/>
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@string/cancel_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:scleraButtonColor="purple_outline"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

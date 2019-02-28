@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <arcus.app.common.view.Version1EditText
+            android:id="@+id/fragment_account_billing_street1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/account_registration_billing_street1_hint"
+            android:inputType="textPostalAddress"
+            android:nextFocusDown="@+id/fragment_account_billing_street2"
+            android:singleLine="true" />
+
+        <arcus.app.common.view.Version1EditText
+            android:id="@+id/fragment_account_billing_street2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:hint="@string/account_registration_billing_street2_hint"
+            android:inputType="textPostalAddress"
+            android:nextFocusDown="@+id/fragment_account_billing_city"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <arcus.app.common.view.Version1EditText
+                android:id="@+id/fragment_account_billing_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/account_registration_billing_city_hint"
+                android:inputType="textPostalAddress"
+                android:nextFocusDown="@+id/fragment_account_billing_state"
+                android:singleLine="true"
+                tools:ignore="NestedWeights" />
+
+            <Spinner
+                android:id="@+id/fragment_account_billing_state"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:nextFocusDown="@+id/fragment_account_billing_zipcode"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp" />
+
+            <arcus.app.common.view.Version1EditText
+                android:id="@+id/fragment_account_billing_zipcode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:digits="0123456789-"
+                android:hint="@string/account_registration_billing_zipcode_hint"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="5"
+                android:nextFocusDown="@+id/fragment_account_billing_primary_residence"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+
+        <!--primary residence dropdown to be enabled later-->
+        <!--<Spinner-->
+        <!--android:id="@+id/fragment_account_billing_primary_residence"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:paddingLeft="1dp"-->
+        <!--android:paddingRight="1dp"-->
+        <!--android:focusable="true"-->
+        <!--android:hint="@string/account_registration_billing_residence_hint"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    </LinearLayout>
+
+</merge>

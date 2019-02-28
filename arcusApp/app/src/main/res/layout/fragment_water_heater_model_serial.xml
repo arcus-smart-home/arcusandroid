@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined">
+
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/header_title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="demi"
+            android:paddingTop="41dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/water_heater_assistance_title"
+            />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/description"
+            android:paddingTop="17dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/pt_16"
+            android:paddingBottom="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/header_title"
+            tools:text="@string/water_heater_assistance_desc"
+            />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/sclera_divider_color"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            />
+
+        <arcus.app.common.view.ScleraEditText
+            android:id="@+id/model_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/model_number_hint"
+            android:textSize="@dimen/pt_18"
+            android:paddingTop="24dp"
+            android:nextFocusDown="@+id/serial_number"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            app:resettable="false"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            />
+
+        <arcus.app.common.view.ScleraEditText
+            android:id="@+id/serial_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/serial_number_hint"
+            android:textSize="@dimen/pt_18"
+            android:paddingTop="12dp"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            app:resettable="false"
+            app:layout_constraintTop_toBottomOf="@+id/model_number"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            app:layout_constraintTop_toBottomOf="@+id/serial_number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            android:orientation="vertical">
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/next_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pairing_next"
+                app:buttonColorScheme="purple"
+                />
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+                android:text="@string/cancel_text"
+                app:scleraButtonColor="purple_outline"
+                />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:gravity="center_horizontal"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/buttons_container">
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/skip_cc_one_time_offer"
+                tools:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="@color/black" />
+
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/skip_cc_content"
+                tools:textColor="@color/black_with_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:contentDescription="@string/scenes_scenes"
+                        android:src="@drawable/camera_icon_blk_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <arcus.app.common.view.Version1TextView
+                        tools:textColor="@color/black"
+                        android:text="@string/skip_cc_free_storage"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/black_with_60"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:contentDescription="@string/rules_rules"
+                        android:src="@drawable/alarm_icon_blk_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <arcus.app.common.view.Version1TextView
+                        tools:textColor="@color/black"
+                        android:text="@string/skip_cc_alarm_tracker"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/black_with_60"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:contentDescription="@string/card_care_desc"
+                        android:src="@drawable/care_icon_blk_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <arcus.app.common.view.Version1TextView
+                        tools:textColor="@color/black"
+                        android:text="@string/skip_care_content_desc"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/black_with_60"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:contentDescription="@string/card_history_desc"
+                        android:src="@drawable/history_icon_blk_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <arcus.app.common.view.Version1TextView
+                        tools:textColor="@color/black"
+                        android:text="@string/skip_history_content_desc"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/black_with_60"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:contentDescription="@string/people_add_a_person"
+                        android:src="@drawable/user_icon_blk_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView6" />
+
+                    <arcus.app.common.view.Version1TextView
+                        tools:textColor="@color/black"
+                        android:text="@string/skip_notifications_content_desc"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/black_with_60"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="false"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttons_container">
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/top_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/black"
+            app:buttonFont="demi" />
+
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
+            app:buttonFont="demi" />
+    </LinearLayout>
+
+</RelativeLayout>

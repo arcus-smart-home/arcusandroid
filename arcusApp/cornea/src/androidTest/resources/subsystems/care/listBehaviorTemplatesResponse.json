@@ -1,0 +1,262 @@
+{
+  "type": "subcare:ListBehaviorTemplatesResponse",
+  "source":"SERV:subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "destination":"CLNT:android:337",
+  "payload": {
+    "attributes": {
+      "behaviorTemplates": [
+        {
+          "timeWindowSupport": "REQUIRED",
+          "fieldUnits": {
+            "duration": "MINUTES",
+            "timeWindows": null,
+            "devices": null
+          },
+          "name": "No Activity Detected",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:26720729-60f8-4b19-afb3-156934fc2c76",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "fieldLabels": {
+            "duration": "No Activity For",
+            "timeWindows": "Days & Times To Monitor",
+            "devices": "Participating Devices"
+          },
+          "fieldDescriptions": {
+            "duration": "Trigger the alarm when activity is detected for a period of time.",
+            "timeWindows": "Choose when you monitor for lack of activity.",
+            "devices": "Choose the devices that will trigger the care alarm when the activity is detected."
+          },
+          "description": "Use contact and motion sensors to trigger an alarm if no activity occurs at times when you normally expect movement.",
+          "id": "1",
+          "fieldValues": {
+            "duration": "30 Min,60 Min,90",
+            "timeWindows": null,
+            "devices": null
+          },
+          "type": "INACTIVITY"
+        },
+        {
+          "timeWindowSupport": "REQUIRED",
+          "fieldUnits": {
+            "timeWindows": null,
+            "devices": null
+          },
+          "name": "Door Opened Unexpectedly",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "fieldLabels": {
+            "timeWindows": "Days & Times To Monitor",
+            "devices": "Participating Doors"
+          },
+          "fieldDescriptions": {
+            "timeWindows": "Choose when you monitor for opened doors.",
+            "devices": "Choose the devices that will trigger the care alarm when they are opened."
+          },
+          "description": "Place contact sensors on entry doors to trigger an alarm if loved one open a door at times you wouldn't expect.",
+          "id": "2",
+          "fieldValues": {
+            "timeWindows": null,
+            "devices": null
+          },
+          "type": "OPEN"
+        },
+        {
+          "timeWindowSupport": "REQUIRED",
+          "fieldUnits": {
+            "duration": "MINUTES",
+            "timeWindows": null,
+            "devices": null
+          },
+          "name": "Door Left Open",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "fieldLabels": {
+            "duration": "Left Open For",
+            "timeWindows": "Days & Times To Monitor",
+            "devices": "Participating Devices"
+          },
+          "fieldDescriptions": {
+            "duration": "Trigger the alarm when activity is detected for a period of time.",
+            "timeWindows": "Choose when you monitor for a door left open.",
+            "devices": "Choose the devices that will trigger the care alarm when they are left opened."
+          },
+          "description": "Trigger an alarm if loved ones leave a door open for a period of time.",
+          "id": "3",
+          "fieldValues": {
+            "duration": "15,30,60,90,120",
+            "timeWindows": null,
+            "devices": null
+          },
+          "type": "OPEN"
+        },
+        {
+          "timeWindowSupport": "NONE",
+          "fieldUnits": {
+            "duration": "DAYS",
+            "devices": null
+          },
+          "name": "Medicine Cabinet Reminder",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "fieldLabels": {
+            "duration": "Not Opened For",
+            "devices": "Participating Devices"
+          },
+          "fieldDescriptions": {
+            "duration": "Choose the amount of time that a cabinet is not opened before triggering alarm.",
+            "devices": "Choose the devices that will trigger the care alarm when they are not opened."
+          },
+          "description": "Place contact sensors on the medicine cabinet to feel more confident that loved ones have taken their medicine.",
+          "id": "4",
+          "fieldValues": {
+            "duration": "1,2,3",
+            "devices": null
+          },
+          "type": "INACTIVITY"
+        },
+        {
+          "timeWindowSupport": "NONE",
+          "fieldUnits": {
+            "duration": "DAYS",
+            "devices": null
+          },
+          "name": "Eating Reminder",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "fieldLabels": {
+            "duration": "Not Opened For",
+            "devices": "Participating Devices"
+          },
+          "fieldDescriptions": {
+            "duration": "Choose the amount of time that a cabinet is not opened before triggering alarm.",
+            "devices": "Choose the devices that will trigger the care alarm when they are not opened."
+          },
+          "description": "Place contact sensors on the refrigerator and kitchen cabinets to know if loved ones have not eaten.",
+          "id": "5",
+          "fieldValues": {
+            "duration": "1,2,3",
+            "devices": null
+          },
+          "type": "INACTIVITY"
+        },
+        {
+          "timeWindowSupport": "REQUIRED",
+          "fieldUnits": {
+            "timeWindows": "NODURATION",
+            "devices": null
+          },
+          "name": "Curfew",
+          "availableDevices": [
+            "DRIV:dev:51012d96-b4a0-4acc-9603-0393294e6767"
+          ],
+          "fieldLabels": {
+            "timeWindows": "Curfew Time",
+            "devices": "Participating Devices"
+          },
+          "fieldDescriptions": {
+            "timeWindows": "Choose what time you want to check to see if a loved on is home.",
+            "devices": "Choose the devices that will trigger the care alarm when they are not home."
+          },
+          "description": "Trigger a Care Alarm when a loved one is not home by a certain time.",
+          "id": "6",
+          "fieldValues": {
+            "timeWindows": null,
+            "devices": null
+          },
+          "type": "PRESENCE"
+        },
+        {
+          "timeWindowSupport": "NONE",
+          "fieldUnits": {
+            "devices": null
+          },
+          "name": "Monitor Memory Habits",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "fieldLabels": {
+            "devices": "Participating Devices"
+          },
+          "fieldDescriptions": {
+            "devices": "Choose the devices and maximum number of times they are opened daily before triggering the alarm."
+          },
+          "description": "Trigger a Care Alarm when a contact sensor is opened more than normal on a daily basis.",
+          "id": "7",
+          "fieldValues": {
+            "devices": null
+          },
+          "type": "OPEN_COUNT"
+        },
+        {
+          "timeWindowSupport": "NONE",
+          "fieldUnits": {
+            "devices": null,
+            "lowTemp": "fahrenheit",
+            "highTemp": "fahrenheit"
+          },
+          "name": "Monitor Home Temperature",
+          "availableDevices": [
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:9a8d2796-555a-4d11-b89c-f92b33e671ba",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:d7cbe46c-724d-4421-a2d4-a2be3bdb927f",
+            "DRIV:dev:26720729-60f8-4b19-afb3-156934fc2c76",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:8c9a59b6-1cea-41af-9d48-56b1f56731c1",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f",
+            "DRIV:dev:c967e15a-e124-4af7-ae08-51daa51367ee"
+          ],
+          "fieldLabels": {
+            "devices": "Participating Devices",
+            "lowTemp": "Choose a low temperature",
+            "highTemp": "Choose a high temperature"
+          },
+          "fieldDescriptions": {
+            "devices": "Choose the devices that you want to monitor temperature.",
+            "lowTemp": "",
+            "highTemp": ""
+          },
+          "description": "Trigger a Care Alarm when the home is too hot or too cold.",
+          "id": "8",
+          "fieldValues": {
+            "devices": null,
+            "lowTemp": "60-90",
+            "highTemp": "60-90"
+          },
+          "type": "TEMPERATURE"
+        }
+      ]
+    }
+  }
+}

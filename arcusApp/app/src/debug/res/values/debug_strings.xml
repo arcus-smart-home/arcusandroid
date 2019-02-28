@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources>
+    <string name="debug_menu_general">General Information</string>
+    <string name="debug_menu_other">Other Information/Settings</string>
+    <string name="debug_menu_preferences">Preferences Information/Settings</string>
+    <string name="debug_menu_login">Login Information/Settings</string>
+    <string name="debug_menu_images">Image Information/Settings</string>
+
+    <string name="debug_menu_build_version">Build Version</string>
+    <string name="debug_menu_title">Debug Menu</string>
+    <string name="debug_menu_are_you_sure">Are you sure?</string>
+    <string name="debug_menu_ok">OK</string>
+    <string name="debug_menu_cancel">Cancel</string>
+
+    <string name="debug_menu_platform_button_text">Select Environment</string>
+    <string name="debug_menu_platform_title">Platform Environment URL</string>
+    <string name="debug_menu_platform_desc">Direct all platform calls to the specified environment. Kill the app for changes to take effect and don\'t say I never gotcha nothin\' nice.</string>
+
+    <string name="debug_menu_add_custom_platform_button_text">Add URL</string>
+    <string name="debug_menu_add_custom_platform_title">Add Platform URL</string>
+    <string name="debug_menu_add_custom_platform_desc">Add a custom platform environment URL.</string>
+
+    <string name="debug_menu_remove_custom_platform_button_text">Remove URL</string>
+    <string name="debug_menu_remove_custom_platform_title">Remove Custom Platform URL</string>
+    <string name="debug_menu_remove_custom_platform_desc">Remove a custom platform environment URL.</string>
+
+    <string-array name="debug_menu_environments">
+        <item>Prod|https://example.com</item>
+        <item>Dev|https://your-dev-env.example.com</item>
+        <item>Other Env|https://your-other-env.example.com</item>
+    </string-array>
+
+    <string name="debug_menu_name_hint">Friendly Name</string>
+    <string name="debug_menu_url_hint">Url</string>
+    <string name="debug_menu_url_helper_text">Ex: schema://www.myplatform.com</string>
+    <string name="debug_menu_custom_environments_pref">CUSTOM_ENVIRONMENT_URLS</string>
+
+
+    <string name="debug_menu_discard_token_button_text">Delete Token</string>
+    <string name="debug_menu_discard_token_title">Delete Login Token</string>
+    <string name="debug_menu_discard_token_desc">Delete the current login token; useful for aborting the account creation sequence or testing session expiration.</string>
+    <string name="debug_menu_discard_token_dialog_desc">"You'll have to login again after this."</string>
+
+    <string name="debug_menu_animation_title">Enable Transition Animations</string>
+    <string name="debug_menu_animation_desc">Enable or disable UI screen transition animations (i.e., push left/right, dissolve). Increases CPU usage and may increase screen rendering times.</string>
+
+    <string name="debug_menu_pref_toss_button_text">Reset All</string>
+    <string name="debug_menu_pref_toss_dialog_desc">This will reset all of your preferences</string>
+    <string name="debug_menu_pref_toss_title">Reset All Settings &amp; Preferences</string>
+    <string name="debug_menu_pref_toss_desc">Delete all shared preferences from this app (including login token). Useful for emulating the behavior of a fresh install.</string>
+
+    <string name="debug_menu_picasso_indicators_title">Image Source Indicators</string>
+    <string name="debug_menu_picasso_indicators_desc">Should image loading utility place an indicator on images to show their source?\nRed: Network\nBlue: Disk\nGreen: Memory</string>
+
+    <string name="debug_menu_no_image_cache_title">Disable Image Cache</string>
+    <string name="debug_menu_no_image_cache_desc">Always fetch images from the network; in-memory or disk cached images will never be displayed. Must restart app for change to take effect.</string>
+
+    <string name="debug_menu_picasso_debug_log_title">Image Loading Debug Log</string>
+    <string name="debug_menu_picasso_debug_log_desc">Should image loading utility emit debug messages?\nCaution: This can be very noisy.</string>
+
+    <string name="debug_menu_picasso_load_stats_button_text">Show Stats</string>
+    <string name="debug_menu_picasso_load_stats_title">Image Loading Stats</string>
+    <string name="debug_menu_picasso_load_stats_desc">"Show Picasso stats - *Note* Very verbose."</string>
+
+    <string name="debug_menu_picasso_memory_size_dialog_body">Choose the new heap size.</string>
+    <string name="debug_menu_picasso_memory_size_button_text">Change Memory Size</string>
+    <string name="debug_menu_picasso_memory_size_title">Picasso Memory Size</string>
+    <string name="debug_menu_picasso_memory_size_desc">Choose the portion of the application\'s heap to be used for in-memory LRU cache. Must restart to take effect.</string>
+    <string-array name="debug_menu_picasso_heap_sizes">
+        <item>5%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>25%</item>
+        <item>30%</item>
+        <item>35%</item>
+        <item>40%</item>
+    </string-array>
+
+    <string name="debug_menu_clear_key_cache_button_text">Clear Key</string>
+    <string name="debug_menu_clear_key_cache_title">Clear Key From Cache</string>
+    <string name="debug_menu_clear_key_cache_desc">Clears the selected key from the cache.</string>
+    <string name="debug_menu_clear_key_cache_no_entries_dialog_title">"No Entries"</string>
+    <string name="debug_menu_clear_key_cache_no_entries_dialog_body">"No entries in the preferences were found to delete."</string>
+    <string name="debug_menu_clear_key_cache_entries_dialog_title">"Choose the key to clear."</string>
+    <string name="debug_menu_clear_key_results_dialog_title">Key Status</string>
+    <string name="debug_menu_clear_key_results_dialog_body">Key Name: %s\n\nDeleted: %b</string>
+
+    <string name="debug_menu_clear_clip_cache_button_text">Clear Clips</string>
+    <string name="debug_menu_clear_clip_cache_title">Clear All Cached Clips</string>
+    <string name="debug_menu_clear_clip_cache_desc">Clears any preview images downloaded for camera clips</string>
+
+    <string name="debug_menu_delete_mobile_device_button_text">Delete Devices</string>
+    <string name="debug_menu_delete_mobile_device_title">Delete All Mobile Devices</string>
+    <string name="debug_menu_delete_mobile_device_desc">Deletes all mobile devices associated with this persons account.  Useful for those times you rack up 500 emulator devices and just want to clear things out.</string>
+
+    <string name="debug_menu_add_mock_dialog_title">"Choose the device to add"</string>
+    <string name="debug_menu_add_mock_button_text">"Add Mock"</string>
+    <string name="debug_menu_add_mock_title">Add A Mock Device</string>
+    <string name="debug_menu_add_mock_desc">Select from a list of devices a mock to add to your system to help with testing devices.</string>
+</resources>

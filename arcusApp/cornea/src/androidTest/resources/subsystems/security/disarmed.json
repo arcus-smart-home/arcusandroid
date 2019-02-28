@@ -1,0 +1,84 @@
+{
+  "base:caps": [
+    "subsecurity",
+    "subs",
+    "base"
+  ],
+  "subsecurity:lastDisarmedTime": 1.440717003775E12,
+  "subsecuritymode:silent:ON": false,
+  "subsecuritymode:autoClearTimeSec:PARTIAL": 900.0,
+  "subsecuritymode:exitDelaySec:ON": 15.0,
+  "subsecurity:bypassedDevices": [],
+  "subsecuritymode:silent:PARTIAL": false,
+  "subsecurity:lastArmedTime": 1.440712007653E12,
+  "base:id": "subsecurity:b7a602bf-c387-4fec-922f-08ceab2b24e0",
+  "base:address": "SERV:subsecurity:b7a602bf-c387-4fec-922f-08ceab2b24e0",
+  "subsecurity:securityDevices": [
+    "DRIV:dev:d49a5d9b-c97a-44bb-9e77-a02d50b71894",
+    "DRIV:dev:e280fd82-8496-4372-8f2d-a79e1abe3893",
+    "DRIV:dev:1ff58cf2-a3d9-451e-9bbc-cdaea2aa64a2",
+    "DRIV:dev:6590ec56-ac32-4b59-ba1c-8a19b8de85ad",
+    "DRIV:dev:bbdc7dd8-c316-4e64-86cb-7a40314fe80f"
+  ],
+  "subsecurity:lastAcknowledgement": "PENDING",
+  "subsecurity:lastAlertTime": 1.440717000472E12,
+  "subsecuritymode:devices:ON": [
+    "DRIV:dev:d49a5d9b-c97a-44bb-9e77-a02d50b71894",
+    "DRIV:dev:e280fd82-8496-4372-8f2d-a79e1abe3893",
+    "DRIV:dev:1ff58cf2-a3d9-451e-9bbc-cdaea2aa64a2",
+    "DRIV:dev:6590ec56-ac32-4b59-ba1c-8a19b8de85ad",
+    "DRIV:dev:bbdc7dd8-c316-4e64-86cb-7a40314fe80f"
+  ],
+  "base:tags": [],
+  "subsecurity:callTree": [
+    {
+      "person": "138eb6d6-f537-4723-ab86-60e433fbcf4b",
+      "enabled": true
+    }
+  ],
+  "subsecuritymode:clearingTimeSec:PARTIAL": 600.0,
+  "subsecuritymode:exitDelaySec:PARTIAL": 15.0,
+  "subs:hash": "sPMvXzjARCGhDEt5TIgX1w52Q/s",
+  "subsecuritymode:clearingTimeSec:ON": 600.0,
+  "subsecuritymode:entranceDelaySec:PARTIAL": 15.0,
+  "subs:name": "SecuritySubsystem",
+  "base:instances": {
+    "ON": [
+      "subsecuritymode"
+    ],
+    "PARTIAL": [
+      "subsecuritymode"
+    ]
+  },
+  "subsecuritymode:alarmSensitivityDeviceCount:ON": 1.0,
+  "subs:state": "ACTIVE",
+  "subsecuritymode:autoClearTimeSec:ON": 900.0,
+  "subs:account": "b0c377c6-73a5-4f23-b8ab-c5d4de4961e9",
+  "subs:available": true,
+  "subsecuritymode:soakingTimeSec:PARTIAL": 30.0,
+  "subsecurity:readyDevices": [
+    "DRIV:dev:e280fd82-8496-4372-8f2d-a79e1abe3893",
+    "DRIV:dev:1ff58cf2-a3d9-451e-9bbc-cdaea2aa64a2",
+    "DRIV:dev:6590ec56-ac32-4b59-ba1c-8a19b8de85ad",
+    "DRIV:dev:bbdc7dd8-c316-4e64-86cb-7a40314fe80f"
+  ],
+  "subsecuritymode:entranceDelaySec:ON": 15.0,
+  "subsecuritymode:alarmSensitivityDeviceCount:PARTIAL": 1.0,
+  "subsecurity:alarmMode": "OFF",
+  "subsecuritymode:devices:PARTIAL": [
+    "DRIV:dev:d49a5d9b-c97a-44bb-9e77-a02d50b71894",
+    "DRIV:dev:e280fd82-8496-4372-8f2d-a79e1abe3893",
+    "DRIV:dev:bbdc7dd8-c316-4e64-86cb-7a40314fe80f"
+  ],
+  "subsecurity:triggeredDevices": [],
+  "base:type": "subs",
+  "subsecurity:lastAlertTriggers": {},
+  "subsecurity:alarmState": "DISARMED",
+  "subs:version": "1.0",
+  "subsecurity:armedDevices": [],
+  "subsecurity:callTreeEnabled": true,
+  "base:images": {},
+  "subsecuritymode:soakingTimeSec:ON": 30.0,
+  "subs:place": "b7a602bf-c387-4fec-922f-08ceab2b24e0",
+  "subsecurity:lastAlertCause": "panic"
+}

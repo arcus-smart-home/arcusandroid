@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearlayoutNameDeviceAddPic">
+
+    <include layout="@layout/photo_layout"/>
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/tvSuccess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="Successfully Added!"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/tvNameDevice1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#59000000"
+        android:text="@string/pairing_add_a_photo"/>
+
+    <arcus.app.common.view.Version1EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:singleLine="true"
+        android:id="@+id/etNameDevice"
+        android:hint="@string/pairing_device_name"/>
+
+    <RelativeLayout
+        android:id="@+id/device_attribute_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone"
+        android:minHeight="50dp">
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/device_attribute_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@string/halo_device_attribute_title"
+            android:textColor="@color/white" />
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/device_attribute_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="35dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/halo_device_attribute_title"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/chevron_white" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:id="@+id/assign_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgPic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/icon_cat_placeholder" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="50dp">
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/assignment_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/homenfamily_unassigned"
+                android:textColor="@color/black"
+                app:customFont="demi"/>
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/tvAssignedName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/assignment_status"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginEnd="35dp"
+                tools:text="Dr. John Jacob Jingleheimer Schmidt III c/o Billy Bob Thorton"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/black_with_60" />
+
+            <ImageView
+                android:id="@+id/imgChevron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/chevron" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/nameDeviceNextBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Next"
+            app:buttonFont="demi"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
+
+</LinearLayout>

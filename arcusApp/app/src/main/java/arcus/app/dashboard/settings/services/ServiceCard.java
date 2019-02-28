@@ -1,0 +1,101 @@
+/*
+ *  Copyright 2019 Arcus Project.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+package arcus.app.dashboard.settings.services;
+
+import arcus.app.R;
+
+import java.util.GregorianCalendar;
+
+/**
+ * An enumeration of service cards.
+ *
+ * Note that Per ITWO-3586, all "coming soon" cards should appear at the bottom of this list. Take
+ * care to maintain this ordering as new service cards come online.
+ */
+public enum ServiceCard {
+    SANTA_TRACKER(R.string.santa_tracker_title, R.string.santa_tracker_title, R.drawable.icon_hat, R.drawable.dashboard_santatracker, new GregorianCalendar(2015, GregorianCalendar.DECEMBER, 8, 0, 0, 0), new GregorianCalendar(2016, GregorianCalendar.JANUARY, 31, 23, 59, 59)),
+    FAVORITES(R.string.favorites, R.string.card_favorites_desc, R.drawable.favorite_light_22x20, R.drawable.favorite_light_22x20),   // No small icon for favorites
+    HISTORY(R.string.card_history_title, R.string.card_history_desc, R.drawable.history, R.drawable.history),
+    LIGHTS_AND_SWITCHES(R.string.card_lights_and_switches_title, R.string.card_lights_and_switches_desc, R.drawable.dashboard_lightsswitches, R.drawable.dashboard_lightsswitches),
+    SECURITY_ALARM(R.string.card_alarms_title, R.string.card_history_desc, R.drawable.icon_service_safetyalarm, R.drawable.dashboard_alarm),
+    CLIMATE(R.string.card_climate_title, R.string.card_climate_desc, R.drawable.icon_service_climate, R.drawable.dashboard_climate),
+    DOORS_AND_LOCKS(R.string.card_doors_and_locks_title, R.string.card_doors_and_locks_desc, R.drawable.icon_service_doorlocks, R.drawable.dashboard_doorslocks),
+    CAMERAS(R.string.card_cameras_title, R.string.card_cameras_desc, R.drawable.icon_service_camera, R.drawable.dashboard_camera),
+    CARE(R.string.card_care_title, R.string.card_care_desc, R.drawable.icon_service_care, R.drawable.dashboard_care),
+    HOME_AND_FAMILY(R.string.card_home_and_family_title, R.string.card_home_and_family_desc, R.drawable.icon_service_familyfriends, R.drawable.dashboard_homefamily),
+    LAWN_AND_GARDEN(R.string.card_lawn_and_garden_title, R.string.card_lawn_and_garden_desc, R.drawable.icon_service_lawngarden, R.drawable.dashboard_lawngarden),
+    WATER(R.string.card_water_title, R.string.card_water_desc, R.drawable.icon_service_water, R.drawable.dashboard_water),
+    WINDOWS_AND_BLINDS(R.string.card_windows_and_blinds_title, R.string.card_windows_and_blinds_desc, R.drawable.icon_service_windowblinds, R.drawable.dashboard_windowsblinds),
+    ENERGY(R.string.card_energy_title, R.string.card_energy_desc, R.drawable.icon_service_energy, R.drawable.dashboard_energy),
+    FEATURE(R.string.card_feature_name, R.string.card_feature_desc, R.drawable.feature_light_23x20, R.drawable.feature_light_23x20);
+    //REMINDERS(R.string.card_reminders_title, R.string.card_reminders_desc, R.drawable.icon_service_reminders, R.drawable.icon_service_reminders_small);
+
+    private final int titleStringResId;
+    private final int descriptionStringResId;
+    private final int iconDrawableResId;
+    private final int smallIconDrawableResId;
+    private final GregorianCalendar startAvailability;
+    private final GregorianCalendar endAvailability;
+
+    ServiceCard (int titleId, int serviceDescriptionId, int iconDrawableId, int smallIconDrawableId) {
+        this.titleStringResId = titleId;
+        this.descriptionStringResId = serviceDescriptionId;
+        this.iconDrawableResId = iconDrawableId;
+        this.smallIconDrawableResId = smallIconDrawableId;
+        this.startAvailability = this.endAvailability = null;
+    }
+
+    ServiceCard (int titleId, int serviceDescriptionId, int iconDrawableId, int smallIconDrawableId, GregorianCalendar startAvail, GregorianCalendar endAvail) {
+        this.titleStringResId = titleId;
+        this.descriptionStringResId = serviceDescriptionId;
+        this.iconDrawableResId = iconDrawableId;
+        this.smallIconDrawableResId = smallIconDrawableId;
+        this.startAvailability = startAvail;
+        this.endAvailability = endAvail;
+    }
+
+    public int getTitleStringResId () { return this.titleStringResId; }
+    public int getDescriptionStringResId () { return this.descriptionStringResId; }
+    public int getIconDrawableResId () { return this.iconDrawableResId; }
+    public int getSmallIconDrawableResId () { return this.smallIconDrawableResId; }
+    public boolean isAvailable() {
+        if (startAvailability == null || endAvailability == null) {
+            return true;
+        }
+
+        long current = System.currentTimeMillis();
+        return current >= startAvailability.getTimeInMillis() && current <= endAvailability.getTimeInMillis();
+    }
+
+//    Possible changes ?
+//    public abstract class DefaultServiceCard implements DashboardServiceCard {
+//    // Have basic impl's here learn more, coming soon? idk
+//    }
+//
+//    interface DashboardServiceCard {
+//        @StringRes int getTitle();
+//        @StringRes int getDescription();
+//        @DrawableRes int getSmallIcon();
+//        @DrawableRes int getLargeIcon();
+//        boolean isAvailable();
+//
+//        // Do any "removing" of data (images etc.)
+//        void performCleanup();
+//
+//        boolean isBeforeStartDate();
+//        boolean isPastEndDate();
+//    }
+}

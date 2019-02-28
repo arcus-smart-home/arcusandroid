@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="arcus.app.pairing.device.productcatalog.ProductCatalogActivity"
+    tools:parent="arcus.app.activities.DashboardActivity"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            tools:title="Title Of Toolbar"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/banner_sclera_chevron"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/category_filter_items"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabTextColor="@color/sclera_tab_unselected_grey"
+            app:tabSelectedTextColor="@color/sclera_tab_green"
+            app:tabIndicatorColor="@color/sclera_tab_green"
+            app:tabTextAppearance="@style/ScleraTabItemStyle">
+
+            <android.support.design.widget.TabItem
+                android:text="@string/filter_all_products"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <android.support.design.widget.TabItem
+                android:text="@string/filter_hub_required"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <android.support.design.widget.TabItem
+                android:text="@string/filter_no_hub_required"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </android.support.design.widget.TabLayout>
+
+        <View
+            android:contentDescription="@string/chevron_content_description"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_height"
+            android:background="@color/sclera_divider_color"
+            />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

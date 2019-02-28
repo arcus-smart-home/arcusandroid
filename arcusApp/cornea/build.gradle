@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion androidToolsVersion
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            // Until the tests are moved to regular unit tests we need to enable
+            // multiDex so Cornea can be tested on device (since we break the method count limit)
+            multiDexEnabled true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        // disabled because the build server complains about insufficient memory
+        checkReleaseBuilds false
+        disable 'InvalidPackage'
+    }
+
+    packagingOptions {
+        pickFirst 'META-INF/INDEX.LIST'
+        pickFirst 'META-INF/io.netty.versions.properties'
+        pickFirst 'META-INF/LICENSE.txt'
+        pickFirst 'META-INF/NOTICE.txt'
+        pickFirst 'LICENSE.txt'
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // This should be wired back up to get fresh builds
+    // from platform-client common/***-model/platform-client
+    // which will then need to also exclude any possible tc native / epoll that is brought in
+    // or just switched to not use netty :o
+    api files('libs/platform-client-2.0.0-2feabba.jar')
+
+    implementation project(':analytics')
+    implementation deps.kotlin
+
+    implementation deps.noveoLogger
+    implementation deps.eventBus // Apache 2
+    implementation deps.annotations
+
+    implementation deps.okhttp
+
+    testImplementation deps.test.mockitoCore
+    testImplementation deps.test.junit
+    testImplementation deps.test.truth
+
+    // Until the tests are moved to regular unit tests we need to enable
+    // multiDex so Cornea can be tested on device (since we break the method count limit)
+    androidTestImplementation deps.multiDex
+    androidTestImplementation deps.test.junit
+    androidTestImplementation deps.test.androidTestRunner
+    androidTestImplementation deps.test.androidTestRules
+    androidTestImplementation deps.test.mockitoAndroid
+}

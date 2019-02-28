@@ -1,0 +1,15 @@
+{
+  "source": "SERV:place:d54ce224-7f82-49b6-9e0c-0f4d2090aa2e",
+  "destination": "CLNT:android:1",
+  "transactionId": "113f5927-258b-49c2-ad72-0972db358a84",
+  "placeId": "7a9ff9c1-ce75-43db-a2aa-32a15d19cc12",
+  "type": "place:ListDevicesResponse",
+  "payload": {
+    "messageType": "place:ListDevicesResponse",
+    "attributes": {
+      "devices": [ ]
+    }
+  },
+  "timestamp": 1440595035662,
+  "isRequest": false
+}

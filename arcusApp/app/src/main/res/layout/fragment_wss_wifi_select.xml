@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:descendantFocusability="beforeDescendants">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/wifi_90x90"
+            android:id="@+id/image_icon"
+            android:paddingTop="13dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/title"
+            android:layout_marginTop="13dp"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="demi"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:text="@string/wifi_which_network"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_icon"
+            />
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:id="@+id/searching_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/scanning_block"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/wifi_searching_for_networks"
+                />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/ScleraProgressIndeterminateBar"
+                android:theme="@style/ScleraProgressIndeterminateBar"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                />
+        </LinearLayout>
+
+        <arcus.app.common.view.ScleraDivider
+            android:id="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/searching_container"
+            android:layout_marginTop="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/scan_results"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_wss_wifi_select_result_row"
+            />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

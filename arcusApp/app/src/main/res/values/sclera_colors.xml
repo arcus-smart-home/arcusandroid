@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources>
+
+    <!-- Arcus colors -->
+    <color name="sclera_purple">#3C1053</color>
+    <color name="sclera_alt_purple">#8A7098</color>
+    <color name="sclera_teal">#00BFB3</color>
+    <color name="sclera_blue">#004B87</color>
+    <color name="sclera_light_blue">#0095C8</color>
+    <color name="sclera_light_blue_depressed">#800095C8</color>
+    <color name="sclera_green">#00BA6D</color>
+    <color name="sclera_transparent">@android:color/transparent</color>
+
+    <!-- Info colors -->
+    <color name="sclera_success">#26D07C</color>
+    <color name="sclera_tab_green">#FF00BFB3</color>
+    <color name="sclera_tab_unselected_grey">#FFA7A7A7</color>
+    <color name="sclera_paging_indicator_not_selected_page">#FFC3C3C3</color>
+    <color name="sclera_warning">#FFB500</color>
+    <color name="sclera_alert_banner">#FFCE0F69</color>
+    <color name="sclera_alert">#CE0F69</color>
+    <color name="sclera_alert_depressed">#80CE0F69</color>
+    <color name="sclera_green_tutorial_banner">#E600BFB3</color>
+
+    <!-- Text, label, input, border, etc. colors -->
+    <color name="sclera_text_color_dark">#222222</color>
+    <color name="sclera_text_color_gray">#454345</color>
+    <color name="sclera_text_color_light">#FFFFFF</color>
+    <color name="sclera_text_color_light_depressed">#80FFFFFF</color>
+    <color name="sclera_text_color_light_gray">#9a9a9a</color>
+    <color name="sclera_input_color">#C3C3C3</color>
+    <color name="sclera_disabled_color">#C3C3C3</color>
+    <color name="sclera_drop_shadow_color">#C3C3C3</color>
+    <color name="sclera_background_color">#F0F0F0</color>
+    <color name="sclera_border_color">#F0F0F0</color>
+    <color name="sclera_widget_color">#FFFFFF</color>
+
+    <color name="sclera_divider_color">#FFE7E7E7</color>
+    <color name="sclera_vide_tab_color">#E6F0F0F0</color>
+
+    <color name="sclera_white_button_depressed">#80FFFFFF</color>
+
+    <color name="sclera_snackbar_green">#FF00BA6D</color>
+</resources>

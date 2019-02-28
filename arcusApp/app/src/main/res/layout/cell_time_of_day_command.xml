@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:paddingTop="10dp">
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/event_time"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:minWidth="60dp"
+        android:textSize="11sp"
+        tools:textSize="11sp"
+        tools:text="10 Min Before"
+        tools:textColor="@color/black"
+        />
+
+    <ImageView
+        android:id="@+id/daytime_icon"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/event_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_day"/>
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/event_abstract"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="ON"/>
+
+    <ImageView
+        android:id="@+id/chevron"
+        android:layout_marginRight="10dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/chevron"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="1dp"
+        android:background="@color/overlay_white_with_10"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/daytime_icon"
+        android:layout_toEndOf="@+id/daytime_icon"/>
+
+</RelativeLayout>

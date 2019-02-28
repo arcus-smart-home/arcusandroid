@@ -1,0 +1,51 @@
+{
+  "base:address": "SERV:subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:caps": [
+    "subs",
+    "subcare",
+    "base"
+  ],
+  "base:id": "subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:images": {},
+  "base:instances": {},
+  "base:tags": [],
+  "base:type": "subs",
+  "subcare:careCapableDevices": [
+    "DRIV:dev:a26117ff-a815-42f2-b09f-14e112ceaaf0",
+    "DRIV:dev:51012d96-b4a0-4acc-9603-0393294e6767",
+    "DRIV:dev:a23339d0-6ec9-409f-9c5c-9364cdeb538a",
+    "DRIV:dev:11ae4042-b973-4034-b0a1-f5fed4ad70d2",
+    "DRIV:dev:26720729-60f8-4b19-afb3-156934fc2c76",
+    "DRIV:dev:973dd0f8-3b1e-46cc-a04a-19e9487674de",
+    "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+    "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee",
+    "DRIV:dev:0545076f-4f3f-45e0-8d50-ba3fb1704b87"
+  ],
+  "subcare:lastAcknowledgement": "PENDING",
+  "subcare:lastAlertTime": 1455922416598,
+  "subcare:careDevices": [],
+  "subcare:lastAlertTriggers": {
+    "df3a2ca6-3516-47e3-8bf8-82cffd4fc3e6": 1455922416598
+  },
+  "subcare:lastAlertCause": "df3a2ca6-3516-47e3-8bf8-82cffd4fc3e6",
+  "subcare:triggeredDevices": [
+    "DRIV:dev:0545076f-4f3f-45e0-8d50-ba3fb1704b87"
+  ],
+  "subs:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "subs:available": true,
+  "subcare:alarmState": "ALERT",
+  "subcare:alarmMode": "ON",
+  "subcare:behaviors": [
+    "FAKE_BEHAVIOR_1",
+    "FAKE_BEHAVIOR_2",
+    "FAKE_BEHAVIOR_3"
+  ],
+  "subcare:enabledBehaviors": [
+    "FAKE_BEHAVIOR_1"
+  ],
+  "subs:hash": "j39mXi6h/TIq1VjqcCt/lNa0YP0",
+  "subs:name": "CareSubsystem",
+  "subs:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "subs:state": "ACTIVE",
+  "subs:version": "1.0"
+}

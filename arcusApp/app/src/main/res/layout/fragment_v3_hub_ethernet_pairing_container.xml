@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <LinearLayout
+        android:id="@+id/watch_tutorial_banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sclera_video_tab_bar_height"
+        android:background="@color/sclera_green_tutorial_banner"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <arcus.app.common.view.ScleraTextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawablePadding="@dimen/pt_14"
+            android:drawableStart="@drawable/playtutorial"
+            android:gravity="center_vertical"
+            android:text="@string/watch_tutorial"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+            app:scleraFontStyle="normal" />
+    </LinearLayout>
+
+    <arcus.app.common.view.DisableSwipeViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/match_constraint"
+        app:layout_constraintTop_toBottomOf="@id/watch_tutorial_banner"
+        app:layout_constraintBottom_toTopOf="@id/next_button"
+        />
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/page_indicator"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
+        android:layout_marginBottom="@dimen/sclera_status_bar_top_margin"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        app:layout_constraintBottom_toTopOf="@+id/next_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:fillColor="@color/sclera_tab_green"
+        app:pageColor="@color/sclera_paging_indicator_not_selected_page"
+        app:strokeColor="@android:color/transparent"
+        app:radius="@dimen/sclera_page_indicator_radius"
+        app:snap="false"
+        app:extraSpacing="@dimen/sclera_extra_page_indicator_spacing"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:scleraButtonColor="purple"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginBottom="16dp"
+        />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources>
+    <string-array name="states">
+        <item>State</item>
+        <item>AL</item>
+        <item>AK</item>
+        <item>AR</item>
+        <item>AS</item>
+        <item>AZ</item>
+        <item>CA</item>
+        <item>CO</item>
+        <item>CT</item>
+        <item>DC</item>
+        <item>DE</item>
+        <item>FL</item>
+        <item>FM</item>
+        <item>GA</item>
+        <item>GU</item>
+        <item>HI</item>
+        <item>IA</item>
+        <item>ID</item>
+        <item>IL</item>
+        <item>IN</item>
+        <item>KS</item>
+        <item>KY</item>
+        <item>LA</item>
+        <item>MA</item>
+        <item>MD</item>
+        <item>ME</item>
+        <item>MH</item>
+        <item>MI</item>
+        <item>MN</item>
+        <item>MO</item>
+        <item>MP</item>
+        <item>MS</item>
+        <item>MT</item>
+        <item>NC</item>
+        <item>ND</item>
+        <item>NE</item>
+        <item>NH</item>
+        <item>NJ</item>
+        <item>NM</item>
+        <item>NY</item>
+        <item>NV</item>
+        <item>OH</item>
+        <item>OK</item>
+        <item>OR</item>
+        <item>PA</item>
+        <item>PR</item>
+        <item>PW</item>
+        <item>RI</item>
+        <item>SC</item>
+        <item>SD</item>
+        <item>TN</item>
+        <item>TX</item>
+        <item>UT</item>
+        <item>VA</item>
+        <item>VI</item>
+        <item>VT</item>
+        <item>WA</item>
+        <item>WI</item>
+        <item>WV</item>
+        <item>WY</item>
+    </string-array>
+    <string name="subscriptionTitle">Choose Subscription</string>
+    <string name="addonTitle">Choose Add On Services</string>
+    <string name="requiredField">%1$s is required</string>
+    <string name="invalidEmail">%1$s is not a valid email address</string>
+    <string name="invalidPhone">%1$s is not a valid phone number.  It must be 10 digits long.</string>
+    <string name="invalidMonth">%1$s must be between 01 and 12</string>
+    <string name="ccAlreadyExpired">Credit card is already expired</string>
+    <string name="invalidPincode">Please enter 4 digit pin code</string>
+</resources>

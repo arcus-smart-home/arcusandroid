@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<arcus.app.common.cards.view.CenteredTextCardItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/MainCardLayout">
+
+        <!--YOUR UI ELEMENTS.-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:background="#343434"
+            android:background="@color/overlay_white_with_10"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_24"
+                android:src="@drawable/favorite_24x21"
+                android:visibility="gone"
+                />
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_18"
+                android:paddingBottom="@dimen/dp_5"
+                android:gravity="center"
+                app:scleraFontStyle="demi"
+                android:textSize="@dimen/dashboard_text_size_medium"
+                android:textColor="@color/white"
+                tools:text="@string/card_no_favorites_yet"/>
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_14"
+                android:gravity="center"
+                app:scleraFontStyle="normal"
+                android:textSize="@dimen/dashboard_text_size_medium"
+                android:textColor="@color/white"
+                android:lineSpacingMultiplier="1.36"
+                tools:text="@string/card_no_favorites_description"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/dashboard_divider" />
+        </LinearLayout>
+
+</arcus.app.common.cards.view.CenteredTextCardItemView>

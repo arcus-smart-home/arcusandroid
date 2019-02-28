@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/dp_24">
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/banner"
+        android:background="@color/sclera_warning"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/warning_36x32"
+        android:drawablePadding="@dimen/dp_10"
+        android:padding="@dimen/dp_20"
+        android:textColor="@color/sclera_text_color_dark"
+        android:textSize="@dimen/pt_18"
+        app:scleraFontStyle="demi"
+        android:text="@string/the_issues_below_need_to_be_resolved"
+        />
+
+    <LinearLayout
+        android:id="@+id/kit_section"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="@dimen/sclera_widget_edge_combined"
+        android:paddingEnd="@dimen/sclera_widget_edge_combined"
+        android:paddingTop="@dimen/sclera_widget_edge_combined"
+        android:orientation="vertical">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/kit_error_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/pt_16"
+            android:text="@string/kit_devices_not_activated"
+            android:textColor="@color/sclera_text_color_dark"
+            app:scleraFontStyle="demi" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            android:textColor="@color/sclera_text_color_dark"
+            android:textSize="@dimen/pt_16"
+            android:text="@string/prompt_activate_all_of_the_devices_in_kit"/>
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/kit_devices_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="@string/finish_activation"
+            app:scleraButtonColor="purple" />
+
+        <arcus.app.common.view.ScleraDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp_24"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hub_section"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/kit_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="@dimen/sclera_widget_edge_combined"
+        android:paddingEnd="@dimen/sclera_widget_edge_combined"
+        android:paddingTop="@dimen/sclera_widget_edge_combined"
+        android:orientation="vertical">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/hub_error_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/pt_16"
+            android:text="@string/hub_devices_improperly_paired"
+            android:textColor="@color/sclera_text_color_dark"
+            app:scleraFontStyle="demi" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            android:textSize="@dimen/pt_16"
+            android:text="@string/follow_steps_to_resolve_improperly_paired_devices"
+            android:textColor="@color/sclera_text_color_dark"/>
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/hub_devices_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="@string/resolve"
+            app:scleraButtonColor="purple" />
+
+        <arcus.app.common.view.ScleraDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/dp_24"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/spacer"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="@dimen/match_constraint"
+        app:layout_constraintTop_toBottomOf="@id/hub_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"/>
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/modal_dismiss_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:text="@string/not_now"
+        app:layout_constraintTop_toBottomOf="@id/spacer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:scleraButtonColor="purple_outline"/>
+
+</android.support.constraint.ConstraintLayout>

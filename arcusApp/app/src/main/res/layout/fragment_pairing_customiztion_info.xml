@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarStyle="insideOverlay"
+    android:fillViewport="true">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/viewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/sclera_widget_edge_combined"
+        android:paddingEnd="@dimen/sclera_widget_edge_combined"
+        android:paddingBottom="@dimen/sclera_screen_edge_LR_margin"
+        android:gravity="center" >
+        <ImageView
+            android:id="@+id/customization_info_image"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/add_place"
+            />
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/customization_info_title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:paddingTop="24dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="demi"
+            app:layout_goneMarginTop="@dimen/dp_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customization_info_image"
+            tools:text="Generic Info Title"
+            />
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/customization_info_desc"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:textSize="@dimen/pt_16"
+            app:scleraFontStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customization_info_title"
+            tools:text="Description section, which may contain many paragraphs"
+            />
+
+        <arcus.app.common.view.ScleraLinkView
+            android:id="@+id/learn_more_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingBottom="@dimen/dp_16"
+            tools:text="Learn More"
+            tools:visibility="visible"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customization_info_desc"
+            />
+
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/learn_more_link"
+            app:layout_constraintVertical_bias="1.0">
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/next_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pairing_next"
+                app:buttonColorScheme="purple" />
+
+            <arcus.app.common.view.ScleraButton
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+                android:text="@string/cancel_text"
+                android:visibility="gone"
+                app:scleraButtonColor="purple_outline"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

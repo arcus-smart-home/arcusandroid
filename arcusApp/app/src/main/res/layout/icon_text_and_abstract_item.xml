@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <View
+        android:id="@+id/top_divider"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="75dp"
+        tools:background="@color/black_with_20"
+        android:background="@color/white_with_20"
+        />
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:contentDescription="@string/content_description_camera"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/image_icon"
+            android:layout_centerVertical="true"
+            tools:src="@drawable/icon_cat_care"
+            />
+
+        <LinearLayout
+            android:id="@+id/text_container"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/chevron_and_abstract_container"
+            android:layout_toStartOf="@+id/chevron_and_abstract_container"
+            android:layout_toRightOf="@id/image_icon"
+            android:layout_alignParentTop="true">
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
+                android:id="@+id/title"
+                android:gravity="center_vertical"
+                tools:textColor="@color/black"
+                android:textSize="12dp"
+                app:customFont="demi"
+                tools:text="Title"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/overlay_white_with_60"
+                android:id="@+id/list_item_description"
+                app:customFont="italic"
+                tools:textColor="@color/black_with_60"
+                tools:text="Description"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/overlay_white_with_60"
+                android:id="@+id/list_item_sub_description1"
+                android:visibility="gone"
+                app:customFont="italic"
+                tools:textColor="@color/black_with_60"
+                tools:text="Description 1"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/overlay_white_with_60"
+                android:id="@+id/list_item_sub_description2"
+                android:visibility="gone"
+                app:customFont="italic"
+                tools:textColor="@color/black_with_60"
+                tools:text="Description 2"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/list_item_sub_description3"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/overlay_white_with_60"
+                android:visibility="gone"
+                app:customFont="italic"
+                tools:textColor="@color/black_with_60"
+                tools:text="Description 3"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:gravity="end|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chevron_and_abstract_container"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingRight="0dp"
+            android:paddingEnd="0dp">
+            <arcus.app.common.view.Version1TextView
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp"
+                android:paddingRight="10dp"
+                app:paddingEnd="10dp"
+                android:textColor="@color/overlay_white_with_60"
+                tools:textColor="@color/black_with_60"
+                tools:text="5"
+                android:id="@+id/abstract_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:contentDescription="@string/dashboard_settings_title"
+                android:id="@+id/image_chevron"
+                android:src="@drawable/chevron_white"
+                tools:src="@drawable/chevron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="75dp"
+        android:background="@color/white_with_20"
+        tools:background="@color/black_with_20"
+        />
+
+</LinearLayout>

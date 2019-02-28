@@ -1,0 +1,23 @@
+{
+  "base:address": "SERV:subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:caps": [
+    "subs",
+    "subcare",
+    "base"
+  ],
+  "base:id": "subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:images": {},
+  "base:instances": {},
+  "base:tags": [],
+  "base:type": "subs",
+  "subcare:careCapableDevices": [],
+  "subcare:careDevices": [],
+  "subcare:triggeredDevices": [],
+  "subs:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "subs:available": false,
+  "subs:hash": "j39mXi6h/TIq1VjqcCt/lNa0YP0",
+  "subs:name": "CareSubsystem",
+  "subs:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "subs:state": "ACTIVE",
+  "subs:version": "1.0"
+}

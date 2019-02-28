@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/sclera_alert"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/sclera_widget_edge_combined"
+    android:paddingEnd="@dimen/sclera_widget_edge_combined"
+    android:paddingTop="@dimen/sclera_widget_edge_combined" >
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/modal_error_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/sclera_text_color_light"
+        android:textSize="@dimen/pt_18"
+        app:scleraFontStyle="bold" />
+
+    <arcus.app.common.view.ScleraTextView
+        style="@style/ScleraLineSpacing.1.37"
+        android:id="@+id/modal_error_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/sclera_text_color_light"
+        android:textSize="@dimen/pt_14"
+        app:scleraFontStyle="normal" />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/modal_error_support_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/error_modal_get_support"
+        app:scleraButtonColor="white_with_red_text" />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/modal_error_dismiss_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/sclera_screen_edge_LR_margin"
+        android:text="@string/dismiss_text"
+        android:textAllCaps="true"
+        app:scleraButtonColor="white_outline" />
+
+</LinearLayout>

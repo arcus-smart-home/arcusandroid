@@ -1,0 +1,230 @@
+{
+  "type": "wifiscan:WiFiScanResults",
+  "headers": {
+    "isRequest": false,
+    "source": "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee"
+  },
+  "payload": {
+    "messageType": "wifiscan:WiFiScanResults",
+    "attributes": {
+      "scanResults": [
+        {
+          "ssid": "IRIS",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "Mixed(TKIP+AES)",
+          "channel": 11,
+          "signal": 100,
+          "wps": "Yes"
+        },
+        {
+          "ssid": "cscwvce",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 100,
+          "wps": "No"
+        },
+        {
+          "ssid": "LOWESGUEST",
+          "mode": "Infrastructure",
+          "security": [
+            "None"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "None",
+          "channel": 1,
+          "signal": 100,
+          "wps": "No"
+        },
+        {
+          "ssid": "redvest",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-Enterprise"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 100,
+          "wps": "No"
+        },
+        {
+          "ssid": "Name",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 2,
+          "signal": 100,
+          "wps": "Yes"
+        },
+        {
+          "ssid": "redvest",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-Enterprise"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 89,
+          "wps": "No"
+        },
+        {
+          "ssid": "NameDemo",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "Mixed(TKIP+AES)",
+          "channel": 11,
+          "signal": 89,
+          "wps": "Yes"
+        },
+        {
+          "ssid": "cscwvce",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 83,
+          "wps": "No"
+        },
+        {
+          "ssid": "LOWESGUEST",
+          "mode": "Infrastructure",
+          "security": [
+            "None"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "None",
+          "channel": 1,
+          "signal": 83,
+          "wps": "No"
+        },
+        {
+          "ssid": "cscwvce",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 11,
+          "signal": 68,
+          "wps": "No"
+        },
+        {
+          "ssid": "redvest",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-Enterprise"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 11,
+          "signal": 63,
+          "wps": "No"
+        },
+        {
+          "ssid": "cscwvce",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 52,
+          "wps": "No"
+        },
+        {
+          "ssid": "cscwvce",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-PSK"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 52,
+          "wps": "No"
+        },
+        {
+          "ssid": "redvest",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-Enterprise"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 52,
+          "wps": "No"
+        },
+        {
+          "ssid": "LOWESGUEST",
+          "mode": "Infrastructure",
+          "security": [
+            "None"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "None",
+          "channel": 1,
+          "signal": 52,
+          "wps": "No"
+        },
+        {
+          "ssid": "LOWESGUEST",
+          "mode": "Infrastructure",
+          "security": [
+            "None"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "None",
+          "channel": 1,
+          "signal": 47,
+          "wps": "No"
+        },
+        {
+          "ssid": "redvest",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-Enterprise"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 1,
+          "signal": 42,
+          "wps": "No"
+        },
+        {
+          "ssid": "redvest",
+          "mode": "Infrastructure",
+          "security": [
+            "WPA2-Enterprise"
+          ],
+          "wepauth": "OpenSystem",
+          "encryption": "AES",
+          "channel": 6,
+          "signal": 37,
+          "wps": "No"
+        }
+      ]
+    }
+  }
+}

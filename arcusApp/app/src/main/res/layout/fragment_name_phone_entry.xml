@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbarSize="6.5dp"
+    android:scrollbarThumbVertical="@color/sclera_drop_shadow_color"
+    tools:context="arcus.app.createaccount.CreateAccountActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/focus_hog"
+        style="@style/ScleraColumnLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_24"
+        android:paddingBottom="@dimen/dp_24"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+        <arcus.app.common.view.CircularImageView
+            android:id="@+id/person_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/addphoto_150x150"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/camera_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/take_photo_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/camera_button"
+            app:layout_constraintBottom_toBottomOf="@+id/person_image"
+            app:layout_constraintEnd_toEndOf="@+id/person_image" />
+
+        <arcus.app.common.view.ScleraEditText
+            android:id="@+id/first_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/account_registration_first_name_hint"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1"
+            app:resettable="false"
+            app:met_errorColor="@color/sclera_alert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/person_image" />
+
+        <arcus.app.common.view.ScleraEditText
+            android:id="@+id/last_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/account_registration_last_name_hint"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1"
+            app:resettable="false"
+            app:met_errorColor="@color/sclera_alert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_name" />
+
+        <arcus.app.common.view.ScleraEditText
+            android:id="@+id/phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/account_registration_phone_number"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="14"
+            android:maxLines="1"
+            app:resettable="false"
+            app:met_errorColor="@color/sclera_alert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/last_name" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/blurb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:gravity="center"
+            android:text="@string/lets_get_acquainted_blurb"
+            android:paddingBottom="@dimen/sclera_text_to_button_spacing"
+            app:layout_constraintBottom_toTopOf="@+id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number"
+            app:layout_constraintVertical_bias="0.0"
+            app:scleraFontStyle="normal" />
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/next_button"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/next"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@+id/cancel_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:scleraButtonColor="purple" />
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/cancel_button"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:scleraButtonColor="purple_outline"
+            />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

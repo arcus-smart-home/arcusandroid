@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Nesting to ensure all content is visible on different screen sizes -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <arcus.app.common.view.Version1TextView
+            tools:textColor="@color/black"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="18dp"
+            android:text="@string/local_streaming_top_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <arcus.app.common.view.Version1TextView
+                android:paddingTop="30dp"
+                android:id="@+id/username_text"
+                tools:textColor="@color/black_with_60"
+                android:textColor="@color/white_with_60"
+                android:paddingBottom="10dp"
+                android:text="@string/local_streaming_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                />
+
+            <View
+                android:layout_alignLeft="@id/username_text"
+                android:layout_alignRight="@id/username_text"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                tools:background="@color/black_with_20"
+                android:background="@color/white_with_20"
+                />
+        </RelativeLayout>
+
+        <arcus.app.common.view.Version1TextView
+            tools:text="Username"
+            android:id="@+id/streaming_username"
+            tools:textColor="@color/black"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="18dp"
+            android:textIsSelectable="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_marginTop="15dp"
+            tools:textColor="@color/black_with_60"
+            android:textColor="@color/white_with_60"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/local_streaming_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="true"
+            />
+
+        <arcus.app.common.view.Version1TextView
+            tools:text="Password"
+            tools:textColor="@color/black"
+            android:id="@+id/streaming_password"
+            android:textIsSelectable="true"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="18dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_marginTop="15dp"
+            tools:textColor="@color/black_with_60"
+            android:textColor="@color/white_with_60"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/local_streaming_streaming_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="true"
+            />
+
+        <arcus.app.common.view.Version1TextView
+            tools:text="10.0.0.1"
+            tools:textColor="@color/black"
+            android:id="@+id/streaming_ip"
+            android:gravity="center"
+            android:textIsSelectable="true"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_marginTop="15dp"
+            tools:textColor="@color/black_with_60"
+            android:textColor="@color/white_with_60"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/camera_url_for_stream_top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="true"
+            />
+
+        <arcus.app.common.view.Version1TextView
+            tools:textColor="@color/black"
+            android:text="@string/camera_url_for_stream_sub_text"
+            android:gravity="center"
+            android:textIsSelectable="true"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:gravity="center"
+            android:layout_margin="15dp"
+            android:text="@string/local_streaming_streaming_bottom_page_text"
+            tools:textColor="@color/black_with_60"
+            android:textColor="@color/white_with_60"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

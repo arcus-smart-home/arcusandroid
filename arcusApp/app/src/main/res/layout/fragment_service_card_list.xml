@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:descendantFocusability="beforeDescendants">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/dp_36"
+            android:paddingTop="@dimen/dp_30"
+            android:paddingEnd="@dimen/dp_36"
+            android:paddingBottom="@dimen/dp_30"
+            android:gravity="center"
+            android:text="@string/card_list_header"
+            android:textSize="@dimen/pt_16"
+            app:scleraFontStyle="demi" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/body"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/dp_36"
+            android:paddingEnd="@dimen/dp_36"
+            android:paddingBottom="@dimen/dp_36"
+            android:gravity="center"
+            android:text="@string/card_list_instructions"
+            android:textSize="@dimen/pt_16"
+            app:scleraFontStyle="normal"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/active"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/body"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingStart="@dimen/dp_13"
+            android:background="@color/divider_grey"
+            app:scleraFontStyle="normal"
+            android:text="@string/rules_schedule_active"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/active_list"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/active"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/inactive"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/active_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingStart="@dimen/dp_13"
+            android:background="@color/divider_grey"
+            app:scleraFontStyle="normal"
+            android:text="@string/rules_schedule_inactivate"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/inactive_list"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/inactive"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <arcus.app.common.view.ScleraLinkView
+            android:id="@+id/make_cards_active"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/inactive_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dp_42"
+            android:layout_marginBottom="@dimen/dp_42"
+            android:gravity="center"
+            tools:text="@string/make_cards_active"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sclera_widget_edge_combined"
+            app:layout_constraintTop_toBottomOf="@id/make_cards_active"
+            />
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@id/close_button"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_42"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            app:layout_constraintTop_toBottomOf="@id/make_cards_active"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:scleraButtonColor="purple"
+            android:text="@string/close_text"
+            android:visibility="gone"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/named_network_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        tools:visibility="visible"
+        android:visibility="gone">
+
+        <arcus.app.common.view.ScleraEditText
+            android:paddingTop="30dp"
+            android:id="@+id/network_name"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:hint="@string/wifi_network_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:met_errorColor="@color/sclera_alert"
+            app:resettable="false"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@+id/network_password"
+            />
+
+        <arcus.app.common.view.ScleraEditText
+            android:id="@+id/network_password"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/login_password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            app:resettable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/network_name"
+            app:met_errorColor="@color/sclera_alert"
+            app:showable="true"
+            />
+
+        <android.support.constraint.Group
+            android:id="@+id/security_selection_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="security_selection_title,security_selection_choice,divider,security_selection_if_wpa2" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/security_selection_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_48"
+            android:text="@string/security"
+            android:textSize="@dimen/pt_18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/network_password" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/security_selection_choice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:drawableEnd="@drawable/chevron"
+            android:drawablePadding="@dimen/dp_10"
+            android:gravity="center_vertical|end"
+            android:textSize="@dimen/pt_18"
+            app:layout_constraintBottom_toBottomOf="@+id/security_selection_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/security_selection_title"
+            app:layout_constraintTop_toTopOf="@+id/security_selection_title"
+            tools:text="WPA2 Enterprise" />
+
+        <arcus.app.common.view.ScleraDivider
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_divider_height"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@+id/security_selection_choice" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/security_selection_if_wpa2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/hub_wifi_connect_after_paired_security_if_wpa2"
+            android:textSize="@dimen/pt_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/unsecured_network_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:visibility="gone"
+        android:visibility="gone">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/wifi_unsecured_90x90"
+                />
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/unsecured_network_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image"
+                tools:text="@string/wifi_is_unsecured"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                app:scleraFontStyle="demi"
+                />
+
+            <arcus.app.common.view.ScleraTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/unsecured_network_title"
+                android:text="@string/wifi_unsecured_help_text"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                app:scleraFontStyle="normal"
+                />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

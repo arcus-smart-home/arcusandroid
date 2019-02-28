@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/history_header_row"
+        android:visibility="gone"
+        android:background="@color/overlay_white_with_10"
+        android:textColor="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/list_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/list_device_name"
+            android:layout_alignBottom="@+id/list_device_name"
+            android:paddingTop="2dp"
+            android:minEms="5"
+            android:gravity="end"
+            android:textColor="@color/overlay_white_with_60"
+            android:textSize="10sp"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/list_device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/list_time_text"
+            android:layout_toLeftOf="@+id/history_image"
+            android:layout_toStartOf="@+id/history_image"
+            android:textSize="12sp"
+            app:customFont="demi"
+            android:textAllCaps="true" />
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/list_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:textColor="@color/overlay_white_with_60"
+            android:ellipsize="end"
+            android:textStyle="italic"
+            android:maxLines="2"
+            android:layout_below="@+id/list_device_name"
+            android:layout_toRightOf="@+id/list_time_text"
+            android:layout_toLeftOf="@+id/history_image"
+            android:layout_toStartOf="@+id/history_image"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/history_image"
+            android:layout_alignRight="@id/chevron"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="invisible"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:id="@+id/chevron"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/chevron_white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

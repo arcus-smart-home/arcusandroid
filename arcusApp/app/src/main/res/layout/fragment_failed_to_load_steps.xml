@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarStyle="insideOverlay"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ScleraColumnLayout">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/placholder_image"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/pairing_circle_220x220"
+            app:tint="@color/black_with_35"
+            android:visibility="visible"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/placeholder_text"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_35"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/placholder_image"
+            android:background="@color/sclera_input_color"
+            android:visibility="visible"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/placeholder_text2"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_60"
+            android:layout_marginEnd="@dimen/dp_60"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/placeholder_text"
+            android:background="@color/sclera_input_color"
+            android:visibility="visible"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/placeholder_text3"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_120"
+            android:layout_marginEnd="@dimen/dp_120"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/placeholder_text2"
+            android:background="@color/sclera_input_color"
+            android:visibility="visible"/>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

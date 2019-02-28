@@ -1,0 +1,82 @@
+/*
+ *  Copyright 2019 Arcus Project.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+package arcus.app.subsystems.lawnandgarden.cards;
+
+import android.content.Context;
+
+import arcus.app.R;
+import arcus.app.common.cards.SimpleDividerCard;
+
+
+public class IrrigationModeSelectionCard extends SimpleDividerCard {
+
+    boolean mChevronShown = false;
+    boolean mRadioChecked = false;
+    boolean mShowScheduleIcon = false;
+
+    int mDrawableResource = -1;
+
+    private String rightText;
+
+    public IrrigationModeSelectionCard(Context context) {
+        super(context);
+    }
+
+    public void setChevronShown(boolean chevronShown) {
+        mChevronShown = chevronShown;
+    }
+
+    public boolean isRadioChecked() {
+        return mRadioChecked;
+    }
+
+    public void setRadioChecked(boolean radioChecked) {
+        mRadioChecked = radioChecked;
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.card_irrigation_mode_selection;
+    }
+
+    public Boolean isChevronShown() {
+        return mChevronShown;
+    }
+
+    public void setDrawableResource(int resourceId) {
+        mDrawableResource = resourceId;
+    }
+
+    public int getDrawableResource() {
+        return mDrawableResource;
+    }
+
+    public void setRightText(String rightText) {
+        this.rightText = rightText;
+    }
+
+    public String getRightText() {
+        return this.rightText;
+    }
+
+    public boolean getShowScheduleIcon() {
+        return mShowScheduleIcon;
+    }
+
+    public void setShowScheduleIcon(boolean showScheduleIcon) {
+        this.mShowScheduleIcon = showScheduleIcon;
+    }
+}

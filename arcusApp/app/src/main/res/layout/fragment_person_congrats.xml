@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_congrats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_checkmark" />
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/people_congrats"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:customFont="demi"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/you_successfully_added"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/people_you_have_added"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:customFont="demi"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/you_successfully_added_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/people_you_have_added_description_full_access"
+            android:textColor="@color/black_with_35"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/congrats_icons_and_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+                <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="25dp"
+                android:src="@drawable/alarm_icon_blk_small" />
+
+                <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                    <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="left"
+                    android:text="@string/people_congrats_alarm_title"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:customFont="demi" />
+
+                    <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="left"
+                    android:text="@string/people_congrats_alarm_text"
+                    android:textColor="@color/black_with_35"
+                    android:textSize="12sp"
+                    app:customFont="demi"  />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+                <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="25dp"
+                android:src="@drawable/care_icon_blk_small" />
+
+                <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                    <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="left"
+                    android:text="@string/people_congrats_care_title"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:customFont="demi" />
+
+                    <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="left"
+                    android:text="@string/people_congrats_care_text"
+                    android:textColor="@color/black_with_35"
+                    android:textSize="12sp"
+                    app:customFont="demi" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/icon_rules_doorslocks" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <arcus.app.common.view.Version1TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:text="@string/people_congrats_doors_title"
+                        app:customFont="demi" />
+
+                    <arcus.app.common.view.Version1TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:gravity="left"
+                        android:text="@string/people_congrats_doors_text"
+                        android:textColor="@color/black_with_35"
+                        android:textSize="12sp"
+                        app:customFont="demi" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/congrats_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="@string/people_congrats_bottom_label_full_access"
+        android:textColor="@color/black_with_35"
+        android:textSize="12sp" />
+
+</RelativeLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout"
+    android:keepScreenOn="true"
+    tools:context="arcus.app.pairing.device.steps.PairingStepsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/next_button"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginBottom="@dimen/sclera_status_bar_top_margin"
+            app:scleraButtonColor="purple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAllCaps="true"
+            android:text="@string/pairing_next"
+            />
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/setup_button"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginBottom="@dimen/dp_8"
+            app:scleraButtonColor="purple"
+            app:layout_constraintBottom_toTopOf="@id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAllCaps="true"
+            android:text="@string/setup_instructions"
+            android:visibility="gone"
+            tools:text="Future Button For Assistants and possibly others"
+            tools:visibility="visible"
+            />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/circle_page_indicator"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
+            android:layout_marginBottom="@dimen/sclera_status_bar_top_margin"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            app:layout_constraintBottom_toTopOf="@+id/setup_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:fillColor="@color/sclera_tab_green"
+            app:pageColor="@color/sclera_paging_indicator_not_selected_page"
+            app:strokeColor="@android:color/transparent"
+            app:radius="@dimen/sclera_page_indicator_radius"
+            app:snap="false"
+            app:extraSpacing="@dimen/sclera_extra_page_indicator_spacing"
+            />
+
+        <include layout="@layout/banner_sclera_chevron"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sclera_video_tab_bar_height"
+            android:id="@+id/watch_tutorial_banner"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:background="@color/sclera_green_tutorial_banner"
+            app:layout_constraintTop_toTopOf="parent">
+            <arcus.app.common.view.ScleraTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/watch_tutorial"
+                android:drawableStart="@drawable/playtutorial"
+                android:gravity="center_vertical"
+                android:drawablePadding="@dimen/pt_14"
+                app:scleraFontStyle="normal"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/app_bar_layout" />
+        </LinearLayout>
+
+        <arcus.app.common.view.DisableSwipeViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="@dimen/match_constraint"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/circle_page_indicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/watch_tutorial_banner" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/titles_container"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/care_add_edit_title"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/care_add_edit_sub_title"
+            android:visibility="gone"
+            android:textColor="@color/black_with_60"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:text="@string/care_behavior_presnce_fob_required"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_below="@id/titles_container"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_with_10" />
+
+    <TextView
+        android:id="@+id/behavior_ineligible"
+        android:layout_below="@id/divider"
+        android:text="@string/care_additional_devices_required"
+        android:textColor="@color/black_with_60"
+        android:padding="40dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:id="@+id/care_add_edit_behavior_lv"
+        android:layout_below="@id/divider"
+        android:layout_above="@+id/care_add_edit_save"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <arcus.app.common.view.Version1Button
+        android:layout_margin="15dp"
+        android:id="@+id/care_add_edit_save"
+        android:layout_alignParentBottom="true"
+        android:text="@string/generic_save_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:buttonFont="demi"/>
+</RelativeLayout>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#AAA">
+
+    <RelativeLayout
+        android:id="@+id/color_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fragment_device_more_remove"
+            android:paddingEnd="0dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="0dp"
+            android:paddingStart="10dp"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/fragment_device_more_wifi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/product_wifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="@string/water_wifi_title"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/layout_place"
+                            android:layout_toStartOf="@+id/layout_place"
+                            app:customFont="demi"
+                            android:textColor="@android:color/white" />
+
+                        <arcus.app.common.view.Version1TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/product_wifi"
+                            android:paddingTop="5dp"
+                            android:text="@string/water_wifi_sub"
+                            android:textColor="@color/overlay_white_with_60"
+                            app:customFont="italic" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_place"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal">
+
+                            <arcus.app.common.view.Version1TextView
+                                android:id="@+id/product_place"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:text=""
+                                android:textColor="@color/overlay_white_with_60" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/overlay_white_with_20" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/favorites_checkbox_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/favorites"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:paddingTop="5dp"
+                            android:text="@string/favorites_title"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/favorites_checkbox"
+                            android:layout_toStartOf="@+id/favorites_checkbox"
+                            app:customFont="demi"
+                            android:textColor="@android:color/white" />
+
+                        <arcus.app.common.view.Version1TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/favorites"
+                            android:clickable="false"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_favorite_instr"
+                            android:textColor="@color/overlay_white_with_60"
+                            app:customFont="italic" />
+
+                        <ToggleButton
+                            android:id="@+id/favorites_checkbox"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/icon_checkmark_selector"
+                            android:checked="false"
+                            android:clickable="false"
+                            android:textOff=""
+                            android:textOn="" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/overlay_white_with_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_device_more_device"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/fragment_more_product_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/chevron"
+                            android:layout_toStartOf="@+id/chevron"
+                            app:customFont="demi"
+                            android:textColor="@android:color/white" />
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/device_more_product_name_instructions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fragment_more_product_name"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_product_name_instr"
+                            android:textColor="@color/overlay_white_with_60"
+                            app:customFont="italic" />
+
+                        <ImageView
+                            android:id="@+id/chevron"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/chevron_content_description"
+                            android:src="@drawable/chevron_white" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/overlay_white_with_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@null"
+                    android:orientation="vertical"
+                    android:visibility="visible"/>
+
+                <LinearLayout
+                    android:id="@+id/fragment_device_more_product_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/product_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_product_information"
+                            android:layout_alignParentLeft="true"
+                            app:customFont="demi"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/chevron1"
+                            android:layout_toStartOf="@+id/chevron1"
+                            android:textColor="@android:color/white" />
+
+                        <arcus.app.common.view.Version1TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/product_info"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_product_information_instr"
+                            android:textColor="@color/overlay_white_with_60"
+                            app:customFont="italic" />
+
+                        <ImageView
+                            android:id="@+id/chevron1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/chevron_content_description"
+                            android:src="@drawable/chevron_white" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/overlay_white_with_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_more_product_connectivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:visibility="visible"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/connectivity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_connectivity"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/chevron2"
+                            android:layout_toStartOf="@+id/chevron2"
+                            android:textColor="@android:color/white"
+                            app:customFont="demi"/>
+
+                        <arcus.app.common.view.Version1TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/connectivity"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_connectivity_instr"
+                            android:textColor="@color/overlay_white_with_60"
+                            app:customFont="italic" />
+
+                        <ImageView
+                            android:id="@+id/chevron2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/chevron_content_description"
+                            android:src="@drawable/chevron_white" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/overlay_white_with_20" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/fragment_more_product_firmware"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/firmware"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_firmware"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_toLeftOf="@+id/chevron3"
+                            android:layout_toStartOf="@+id/chevron3"
+                            android:textColor="@android:color/white"
+                            app:customFont="demi" />
+
+                        <arcus.app.common.view.Version1TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/firmware"
+                            android:paddingTop="5dp"
+                            android:text="@string/device_more_firmware_instr"
+                            android:textColor="@color/overlay_white_with_60"
+                            app:customFont="italic" />
+
+                        <ImageView
+                            android:id="@+id/chevron3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/chevron_content_description"
+                            android:src="@drawable/chevron_white" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/overlay_white_with_20" />
+                </LinearLayout>
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/fragment_more_product_tstat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:padding="20dp"
+                    android:text="@string/thermostat_more_extra_text"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+                <arcus.app.common.view.Version1Button
+                    android:id="@+id/fragment_device_more_hub_reboot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/reboot_hub_button"
+                    android:textColor="@android:color/black"
+                    app:buttonFont="demi"
+                    android:visibility="gone"/>
+
+                <arcus.app.common.view.Version1Button
+                    android:id="@+id/fragment_device_more_remove"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/remove_device_button"
+                    android:textColor="@android:color/black"
+                    app:buttonFont="demi"/>
+
+            </LinearLayout>
+            
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

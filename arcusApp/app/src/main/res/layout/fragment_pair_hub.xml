@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_layout"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                tools:progress="45" />
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/progress_percent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="100%"
+                tools:text="45%"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hub_searching_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="33dp"
+            tools:visibility="visible"
+            android:orientation="vertical">
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/hub_searching_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/hub_searching_title"
+                android:textColor="@color/arcus_gray"
+                android:lineSpacingMultiplier="1.39"
+                android:textSize="18sp"
+                app:scleraFontStyle="demi"/>
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/hub_search_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="@string/hub_searching_description"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.39" />
+
+            <LinearLayout
+                android:id="@+id/hub_long_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="0dp"
+                android:layout_margin="0dp"
+                android:visibility="gone"
+                tools:visibility="visible" >
+                <arcus.app.common.view.ScleraTextView
+                    android:id="@+id/need_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/hub_longsearching_description"
+                    android:textSize="14sp"
+                    android:textColor="@color/arcus_gray"
+                    android:textColorLink="@color/arcus_gray"/>
+                <arcus.app.common.view.ScleraTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="43dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/hub_longsearching_wrong_hub_id"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:lineSpacingMultiplier="1.39" />
+            </LinearLayout>
+            <arcus.app.common.view.ScleraEditText
+                android:id="@+id/hub_edittext_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/arcus_gray"
+                android:hint="@string/hub_id_hint_title"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hub_updates_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="33dp"
+            android:orientation="vertical">
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/hub_action_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/hub_update_available_title"
+                android:textColor="@color/arcus_gray"
+                android:textSize="18sp"
+                android:lineSpacingMultiplier="1.39"
+                app:scleraFontStyle="demi"/>
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/hub_action_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="@string/hub_update_available_description"
+                android:textColor="@color/arcus_gray"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.38"
+                android:visibility="gone"/>
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/exit_pairing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43dp"
+                android:gravity="center_horizontal"
+                android:text="@string/exit_pairing"
+                android:textSize="14sp"
+                android:textColor="@color/arcus_gray"
+                android:textColorLink="@color/arcus_gray"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/button_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <arcus.app.common.view.ScleraButton
+            android:layout_marginTop="15dp"
+            android:id="@+id/hub_pairing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/search_for_new_hub_id"
+            android:textAllCaps="true"
+            tools:visibility="visible"
+            app:buttonFont="demi"
+            app:scleraButtonColor="purple" />
+        <arcus.app.common.view.ScleraButton
+            android:layout_marginTop="15dp"
+            android:id="@+id/call_support_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/call_support"
+            android:textAllCaps="true"
+            tools:visibility="visible"
+            app:scleraButtonColor="purple"/>
+    </RelativeLayout>
+
+</RelativeLayout>

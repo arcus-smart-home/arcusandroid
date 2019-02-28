@@ -1,0 +1,31 @@
+{
+  "type": "subcare:ListBehaviorsResponse",
+  "source": "SERV:subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "destination":"CLNT:android:4343",
+  "payload": {
+    "attributes": {
+      "behaviors": [
+        {
+          "lastActivated": 1454744747966,
+          "lastFired": null,
+          "devices": [
+            "DRIV:dev:38430627-c4a1-4dc0-a028-19a75ff785f6",
+            "DRIV:dev:17a87dc6-e8c9-460f-b642-7c6de6688cf8",
+            "DRIV:dev:be725976-b5fe-4b7f-b340-8178ea1cc428",
+            "DRIV:dev:b96fb688-d6fa-4af7-a51c-2e98685b07a6",
+            "DRIV:dev:7413eb0d-8b78-4c3c-88fc-b4d97c19597f"
+          ],
+          "active": true,
+          "type": "INACTIVITY",
+          "templateId": "4",
+          "enabled": null,
+          "timeWindows": null,
+          "durationSecs": 300,
+          "name": "Medicine Cabinet Reminder",
+          "availableDevices": [],
+          "id": "df3a2ca6-3516-47e3-8bf8-82cffd4fc3e6"
+        }
+      ]
+    }
+  }
+}

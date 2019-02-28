@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/dp_16" >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/zwave_image"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_36"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/device_90x90"
+            android:visibility="visible"/>
+
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/sclera_widget_edge_combined"
+            android:paddingEnd="@dimen/sclera_widget_edge_combined"
+            android:paddingTop="@dimen/dp_28"
+            android:gravity="center_horizontal"
+            android:textColor="@color/sclera_text_color_dark"
+            android:textSize="@dimen/pt_18"
+            android:text="@string/zw_rebuild_latertitle"
+            app:scleraFontStyle="demi"
+            app:layout_constraintTop_toBottomOf="@+id/zwave_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <arcus.app.common.view.ScleraTextView
+            style="@style/ScleraLineSpacing.1.37"
+            android:id="@+id/description"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/sclera_widget_edge_combined"
+            android:paddingEnd="@dimen/sclera_widget_edge_combined"
+            android:paddingTop="@dimen/dp_25"
+            android:gravity="center_horizontal"
+            android:textColor="@color/sclera_text_color_dark"
+            android:textSize="@dimen/pt_16"
+            android:text="@string/zw_rebuild_later_description"
+            app:scleraFontStyle="normal"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <arcus.app.common.view.ScleraButton
+            android:id="@+id/continue_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:text="@string/zw_rebuild_to_dashboard"
+            app:scleraButtonColor="purple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintVertical_bias="1.0"/>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

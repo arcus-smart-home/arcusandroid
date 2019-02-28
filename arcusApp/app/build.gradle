@@ -1,0 +1,146 @@
+apply from: '../common.gradle'
+
+buildscript {
+    dependencies {
+        classpath deps.classpath.dexCount
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion androidToolsVersion
+
+    defaultConfig {
+        applicationId "arcus.app"
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+
+        versionCode appVersionCode
+        versionName "${version_major}.${version_minor}.${version_patch}-${version_reltype}+${gitShortHash().toLowerCase()}"
+        renderscriptTargetApi rootProject.renderScriptTarget
+        renderscriptSupportModeEnabled true
+
+        // Enable for MultiDex support:
+        multiDexEnabled true
+        manifestPlaceholders = [
+                devAppName: "Arcus [DBG]"
+        ]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            useProguard false
+            minifyEnabled false
+
+            applicationIdSuffix ".debug"
+            crunchPngs false
+        }
+    }
+
+    packagingOptions {
+        pickFirst 'META-INF/INDEX.LIST'
+        pickFirst 'META-INF/LICENSE.txt'
+        pickFirst 'META-INF/NOTICE.txt'
+        pickFirst 'LICENSE.txt'
+        pickFirst 'META-INF/io.netty.versions.properties'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        keepRuntimeAnnotatedClasses false
+    }
+
+    signingConfigs {
+        release {
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    lintOptions {
+        // Fail builds if we have // STOPSHIP tags, only checked in release builds.
+        // fatal 'StopShip'
+    }
+}
+
+configurations.all({
+    resolutionStrategy.force deps.v7Support
+    resolutionStrategy.force deps.v4Support
+    resolutionStrategy.force deps.recyclerView
+})
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation project(':cornea')
+    implementation project(':analytics')
+    implementation project(':presentation')
+    implementation project(':viewpager_indicator')
+    implementation project(':materialEditText')
+
+    implementation deps.v7Support
+    implementation deps.annotations
+    implementation deps.multiDex
+    implementation deps.design
+    implementation deps.constraintLayout
+
+    implementation deps.playServicesAuth
+    implementation deps.playServicesGcm
+    implementation deps.playServices
+    implementation deps.locationServices
+
+    implementation deps.exoplayer_core
+    implementation deps.exoplayer_ui
+    implementation deps.exoplayer_hls
+
+    implementation deps.kotlin
+
+    implementation deps.eventBus
+    implementation deps.gifDrawable
+    implementation deps.dexaMaterialList
+    implementation deps.confetti
+    implementation(deps.advRecyclerView) {
+        transitive = true
+    }
+
+    implementation deps.picasso
+    implementation deps.okhttp
+
+    testImplementation deps.test.mockitoCore
+    testImplementation deps.test.junit
+    testImplementation deps.test.truth
+    testImplementation deps.test.mockitoKotlin
+
+    androidTestImplementation deps.multiDex
+    androidTestImplementation deps.test.junit
+    androidTestImplementation deps.test.androidTestRunner
+    androidTestImplementation deps.test.androidTestRules
+    androidTestImplementation deps.test.mockitoAndroid
+}
+
+if (project.hasProperty("dexcount") && Boolean.valueOf(project.dexcount)) {
+    apply plugin: 'com.getkeepsafe.dexcount'
+
+    dexcount {
+        includeClasses = false
+        includeFieldCount = true
+        orderByMethodCount = true
+        verbose = false
+    }
+}

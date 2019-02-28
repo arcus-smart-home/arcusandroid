@@ -1,0 +1,32 @@
+{
+  "base:caps": [
+    "subs",
+    "sublightsnswitches",
+    "base"
+  ],
+  "base:instances": {},
+  "subs:state": "ACTIVE",
+  "subs:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "subs:available": "false",
+  "base:id": "sublightsnswitches:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:address": "SERV:sublightsnswitches:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:tags": [],
+  "base:type": "subs",
+  "subs:version": "1.0",
+  "sublightsnswitches:switchDevices": [
+    "DRIV:dev:b3dccba6-e639-4aac-a066-300181f03274",
+    "DRIV:dev:4d685070-2ca5-4eae-89e3-46c5fa1725f8",
+    "DRIV:dev:75ccd745-6505-41a1-8564-11ed70a0daa6",
+    "DRIV:dev:d46d0cd8-64d7-4c7f-9f0d-099c81be00d0",
+    "DRIV:dev:a401fe9e-43e5-46f2-b998-1bfc0b7079d8"
+  ],
+  "base:images": {},
+  "subs:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "subs:hash": "G6PdszgZSN7B5ezsGVVFtIwILg8",
+  "sublightsnswitches:onDeviceCounts": {
+    "light": 2.0,
+    "dimmer": 0.0,
+    "switch": 2.0
+  },
+  "subs:name": "LightsNSwitchesSubsystem"
+}

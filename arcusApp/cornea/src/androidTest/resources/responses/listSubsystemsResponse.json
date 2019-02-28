@@ -1,0 +1,35 @@
+{
+  "type": "subs:ListSubsystemsResponse",
+  "source": "SERV:subs:",
+  "destination":"", // Message modified to suite Responses class
+  "payload": {
+    "messageType": "subs:ListSubsystemsResponse",
+    "attributes": {
+      "subsystems": [
+        {
+          "base:caps": [
+            "cellbackup",
+            "subs",
+            "base"
+          ],
+          "base:instances": {},
+          "subs:state": "ACTIVE",
+          "subs:account": "73fb2812-a3f9-44e0-86a6-a2ec51dfe52f",
+          "subs:available": true,
+          "base:id": "cellbackup:3bd5f625-d437-4cb1-8d33-564faac77e27",
+          "base:address": "SERV:cellbackup:3bd5f625-d437-4cb1-8d33-564faac77e27",
+          "base:tags": [],
+          "base:type": "subs",
+          "cellbackup:errorState": "NONE",
+          "cellbackup:status": "NOTREADY",
+          "subs:version": "1.0",
+          "base:images": {},
+          "subs:place": "3bd5f625-d437-4cb1-8d33-564faac77e27",
+          "cellbackup:notReadyState": "BOTH",
+          "subs:hash": "OExuLTV9CprGBwfECReN9kRhbm8",
+          "subs:name": "CellBackupSubsystem"
+        }
+      ]
+    }
+  }
+}

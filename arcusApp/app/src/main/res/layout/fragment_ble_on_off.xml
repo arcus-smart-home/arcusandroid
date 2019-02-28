@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/bluetooth_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bluetooth_63x86"
+        />
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/title"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:gravity="center_horizontal"
+        android:paddingTop="26dp"
+        android:text="@string/ble_is_on_title"
+        android:textSize="@dimen/pt_18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluetooth_image"
+        app:scleraFontStyle="demi" />
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/description"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:gravity="center_horizontal"
+        android:paddingTop="13dp"
+        android:text="@string/ble_is_on_desc"
+        android:textSize="@dimen/pt_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:scleraFontStyle="normal" />
+
+    <arcus.app.common.view.ScleraDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/switch_description"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:text="@string/android_device_ble"
+        android:textSize="@dimen/pt_16"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ble_on_off_switch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:scleraFontStyle="normal" />
+
+    <Switch
+        android:id="@+id/ble_on_off_switch"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="@dimen/match_constraint"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switch_description"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:theme="@style/ScleraSwitchTheme"
+        tools:checked="false"
+        />
+
+</android.support.constraint.ConstraintLayout>

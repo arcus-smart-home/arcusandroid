@@ -1,0 +1,53 @@
+{
+  "base:caps": [
+    "irrcont",
+    "irrsched",
+    "dev",
+    "devadv",
+    "devmock",
+    "devconn",
+    "devpow",
+    "base"
+  ],
+  "devpow:backupbatterycapable": false,
+  "devadv:drivername": "MOCK_IrrigationController1Zone",
+  "devpow:battery": 80,
+  "devconn:signal": 79,
+  "irrcont:maxdailytransitions": 8,
+  "base:id": "74df7e8d-2053-4b76-bb8f-e2fcf2b81464",
+  "base:address": "DRIV:dev:74df7e8d-2053-4b76-bb8f-e2fcf2b81464",
+  "devadv:drivercommit": "e0df37bbbe86cfe3b633aa08796545f63179875a",
+  "dev:vendor": "Mockitron",
+  "irrcont:numZones": 1,
+  "devpow:sourcechanged": 1457158377382,
+  "base:tags": [],
+  "irrcont:maxirrigationtime": 20,
+  "irrcont:controllerState": "NOT_WATERING",
+  "dev:model": "IrrigationController",
+  "devadv:driverhash": "7LlsRwBhSzLx5kbN5aicJ17WIz0",
+  "dev:name": "Mock IrrigationController1Zone",
+  "irrcont:maxtransitions": 32,
+  "dev:devtypehint": "Irrigation",
+  "irrcont:zonesinfault": [],
+  "base:instances": {
+    "z1": [
+      "irr"
+    ]
+  },
+  "devadv:driverversion": "1.1",
+  "dev:productId": "deda9d",
+  "dev:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "devconn:state": "ONLINE",
+  "devpow:linecapable": false,
+  "irrcont:budget": 100,
+  "devpow:source": "BATTERY",
+  "base:type": "dev",
+  "devconn:lastchange": 1457158377425,
+  "devadv:protocol": "MOCK",
+  "devadv:protocolid": "KkGM9Yt4rNV22N/uEZdrkgAAAAA=",
+  "base:images": {},
+  "dev:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "devadv:added": 1457158377382,
+  "irr:zonenum:z1": 1,
+  "irr:zonename:z1": "Zone 1 Name"
+}

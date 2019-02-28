@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/sclera_alert"
+    android:paddingStart="@dimen/sclera_widget_edge_combined"
+    android:paddingEnd="@dimen/sclera_widget_edge_combined">
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/title"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:paddingTop="32dp"
+        android:gravity="center_horizontal"
+        android:text="@string/ble_connection_error"
+        android:textSize="@dimen/pt_18"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scleraFontStyle="demi"
+        />
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/description"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:text="@string/ble_failed_to_pair_try_again"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/pt_14"
+        android:layout_marginTop="23dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:scleraFontStyle="normal"
+        />
+
+    <arcus.app.common.view.ScleraLinkView
+        android:id="@+id/need_help"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:text="@string/push_notifications_need_help"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/pt_14"
+        android:layout_marginTop="23dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:scleraFontStyle="normal"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/try_again_button"
+        android:text="@string/try_again"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        app:scleraButtonColor="white_with_red_text"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/need_help"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/cancel_button"
+        android:text="@string/cancel"
+        android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        app:scleraButtonColor="white_outline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/try_again_button"
+        />
+
+    <android.support.v4.widget.Space
+        app:layout_constraintTop_toBottomOf="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        />
+
+</android.support.constraint.ConstraintLayout>

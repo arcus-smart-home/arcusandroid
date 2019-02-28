@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="arcus.app">
+
+    <permission
+        android:name="arcus.app.launch.permission"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="arcus.app.launch.permission" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false"
+        />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.fingerprint"
+        android:required="false" />
+
+    <application
+        android:name=".ArcusApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements" />
+
+        <receiver android:name=".seasonal.christmas.receiver.ChristmasNotificationReceiver" />
+
+        <activity
+            android:name=".activities.LaunchActivity"
+            android:launchMode="singleTop"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <data
+                    android:host="dev-app.example.com"
+                    android:scheme="https" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <data
+                    android:host="app.example.com"
+                    android:scheme="https" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="arcus_custom_scheme" android:host="arcus_launch_host" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DashboardActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/DashboardTheme"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".activities.ReConnectActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            />
+        <activity
+            android:name=".activities.VideoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".activities.FullscreenFragmentActivity"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".seasonal.christmas.activity.SantaPictureActivity"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:permission="arcus.app.launch.permission"
+            android:name=".activities.InvitationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.example.com"
+                    android:path="/invitation"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.RestartActivity" />
+
+
+        <activity
+            android:name=".createaccount.CreateAccountActivity"
+            android:label="@string/lets_get_acquainted"
+            android:parentActivityName=".activities.LaunchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SignupTheme"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.LaunchActivity" />
+        </activity>
+
+        <provider
+            android:name=".providers.GenericFileProvider"
+            android:authorities="${applicationId}.arcus.app.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:permission="arcus.app.launch.permission"
+            android:name=".pairing.device.productcatalog.ProductCatalogActivity"
+            android:label="@string/add_device_title"
+            android:parentActivityName=".activities.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/PairingTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DashboardActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/add_device_searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".pairing.device.steps.PairingStepsActivity"
+            android:label="@string/title_activity_pairing_steps"
+            android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/PairingTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.steps.wifismartswitch.WSSPairingStepsActivity"
+            android:label="@string/title_activity_pairing_steps"
+            android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/PairingTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.steps.bledevice.BlePairingStepsActivity"
+            android:label="@string/title_activity_pairing_steps"
+            android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/PairingTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.searching.DeviceSearchingActivity"
+            android:label="@string/add_device_title"
+            android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowHostTheme"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.factoryreset.FactoryResetDeviceActivity"
+            android:label="@string/reset_device_title"
+            android:parentActivityName=".pairing.device.searching.DeviceSearchingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.searching.DeviceSearchingActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.remove.RemoveDeviceActivity"
+            android:label="@string/remove_device_title"
+            android:parentActivityName=".pairing.device.searching.DeviceSearchingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.searching.DeviceSearchingActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.post.zwaveheal.ZWaveRebuildActivity"
+            android:label="@string/zwave_network"
+            android:parentActivityName=".activities.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme"
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DashboardActivity" />
+        </activity>
+        <activity
+            android:name=".pairing.device.customization.PairingCustomizationActivity"
+            android:label="@string/customize_your_device"
+            android:parentActivityName=".pairing.device.searching.DeviceSearchingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".pairing.device.searching.DeviceSearchingActivity" />
+        </activity>
+        <activity
+            android:name=".activities.GenericFragmentActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".activities.GenericConnectedFragmentActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity
+            android:name=".activities.PermissionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PairingWorkflowTheme">
+        </activity>
+        <activity android:name=".camera.CameraActivity"/>
+    </application>
+
+</manifest>

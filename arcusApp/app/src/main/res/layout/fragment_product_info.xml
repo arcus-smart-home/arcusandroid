@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:background="@color/black_with_35"
+    android:paddingTop="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:customFont="light"
+            android:textColor="@color/overlay_white_with_60" />
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/device_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:customFont="italic"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="20dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="10"
+
+            android:background="#cececece"
+            android:paddingBottom="20dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_manufacturer_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:text="BRAND"
+                android:textColor="@color/overlay_white_with_60"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/lowes_item_number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/product_item_number_label"
+                android:textColor="@color/overlay_white_with_60"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/lowes_model_number_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="MODEL NO"
+                android:textColor="@color/overlay_white_with_60"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_certification_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="CERTIFICATION"
+                android:textColor="@color/overlay_white_with_60"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_last_paired_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="LAST PAIRED"
+                android:textColor="@color/overlay_white_with_60"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_hub_id_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="HUB ID"
+                android:textColor="@color/overlay_white_with_60"
+                android:visibility="gone"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_install_date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="INSTALL DATE"
+                android:textColor="@color/overlay_white_with_60"
+                android:visibility="gone"
+                app:customFont="light" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_last_contact_title"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:text="LAST CONTACT"
+                android:textColor="@color/overlay_white_with_60"
+                android:visibility="gone"
+                app:customFont="light" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="20dp">
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_manufacturer"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:textColor="@android:color/white"
+                app:customFont="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_item_number"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:textStyle="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_model_number"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                app:customFont="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_certification"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                app:customFont="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_last_paired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                app:customFont="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_hub_id"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                app:customFont="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_install_date"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                app:customFont="italic" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/device_last_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                app:customFont="italic" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/product_info_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="10"
+
+                android:background="#cececece"
+                android:paddingBottom="20dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/device_wireless_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WIRELESS"
+                    app:customFont="light"
+                    android:textColor="@color/overlay_white_with_60" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/device_wireless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="IPCD"
+                    app:customFont="italic"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/firmware_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FIRMWARE"
+                    app:customFont="light"
+                    android:textColor="@color/overlay_white_with_60" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/device_firmware"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    tools:text="1.0.0.12"
+                    app:customFont="italic"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/product_info_mac_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="10"
+
+                android:background="#cececece"
+                android:paddingBottom="20dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/mac_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MAC ADDRESS"
+                    app:customFont="light"
+                    android:textColor="@color/overlay_white_with_60" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/device_mac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:customFont="italic"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nest_info"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="10"
+
+                android:background="#cececece"
+                android:paddingBottom="20dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            app:customFont="italic"
+            android:text="@string/nest_more_copy"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:text="@string/nest_room"
+                    app:customFont="light"
+                    android:textColor="@color/overlay_white_with_60" />
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/nest_templock"
+                    app:customFont="light"
+                    android:textColor="@color/overlay_white_with_60" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/nest_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:textColor="@android:color/white"
+                    tools:text="My room"
+                    app:customFont="italic" />
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/nest_templock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="5dp"
+                    app:customFont="italic"
+                    tools:text="Off"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hue_hub_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="10"
+
+                android:background="#cececece"
+                android:paddingBottom="20dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/hub_firmware_version"
+                android:gravity="end"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                app:customFont="light"
+                android:textColor="@color/overlay_white_with_60"/>
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/hue_hub_firmware_version"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                app:customFont="italic"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/ip_address"
+                android:gravity="end"
+                app:customFont="light"
+                android:textColor="@color/overlay_white_with_60"/>
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/hue_hub_firmware_internal_ip_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                app:customFont="italic"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lutron_bridge_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="10"
+
+                android:background="#cececece"
+                android:paddingBottom="20dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lutron_bridge_info_operating_mode"
+                android:gravity="end"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                app:customFont="light"
+                android:textColor="@color/overlay_white_with_60"/>
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/lutron_bridge_operating_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                app:customFont="italic"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/lutron_bridge_info_serial_number"
+                android:gravity="end"
+                app:customFont="light"
+                android:textColor="@color/overlay_white_with_60"/>
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/lutron_bridge_serial_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                app:customFont="italic"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/device_info_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="10"
+
+                android:background="#cececece"
+                android:paddingBottom="20dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/device_information_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            app:customFont="light"
+            tools:text="SOME VALUE"
+            android:textColor="@color/overlay_white_with_60" />
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/device_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            app:customFont="italic"
+            tools:text="Some other text"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_13"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/favorites_settings_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/favorites_settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/dashboard_settings_favorites_top"
+            app:scleraFontStyle="demi"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/favorites_settings_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/favorites_settings_title"
+            android:text="@string/dashboard_settings_favorites_bottom"
+            app:scleraFontStyle="normal"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/dashboard_settings_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/chevron"
+            tools:src="@drawable/chevron" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <arcus.app.common.view.ScleraDivider
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cards_settings_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/cards_settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/dashboard_settings_cards_top"
+            app:scleraFontStyle="demi" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/cards_settings_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/cards_settings_title"
+            android:text="@string/dashboard_settings_cards_bottom"
+            app:scleraFontStyle="normal"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/dashboard_settings_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/chevron"
+            tools:src="@drawable/chevron" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <arcus.app.common.view.ScleraDivider
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/background_photo_settings_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20">
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/background_photo_settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/dashboard_settings_photo_top"
+            app:scleraFontStyle="demi" />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/background_photo_settings_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/background_photo_settings_title"
+            android:text="@string/dashboard_settings_photo_bottom"
+            app:scleraFontStyle="normal"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/dashboard_settings_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/chevron"
+            tools:src="@drawable/chevron" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <arcus.app.common.view.ScleraDivider
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/dev_settings_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        android:visibility="gone" >
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/dev_settings_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/debug_menu_dashboard_settings_dev_tools_top"
+            app:scleraFontStyle="demi"/>
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/dev_settings_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/dev_settings_title"
+            android:text="@string/debug_menu_dashboard_settings_dev_tools_bottom"
+            app:scleraFontStyle="normal"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/dashboard_settings_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/chevron"
+            tools:src="@drawable/chevron" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <arcus.app.common.view.ScleraDivider
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1" />
+
+</LinearLayout>

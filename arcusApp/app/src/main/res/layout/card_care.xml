@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<arcus.app.subsystems.care.view.CareCardItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainCardLayout">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            tools:background="@color/black_with_35"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/care_alert_left_waves"
+                    android:src="@drawable/icon_small_wavesleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    />
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_service_care" />
+                <ImageView
+                    android:id="@+id/care_alert_right_waves"
+                    android:src="@drawable/icon_small_wavesright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/card_care_title"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/care_alerting_container"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom|center_horizontal"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/care_device_alerting_icon"
+                        android:contentDescription="@string/care_alarm_icon_content_description"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/icon_service_care"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/care_alerting_title"
+                        android:textColor="@color/white"
+                        android:text="@string/care_alarm_alerting_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/care_device_alerting_name"
+                        android:layout_toRightOf="@+id/care_device_alerting_icon"
+                        android:layout_toEndOf="@+id/care_device_alerting_icon"/>
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/care_device_alerting_name"
+                        android:textColor="@color/overlay_white_with_60"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/care_device_alerting_icon"
+                        android:layout_toEndOf="@+id/care_device_alerting_icon"
+                        android:layout_toRightOf="@+id/care_device_alerting_icon"/>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/care_dash_timeline_container"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:layout_alignBottom="@+id/care_details"
+                    android:layout_alignTop="@+id/care_details"
+                    android:orientation="horizontal">
+
+                    <arcus.app.common.view.ActivityEventView
+                        android:id="@+id/care_activity_timeline"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/care_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/care_dash_timeline_container"
+                    android:orientation="vertical"
+                    android:gravity="bottom|right">
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/care_on_off_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:textColor="@color/overlay_white_with_60"
+                        android:textSize="12sp" />
+
+                    <!-- Need to worry about elipsize? -->
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/care_behaviors_active"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_with_10"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</arcus.app.subsystems.care.view.CareCardItemView>

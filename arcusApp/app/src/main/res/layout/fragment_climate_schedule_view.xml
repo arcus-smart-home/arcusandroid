@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/fragment_climate_schedule_off"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/fragment_climate_schedule_off_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="OFF"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/outline_rounded_button_style"/>
+
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:text="@string/climate_thermostat_schedule_disable_title"
+            android:layout_gravity="center"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/overlay_white_with_60"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/climate_thermostat_schedule_disable_des"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragment_climate_schedule_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_climate_schedule_view_add_event_btn"
+            android:orientation="vertical">
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/fragment_climate_schedule_view_mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="COOL"
+                android:textColor="@color/white"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/outline_rounded_button_style"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <!-- TODO: Hidden per ITWOK-1332 -->
+                <arcus.app.common.view.Version1TextView
+                    android:visibility="invisible"
+                    android:id="@+id/fragment_climate_schedule_view_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/overlay_white_with_60"
+                    android:text="@string/next_event_label"/>
+
+                <!-- TODO: Hidden per ITWOK-1332 -->
+                <arcus.app.common.view.Version1TextView
+                    android:visibility="invisible"
+                    android:id="@+id/fragment_climate_schedule_view_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/overlay_white_with_10"/>
+
+            <RadioGroup
+                android:id="@+id/day_of_week_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="7"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_monday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="50dp"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_monday_abrev"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/radio_tuesday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="50dp"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_tuesday_abrev"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/radio_wednesday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:minHeight="50dp"
+                    android:layout_weight="1"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_wednesday_abrev"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/radio_thursday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:minHeight="50dp"
+                    android:layout_weight="1"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_thursday_abrev"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/radio_friday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:minHeight="50dp"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_friday_abrev"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/radio_saturday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:minHeight="50dp"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_saturday_abrev"
+                    android:textStyle="bold"/>
+
+                <RadioButton
+                    android:id="@+id/radio_sunday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:minHeight="50dp"
+                    android:textColor="@drawable/day_of_week_radio_drawable_white"
+                    android:background="@drawable/day_of_week_radio_drawable_white"
+                    android:text="@string/scene_sunday_abrev"
+                    android:textStyle="bold"/>
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/overlay_white_with_10"/>
+
+            <com.dexafree.materialList.view.MaterialListView
+                android:layout_marginTop="10dp"
+                app:column_count="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/material_listview"/>
+
+
+        </LinearLayout>
+
+
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/fragment_climate_schedule_view_add_event_btn"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:text="ADD EVENT"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            app:buttonFont="demi" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

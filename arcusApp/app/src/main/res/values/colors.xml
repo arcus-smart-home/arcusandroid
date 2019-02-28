@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources>
+
+    <color name="arcus_teal">#00BFB3</color>
+    <color name="arcus_light_blue">#0095C8</color>
+
+    <color name="overlay_white_with_100">#FFFFFFFF</color>
+    <color name="overlay_white_with_60">#99FFFFFF</color>
+    <color name="overlay_white_with_50">#80FFFFFF</color>
+    <color name="overlay_white_with_40">#66FFFFFF</color>
+    <color name="overlay_white_with_10">#1AFFFFFF</color>
+    <color name="overlay_white_with_20">#33FFFFFF</color>
+    <color name="overlay_white_with_5">#0DFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="black_with_5">#0D000000</color>
+    <color name="black_with_10">#1A000000</color>
+    <color name="black_with_20">#33000000</color>
+    <color name="black_with_35">#59000000</color>
+    <color name="black_with_60">#99000000</color>
+    <color name="black_with_80">#CC000000</color>
+    <color name="arcus_dark_gray">#222222</color>
+    <color name="arcus_gray">#454345</color>
+    <color name="arcus_med_light_gray">#C3C3C3</color>
+    <color name="arcus_light_gray">#ececec</color>
+    <color name="arcus_purple">#3C1053</color>
+    <color name="arcus_pale_purple">#775B86</color>
+    <color name="listview_normal">#333333</color>
+    <color name="navdrawer_normal">#FEFEFE</color>
+    <color name="divider_color">#A7AFB9</color>
+    <color name="pink_banner">#E1185C</color>
+
+    <!--DeviceSeekArc-->
+    <color name="progress_gray">#FFD8D8D8</color>
+    <color name="cool_gradient_blue">#FF147EC8</color>
+    <color name="cool_gradient_white">#90FFFFFF</color>
+    <color name="heat_gradient_orange">#B0EF7E32</color>
+    <color name="heat_gradient_red">#FFE6442E</color>
+
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_with_10">#1AFFFFFF</color>
+    <color name="white_with_15">#26FFFFFF</color>
+    <color name="white_with_20">#33FFFFFF</color>
+    <color name="white_with_25">#40FFFFFF</color>
+    <color name="white_with_30">#4DFFFFFF</color>
+    <color name="white_with_35">#59FFFFFF</color>
+    <color name="white_with_40">#66FFFFFF</color>
+    <color name="white_with_45">#73FFFFFF</color>
+    <color name="white_with_50">#80FFFFFF</color>
+    <color name="white_with_55">#8CFFFFFF</color>
+    <color name="white_with_60">#99FFFFFF</color>
+    <color name="white_with_65">#A6FFFFFF</color>
+    <color name="white_with_70">#B3FFFFFF</color>
+    <color name="white_with_75">#BFFFFFFF</color>
+    <color name="white_with_80">#CCFFFFFF</color>
+    <color name="white_with_85">#D9FFFFFF</color>
+    <color name="white_with_90">#E6FFFFFF</color>
+    <color name="white_with_95">#F2FFFFFF</color>
+    <color name="white_with_100">#FFFFFFFF</color>
+
+    <color name="care_alarm_purple">#FF4D468F</color>
+    <color name="care_alarm_light_purple">#FF9490BC</color>
+
+    <color name="early_warning_color">#FFFFC000</color>
+    <color name="weather_alert_color">#FF0000FF</color>
+
+    <color name="security_color">#0056AE</color>
+    <color name="waterleak_color">#0097AE</color>
+    <color name="safety_color">#AE0007</color>
+    <color name="panic_color">#8C8C8C</color>
+    <color name="unselected_circle_color">#A7A7A7</color>
+
+    <color name="alarm_confirm_button_enabled_color">#E1185C</color>
+    <color name="alarm_cancel_button_enabled_color">#00AEEF</color>
+    <color name="alarm_button_disabled_color">#999999</color>
+
+    <color name="safety_background_color">#EFCCCD</color>
+    <color name="security_background_color">#CCDDEF</color>
+    <color name="panic_background_color">#E8E8E8</color>
+    <color name="waterleak_background_color">#CCEAEF</color>
+
+    <!-- Login -->
+    <color name="arcus_pale_grey">#F0F0F0</color>
+
+    <!-- Confetti -->
+    <color name="pink_confetto">#E80058</color>
+    <color name="purple_confetto">#320043</color>
+    <color name="yellow_confetto">#FDAA09</color>
+    <color name="blue_confetto">#1083C0</color>
+    <color name="turqoise_confetto">#17B3A3</color>
+
+    <!-- Santa -->
+    <color name="santa_arcus_red">#FFBD202A</color>
+
+
+    <color name="mock_background_color">#FFB0C7D8</color>
+
+    <color name="dashboard_divider">@color/black_with_20</color>
+
+    <color name="error_yellow">#ffb500</color>
+</resources>

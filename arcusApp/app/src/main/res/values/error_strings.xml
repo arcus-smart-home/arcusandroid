@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!DOCTYPE resources [
+    <!ENTITY arcusportal "https://home.example.com">
+    ]>
+<resources>
+    <!-- GENERIC -->
+    <string name="try_again_text">Try Again</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="error_generic_text">Please try again. If this issue persists, please call 555&#8211;1212</string>
+    <string name="error_generic_title">Hmmm, Something’s Wrong</string>
+    <string name="error_generic_accept">Ok</string>
+    <string name="error_generic_reject">Call Support</string>
+    <string name="error_hub_already_paired">Hub already paired</string>
+    <string name="error_hub_already_paired_desc">\nOnly 1 Hub can be paired to each Place.\n</string>
+
+    <!-- LOGIN TITLE -->
+    <string name="invalid_username_password_title">Invalid Email or Password</string>
+    <string name="login_password_reset_title">Oops!</string>
+    <string name="login_password_reset_body">Unable to reset password, perhaps try again.</string>
+    <string name="invalid_email_title">EMAIL ERROR</string>
+    <string name="invalid_email_body">This is not a valid email address.\nPlease try again.</string>
+    
+    <!-- LOGIN TEXT -->
+    <string name="invalid_username_password_text">The email and password you entered do not match. Please try again.</string>
+
+    <!-- HUB TITLE -->
+    <string name="hub_id_invalid_title">Invalid Hub ID</string>
+    <string name="hub_search_timeout_title">Hub Not Found</string>
+    <string name="hub_firmware_alarm_on_title">Alarm On, Cannot Update</string>
+
+    <!-- HUB TEXT -->
+    <string name="hub_id_invalid_text">Ensure your hub ID is correct and try again.</string>
+    <string name="hub_search_timeout_text">Do you want to keep looking?</string>
+    <string name="hub_firmware_alarm_on_text">Please disarm your alarm, then return to this page to update the hub\'s firmware.</string>
+    <string name="hub_reboot_failed">Failed to reboot hub.</string>
+
+    <!-- BILLING TITLE -->
+    <string name="billing_error_title_default">Oops, That\'s not Right</string>
+    <string name="billing_error_title_declined_card_number">Invalid/Declined Credit Card Number</string>
+    <string name="billing_error_title_declined_security_code">Security Code Doesn\'t Match</string>
+    <string name="billing_error_title_expired_card">Expired Credit Card</string>
+    <string name="billing_error_title_transaction_unsuccessful">Transaction Unsuccessful</string>
+    <string name="billing_error_title_declined_expiration_date">Invalid/Incorrect Expiration Date</string>
+    <string name="billing_error_title_invalid_merchant_type">Invalid Credit Card</string>
+    <string name="billing_error_title_card_type_not_accepted">Card Type Not Accepted</string>
+    <string name="billing_error_title_restricted_card">Restricted Credit Card</string>
+    <string name="billing_error_title_card_not_activated">Card Not Activated</string>
+    <string name="billing_error_title_fraud_address">Declined - Incorrect Billing Address</string>
+    <string name="billing_error_title_fraud_stolen_card">Declined</string>
+    <string name="billing_error_title_invalid_login">Transaction Unsuccessful</string>
+
+    <!--BILLING TEXT -->
+    <string name="billing_error_default">Please try again or contact support at 555&#8211;1212</string>
+    <string name="billing_error_declined_card_number">Please update your card number and try again.</string>
+    <string name="billing_error_taken_simulataneous">Your card was not charged. Please wait 10 seconds before trying again.</string>
+    <string name="billing_error_declined_security_code">Please update the CVV and try again.</string>
+    <string name="billing_error_expired_card">Please update your card and try again.</string>
+    <string name="billing_error_declined_expiration_date">Please update the expiration date and try again.</string>
+    <string name="billing_error_invalid_merchant_type">This card is not allowed to complete this transaction. Please try another card.</string>
+    <string name="billing_error_card_type_not_accepted">Please use a different credit card.</string>
+    <string name="billing_error_restricted_card">Please contact your issuing bank for details, or try another card.</string>
+    <string name="billing_error_card_not_activated">Please call your bank to activate your card and try again.</string>
+    <string name="billing_error_fraud_address">Billing address doesn\'t match address on your account. Please fix your address or contact your bank.</string>
+    <string name="billing_error_fraud_stolen_card">Please use a different card or contact your bank.</string>
+    <string name="billing_error_invalid_login">Your card was not charged. Please contact support at 555&#8211;1212</string>
+
+    <!-- DEVICE (GENERAL) TITLE -->
+    <string name="device_pairing_mode_timeout_title">Pairing Mode Has Timed Out</string>
+
+    <!-- DEVICE (GENERAL) TEXT -->
+    <string name="device_pairing_mode_timeout_text">Do you want to keep looking?</string>
+
+    <!-- MAGIC RULES TITLE -->
+    <string name="rule_requires_premium_title">Rules Require Premium Plan</string>
+    <string name="rule_instruct_where_to_add_title">Activate Rules</string>
+
+    <!-- MAGIC RULES TEXT -->
+    <string name="rule_requires_premium_text">Log in to &arcusportal; to upgrade.</string>
+    <string name="rule_instruct_where_to_add_text">Tap on Rules in the side menu and browse the Buttons &amp; Fobs category.</string>
+
+    <!-- NO NETWORK CONNECTION -->
+    <string name="no_network_connection_title">Phone offline.</string>
+    <string name="no_network_connection_message">Check Internet connection.</string>
+
+    <!-- SIGN_UP_TITLE -->
+    <string name="email_already_registered_title">Email Already Registered</string>
+
+    <!-- SIGN_UP_TEXT -->
+    <string name="email_already_registered_text">This email is associated with an existing Arcus account. Please choose another one.</string>
+    <string name="email_not_available_text">This email address is not available. Choose a different address.</string>
+
+    <!-- Pin Codes Titles -->
+    <string name="pin_code_not_match_title">PIN CODES DO NOT MATCH</string>
+
+    <!-- Pin Codes Text -->
+    <string name="pin_code_not_match_text">\nPlease re-enter the PIN Code.\n</string>
+
+    <!-- Pin Codes Not Unique text -->
+    <string name="pin_code_not_unique_title">PIN CODE NOT AVAILABLE</string>
+
+    <!-- Pin Codes Not Unique Text -->
+    <string name="pin_code_not_unique_text">\nPlease choose a different PIN code.\n</string>
+
+    <!-- Emails don't match -->
+    <string name="email_addresses_not_match_title">EMAIL ADDRESSES DO NOT MATCH\n</string>
+    <string name="email_addresses_not_match_text">The Email and Confirm Email Address\nfields do not match. Please try again.\n</string>
+
+    <!-- Emails required -->
+    <string name="email_address_required_title">EMAIL REQUIRED\n</string>
+    <string name="email_address_required_text">Email is required for full access.\n</string>
+
+    <!-- Phone number required -->
+    <string name="phone_number_required_title">PHONE NUMBER REQUIRED\n</string>
+    <string name="phone_number_required_text">Please provide a valid phone number.\n</string>
+</resources>

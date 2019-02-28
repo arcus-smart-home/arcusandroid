@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<arcus.app.subsystems.alarm.safety.view.SafetyAlarmCardItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainCardLayout">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/safety_alarm_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/icon_service_safetyalarm"
+                android:contentDescription="@string/history_image_acc_text" />
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="@string/safety_alarm_title"
+                android:textColor="@android:color/white"/>
+
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white_with_10"/>
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/safety_alarm_status"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textColor="@color/overlay_white_with_60"
+                app:customFont="italic"
+                android:layout_height="wrap_content"
+                />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_with_10"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</arcus.app.subsystems.alarm.safety.view.SafetyAlarmCardItemView>

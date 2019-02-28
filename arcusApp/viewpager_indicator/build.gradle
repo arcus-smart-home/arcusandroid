@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
+
+    compileSdkVersion compileSdk
+    buildToolsVersion androidToolsVersion
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+    }
+}
+
+dependencies {
+    implementation deps.v7Support
+}

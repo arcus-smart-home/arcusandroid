@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <android.support.v7.widget.AppCompatRadioButton
+        android:id="@+id/room_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:button="@drawable/sclera_checkbox_selector"
+        android:clickable="false"
+        tools:checked="true"
+        android:src="@drawable/outline_circle_button_black_style"/>
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/room_name"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/sclera_widget_edge_combined"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/sclera_widget_edge_combined"
+        android:textSize="@dimen/pt_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/room_selector"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scleraFontStyle="demi"
+        tools:text="This is a Halo Room"/>
+
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/room_name"
+        android:background="@color/sclera_divider_color"/>
+</android.support.constraint.ConstraintLayout>

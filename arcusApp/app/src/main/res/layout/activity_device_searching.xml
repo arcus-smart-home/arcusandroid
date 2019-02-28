@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context="arcus.app.pairing.device.searching.DeviceSearchingActivity"
+    tools:parent="arcus.app.pairing.device.productcatalog.ProductCatalogActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            tools:title="@string/add_device_title"
+            android:layout_above="@+id/device_searching_scrollbar"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="beforeDescendants"
+            android:gravity="center">
+
+            <!-- Once updating to Constraint Layout 1.1 change to use Barrier instead -->
+            <LinearLayout
+                android:id="@+id/image_container"
+                android:orientation="vertical"
+                android:paddingTop="29dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content">
+                <arcus.app.pairing.device.searching.PairingSearchAnimationView
+                    android:id="@+id/searching_animation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    />
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/no_devices_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/nodevice_90x90"
+                    />
+            </LinearLayout>
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/device_searching_title"
+                style="@style/ScleraLineSpacing.1.37"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+                android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+                android:paddingTop="25dp"
+                android:gravity="center_horizontal"
+                android:text="@string/device_searching_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/pt_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_container"
+                app:scleraFontStyle="demi" />
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/device_searching_description"
+                style="@style/ScleraLineSpacing.1.37"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+                android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+                android:layout_marginTop="12dp"
+                android:gravity="center_horizontal"
+                android:text="@string/device_searching_desc"
+                android:textColor="@color/black"
+                android:textSize="@dimen/pt_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/device_searching_title"
+                app:scleraFontStyle="normal" />
+
+            <LinearLayout
+                android:id="@+id/center_content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/device_searching_description"
+                tools:visibility="visible">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/sclera_divider_color" />
+
+                <arcus.app.common.view.ScleraTextView
+                    android:id="@+id/device_searching_troubleshooting_title"
+                    style="@style/ScleraLineSpacing.1.37"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+                    android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+                    android:layout_marginTop="42dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/device_searching_timout_troubleshooting_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/pt_18"
+                    android:visibility="gone"
+                    app:scleraFontStyle="bold"
+                    tools:visibility="visible" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_paired_device" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="26dp"
+                android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+                android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+                android:layout_marginTop="26dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/center_content_container"
+                app:layout_constraintVertical_bias="1.0">
+
+                <arcus.app.common.view.ScleraButton
+                    android:id="@+id/pair_device_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_searching_pair_device_button_text"
+                    android:textAllCaps="true"
+                    android:visibility="gone"
+                    android:layout_marginBottom="10dp"
+                    app:scleraButtonColor="purple"
+                    tools:visibility="visible" />
+
+                <arcus.app.common.view.ScleraButton
+                    android:id="@+id/go_to_dashboard_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_searching_button_text"
+                    android:textAllCaps="true"
+                    app:scleraButtonColor="purple_outline" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/focus_hog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/dp_24"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context="arcus.app.activities.GenericFragmentActivity">
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/alert_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sclera_alert_banner"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/warning_white_22x20"
+        android:paddingBottom="10dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="17dp"
+        android:paddingTop="10dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="@dimen/pt_12"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:text="@string/error_fix_highlight"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/scleraTextView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:gravity="center"
+        app:layout_constraintWidth_max="306dp"
+        android:text="@string/update_email_blurb"
+        android:textSize="@dimen/pt_18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alert_banner"
+        app:scleraFontStyle="normal"
+        />
+
+    <arcus.app.common.view.ScleraEditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="83dp"
+        android:hint="@string/login_email"
+        app:resettable="false"
+        android:imeOptions="actionDone"
+        android:inputType="textEmailAddress"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        app:layout_constraintBottom_toTopOf="@+id/update_and_resend_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scleraTextView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/update_and_resend_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sclera_button_to_button_spacing"
+        android:text="@string/update_and_resend_email"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        app:layout_constraintBottom_toTopOf="@+id/cancel_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:scleraButtonColor="purple"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/cancel_button"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textAllCaps="true"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:scleraButtonColor="purple_outline"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="arcus.app.pairing.device.steps.PairingStepsActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:descendantFocusability="beforeDescendants">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/bluetooth_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:src="@drawable/bluetooth_63x86"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <arcus.app.common.view.ScleraTextView
+            android:id="@+id/title"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginTop="26dp"
+            android:gravity="center_horizontal"
+            android:text="@string/ble_camera_choose_device_to_pair"
+            android:textSize="@dimen/pt_18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bluetooth_image"
+            app:scleraFontStyle="demi"
+            />
+
+        <arcus.app.common.view.ScleraLinkView
+            android:id="@+id/ble_need_help_link"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/pt_14"
+            tools:text="@string/don_t_see_your_ble_device"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searching_container"
+            />
+
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginTop="@dimen/dp_24"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:id="@+id/searching_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/scanning_block"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/ble_searching_for_devices"
+                />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/ScleraProgressIndeterminateBar"
+                android:theme="@style/ScleraProgressIndeterminateBar"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_2"
+                />
+        </LinearLayout>
+
+        <arcus.app.common.view.ScleraDivider
+            android:id="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@+id/ble_need_help_link"
+            android:layout_marginTop="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/scan_results"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_ble_device_select_result_row"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

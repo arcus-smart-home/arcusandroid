@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:background="@drawable/purple_gradient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:weightSum="2"
+        android:id="@+id/exit_view_container"
+        android:gravity="top|right|end"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:id="@+id/exit_view"
+            android:gravity="top|right|end"
+            android:layout_marginRight="5dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/button_close_box_white"
+                android:contentDescription="Close"
+                android:padding="@dimen/close_button_padding" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <arcus.app.common.view.Version1TextView
+        android:gravity="center"
+        app:customFont="bold"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/care_dont_behavior_manage_instruction"
+        android:id="@+id/view5"
+        android:layout_below="@+id/care_icon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp" />
+
+    <ImageView
+        android:id="@+id/care_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/service_care_icon"
+        android:layout_below="@+id/exit_view_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentEnd="false"
+        android:layout_marginBottom="15dp" />
+
+    <RelativeLayout
+        android:layout_below="@+id/view5"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
+
+        <ImageView
+            android:id="@+id/checkbox_care_dont_show_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/circle_check_white_filled"
+            android:layout_marginRight="10dp" />
+
+        <arcus.app.common.view.Version1TextView
+            android:gravity="center"
+            android:id="@+id/text_care_dont_show_again"
+            app:customFont="bold"
+            android:textColor="#BEC4DE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/care_dont_show_again"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/checkbox_care_dont_show_again"
+            android:layout_toEndOf="@+id/checkbox_care_dont_show_again" />
+    </RelativeLayout>
+
+    <!--TODO: Get asset for this card from UX-->
+
+    <ImageView
+        android:id="@+id/care_user_direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:src="@drawable/care_phone"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view4" />
+
+</RelativeLayout>
+    </LinearLayout>

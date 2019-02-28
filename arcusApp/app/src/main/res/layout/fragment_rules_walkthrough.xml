@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:weightSum="2"
+            android:id="@+id/exit_view_container"
+            android:gravity="top|right|end"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:id="@+id/exit_view"
+                android:gravity="top|right|end"
+                android:layout_width="0dp"
+                android:contentDescription="Close"
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/button_close_box_white"
+                    android:padding="@dimen/close_button_padding" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <arcus.app.common.view.Version1TextView
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="TITLE"
+            android:id="@+id/intro_arcus_title"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="15dp"
+            android:layout_below="@+id/exit_view_container"
+            android:textIsSelectable="false"
+            android:textSize="18sp"
+            app:customFont="demi" />
+
+        <arcus.app.common.view.Version1TextView
+            android:gravity="center"
+            android:textColor="@color/white_with_60"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Description"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/intro_arcus_des"
+            android:layout_below="@+id/intro_arcus_title"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="14sp"
+            app:customFont="demi" />
+
+        <RelativeLayout
+            android:id="@+id/motion_detected_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/intro_arcus_des"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp">
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/motion_detected_header"
+                android:gravity="center"
+                app:customFont="demi"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="When motion is detected..."
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp" />
+
+            <ImageView
+                android:gravity="center"
+                android:id="@+id/motion_detected_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/circle_hollow_white"
+                android:layout_below="@+id/motion_detected_header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/motion_detected_footer"
+                android:gravity="center"
+                app:customFont="demi"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="...turn on a light."
+                android:layout_below="@+id/motion_detected_image"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            tools:visibility="gone"
+            android:id="@+id/checkbox_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/intro_arcus_des"
+            android:layout_marginBottom="15dp"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/checkbox_climate_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/circle_hollow_white"
+                android:layout_marginRight="10dp" />
+
+            <arcus.app.common.view.Version1TextView
+                android:gravity="center"
+                android:id="@+id/text_dont_show_again"
+                app:customFont="demi"
+                android:textColor="@color/white_with_60"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/care_dont_show_again"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/checkbox_climate_image"
+                android:layout_toEndOf="@+id/checkbox_climate_image" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            tools:visibility="gone"
+            android:id="@+id/intro_arcus_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            tools:src="@drawable/care_phone"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/circle_indicator_view"
+            android:layout_below="@+id/checkbox_view" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/circle_indicator_view"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_with_30"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

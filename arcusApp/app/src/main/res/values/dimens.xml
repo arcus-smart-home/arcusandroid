@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="navigation_drawer_width">320dp</dimen>
+
+    <dimen name="edit_text_drawable_left_padding">25dp</dimen>
+
+    <dimen name="video_tab_bar_height">40dp</dimen>
+    <dimen name="sclera_video_tab_bar_height">50dp</dimen>
+
+    <dimen name="list_edittext_height">70dp</dimen>
+
+    <dimen name="santa_outer_padding">20dp</dimen>
+    <dimen name="santa_margin_and_or_padding">25dp</dimen>
+    <dimen name="santa_medium_space">15dp</dimen>
+    <dimen name="santa_small_space">10dp</dimen>
+    <dimen name="santa_divider_height">2px</dimen>
+
+    <dimen name="tiny_padding_margin">5dp</dimen>
+    <dimen name="normal_padding_margin">15dp</dimen>
+    <dimen name="xxxl_padding_margin">120dp</dimen>
+
+    <dimen name="medium_font_size">18sp</dimen>
+
+    <dimen name="layout_dashboard_card_margin">15dp</dimen>
+    <dimen name="dashboard_text_size">18sp</dimen>
+    <dimen name="dashboard_text_size_medium">16sp</dimen>
+    <dimen name="dashboard_text_size_mediumsmall">14sp</dimen>
+    <dimen name="dashboard_text_size_small">12sp</dimen>
+    <dimen name="dashboard_text_size_superscript">12sp</dimen>
+    <dimen name="dashboard_card_vertical_padding">15dp</dimen>
+    <dimen name="dashboard_card_vertical_padding_no_title">20dp</dimen>
+    <dimen name="close_button_padding">10dp</dimen>
+
+    <!-- Sclera dimensions -->
+    <dimen name="sclera_status_bar_top_margin">20dp</dimen>
+    <dimen name="sclera_screen_edge_LR_margin">17dp</dimen>
+    <dimen name="sclera_widget_edge_LR_padding">14dp</dimen>
+    <dimen name="sclera_widget_edge_combined">31dp</dimen>
+    <dimen name="sclera_edge_LR_margin_wide">45dp</dimen>
+    <dimen name="sclera_text_to_button_spacing">34dp</dimen>
+    <dimen name="sclera_title_to_description_spacing">11dp</dimen>
+    <dimen name="sclera_button_to_button_spacing">10dp</dimen>
+    <dimen name="sclera_button_to_text_spacing">26dp</dimen>
+    <dimen name="sclera_extra_page_indicator_spacing">12dp</dimen>
+    <dimen name="sclera_page_indicator_radius">3.5dp</dimen>
+    <dimen name="sclera_snackbar_height">80dp</dimen>
+
+    <dimen name="dp_313">313dp</dimen>
+    <dimen name="dp_306">306dp</dimen>
+    <dimen name="dp_250">250dp</dimen>
+    <dimen name="dp_155">155dp</dimen>
+    <dimen name="dp_147">147dp</dimen>
+    <dimen name="dp_120">120dp</dimen>
+    <dimen name="dp_95">95dp</dimen>
+    <dimen name="dp_90">90dp</dimen>
+    <dimen name="dp_80">80dp</dimen>
+    <dimen name="dp_68">68dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_45">45dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_40">40dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_35">35dp</dimen>
+    <dimen name="dp_34">34dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_27">27dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_14">14dp</dimen>
+    <dimen name="dp_13">13dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_7">7dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="match_constraint">@dimen/dp_0</dimen> <!-- Alias -->
+    <dimen name="horizontal_divider_height">1dp</dimen>
+    <dimen name="vertical_divider_width">1dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="pt_24">24sp</dimen>
+    <dimen name="pt_20">20sp</dimen>
+    <dimen name="pt_18">18sp</dimen>
+    <dimen name="pt_16">16sp</dimen>
+    <dimen name="pt_14">14sp</dimen>
+    <dimen name="pt_12">12sp</dimen>
+
+    <dimen name="sclera_linespacingMultipler">1.37</dimen>
+    <dimen name="sclera_linespacingAdd">1.37sp</dimen>
+</resources>

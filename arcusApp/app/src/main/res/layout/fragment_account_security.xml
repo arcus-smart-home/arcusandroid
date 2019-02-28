@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_account_parent_relative"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin">
+
+    <arcus.app.common.view.Version1Button
+        android:id="@+id/fragment_account_parent_continue_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/registration_button_height"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:text="@string/account_registration_next_btn"
+        app:buttonFont="demi"
+        app:tracking="true" />
+
+    <arcus.app.common.view.Version1TextView
+        android:textSize="15sp"
+        android:textColor="@color/black_with_80"
+        android:gravity="center"
+        app:tracking="true"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/registration_home_wallpaper"
+        android:layout_gravity="center"/>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginBottom="50dp"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/security_questions_defined">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_registration_question1_hint"
+                    android:textSize="12sp"
+                    android:layout_gravity="start"
+                    android:textColor="@color/arcus_gray"/>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_account_security_one_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/fragment_account_security_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="question one"
+                        android:textColor="@color/black"
+                        android:layout_toLeftOf="@+id/question_one_chevron"
+                        />
+                    <ImageView
+                        android:id="@id/question_one_chevron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chevron" />
+                </RelativeLayout>
+
+                <arcus.app.common.view.Version1EditText
+                    android:id="@+id/fragment_account_security_one_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/account_registration_answer_hint"
+                    android:singleLine="true"
+                    app:met_floatingLabelText="Answer"
+                    android:layout_marginTop="5dp"
+                    android:inputType="textPassword"
+                    android:nextFocusDown="@+id/fragment_account_security_two_answer"/>
+
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_registration_question2_hint"
+                    android:textSize="12sp"
+                    android:textColor="@color/arcus_gray"/>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_account_security_two_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/fragment_account_security_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="question one"
+                        android:textColor="@color/black"
+                        android:layout_toLeftOf="@+id/question_two_chevron"
+                        />
+                    <ImageView
+                        android:id="@id/question_two_chevron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chevron" />
+                </RelativeLayout>
+
+                <arcus.app.common.view.Version1EditText
+                    android:id="@+id/fragment_account_security_two_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/account_registration_answer_hint"
+                    android:singleLine="true"
+                    app:met_floatingLabelText="Answer"
+                    android:layout_marginTop="5dp"
+                    android:inputType="textPassword"
+                    android:nextFocusDown="@+id/fragment_account_security_three_answer"/>
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_registration_question3_hint"
+                    android:textSize="12sp"
+                    android:textColor="@color/arcus_gray"/>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_account_security_three_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/fragment_account_security_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="question one"
+                        android:textColor="@color/black"
+                        android:layout_toLeftOf="@+id/question_three_chevron"
+                        />
+                    <ImageView
+                        android:id="@id/question_three_chevron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chevron" />
+                </RelativeLayout>
+
+                <arcus.app.common.view.Version1EditText
+                    android:id="@+id/fragment_account_security_three_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/account_registration_answer_hint"
+                    android:singleLine="true"
+                    android:layout_marginTop="5dp"
+                    app:met_floatingLabelText="Answer"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/registration_security_questions"
+            android:textSize="12sp"
+            android:layout_gravity="start"
+            android:textColor="@color/arcus_gray"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/security_questions_defined" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+

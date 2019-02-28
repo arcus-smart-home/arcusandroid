@@ -1,0 +1,305 @@
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context="arcus.app.subsystems.alarm.promonitoring.ProMonitoringIncidentFragment">
+
+    <LinearLayout
+        android:id="@+id/button_region"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible" >
+
+            <arcus.app.common.view.Version1ImageButton
+                android:id="@+id/confirm_button"
+                android:layout_width="0px"
+                android:layout_height="@dimen/registration_button_height"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/alarm_confirm_button_enabled_color"
+                android:src="@drawable/promon_security_confirm_alarm"
+                android:visibility="gone"
+                app:buttonFont="demi"
+                tools:visibility="visible" />
+
+            <arcus.app.common.view.Version1ImageButton
+                android:id="@+id/cancel_button"
+                android:layout_width="0px"
+                android:layout_height="@dimen/registration_button_height"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/alarm_cancel_button_enabled_color"
+                android:src="@drawable/promon_security_cancel_alarm"
+                app:buttonFont="demi"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hub_offline_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:background="@color/pink_banner" >
+
+            <ImageView
+                android:id="@+id/hub_offline_banner_alarm_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
+                android:src="@drawable/icon_alert_noconnection" />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/hub_offline_banner_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:customFont="demi"
+                tools:text="Hub Lost Connection at {hubconn:lastchange}" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:background="@color/black_with_10" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/strut"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:background="@color/black_with_10" />
+
+        <RelativeLayout
+            android:id="@+id/incident_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignBottom="@id/strut"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="1dp"
+            android:background="#FFFFFF"
+            android:paddingBottom="14dp"
+            android:paddingTop="20dp"
+            tools:visibility="visible"
+            android:visibility="invisible">
+
+            <RelativeLayout
+                android:id="@+id/header_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:id="@+id/location_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/place_name"
+                    android:src="@drawable/place_pin" />
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@id/place_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:customFont="demi"
+                    tools:text="SPIDER\'S NEST" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/header_list"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+
+                    <arcus.app.common.view.IncidentCircleView
+                        android:id="@+id/dashed_circle_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:minHeight="150dp"
+                        android:minWidth="150dp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/alarm_image_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2">
+
+                    <arcus.app.common.view.IncidentCircleView
+                        android:id="@+id/dashed_circle_middle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:minHeight="150dp"
+                        android:minWidth="150dp" />
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/alarm_countdown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/black_with_35"
+                        android:textSize="24sp"
+                        android:visibility="gone"
+                        tools:text="30" />
+
+                    <ImageView
+                        android:id="@+id/alarm_image_middle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:visibility="invisible">
+
+                    <arcus.app.common.view.IncidentCircleView
+                        android:id="@+id/dashed_circle_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:background="@android:color/transparent"
+                        android:minHeight="150dp"
+                        android:minWidth="150dp"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/alarm_image_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/promon_image_list"
+                android:orientation="vertical">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/incident_step_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dashboard_text_size"
+                    app:customFont="demi"
+                    tools:text="Monitoring Station Alerted" />
+
+                <ImageView
+                    android:id="@+id/promon_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    tools:visibility="visible"
+                    android:src="@drawable/probadge_icon" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@id/promon_image_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/strut"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/historyRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

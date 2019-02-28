@@ -1,0 +1,169 @@
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/alert_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/icon_alert_noconnection"
+        android:padding="10dp"
+        android:drawablePadding="15dp"
+        android:background="@color/pink_banner"
+        android:textColor="@android:color/white"
+        android:text="@string/error_fix_highlight"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:id="@+id/scroll_container"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/alert_banner"
+        android:background="@color/white">
+
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/loginLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:paddingBottom="@dimen/dp_24"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/header_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_30"
+                android:src="@drawable/key_90x90"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/email_sent_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:gravity="center"
+                android:text="@string/forgot_password_email_sent"
+                android:textColor="@color/arcus_gray"
+                app:scleraFontStyle="demi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_image" />
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/forgot_password_text_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/contact_support_forgot_password"
+                android:textColor="@color/arcus_gray"
+                android:layout_marginTop="@dimen/dp_24"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_sent_text"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <arcus.app.common.view.ScleraEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_email"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="@dimen/dp_20"
+                app:clearable="true"
+                app:resettable="false"
+                app:met_errorColor="@color/sclera_alert"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_3"
+                />
+
+            <arcus.app.common.view.ScleraEditText
+                android:id="@+id/etCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/forgot_password_code"
+                android:inputType="text"
+                app:resettable="false"
+                android:layout_marginTop="@dimen/dp_5"
+                app:layout_goneMarginTop="@dimen/dp_20"
+                app:met_errorColor="@color/sclera_alert"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email" />
+
+            <arcus.app.common.view.ScleraEditText
+                android:id="@+id/etNewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/forgot_password_new_password"
+                android:inputType="textPassword"
+                app:showable="true"
+                app:resettable="false"
+                android:layout_marginTop="@dimen/dp_5"
+                app:met_errorColor="@color/sclera_alert"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etCode" />
+
+            <arcus.app.common.view.ScleraEditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/forgot_password_confirm_password"
+                android:inputType="textPassword"
+                app:showable="true"
+                app:resettable="false"
+                android:layout_marginTop="@dimen/dp_5"
+                app:met_errorColor="@color/sclera_alert"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNewPassword" />
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/password_requirements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_28"
+                android:text="@string/forgot_password_password_requirements"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
+
+            <arcus.app.common.view.ScleraButtonWithProgress
+                android:id="@+id/fragment_email_sent_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:text="@string/submit"
+                app:scleraButtonColor="purple"
+                app:buttonText="@string/submit"
+                app:layout_constraintTop_toBottomOf="@+id/password_requirements"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

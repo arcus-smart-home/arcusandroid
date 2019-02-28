@@ -1,0 +1,21 @@
+# App/build files
+*.apk
+*.ap_
+*.dex
+*.class
+build/
+captures/
+
+# IDE Specific Files
+*.iml
+*.ipr
+*.iws
+local.properties
+.idea/
+
+# Mainly because of the cache...
+.gradle/
+
+# Mac files
+.DS_Store
+*.hprof

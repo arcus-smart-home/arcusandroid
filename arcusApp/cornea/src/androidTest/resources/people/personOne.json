@@ -1,0 +1,24 @@
+{
+  "base:caps": [
+    "person",
+    "base"
+  ],
+  "person:mobileNumber": "(555) 555-1212",
+  "person:hasLogin": true,
+  "person:mobileNotificationEndpoints": [],
+  "person:email": "person@person.com",
+  "person:consentStatement": 0,
+  "base:id": "69852cea-2dd7-40d4-851d-026df9db4fdb",
+  "base:address": "SERV:person:69852cea-2dd7-40d4-851d-026df9db4fdb",
+  "person:currPlace": "c8f1e012-cab6-4b3d-a23d-0da42c2b6d68",
+  "person:firstName": "First Name",
+  "base:tags": [],
+  "base:type": "person",
+  "person:placesWithPin": [
+    "c60e7034-44f0-46a2-aae3-fc77fb566858"
+  ],
+  "person:consentOffersPromotions": 1466639167095,
+  "person:lastName": "Last Name",
+  "person:hasPin": true,
+  "base:images": {}
+}

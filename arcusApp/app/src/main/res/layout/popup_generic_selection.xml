@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <arcus.app.common.view.ScleraTextView
+        android:id="@+id/title"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:gravity="center_horizontal"
+        android:text="@string/wifi_security_setting_title"
+        android:textSize="@dimen/pt_18"
+        android:textColor="@color/sclera_text_color_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:scleraFontStyle="demi"
+        />
+
+    <arcus.app.common.view.ScleraDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/horizontal_divider_height"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        />
+
+    <arcus.app.common.view.ScleraNumberPicker
+        android:id="@+id/wifi_security_choices"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/match_constraint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/save_button"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+        android:text="@string/save_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wifi_security_choices"
+        app:scleraButtonColor="purple"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/cancel_button"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save_button"
+        app:scleraButtonColor="purple_outline"
+        />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@+id/cancel_button"
+        />
+
+</android.support.constraint.ConstraintLayout>

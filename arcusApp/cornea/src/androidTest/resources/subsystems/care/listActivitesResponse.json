@@ -1,0 +1,61 @@
+{
+  "type": "subcare:ListActivityResponse",
+  "headers": {
+    "isRequest": false,
+    "correlationId": "ca2ed9dd-78cb-4a9e-ac33-d745af65497f",
+    "source": "SERV:subcare:2e37d90f-a1df-491f-b5f2-242f4f4833c4"
+  },
+  "payload": {
+    "messageType": "subcare:ListActivityResponse",
+    "attributes": {
+      "intervals": [
+        {
+          "devices": {
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456462800000
+        },
+        {
+          "devices": {
+            "DRIV:dev:ca5ab484-c5b7-4804-b25c-10d3f54d78f4": "ACTIVATED",
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456512000000
+        },
+        {
+          "devices": {
+            "DRIV:dev:ca5ab484-c5b7-4804-b25c-10d3f54d78f4": "DEACTIVATED",
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456512300000
+        },
+        {
+          "devices": {
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456512600000
+        },
+        {
+          "devices": {
+            "DRIV:dev:1da001c5-581b-42a9-af27-a6a5ca837842": "ACTIVATED",
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456522500000
+        },
+        {
+          "devices": {
+            "DRIV:dev:1da001c5-581b-42a9-af27-a6a5ca837842": "DEACTIVATED",
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456522800000
+        },
+        {
+          "devices": {
+            "DRIV:dev:1abb81ca-a7dc-4b73-9022-d315abc52fee": "ACTIVATED"
+          },
+          "start": 1456523100000
+        }
+      ]
+    }
+  }
+}

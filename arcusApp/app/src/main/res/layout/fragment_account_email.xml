@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_account_parent_relative"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+
+    <arcus.app.common.view.Version1Button
+        android:id="@+id/fragment_account_parent_continue_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/registration_button_height"
+        android:layout_alignParentBottom="true"
+        android:text="@string/account_registration_next_btn"
+        android:textColor="@color/white"
+        app:buttonFont="demi"
+        app:tracking="true" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <arcus.app.common.view.Version1EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/forgot_password_email_hint"
+            android:textColorHint="@color/black"
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@+id/etPassword" />
+
+        <arcus.app.common.view.Version1EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            android:hint="@string/sign_up_password_hint"
+            android:inputType="textPassword"
+            android:nextFocusDown="@+id/etVerifyPassword" />
+
+        <arcus.app.common.view.Version1EditText
+            android:id="@+id/etVerifyPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sign_up_confirm_password_hint"
+            android:textColorHint="@color/black"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword" />
+
+        <arcus.app.common.view.Version1TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black_with_60"
+            android:gravity="left"
+            android:text="@string/sign_up_password_prompt1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:button="@null"
+                android:drawableLeft="@drawable/checkbox_selector"
+                android:drawablePadding="10dp"
+                android:checked="true"
+                android:text="@string/sign_up_check_box_text"
+                android:id="@+id/offersAndPromotionChkbx"/>
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_with_60"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="@string/account_registration_by_register" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fragment_account_name_terms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold" />
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black_with_60"
+                    android:layout_height="wrap_content"
+                    android:text=" and " />
+
+                <TextView
+                    android:id="@+id/fragment_account_name_privacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+

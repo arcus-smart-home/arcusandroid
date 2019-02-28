@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/on_partial_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ToggleButton
+                    android:id="@+id/on_partial_checkbox"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:checked="false"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/icon_checkmark_selector"/>
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:text="@string/on_partial"
+                    android:textColor="@android:color/white"
+                    app:customFont="demi"  />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/overlay_white_with_20" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/on_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ToggleButton
+                    android:id="@+id/on_checkbox"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:checked="false"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/icon_checkmark_selector"/>
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:text="@string/on"
+                    android:textColor="@android:color/white"
+                    app:customFont="demi"  />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/overlay_white_with_20" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/partial_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ToggleButton
+                    android:id="@+id/partial_checkbox"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:checked="false"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/icon_checkmark_selector"/>
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/partial"
+                    android:textColor="@android:color/white"
+                    app:customFont="demi" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/overlay_white_with_20" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/not_participating_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ToggleButton
+                    android:id="@+id/not_participating_checkbox"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:clickable="false"
+                    android:checked="false"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/icon_checkmark_selector"/>
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/not_participating"
+                    android:textColor="@android:color/white"
+                    app:customFont="demi" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/overlay_white_with_20" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sounds_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+
+                <arcus.app.common.view.Version1TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sounds"
+                    android:paddingTop="5dp"
+                    android:text="@string/security_alarm_device_config_description"
+                    android:textColor="@color/overlay_white_with_60"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

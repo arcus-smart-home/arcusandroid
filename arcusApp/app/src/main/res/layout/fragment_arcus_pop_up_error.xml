@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black_with_35"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:clickable="true">
+
+    <LinearLayout
+        android:minHeight="100dp"
+        android:id="@+id/fragment_popup_content_container"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:background="@color/pink_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/accept_close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="@dimen/close_button_padding"
+            android:src="@drawable/button_close_box_white"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/error_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"/>
+
+        <arcus.app.common.view.Version1TextView
+            android:id="@+id/error_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            app:customFont="light"/>
+
+        <RelativeLayout
+            android:id="@+id/call_support_button"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <arcus.app.common.view.Version1TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/outline_button_style"
+                android:textColor="@color/white"
+                android:text="@string/ota_support_number"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/error_cta_buttons_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/accept_button"
+                android:background="@drawable/button_done"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/registration_button_height" />
+            <Button
+                android:id="@+id/reject_button"
+                android:background="@drawable/button_contact_support"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/registration_button_height" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

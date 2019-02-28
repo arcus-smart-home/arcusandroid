@@ -1,0 +1,65 @@
+{
+  "base:caps": [
+    "subs",
+    "sublawnngarden",
+    "base"
+  ],
+  "base:instances": {},
+  "subs:state": "ACTIVE",
+  "subs:account": "4ab6b6e1-b4bb-44f1-8eef-8353fc74362e",
+  "subs:available": true,
+  "sublawnngarden:controllers": [
+    "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00"
+  ],
+  "base:id": "sublawnngarden:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "base:address": "SERV:sublawnngarden:2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "sublawnngarden:nextEvent": {},
+  "sublawnngarden:scheduleStatus": {
+    "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00": {
+      "controller": "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00",
+      "enabled": false,
+      "mode": "WEEKLY"
+    }
+  },
+  "sublawnngarden:intervalSchedules": {
+    "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00": {
+      "status": "APPLIED",
+      "controller": "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00",
+      "type": "INTERVAL",
+      "events": [],
+      "days": 0
+    }
+  },
+  "base:tags": [],
+  "base:type": "subs",
+  "sublawnngarden:oddSchedules": {
+    "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00": {
+      "status": "APPLIED",
+      "controller": "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00",
+      "type": "ODD",
+      "events": []
+    }
+  },
+  "sublawnngarden:weeklySchedules": {
+    "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00": {
+      "status": "APPLIED",
+      "controller": "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00",
+      "type": "WEEKLY",
+      "events": []
+    }
+  },
+  "sublawnngarden:zonesWatering": {},
+  "subs:version": "1.0",
+  "base:images": {},
+  "sublawnngarden:evenSchedules": {
+    "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00": {
+      "status": "APPLIED",
+      "controller": "DRIV:dev:90909fac-fa06-400d-9cb8-f7234b58aa00",
+      "type": "EVEN",
+      "events": []
+    }
+  },
+  "subs:place": "2e37d90f-a1df-491f-b5f2-242f4f4833c4",
+  "subs:hash": "mLAn1+sG1EsGaevrGspHnybRNK0",
+  "subs:name": "LawnNGardenSubsystem"
+}

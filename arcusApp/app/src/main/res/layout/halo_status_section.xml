@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_weight="0.27"
+    android:layout_height="0dp"
+    tools:layout_height="150dp"
+    tools:background="@color/black_with_35"
+    >
+
+    <LinearLayout
+        android:id="@+id/light_color_radio_layout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/light_text"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white_with_60"
+                tools:textColor="@color/black_with_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <ToggleButton
+                android:id="@+id/toggle_on_off"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:background="@drawable/toggle_button_selector"
+                android:checked="false"
+                android:text="@null"
+                android:textOff="@null"
+                android:textOn="@null"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/color"
+                android:textAllCaps="true"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white_with_60"
+                tools:textColor="@color/black_with_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <ImageButton
+                android:src="@drawable/lights_settings_white"
+                android:background="@android:color/transparent"
+                android:id="@+id/color_settings_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:id="@+id/radio_layout_section"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/radio_text"
+                android:textAllCaps="true"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white_with_60"
+                tools:textColor="@color/black_with_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <ImageButton
+                tools:ignore="ContentDescription"
+                android:background="@android:color/transparent"
+                android:id="@+id/play_radio_button"
+                android:src="@drawable/btn_play_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/brightness_power_layout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/brightness"
+                android:textAllCaps="true"
+                android:textColor="@color/white_with_60"
+                tools:textColor="@color/black_with_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
+                android:background="@color/overlay_white_with_20"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                tools:text="48%"
+                android:id="@+id/brightness_text"
+                tools:textColor="@color/black"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/power_top_text"
+                android:textAllCaps="true"
+                android:textColor="@color/white_with_60"
+                tools:textColor="@color/black_with_60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
+                android:background="@color/overlay_white_with_20"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                tools:text="@string/power_source_ac"
+                android:id="@+id/power_text"
+                android:textAllCaps="true"
+                tools:textColor="@color/black"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

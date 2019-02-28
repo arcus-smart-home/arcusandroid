@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarStyle="insideOverlay"
+        android:fillViewport="true">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/viewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/sclera_screen_edge_LR_margin"
+            android:gravity="center" >
+            <ImageView
+                android:id="@+id/customization_contact_type_image"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_36"
+                android:paddingStart="@dimen/sclera_widget_edge_combined"
+                android:paddingEnd="@dimen/sclera_widget_edge_combined"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/image_placeholder"
+                />
+            <arcus.app.common.view.ScleraTextView
+                style="@style/ScleraLineSpacing.1.37"
+                android:id="@+id/customization_contact_type_title"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/sclera_widget_edge_combined"
+                android:paddingEnd="@dimen/sclera_widget_edge_combined"
+                android:paddingTop="@dimen/dp_30"
+                android:gravity="center_horizontal"
+                android:textColor="@color/sclera_text_color_dark"
+                android:textSize="@dimen/pt_18"
+                app:scleraFontStyle="demi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customization_contact_type_image"
+                tools:text="Generic Info Title"
+                />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/horizontal_divider_height"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/sclera_divider_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customization_contact_type_title"/>
+
+            <RadioGroup
+                android:id="@+id/customization_contact_type_radio_group"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/sclera_widget_edge_combined"
+                android:paddingEnd="@dimen/sclera_widget_edge_combined"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider">
+
+                <RadioButton
+                    style="@style/ScleraLineSpacing.1.37"
+                    android:id="@+id/door_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_16"
+                    android:button="@drawable/sclera_checkbox_selector"
+                    android:drawableLeft="@drawable/door_45x45"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="@string/customization_contact_type_door"
+                    android:textSize="@dimen/pt_14"
+                    android:textColor="@color/sclera_text_color_dark" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/horizontal_divider_height"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/sclera_divider_color" />
+
+                <RadioButton
+                    style="@style/ScleraLineSpacing.1.37"
+                    android:id="@+id/window_radio-button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_16"
+                    android:button="@drawable/sclera_checkbox_selector"
+                    android:drawableLeft="@drawable/window_45x45"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="@string/customization_contact_type_window"
+                    android:textSize="@dimen/pt_14"
+                    android:textColor="@color/sclera_text_color_dark"
+                    tools:checked="true"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/horizontal_divider_height"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/sclera_divider_color" />
+
+                <RadioButton
+                    style="@style/ScleraLineSpacing.1.37"
+                    android:id="@+id/other_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_16"
+                    android:button="@drawable/sclera_checkbox_selector"
+                    android:drawableLeft="@drawable/more_45x45"
+                    android:drawablePadding="@dimen/dp_10"
+                    android:text="@string/customization_contact_type_other"
+                    android:textSize="@dimen/pt_14"
+                    android:textColor="@color/sclera_text_color_dark" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/horizontal_divider_height"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:background="@color/sclera_divider_color" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:paddingStart="@dimen/sclera_widget_edge_combined"
+                android:paddingEnd="@dimen/sclera_widget_edge_combined"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customization_contact_type_radio_group"
+                app:layout_constraintVertical_bias="1.0">
+
+                <arcus.app.common.view.ScleraButton
+                    android:id="@+id/next_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pairing_next"
+                    app:buttonColorScheme="purple" />
+
+                <arcus.app.common.view.ScleraButton
+                    android:id="@+id/cancel_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
+                    android:text="@string/cancel_text"
+                    android:visibility="gone"
+                    app:scleraButtonColor="purple_outline"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>

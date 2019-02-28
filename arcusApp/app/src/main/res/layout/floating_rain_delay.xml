@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="match_parent">
+
+
+    <arcus.app.common.view.Version1Button
+        android:id="@+id/irrigation_water_delay_12"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="@string/irrigation_watering_delay_time_12"
+        android:textSize="14sp"
+        app:buttonFont="demi"
+        />
+    <arcus.app.common.view.Version1Button
+        android:id="@+id/irrigation_water_delay_24"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="@string/irrigation_watering_delay_time_24"
+        android:textSize="14sp"
+        app:buttonFont="demi"
+        />
+    <arcus.app.common.view.Version1Button
+        android:id="@+id/irrigation_water_delay_48"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="@string/irrigation_watering_delay_time_48"
+        android:textSize="14sp"
+        app:buttonFont="demi"
+        />
+    <arcus.app.common.view.Version1Button
+        android:id="@+id/irrigation_water_delay_72"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="@string/irrigation_watering_delay_time_72"
+        android:textSize="14sp"
+        app:buttonFont="demi"
+        />
+
+
+</LinearLayout>

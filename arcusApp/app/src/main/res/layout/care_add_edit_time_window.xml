@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/care_schedule_top_text"
+        android:visibility="visible"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="@string/care_choose_monitoring"
+        android:padding="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/top_divider"
+        android:layout_below="@id/care_schedule_top_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_with_20" />
+
+
+    <RelativeLayout
+        android:id="@+id/start_time_container"
+        android:layout_below="@id/top_divider"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="15dp"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <arcus.app.common.view.Version1TextView
+            android:layout_alignParentLeft="true"
+            android:id="@+id/care_start_time_text"
+            android:text="@string/care_time_window_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/care_start_time_abstract_text"
+            android:layout_toStartOf="@+id/care_start_time_abstract_text"/>
+
+        <arcus.app.common.view.Version1TextView
+            tools:text="Monday 5:00 PM"
+            android:id="@+id/care_start_time_abstract_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="0dp"
+            android:paddingStart="0dp"
+            android:layout_toLeftOf="@+id/care_start_time_chevron"
+            android:layout_toStartOf="@+id/care_start_time_chevron"/>
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:src="@drawable/chevron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/care_start_time_chevron"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/middle_divider"
+        android:layout_below="@id/start_time_container"
+        android:layout_alignLeft="@id/start_time_container"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/black_with_20" />
+
+    <RelativeLayout
+        android:id="@+id/end_time_container"
+        android:layout_below="@id/middle_divider"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <arcus.app.common.view.Version1TextView
+            android:layout_alignParentLeft="true"
+            android:id="@+id/care_end_time_text"
+            android:text="@string/care_time_window_end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/care_end_time_abstract_text"
+            android:layout_toStartOf="@+id/care_end_time_abstract_text"/>
+        <arcus.app.common.view.Version1TextView
+            tools:text="Monday 10:00 PM"
+            android:id="@+id/care_end_time_abstract_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="0dp"
+            android:paddingStart="0dp"
+            android:layout_toLeftOf="@+id/care_end_time_chevron"
+            android:layout_toStartOf="@+id/care_end_time_chevron"/>
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:src="@drawable/chevron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/care_end_time_chevron"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/bottom_divider"
+        android:layout_below="@id/end_time_container"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_with_20" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/scenes_save"
+            android:layout_marginBottom="10dp"
+            app:buttonFont="demi" />
+
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/delete_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/scenes_delete"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:buttonFont="demi" />
+    </LinearLayout>
+
+</RelativeLayout>

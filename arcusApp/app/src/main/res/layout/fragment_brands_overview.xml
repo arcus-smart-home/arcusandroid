@@ -1,0 +1,111 @@
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:keepScreenOn="true"
+    tools:context="arcus.app.pairing.device.productcatalog.devicesoverview.BrandDevicesOverviewFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/result_count_container"
+        app:elevation="@dimen/dp_0"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <arcus.app.common.view.ScleraTextView
+                android:id="@+id/results_text"
+                tools:text="33 Results"
+                android:textSize="@dimen/pt_14"
+                app:scleraFontStyle="normal"
+                android:paddingLeft="@dimen/dp_24"
+                android:paddingRight="@dimen/dp_24"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sclera_video_tab_bar_height"
+                />
+
+            <View
+                android:contentDescription="@string/chevron_content_description"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_divider_height"
+                android:background="@color/sclera_divider_color"
+                />
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/brands_overview_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sclera_widget_edge_combined"
+        android:layout_marginRight="@dimen/sclera_widget_edge_combined"
+        tools:listitem="@layout/item_brand_overview_row"
+        android:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible"
+        />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:id="@+id/noResults"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
+        android:layout_marginLeft="@dimen/sclera_screen_edge_LR_margin"
+        android:layout_marginRight="@dimen/sclera_screen_edge_LR_margin"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="gone"
+        >
+
+        <arcus.app.common.view.ScleraTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:text="@string/product_catalog_no_results"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="demi"
+            />
+
+        <arcus.app.common.view.ScleraTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_18"
+            android:gravity="center"
+            android:text="@string/product_catalog_no_results_sub_text"
+            android:textSize="@dimen/pt_18"
+            app:scleraFontStyle="normal"
+            />
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

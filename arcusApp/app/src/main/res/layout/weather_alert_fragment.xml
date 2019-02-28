@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="arcus.app.activities.DashboardActivity"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/place_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        >
+        <include
+            layout="@layout/place_name_location_with_pin"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@id/place_container"
+        android:layout_above="@+id/continue_playing_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <ImageView
+                android:background="@drawable/circle_weather_event"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/pre_hush_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <LinearLayout
+                android:id="@+id/device_name_layout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                android:text="@string/snooze_instructions"
+                android:textColor="@color/black_with_60"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <arcus.app.common.view.Version1Button
+        android:text="@string/continue_playing"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/continue_playing_button"
+        android:layout_above="@+id/snooze_alert_button"
+        app:buttonColorScheme="dark"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <arcus.app.common.view.Version1Button
+        android:text="@string/snooze_alert"
+        android:layout_margin="15dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/snooze_alert_button"
+        app:buttonColorScheme="dark"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</RelativeLayout>

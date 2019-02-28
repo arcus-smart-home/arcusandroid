@@ -1,0 +1,10 @@
+{
+  "error" :
+  {
+    "code" : "invalid-parameter",
+    "message" : "Number is not a valid credit card number",
+    "fields": [
+      "number"
+    ]
+  }
+}

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<arcus.app.subsystems.camera.views.DeviceCardItemView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                                       xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                                       xmlns:tools="http://schemas.android.com/tools"
+                                                                       style="@style/MainCardLayout">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                        android:id="@+id/cardView"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        card_view:cardCornerRadius="0dp"
+                                        card_view:cardElevation="0dp">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+                <LinearLayout
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:id="@+id/preview_image_unavailable"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:background="@color/black_with_35">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/icon_service_camera_small" />
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/arcusTextView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/white"
+                        android:text="@string/preview_is_unavailable" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:id="@+id/camera_controls_unavailable_container"
+                    android:layout_below="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@color/pink_banner"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <arcus.app.common.view.Version1TextView
+                            tools:text="Camera Name"
+                            android:id="@+id/device_name_unavailable"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <arcus.app.common.view.Version1TextView
+                            android:textColor="@color/white_with_60"
+                            android:text="@string/streaming_disabled_description"
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:id="@+id/camera_controls_offline_container"
+                    android:layout_below="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@color/pink_banner"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <arcus.app.common.view.Version1TextView
+                            tools:text="Camera Name"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:id="@+id/device_name_offline"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <arcus.app.common.view.Version1TextView
+                            android:textColor="@color/white_with_60"
+                            android:text="@string/device_no_connection"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:customFont="italic"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:id="@+id/camera_controls_firmware_container"
+                    android:layout_below="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@color/white"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <arcus.app.common.view.Version1TextView
+                            tools:text="Camera Name"
+                            android:id="@+id/device_name_firmware"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <arcus.app.common.view.Version1TextView
+                            android:textColor="@color/black_with_60"
+                            android:text="@string/ota_firmware_update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/camera_controls_container"
+                    android:layout_below="@+id/preview_image"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/text_container"
+                        android:layout_toLeftOf="@+id/controls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginRight="27dp"
+                        android:gravity="start"
+                        android:orientation="vertical"
+                        tools:background="@color/black_with_35">
+
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:customFont="demi"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            tools:text="Indoor Camera 1 - in the basement with a long name that should wrap and ellipsize after 2 lines"/>
+                        <arcus.app.common.view.Version1TextView
+                            android:id="@+id/description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/overlay_white_with_60"
+                            android:textSize="12sp"
+                            app:customFont="italic"
+                            tools:text="Today 10:22 AM"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/controls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal"
+                        android:gravity="start"
+                        tools:background="@color/pink_banner">
+                        <ImageView
+                            android:id="@+id/play_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/text_container"
+                            android:paddingTop="15dp"
+                            android:paddingEnd="20dp"
+                            android:paddingBottom="20dp"
+                            android:src="@drawable/btn_play_small" />
+                        <ImageView
+                            android:id="@+id/record_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/play_image"
+                            android:layout_toStartOf="@+id/recording_text"
+                            android:layout_alignTop="@+id/text_container"
+                            android:paddingTop="15dp"
+                            android:paddingEnd="5dp"
+                            android:paddingBottom="20dp"
+                            android:src="@drawable/btn_record_small"/>
+
+                        <LinearLayout
+                            android:id="@+id/recording_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end"
+                            android:visibility="gone">
+                            <arcus.app.common.view.Version1TextView
+                                android:id="@+id/recording"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:customFont="demi"
+                                tools:text="Recording"
+                                android:text="Recording"/>
+                            <arcus.app.common.view.Version1TextView
+                                android:id="@+id/tap_to_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:customFont="italic"
+                                tools:text="Tap to View"
+                                android:text="Tap to View"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/overlay_white_with_10"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</arcus.app.subsystems.camera.views.DeviceCardItemView>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/black_with_35"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/follow_schedule_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:layout_toEndOf="@+id/image"
+                android:layout_toLeftOf="@+id/toggle"
+                android:layout_toRightOf="@+id/image"
+                android:layout_toStartOf="@+id/toggle"
+                android:orientation="vertical">
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingTop="5dp"
+                    android:text="@string/follow_schedule"
+                    android:textColor="@android:color/white"/>
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:paddingTop="5dp"
+                    android:text="Turn the schedule OFF if you want to manually set a constant temperature."
+                    android:textColor="@color/overlay_white_with_60"
+                    app:customFont="italic"/>
+
+            </LinearLayout>
+
+            <arcus.app.common.view.Version1Toggle
+                android:id="@+id/toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:checked="false" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/overlay_white_with_10"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/settings_group"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/mode_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:layout_toLeftOf="@+id/mode_text"
+                    android:layout_toStartOf="@+id/mode_text"
+                    android:orientation="vertical">
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/toggle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:paddingTop="5dp"
+                        android:text="MODE"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/mode_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/mode_chevron"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/overlay_white_with_60"
+                    app:customFont="italic"/>
+
+                <ImageView
+                    android:id="@+id/mode_chevron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/chevron_white"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/overlay_white_with_10"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/high_temp_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:layout_toLeftOf="@+id/high_temp_text"
+                    android:layout_toStartOf="@+id/high_temp_text"
+                    android:orientation="vertical">
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/high_copy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:paddingTop="5dp"
+                        android:text="@string/climate_cool_to"
+                        android:textColor="@android:color/white"/>
+
+                    <arcus.app.common.view.Version1TextView
+                        android:id="@+id/high_setpoint_copy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:paddingTop="5dp"
+                        android:text="@string/auto_mode_high_schedule_description"
+                        android:textColor="@color/overlay_white_with_60"
+                        app:customFont="italic"/>
+
+                </LinearLayout>
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/high_temp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/heat_chevron"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/overlay_white_with_60"
+                    app:customFont="italic"/>
+
+                <ImageView
+                    android:id="@+id/heat_chevron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/chevron_white"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/overlay_white_with_10"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cool_temp_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:layout_toLeftOf="@+id/low_temp_text"
+                    android:layout_toStartOf="@+id/low_temp_text"
+                    android:orientation="vertical">
+
+                    <arcus.app.common.view.Version1TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:paddingTop="5dp"
+                        android:id="@+id/low_temp_label_text"
+                        android:text="@string/climate_heat_to"
+                        android:textColor="@android:color/white"/>
+
+                    <arcus.app.common.view.Version1TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:paddingTop="5dp"
+                        android:id="@+id/low_temp_label_sub_text"
+                        android:text="@string/auto_mode_low_schedule_description"
+                        android:textColor="@color/overlay_white_with_60"
+                        app:customFont="italic"/>
+
+                </LinearLayout>
+
+                <arcus.app.common.view.Version1TextView
+                    android:id="@+id/low_temp_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/cool_chevron"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/overlay_white_with_60"
+                    app:customFont="italic"/>
+
+                <ImageView
+                    android:id="@+id/cool_chevron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/chevron_white"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/overlay_white_with_10"
+                android:visibility="visible"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

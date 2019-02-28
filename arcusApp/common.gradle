@@ -1,0 +1,41 @@
+def gitTimestamp() {
+    def p = 'git log -n 1 --format=%ai'.execute([], rootDir)
+    p.waitFor()
+    if (p.exitValue() != 0) {
+        throw new RuntimeException(p.errorStream.text)
+    }
+
+    return p.text.trim()
+}
+
+def gitBranch() {
+    def branch = ""
+    def p = 'git rev-parse --abbrev-ref HEAD'.execute([], rootDir)
+    p.in.eachLine { line -> branch = line }
+    p.err.eachLine { line -> println line }
+    p.waitFor()
+    if (p.exitValue() != 0) {
+        throw new RuntimeException(p.errorStream.text)
+    }
+
+    return branch.trim().toUpperCase()
+}
+
+def gitShortHash() {
+    def version = ""
+    def p = 'git rev-parse --short=7 HEAD'.execute([], rootDir)
+    p.in.eachLine { line -> version = line }
+    p.err.eachLine { line -> println line }
+    p.waitFor()
+    if (p.exitValue() != 0) {
+        throw new RuntimeException(p.errorStream.text)
+    }
+
+    return version.trim().toUpperCase()
+}
+
+ext {
+    gitTimestamp = this.&gitTimestamp
+    gitBranch = this.&gitBranch
+    gitShortHash = this.&gitShortHash
+}

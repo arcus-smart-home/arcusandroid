@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/fragment_contact_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_edittext_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/contact_info_first_name_hint"
+        android:inputType="textPersonName"
+        android:nextFocusDown="@+id/fragment_contact_lastName"
+        android:singleLine="true" />
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/fragment_contact_lastName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_edittext_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/contact_info_last_name_hint"
+        android:inputType="textPersonName"
+        android:nextFocusDown="@+id/fragment_contact_phone_number"
+        android:singleLine="true" />
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/fragment_contact_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_edittext_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/contact_info_phone_number_hint"
+        android:inputType="phone"
+        android:maxLength="15"
+        android:nextFocusDown="@+id/fragment_contact_email"
+        android:singleLine="true" />
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/fragment_contact_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_edittext_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/contact_info_email_hint"
+        android:inputType="textEmailAddress"
+        android:nextFocusDown="@+id/fragment_contact_confirm_email"
+        android:singleLine="true" />
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/fragment_contact_confirm_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_edittext_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/people_confirm_email_addr"
+        android:inputType="textEmailAddress"
+        android:visibility="gone"
+        android:nextFocusDown="@+id/fragment_contact_password"
+        android:singleLine="true" />
+
+    <RelativeLayout
+        android:id="@+id/change_password_region"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_edittext_height">
+
+        <arcus.app.common.view.Version1EditText
+            android:id="@+id/fragment_contact_password_star"
+            android:layout_width="match_parent"
+            android:hint="@string/contact_info_password_hint"
+            android:layout_height="@dimen/list_edittext_height"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:focusable="false"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:text="@string/contact_info_stars"
+            android:textColor="@color/white" />
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageChevron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/chevron_white"
+                android:contentDescription="@string/content_description_chevron" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+
+        <arcus.app.common.view.Version1Button
+            android:id="@+id/fragment_contact_done_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="@string/contact_info_done_btn"
+            android:visibility="gone"
+            app:buttonFont="demi"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+

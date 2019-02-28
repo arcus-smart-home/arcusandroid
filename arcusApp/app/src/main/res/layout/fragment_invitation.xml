@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="arcus.app.activities.InvitationActivity">
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"
+        android:text="@string/invitation_invite_title"/>
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:hint="@string/contact_info_email_hint"
+        android:inputType="textEmailAddress"
+        android:nextFocusDown="@+id/etEmail" />
+
+    <arcus.app.common.view.Version1EditText
+        android:id="@+id/etInvitation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:hint="@string/invitation_code"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword" />
+
+    <arcus.app.common.view.Version1TextView
+        android:id="@+id/bottom_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/btnNext"
+        android:layout_marginBottom="20dp"
+        android:text="@string/invitation_invite_bottom"/>
+
+    <arcus.app.common.view.Version1Button
+        android:id="@id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/pairing_next"
+        android:layout_alignParentBottom="true"
+        android:textSize="12sp"
+        app:customFont="bold"
+        app:tracking="true" />
+
+</RelativeLayout>

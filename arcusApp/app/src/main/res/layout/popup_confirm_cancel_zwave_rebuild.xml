@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Arcus Project.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/sclera_alert"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dp_16" >
+
+    <arcus.app.common.view.ScleraTextView
+        style="@style/ScleraLineSpacing.1.37"
+        android:id="@+id/title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
+        android:gravity="center"
+        android:text="@string/are_you_sure"
+        android:textColor="@color/white"
+        android:textSize="@dimen/pt_18"
+        app:scleraFontStyle="demi"
+        />
+
+    <arcus.app.common.view.ScleraTextView
+        style="@style/ScleraLineSpacing.1.37"
+        android:id="@+id/description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginTop="@dimen/sclera_title_to_description_spacing"
+        android:layout_marginBottom="@dimen/sclera_text_to_button_spacing"
+        android:gravity="center"
+        android:text="@string/zw_cancel_rebuild_popup_text"
+        android:textColor="@color/white"
+        android:textSize="@dimen/pt_14"
+        app:scleraFontStyle="normal"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/ok_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginBottom="@dimen/sclera_button_to_button_spacing"
+        android:text="@string/yes"
+        app:scleraButtonColor="white_with_red_text"
+        android:textAllCaps="true"
+        />
+
+    <arcus.app.common.view.ScleraButton
+        android:id="@+id/cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+        android:layout_marginBottom="@dimen/sclera_screen_edge_LR_margin"
+        android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:text="@string/no"
+        app:scleraButtonColor="white_outline"
+        android:textAllCaps="true"
+        />
+</LinearLayout>
