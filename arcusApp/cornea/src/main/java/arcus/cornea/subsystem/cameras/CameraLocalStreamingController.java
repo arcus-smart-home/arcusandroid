@@ -21,7 +21,6 @@ import arcus.cornea.utils.LooperExecutor;
 import com.iris.capability.util.Addresses;
 import com.iris.client.capability.Capability;
 import com.iris.client.capability.Device;
-import com.iris.client.capability.HubSercomm;
 import com.iris.client.capability.IpInfo;
 import com.iris.client.event.Listener;
 import com.iris.client.model.DeviceModel;
@@ -87,38 +86,14 @@ public final class CameraLocalStreamingController {
                           return;
                       }
 
-                      HubModel hub = hubModels.get(0);
-                      if (!(hub.getCaps().contains(HubSercomm.NAMESPACE))) {
-                          onError(new RuntimeException("Model did not contain proper capabilities; cannot update credentials."));
-                          return;
-                      }
-
-                      username = (String) hub.get(Capability.ATTR_ID);
-                      loadCameraPassword((HubSercomm) hub);
+                      // the below block is meant to run so long as a hub is not a sercomm hub.
+                      // since we no longer control sercomm hubs return this error in all cases
+                      onError(new RuntimeException("Model did not contain proper capabilities; cannot update credentials."));
+                      return;
                   }
               });
     }
 
-    protected void loadCameraPassword(HubSercomm hub) {
-        hub.getCameraPassword()
-              .onFailure(errorListener)
-              .onSuccess(new Listener<HubSercomm.getCameraPasswordResponse>() {
-                  @Override public void onEvent(HubSercomm.getCameraPasswordResponse response) {
-                      if (HubSercomm.getCameraPasswordResponse.STATUS_REFUSED.equals(response.getStatus())) {
-                          onError(new RuntimeException("Connection refused; cannot update credentials."));
-                      }
-                      else {
-                          String pass = String.valueOf(response.getPassword());
-                          if (pass.length() < expectedLength) {
-                              onError(new RuntimeException("Invalid password; cannot update credentials."));
-                          }
-                          else {
-                              dispatchSuccess(pass.substring(0, expectedLength));
-                          }
-                      }
-                  }
-              });
-    }
 
     protected void dispatchSuccess(final String password) {
         LooperExecutor.getMainExecutor().execute(new Runnable() {
