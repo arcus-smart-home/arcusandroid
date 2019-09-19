@@ -91,7 +91,7 @@ public class ThermostatController extends DeviceController<ThermostatProxyModel>
             Thermostat.ATTR_CONTROLMODE,
             Thermostat.ATTR_COOLSETPOINT,
             Thermostat.ATTR_HEATSETPOINT,
-            Thermostat.ATTR_HVACMODE,
+            Thermostat.ATTR_HVACMODE
         );
         if(source.get() != null && source.get().getDevtypehint().equals("TCCThermostat")) {
             debouncedRequestScheduler = new DebouncedRequestScheduler(DEBOUNCE_REQUEST_DELAY_CLOUD_MS);
