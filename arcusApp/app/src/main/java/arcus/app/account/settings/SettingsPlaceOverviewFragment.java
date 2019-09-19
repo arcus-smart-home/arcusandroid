@@ -180,22 +180,6 @@ public class SettingsPlaceOverviewFragment extends BaseFragment {
         }
     }
 
-    protected void enableProMonSettings() {
-
-        ProMonitoringSettingsProvider.getInstance().getProMonSettings(viewingPlaceID).onSuccess(Listeners.runOnUiThread(new Listener<ProMonitoringSettingsModel>() {
-            @Override
-            public void onEvent(ProMonitoringSettingsModel event) {
-                editProMonInfoLayout.setVisibility(event.getActivatedOn() == null ? View.GONE : View.VISIBLE);
-            }
-        }));
-
-        editProMonInfoLayout.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                BackstackManager.getInstance().navigateToFragment(SettingsProMonFragment.newInstance(viewingPlaceID), true);
-            }
-        });
-    }
-
     protected void navigateToRemoveForPlace(boolean isPlace) {
         if (placeAndRoleModel == null) {
             return;

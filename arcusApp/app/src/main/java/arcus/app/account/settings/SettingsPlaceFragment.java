@@ -407,17 +407,6 @@ public class SettingsPlaceFragment extends BaseFragment
         if (placeModel != null && timeZoneSelected != null) {
             timeZoneSelected.setText(placeModel.getTzName());
         }
-
-        if(SubscriptionController.isProfessional()) {
-            ProMonitoringSettingsProvider.getInstance().getProMonSettings(placeModel.getId()).onFailure(errorListener).onSuccess(Listeners.runOnUiThread(new Listener<ProMonitoringSettingsModel>() {
-                @Override
-                public void onEvent(ProMonitoringSettingsModel model) {
-                    if(model.getPermitRequired() && StringUtils.isEmpty(model.getPermitNumber())) {
-                        FullscreenFragmentActivity.launch(getActivity(), ProMonSettingsPermitRequiredFragment.class);
-                    }
-                }
-            }));
-        }
     }
 
     @Override public void onError(Exception e) {

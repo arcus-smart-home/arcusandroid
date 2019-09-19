@@ -57,7 +57,6 @@ public class SettingsBillingFragment extends BaseFragment {
             .put(Place.SERVICELEVEL_PREMIUM_FREE, R.string.premium_free_plan)
             .put(Place.SERVICELEVEL_PREMIUM_PROMON, R.string.pro_monitoring_plan)
             .put(Place.SERVICELEVEL_PREMIUM_PROMON_FREE, R.string.pro_monitoring_free_plan)
-            .put(Place.SERVICELEVEL_PREMIUM_PROMON_MYLOWES_DISCOUNT, R.string.pro_monitoring_plan_discount)
             .put(Place.SERVICELEVEL_PREMIUM_PROMON_ANNUAL, R.string.pro_monitoring_annual_plan)
             .put(Place.SERVICELEVEL_PREMIUM_ANNUAL, R.string.premium_annual_plan)
             .build();
