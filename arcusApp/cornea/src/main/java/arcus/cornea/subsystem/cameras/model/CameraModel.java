@@ -19,7 +19,6 @@ import arcus.cornea.subsystem.cameras.CameraPreviewGetter;
 import com.iris.client.capability.CameraStatus;
 import com.iris.client.capability.DeviceConnection;
 import com.iris.client.capability.DeviceOta;
-import com.iris.client.capability.SwannBatteryCamera;
 import com.iris.client.capability.WiFi;
 import com.iris.client.model.DeviceModel;
 
@@ -36,8 +35,8 @@ public class CameraModel {
     private File previewCacheFile;
     private Date lastPreviewUpdate;
     private CameraState cameraState = CameraState.IDLE;
-    private final boolean recordable;
-    private final boolean shouldShowFPS;
+    private final boolean recordable = true;
+    private final boolean shouldShowFPS = true;
     private final int signalLevel;
 
     private boolean online;
@@ -69,12 +68,6 @@ public class CameraModel {
         }
 
         Collection<String> caps = model.getCaps();
-
-        // As of now, only swann cameras can't record - make sure this capability doesn't exist.
-        recordable = caps != null && !caps.contains(SwannBatteryCamera.NAMESPACE);
-
-        // As of now, only swann cameras shouldn't show FPS - keep the same as "recordable" for now.
-        shouldShowFPS = caps != null && !caps.contains(SwannBatteryCamera.NAMESPACE);
 
         if (caps == null || !caps.contains(WiFi.NAMESPACE)) {
             signalLevel = 1;
