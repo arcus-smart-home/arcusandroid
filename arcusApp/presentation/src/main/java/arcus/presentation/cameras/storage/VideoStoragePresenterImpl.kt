@@ -58,14 +58,6 @@ class VideoStoragePresenterImpl
                         PINNED_CLIP_STORAGE_DAYS
                     )
                 }
-                Place.SERVICELEVEL_PREMIUM_PROMON,
-                Place.SERVICELEVEL_PREMIUM_PROMON_FREE,
-                Place.SERVICELEVEL_PREMIUM_PROMON_MYLOWES_DISCOUNT -> {
-                    callback?.showPremiumPromonConfiguration(
-                        PREMIUM_PROMON_STORAGE_DAYS,
-                        PINNED_CLIP_STORAGE_DAYS
-                    )
-                }
                 else -> {
                     callback?.showBasicConfiguration(BASIC_STORAGE_DAYS)
                 }
@@ -99,7 +91,6 @@ class VideoStoragePresenterImpl
     companion object {
         private const val BASIC_STORAGE_DAYS = 1
         private const val PREMIUM_STORAGE_DAYS = 30
-        private const val PREMIUM_PROMON_STORAGE_DAYS = 30
         private const val PINNED_CLIP_STORAGE_DAYS = 150
     }
 }

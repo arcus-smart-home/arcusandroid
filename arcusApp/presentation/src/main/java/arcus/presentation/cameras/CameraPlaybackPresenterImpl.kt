@@ -58,7 +58,7 @@ class CameraPlaybackPresenterImpl internal constructor(
     private val cellBackupSubsystem: ModelSource<SubsystemModel>,
     private val videoService: VideoService,
     private val scheduledExecutor: ScheduledExecutor,
-    private val mainExecutor: ScheduledExecutor,
+    private val mainExecutor: ScheduledExecutor
 ) : CameraPlaybackPresenter<PlaybackView>, DeviceController<CameraModel>(source) {
     @Volatile
     private var currentStreamID : String? = null
