@@ -35,10 +35,7 @@ import com.iris.client.capability.DeviceOta;
 import com.iris.client.capability.Hub;
 import com.iris.client.capability.HubAdvanced;
 import com.iris.client.capability.HubConnection;
-import com.iris.client.capability.HueBridge;
 import com.iris.client.capability.IpInfo;
-import com.iris.client.capability.LutronBridge;
-import com.iris.client.capability.NestThermostat;
 import com.iris.client.capability.ProductCatalog;
 import com.iris.client.event.Listener;
 import com.iris.client.model.DeviceModel;
@@ -271,34 +268,6 @@ public class ProductInfoFragment extends BaseFragment {
         else {
             deviceBottom.setVisibility(View.GONE);
         }
-
-        if(DeviceType.fromHint(deviceModel.getDevtypehint()) == DeviceType.HUE_BRIDGE) {
-            hueHubInfo.setVisibility(View.VISIBLE);
-            HueBridge bridge = CorneaUtils.getCapability(deviceModel, HueBridge.class);
-            hueHubIP.setText(bridge.getIpaddress());
-            hueHubFirmware.setText(bridge.getSwversion());
-
-        }
-
-        NestThermostat nest = CorneaUtils.getCapability(deviceModel, NestThermostat.class);
-        if (nest != null) {
-            nestBottom.setVisibility(View.VISIBLE);
-            mNestRoom.setText(nest.getRoomname());
-            mNestTempLock.setText(nest.getLocked() ?
-                    getString(R.string.nest_templock_on, TemperatureUtils.roundCelsiusToFahrenheit(nest.getLockedtempmin()), TemperatureUtils.roundCelsiusToFahrenheit(nest.getLockedtempmax())) :
-                    getString(R.string.nest_templock_off));
-        }
-
-        if(DeviceType.fromHint(deviceModel.getDevtypehint()) == DeviceType.LUTRON_BRIDGE) {
-            lutronBridgeInfo.setVisibility(View.VISIBLE);
-            LutronBridge lutronBridge = CorneaUtils.getCapability(deviceModel, LutronBridge.class);
-            if (lutronBridge.getOperatingmode() == null) {
-                lutronBridgeOperationgMode.setText("");
-            } else {
-                lutronBridgeOperationgMode.setText(StringUtils.getFirstUpperRestLowerCaseString(lutronBridge.getOperatingmode()));
-            }
-            LutronBridgeSerialNumber.setText(lutronBridge.getSerialnumber());
-        }
     }
 
     private void displayHub() {
@@ -388,8 +357,6 @@ public class ProductInfoFragment extends BaseFragment {
     private void updateProductInformation(@NonNull ProductModel model) {
         setProductName(model.getName());
         setProductManufacturer(model.getVendor());
-        setProductItemNumber(model.getLowesProductId());
-        setProductModelNumber(model.getLowesModelId());
         setProductCertification(model.getCert());
         setProductWireless(model.getProtoFamily());
     }

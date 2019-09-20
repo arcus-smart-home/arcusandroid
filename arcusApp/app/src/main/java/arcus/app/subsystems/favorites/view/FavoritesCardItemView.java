@@ -167,15 +167,8 @@ public class FavoritesCardItemView extends RecyclerView.ViewHolder {
         // Iterate and cast for specific model
         for (Model model : models) {
             if (model instanceof DeviceModel) {
-                if (CorneaUtils.isHoneywellOffline((DeviceModel) model)) {
-                    FavoriteItemModel fav = new FavoriteItemModel((DeviceModel) model);
-                    fav.setImageResource(R.drawable.cloud_favorites_pink);
-                    fav.setKeepImageColor(true);
-                    data.add(fav);
-                }
-                else {
-                    data.add(new FavoriteItemModel((DeviceModel) model));
-                }
+                data.add(new FavoriteItemModel((DeviceModel) model));
+
             } else if (model instanceof SceneModel) {
                 data.add(new FavoriteItemModel((SceneModel) model));
             }

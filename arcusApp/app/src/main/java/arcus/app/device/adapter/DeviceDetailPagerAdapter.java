@@ -50,7 +50,6 @@ import arcus.app.device.details.DoorLockFragment;
 import arcus.app.device.details.HaloFragment;
 import arcus.app.device.details.HueFallbackFragment;
 import arcus.app.device.details.LutronBridgeFragment;
-import arcus.app.device.details.NestThermostatFragment;
 import arcus.app.device.details.ShadeFragment;
 import arcus.app.device.details.SmokeDetectorFragment;
 import arcus.app.device.details.SpaceHeaterFragment;
@@ -184,15 +183,6 @@ public class DeviceDetailPagerAdapter extends ArcusPagerAdapter {
                 break;
             case SMOKE:
                 product = SmokeDetectorFragment.newInstance(false);
-                break;
-            case THERMOSTAT:
-                product = NestThermostatFragment.newInstance();
-                break;
-            case TCC_THERM:
-                product = NestThermostatFragment.newInstance();
-                break;
-            case NEST_THERMOSTAT:
-                product = NestThermostatFragment.newInstance();
                 break;
             case LIGHT:
                 if (device.getCaps().contains(Dimmer.NAMESPACE)) {
