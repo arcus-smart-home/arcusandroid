@@ -20,7 +20,6 @@ import android.support.annotation.Nullable;
 import arcus.app.common.sequence.Sequenceable;
 import arcus.app.common.utils.GlobalSetting;
 import arcus.app.device.pairing.nohub.alexa.controller.VoiceAssistantNoPairingSequenceController;
-import arcus.app.device.pairing.nohub.swannwifi.controller.SwannWifiPairingSequenceController;
 
 
 public enum NoHubDevice {
@@ -43,8 +42,6 @@ public enum NoHubDevice {
             case TAP: return new VoiceAssistantNoPairingSequenceController(TAP);
             case DOT: return new VoiceAssistantNoPairingSequenceController(DOT);
             case GOOGLE_HOME: return new VoiceAssistantNoPairingSequenceController(GOOGLE_HOME);
-            case SWANN_WIFI: return new SwannWifiPairingSequenceController();
-
             default: throw new IllegalArgumentException("Bug! Not implemented");
         }
     }
