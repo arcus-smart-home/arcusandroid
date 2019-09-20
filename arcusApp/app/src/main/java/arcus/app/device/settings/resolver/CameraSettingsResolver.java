@@ -19,7 +19,6 @@ import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.iris.client.capability.SwannBatteryCamera;
 import com.iris.client.model.DeviceModel;
 import arcus.app.R;
 import arcus.app.device.settings.builder.CameraSettingBuilder;
@@ -45,7 +44,7 @@ public class CameraSettingsResolver extends DeviceSettingsResolver implements Se
                     context.getString(R.string.setting_camera_configurations)
             ).dontPromoteOnlyChild();
             Collection<String> caps = ((DeviceModel) model).getCaps();
-            if (caps != null && caps.contains(SwannBatteryCamera.NAMESPACE)) {
+            if (caps != null) {
                 builder
                         .addChildSetting(
                                 CameraSettingBuilder.with(context, context.getString(R.string.settings_wifi_network_title), context.getString(R.string.settings_wifi_network_desc))
