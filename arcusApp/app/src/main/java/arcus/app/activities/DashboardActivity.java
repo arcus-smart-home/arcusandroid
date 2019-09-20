@@ -579,9 +579,6 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
             Fragment fragWeather = BackstackManager.getInstance().getFragmentOnStack(WeatherWarningFragment.class);
             popOverlay(fragWeather);
 
-            Fragment fragAlarm = BackstackManager.getInstance().getFragmentOnStack(ProMonitoringIncidentFragment.class);
-            popOverlay(fragAlarm);
-
             setToolbarNormal();
 
             DashboardPopupManager.getInstance().triggerPopups();
@@ -624,12 +621,6 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                 Fragment frag = BackstackManager.getInstance().getFragmentOnStack(EarlySmokeWarningFragment.class);
                 popOverlay(frag);
 
-                if (currentFragment instanceof ProMonitoringIncidentFragment) {
-                    // Nothing to do; stay put
-                }
-                else if (Hub.STATE_DOWN.equals(hubConnState) && AlarmSubsystem.ALARMPROVIDER_HUB.equals(alarmProvider)){
-                    BackstackManager.getInstance().navigateToFragment(ProMonitoringIncidentFragment.newInstance(state.getAlarmIncidentAddress()), true);
-                }
             }
             if (state.isPresmokeAlertActivated() && !navigatedToPresmokeSegment) {
                 navigatedToPresmokeSegment = true;
@@ -639,8 +630,7 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                 }
             }
 
-            Fragment frag = BackstackManager.getInstance().getFragmentOnStack(ProMonitoringIncidentFragment.class);
-            if(state.isCareAlarmActivated() && frag == null){
+            if(state.isCareAlarmActivated()){
                 setToolbarCare();
             }
         }
