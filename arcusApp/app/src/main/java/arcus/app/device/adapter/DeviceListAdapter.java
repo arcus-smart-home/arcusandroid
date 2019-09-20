@@ -174,7 +174,7 @@ public class DeviceListAdapter extends BaseAdapter {
     }
 
     private void showCloud(ImageView view, DeviceModel model) {
-        if (CorneaUtils.isHoneywellOffline(model) || DeviceConnection.STATE_OFFLINE.equals(model.get(DeviceConnection.ATTR_STATE))) {
+        if (DeviceConnection.STATE_OFFLINE.equals(model.get(DeviceConnection.ATTR_STATE))) {
             view.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.cloud_small_pink));
         }
         else {
