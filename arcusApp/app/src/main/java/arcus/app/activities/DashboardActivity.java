@@ -63,9 +63,6 @@ import arcus.app.dashboard.popups.responsibilities.alarm.AlarmCardPopupManager;
 import arcus.app.dashboard.popups.responsibilities.dashboard.DashboardPopupManager;
 import arcus.app.device.DeviceListingFragment;
 import arcus.app.subsystems.alarm.DeprecatedAlertFragment;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringAddUccContactFragment;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringAlarmParentFragment;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringIncidentFragment;
 import arcus.app.subsystems.alarm.safety.EarlySmokeWarningFragment;
 import arcus.app.subsystems.care.CareParentFragment;
 import arcus.app.subsystems.rules.RuleListFragment;
@@ -631,12 +628,6 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                     // Nothing to do; stay put
                 }
                 else if (Hub.STATE_DOWN.equals(hubConnState) && AlarmSubsystem.ALARMPROVIDER_HUB.equals(alarmProvider)){
-                    BackstackManager.getInstance().navigateToFragment(ProMonitoringIncidentFragment.newInstance(state.getAlarmIncidentAddress()), true);
-                }
-                else {
-                    if (!(currentFragment instanceof ProMonitoringAlarmParentFragment)) {
-                        BackstackManager.getInstance().navigateBackToFragment(ProMonitoringAlarmParentFragment.newInstance(0));
-                    }
                     BackstackManager.getInstance().navigateToFragment(ProMonitoringIncidentFragment.newInstance(state.getAlarmIncidentAddress()), true);
                 }
             }

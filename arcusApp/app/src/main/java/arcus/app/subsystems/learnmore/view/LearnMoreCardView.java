@@ -68,7 +68,7 @@ public class LearnMoreCardView extends DashboardFlipViewHolder {
                         ActivityUtils.launchShopCareNow();
                     }
                 } else if (card.getServiceCard() == ServiceCard.SECURITY_ALARM) {
-                    BackstackManager.withoutAnimation().navigateBackToFragment(ProMonitoringAlarmParentFragment.newInstance(0));
+                    // Removed ProMonitoring hook here, saving conditional for future use
                 } else if (card.getServiceType() == CardType.LIGHTS) {
                     ActivityUtils.launchShopLightsNSwitchesNow();
                 } else if (card.getServiceType() == CardType.CLIMATE) {
