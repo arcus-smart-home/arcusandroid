@@ -27,7 +27,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.iris.client.capability.HoneywellTCC;
 import com.iris.client.model.DeviceModel;
 import arcus.app.R;
 import arcus.app.common.cards.DeviceControlCard;
@@ -187,14 +186,6 @@ public class DeviceControlCardItemView extends BaseCardItemView<DeviceControlCar
             rightButton.setVisibility(GONE);
             bottomContainer.setEnabled(false);
             bottomContainer.setAlpha(BUTTON_DISABLED_ALPHA);
-        }
-
-        //This section is specific to honeywell c2c
-        if ((card.isOffline() && card.isHoneywellTcc()) || card.isRequiresLogin() ||
-                (card.getAuthorizationState() != null && card.getAuthorizationState().equals(HoneywellTCC.AUTHORIZATIONSTATE_DEAUTHORIZED))) {
-            showCloudOfflineBanner(card);
-            topButton.setAlpha(BUTTON_DISABLED_ALPHA);
-            divider.setBackgroundColor(getContext().getResources().getColor(R.color.black_with_10));
         }
 
         else {
