@@ -34,7 +34,6 @@ public class AlarmCardPopupManager extends PopupManager {
 
     private AlarmCardPopupManager() {
         popupResponsibilities.add(new AlarmTutorialPopupResponsibility());
-        popupResponsibilities.add(new MonitoringStationContactPopupResponsibility());
     }
 
     @Override

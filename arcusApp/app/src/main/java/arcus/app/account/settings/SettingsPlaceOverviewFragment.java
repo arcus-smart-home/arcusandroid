@@ -25,7 +25,6 @@ import android.widget.TextView;
 
 import arcus.cornea.SessionController;
 import arcus.cornea.model.PlaceAndRoleModel;
-import arcus.cornea.provider.ProMonitoringSettingsProvider;
 import arcus.cornea.utils.CachedModelSource;
 import arcus.cornea.utils.Listeners;
 import com.iris.capability.util.Addresses;
@@ -33,7 +32,6 @@ import com.iris.client.bean.PlaceAccessDescriptor;
 import com.iris.client.capability.Person;
 import com.iris.client.event.Listener;
 import com.iris.client.model.PlaceModel;
-import com.iris.client.model.ProMonitoringSettingsModel;
 import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;
@@ -103,7 +101,6 @@ public class SettingsPlaceOverviewFragment extends BaseFragment {
         setTitle();
         loadPlaceImageAndBackground();
         loadEditPlaceInformation();
-        enableProMonSettings();
     }
 
     protected void loadPlaceImageAndBackground() {

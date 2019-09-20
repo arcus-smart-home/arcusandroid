@@ -204,17 +204,7 @@ public class NewPlaceSequenceController extends AbstractStaticSequenceController
               .onSuccess(new Listener<PlaceModel>() {
                   @Override public void onEvent(PlaceModel placeModel) {
                       existingPlaceNickname = placeModel.getName();
-//                      existingServiceLevel = placeModel.getServiceLevel();
-                      switch (placeModel.getServiceLevel()){
-                          case Place.SERVICELEVEL_PREMIUM_PROMON:
-                          case Place.SERVICELEVEL_PREMIUM_PROMON_FREE:
-                          case Place.SERVICELEVEL_PREMIUM_PROMON_MYLOWES_DISCOUNT:
-                              existingServiceLevel = Place.SERVICELEVEL_PREMIUM;
-                              break;
-                          default:
-                              existingServiceLevel = placeModel.getServiceLevel();
-                      }
-
+                      existingServiceLevel = Place.SERVICELEVEL_PREMIUM;
                       createAnotherPlace(createPlaceCallback);
                   }
               });

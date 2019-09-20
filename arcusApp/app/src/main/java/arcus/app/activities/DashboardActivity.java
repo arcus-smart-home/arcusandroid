@@ -60,7 +60,6 @@ import arcus.app.common.utils.ToolbarColorizeHelper;
 import arcus.app.dashboard.HomeFragment;
 import arcus.app.dashboard.NavigationDrawerFragment;
 import arcus.app.dashboard.popups.responsibilities.alarm.AlarmCardPopupManager;
-import arcus.app.dashboard.popups.responsibilities.alarm.MonitoringStationContactPopupResponsibility;
 import arcus.app.dashboard.popups.responsibilities.dashboard.DashboardPopupManager;
 import arcus.app.device.DeviceListingFragment;
 import arcus.app.subsystems.alarm.DeprecatedAlertFragment;
@@ -568,14 +567,7 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
             navigatedToPresmokeSegment = false;
         }
 
-
-        Fragment fragUCC = BackstackManager.getInstance().getFragmentOnStack(ProMonitoringAddUccContactFragment.class);
-        if(fragUCC != null && !state.getState().equals(DashboardState.State.NORMAL)) {
-            PreferenceUtils.setHasSeenUccContactPrompt(false);
-            PreferenceUtils.setHasAddedUccContact(false);
-            AlarmCardPopupManager.getInstance().resetHasFired(MonitoringStationContactPopupResponsibility.class);
-            popOverlay(fragUCC);
-        } else if (currentFragment == null) {
+        if (currentFragment == null) {
             if(state.getState().equals(DashboardState.State.NORMAL)) {
                 setToolbarNormal();
             }
