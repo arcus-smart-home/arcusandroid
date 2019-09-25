@@ -7,5 +7,6 @@ The Arcus Android app connects to the Arcus Platform. In order to use the Androi
 # Quickstart
 
 1. Download Android Studio
-2. Modify `ARCUS_PLATFORM_WS' in GlobalSetting.java to point to your Arcus instance
-2. Build and run the project
+2. Open the project under `arcusApp`
+3. Modify `ARCUS_PLATFORM_WS' in GlobalSetting.java to point to your Arcus instance
+4. Build and run the project
