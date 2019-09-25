@@ -184,6 +184,8 @@ public class DeviceDetailPagerAdapter extends ArcusPagerAdapter {
             case SMOKE:
                 product = SmokeDetectorFragment.newInstance(false);
                 break;
+            case THERMOSTAT:
+                break;
             case LIGHT:
                 if (device.getCaps().contains(Dimmer.NAMESPACE)) {
                     product = DimmerFragment.newInstance();
