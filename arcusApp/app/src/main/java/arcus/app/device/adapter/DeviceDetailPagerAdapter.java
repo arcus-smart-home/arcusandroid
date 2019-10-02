@@ -69,6 +69,7 @@ import arcus.app.device.details.SirenFragment;
 import arcus.app.device.details.SmartButtonFragment;
 import arcus.app.device.details.SmartPlugFragment;
 import arcus.app.device.details.SomfyBlindsFragment;
+import arcus.app.device.details.ThermostatFragment;
 import arcus.app.device.details.TiltSensorFragment;
 import arcus.app.device.details.VentFragment;
 import arcus.app.device.details.WaterHeaterFragment;
@@ -185,6 +186,7 @@ public class DeviceDetailPagerAdapter extends ArcusPagerAdapter {
                 product = SmokeDetectorFragment.newInstance(false);
                 break;
             case THERMOSTAT:
+                product = ThermostatFragment.newInstance();
                 break;
             case LIGHT:
                 if (device.getCaps().contains(Dimmer.NAMESPACE)) {
