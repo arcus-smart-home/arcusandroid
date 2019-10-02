@@ -86,6 +86,7 @@ import arcus.app.seasonal.christmas.cards.views.SantaCardItemView;
 import arcus.app.seasonal.christmas.fragments.AboutChristmasEvent;
 import arcus.app.seasonal.christmas.fragments.SantaEditMain;
 import arcus.app.seasonal.christmas.util.ChristmasModelUtils;
+import arcus.app.subsystems.alarm.promonitoring.presenters.AlarmCardPresenter;
 import arcus.app.subsystems.alarm.safety.SafetyAlarmParentFragment;
 import arcus.app.subsystems.alarm.safety.controllers.SafetyCardController;
 import arcus.app.subsystems.alarm.security.SecurityParentFragment;
@@ -174,6 +175,7 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
      */
     private SafetyCardController mSafetyCardController;
     private SecurityCardController mSecurityCardController;
+    private AlarmCardPresenter mAlarmCardPresenter;
     private DoorsnlocksCardController mDoorsnlocksCardController;
     private ClimateCardController mClimateCardController;
     private CameraCardController mCameraCardController;
@@ -210,6 +212,10 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
 
         // Warning: Controllers need to all be created before setting the callbacks
         // TODO: Aren't these always going to be null during onCreate?..
+
+	if (mAlarmCardPresenter == null) {
+	    mAlarmCardPresenter = new AlarmCardPresenter(getActivity());
+	}
 
         if (mSecurityCardController == null) {
             mSecurityCardController = new SecurityCardController(getActivity());
@@ -295,7 +301,7 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
                     BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(new HistoryFragment(), true);
                     HistoryServicePopupManager.getInstance().triggerPopups();
                 }
-
+		
                 else if(view instanceof AlertCardItemView) {
                     if (((AlertCardItemView) view).getAlarmSystem() == AlertCard.ALARM_SYSTEM.SAFETY){
                         BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(new SafetyAlarmParentFragment(), true);
@@ -405,6 +411,7 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
         ((BaseActivity)getActivity()).showTitle(false);
         getActivity().setTitle(getTitle());
 
+	mAlarmCardPresenter.setCallback(this);
         mSecurityCardController.setCallback(this);
         mSafetyCardController.setCallback(this);
         mDoorsnlocksCardController.setCallback(this);
@@ -602,6 +609,8 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
                 return mHistoryCardController.getCard();
             case FAVORITES:
                 return mFavoritesCardController.getCard();
+            case SECURITY_ALARM:
+                return mAlarmCardPresenter.getCard();
             case DOORS_AND_LOCKS:
                 return mDoorsnlocksCardController.getCard();
             case CLIMATE:
@@ -633,6 +642,10 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
     }
 
     private void removeCardListeners(){
+
+        if (mAlarmCardPresenter !=null){
+	    mAlarmCardPresenter.removeCallback();
+	}
 
         if(mDoorsnlocksCardController !=null){
             mDoorsnlocksCardController.removeCallback();
