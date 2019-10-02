@@ -49,7 +49,6 @@ import arcus.app.R;
 import arcus.app.common.utils.VideoUtils;
 import arcus.app.common.view.ScleraTextView;
 import arcus.presentation.cameras.KeepAwakeController;
-import arcus.presentation.cameras.SwannCameraKeepAwakeController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -170,12 +169,7 @@ public class VideoActivity extends AppCompatActivity {
             return;
         }
 
-        if (playbackModel.getDeviceAddress() != null) {
-            keepAwakeController = new SwannCameraKeepAwakeController(playbackModel.getDeviceAddress());
-            keepAwakeController.startKeepAwake();
-        } else {
-            logger.debug("Could not create keep awake controller. Device address was null");
-        }
+        logger.debug("Could not create keep awake controller. functionality not implemented");
 
         progressBar = findViewById(R.id.progress_bar);
 
@@ -258,9 +252,6 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (keepAwakeController != null) {
-            keepAwakeController.stopKeepAwake();
-        }
     }
 
     private void initializePlayer() {

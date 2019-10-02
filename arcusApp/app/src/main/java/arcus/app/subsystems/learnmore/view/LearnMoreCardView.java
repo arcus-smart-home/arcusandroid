@@ -28,7 +28,6 @@ import arcus.app.common.utils.ActivityUtils;
 import arcus.app.common.view.DashboardFlipViewHolder;
 import arcus.app.common.view.Version1TextView;
 import arcus.app.dashboard.settings.services.ServiceCard;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringAlarmParentFragment;
 import arcus.app.subsystems.care.fragment.CareDevicesRequiredFragment;
 import arcus.app.subsystems.learnmore.cards.CardType;
 import arcus.app.subsystems.learnmore.cards.LearnMoreCard;
@@ -68,7 +67,7 @@ public class LearnMoreCardView extends DashboardFlipViewHolder {
                         ActivityUtils.launchShopCareNow();
                     }
                 } else if (card.getServiceCard() == ServiceCard.SECURITY_ALARM) {
-                    BackstackManager.withoutAnimation().navigateBackToFragment(ProMonitoringAlarmParentFragment.newInstance(0));
+                    // Removed ProMonitoring hook here, saving conditional for future use
                 } else if (card.getServiceType() == CardType.LIGHTS) {
                     ActivityUtils.launchShopLightsNSwitchesNow();
                 } else if (card.getServiceType() == CardType.CLIMATE) {

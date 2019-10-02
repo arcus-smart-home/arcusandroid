@@ -285,9 +285,6 @@ public class FullScreenActivityGraph extends Fragment implements CareActivityCon
             }
 
             ListItemModel item = new ListItemModel();
-            if (CorneaUtils.isHoneywellOffline((DeviceModel) model)) {
-                item.setImageResId(R.drawable.cloud_favorites_pink);
-            }
 
             item.setAddress(model.getAddress());
             item.setData(model);

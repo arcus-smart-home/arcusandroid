@@ -60,13 +60,9 @@ import arcus.app.common.utils.ToolbarColorizeHelper;
 import arcus.app.dashboard.HomeFragment;
 import arcus.app.dashboard.NavigationDrawerFragment;
 import arcus.app.dashboard.popups.responsibilities.alarm.AlarmCardPopupManager;
-import arcus.app.dashboard.popups.responsibilities.alarm.MonitoringStationContactPopupResponsibility;
 import arcus.app.dashboard.popups.responsibilities.dashboard.DashboardPopupManager;
 import arcus.app.device.DeviceListingFragment;
 import arcus.app.subsystems.alarm.DeprecatedAlertFragment;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringAddUccContactFragment;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringAlarmParentFragment;
-import arcus.app.subsystems.alarm.promonitoring.ProMonitoringIncidentFragment;
 import arcus.app.subsystems.alarm.safety.EarlySmokeWarningFragment;
 import arcus.app.subsystems.care.CareParentFragment;
 import arcus.app.subsystems.rules.RuleListFragment;
@@ -568,14 +564,7 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
             navigatedToPresmokeSegment = false;
         }
 
-
-        Fragment fragUCC = BackstackManager.getInstance().getFragmentOnStack(ProMonitoringAddUccContactFragment.class);
-        if(fragUCC != null && !state.getState().equals(DashboardState.State.NORMAL)) {
-            PreferenceUtils.setHasSeenUccContactPrompt(false);
-            PreferenceUtils.setHasAddedUccContact(false);
-            AlarmCardPopupManager.getInstance().resetHasFired(MonitoringStationContactPopupResponsibility.class);
-            popOverlay(fragUCC);
-        } else if (currentFragment == null) {
+        if (currentFragment == null) {
             if(state.getState().equals(DashboardState.State.NORMAL)) {
                 setToolbarNormal();
             }
@@ -589,9 +578,6 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
 
             Fragment fragWeather = BackstackManager.getInstance().getFragmentOnStack(WeatherWarningFragment.class);
             popOverlay(fragWeather);
-
-            Fragment fragAlarm = BackstackManager.getInstance().getFragmentOnStack(ProMonitoringIncidentFragment.class);
-            popOverlay(fragAlarm);
 
             setToolbarNormal();
 
@@ -635,18 +621,6 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                 Fragment frag = BackstackManager.getInstance().getFragmentOnStack(EarlySmokeWarningFragment.class);
                 popOverlay(frag);
 
-                if (currentFragment instanceof ProMonitoringIncidentFragment) {
-                    // Nothing to do; stay put
-                }
-                else if (Hub.STATE_DOWN.equals(hubConnState) && AlarmSubsystem.ALARMPROVIDER_HUB.equals(alarmProvider)){
-                    BackstackManager.getInstance().navigateToFragment(ProMonitoringIncidentFragment.newInstance(state.getAlarmIncidentAddress()), true);
-                }
-                else {
-                    if (!(currentFragment instanceof ProMonitoringAlarmParentFragment)) {
-                        BackstackManager.getInstance().navigateBackToFragment(ProMonitoringAlarmParentFragment.newInstance(0));
-                    }
-                    BackstackManager.getInstance().navigateToFragment(ProMonitoringIncidentFragment.newInstance(state.getAlarmIncidentAddress()), true);
-                }
             }
             if (state.isPresmokeAlertActivated() && !navigatedToPresmokeSegment) {
                 navigatedToPresmokeSegment = true;
@@ -656,8 +630,7 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                 }
             }
 
-            Fragment frag = BackstackManager.getInstance().getFragmentOnStack(ProMonitoringIncidentFragment.class);
-            if(state.isCareAlarmActivated() && frag == null){
+            if(state.isCareAlarmActivated()){
                 setToolbarCare();
             }
         }

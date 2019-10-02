@@ -34,7 +34,6 @@ import com.iris.client.capability.Device;
 import com.iris.client.capability.DeviceAdvanced;
 import com.iris.client.capability.DeviceConnection;
 import com.iris.client.capability.DeviceOta;
-import com.iris.client.capability.HoneywellTCC;
 import com.iris.client.capability.HubAdvanced;
 import com.iris.client.capability.Place;
 import com.iris.client.capability.Thermostat;
@@ -91,8 +90,7 @@ public class CorneaUtils {
 
         Collection<String> caps = deviceModel.getCaps();
         return (caps != null && !caps.isEmpty()) &&
-              (caps.contains(Thermostat.NAMESPACE) ||
-              caps.contains(HoneywellTCC.NAMESPACE));
+              (caps.contains(Thermostat.NAMESPACE));
     }
 
     @Nullable
@@ -245,13 +243,6 @@ public class CorneaUtils {
         else {
             return identifierSplit[2];
         }
-    }
-
-    public static boolean isHoneywellOffline (DeviceModel model) {
-        return  DeviceType.TCC_THERM.equals(DeviceType.fromHint(model.getDevtypehint())) &&
-                    (DeviceConnection.STATE_OFFLINE.equals(model.get(DeviceConnection.ATTR_STATE)) ||
-                     HoneywellTCC.AUTHORIZATIONSTATE_DEAUTHORIZED.equals(model.get(HoneywellTCC.ATTR_AUTHORIZATIONSTATE)) ||
-                     Boolean.TRUE.equals(model.get(HoneywellTCC.ATTR_REQUIRESLOGIN)));
     }
 
     /**

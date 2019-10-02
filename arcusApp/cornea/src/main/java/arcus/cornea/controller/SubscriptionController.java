@@ -26,16 +26,7 @@ public class SubscriptionController {
      * @return Returns true when account level is ProMon
      */
     public static boolean isProfessional() {
-        // Until the place model has loaded, assume the user has a basic subscription
-        if(!PlaceModelProvider.getCurrentPlace().isLoaded()) {
-            return false;
-        }
-
-        String serviceLevel = String.valueOf(PlaceModelProvider.getCurrentPlace().get().get(Place.ATTR_SERVICELEVEL));
-        return serviceLevel.contains(Place.SERVICELEVEL_PREMIUM_PROMON) ||
-                serviceLevel.contains(Place.SERVICELEVEL_PREMIUM_PROMON_FREE) ||
-                serviceLevel.contains(Place.SERVICELEVEL_PREMIUM_PROMON_MYLOWES_DISCOUNT) ||
-                serviceLevel.contains(Place.SERVICELEVEL_PREMIUM_PROMON_ANNUAL);
+        return true;
     }
 
     /**

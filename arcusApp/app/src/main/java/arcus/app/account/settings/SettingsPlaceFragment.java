@@ -37,7 +37,6 @@ import android.widget.Spinner;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.controller.SubscriptionController;
 import arcus.cornea.model.PlaceAndRoleModel;
-import arcus.cornea.provider.ProMonitoringSettingsProvider;
 import arcus.cornea.subsystem.model.TimeZoneModel;
 import arcus.cornea.utils.CachedModelSource;
 import arcus.cornea.utils.Listeners;
@@ -47,7 +46,6 @@ import com.iris.client.bean.StreetAddress;
 import com.iris.client.event.Listener;
 import com.iris.client.exception.ErrorResponseException;
 import com.iris.client.model.PlaceModel;
-import com.iris.client.model.ProMonitoringSettingsModel;
 import com.iris.client.service.PlaceService;
 import arcus.app.R;
 import arcus.app.account.registration.controller.task.ArcusTask;
@@ -406,17 +404,6 @@ public class SettingsPlaceFragment extends BaseFragment
 
         if (placeModel != null && timeZoneSelected != null) {
             timeZoneSelected.setText(placeModel.getTzName());
-        }
-
-        if(SubscriptionController.isProfessional()) {
-            ProMonitoringSettingsProvider.getInstance().getProMonSettings(placeModel.getId()).onFailure(errorListener).onSuccess(Listeners.runOnUiThread(new Listener<ProMonitoringSettingsModel>() {
-                @Override
-                public void onEvent(ProMonitoringSettingsModel model) {
-                    if(model.getPermitRequired() && StringUtils.isEmpty(model.getPermitNumber())) {
-                        FullscreenFragmentActivity.launch(getActivity(), ProMonSettingsPermitRequiredFragment.class);
-                    }
-                }
-            }));
         }
     }
 

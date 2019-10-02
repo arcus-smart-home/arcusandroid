@@ -25,7 +25,6 @@ import arcus.cornea.device.thermostat.ThermostatMode;
 import arcus.cornea.device.thermostat.ThermostatProxyModel;
 import arcus.cornea.error.ErrorModel;
 import arcus.cornea.subsystem.climate.EventMessageMonitor;
-import com.iris.client.capability.HoneywellTCC;
 import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;
@@ -227,16 +226,6 @@ public class ThermostatCardController extends DeviceCardController implements De
                 deviceCard.setBottomButtonEnabled(true);
             }
             mMode = model.getMode();
-
-            //need to disabled controls for honeywell device if there are other error conditions.
-            if(model.isHoneywellDevice() && ((deviceCard.isOffline() && deviceCard.isCloudDevice()) ||
-                    deviceCard.isRequiresLogin() ||
-                    (deviceCard.isIsEventInProcess()) ||
-                    deviceCard.getAuthorizationState().equals(HoneywellTCC.AUTHORIZATIONSTATE_DEAUTHORIZED))) {
-                deviceCard.setLeftButtonEnabled(false);
-                deviceCard.setRightButtonEnabled(false);
-                deviceCard.setBottomButtonEnabled(false);
-            }
         }
     }
 

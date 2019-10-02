@@ -33,7 +33,6 @@ import com.iris.client.capability.AlarmSubsystem;
 import com.iris.client.capability.DeviceConnection;
 import com.iris.client.capability.Hub;
 import com.iris.client.capability.SecuritySubsystem;
-import com.iris.client.capability.SwannBatteryCamera;
 import com.iris.client.event.ListenerRegistration;
 import com.iris.client.model.DeviceModel;
 import com.iris.client.model.HubModel;
@@ -243,11 +242,9 @@ public class AlarmCardPresenter extends AbstractCardController<SimpleDividerCard
                                     for(DeviceModel device : devices){
                                         DeviceModel camera = null;
                                         Collection<String> caps = device.getCaps();
-                                        // First, check that this security device is a Swann camera
-                                        if((caps != null && caps.contains(SwannBatteryCamera.NAMESPACE))){
-                                            wifiCameras.add(device);
-                                            camera = device;
-                                        }
+
+                                        // TODO: detect if device is a supported wifi camera, add it to wifiCameras, and assign camera to it
+
                                         if(camera != null && DeviceConnection.STATE_OFFLINE.equals(camera.get(DeviceConnection.ATTR_STATE))) {
                                             offlineDevices.add(device);
                                         }
@@ -278,7 +275,7 @@ public class AlarmCardPresenter extends AbstractCardController<SimpleDividerCard
             @Override
             public void run() {
                 setCurrentCard(card);
-            }
+             }
         });
 
     }

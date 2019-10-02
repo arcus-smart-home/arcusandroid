@@ -58,8 +58,7 @@ class CameraPlaybackPresenterImpl internal constructor(
     private val cellBackupSubsystem: ModelSource<SubsystemModel>,
     private val videoService: VideoService,
     private val scheduledExecutor: ScheduledExecutor,
-    private val mainExecutor: ScheduledExecutor,
-    private val keepAwakeController: KeepAwakeController
+    private val mainExecutor: ScheduledExecutor
 ) : CameraPlaybackPresenter<PlaybackView>, DeviceController<CameraModel>(source) {
     @Volatile
     private var currentStreamID : String? = null
@@ -144,12 +143,10 @@ class CameraPlaybackPresenterImpl internal constructor(
 
     override fun setView(callback: PlaybackView) {
         super.setCallback(callback)
-        keepAwakeController.startKeepAwake()
     }
 
     override fun clearView() {
         super.clearCallback()
-        keepAwakeController.stopKeepAwake()
         val device = device
         if (device != null) {
             // The callback is wrapped in a weak reference in the CameraPreviewGetter
@@ -235,8 +232,7 @@ class CameraPlaybackPresenterImpl internal constructor(
         playbackView?.showLoading()
 
         val model = currentRecording
-        val isNotASwannCamera = device?.caps?.contains(SwannBatteryCamera.NAMESPACE) == false
-        if (isNotASwannCamera && model != null && (asStream || RecordingModel.TYPE_RECORDING == model.type)) {
+        if (model != null && (asStream || RecordingModel.TYPE_RECORDING == model.type)) {
             // Requesting stream and not Idle OR Requesting record, and currently recording
             logger.debug("Piggybacking on [${model.id}] with TYPE [${model.type}]")
             model.view().onSuccess(Listeners.runOnUiThread<Recording.ViewResponse> { viewResponse ->
@@ -416,7 +412,6 @@ class CameraPlaybackPresenterImpl internal constructor(
         fun newController(deviceId: String): CameraPlaybackPresenterImpl {
             val address = Addresses.toObjectAddress(Device.NAMESPACE, deviceId)
             val source = DeviceModelProvider.instance().getModel(address)
-            val keepAwakeController = SwannCameraKeepAwakeController(address)
 
             return CameraPlaybackPresenterImpl(
                 CorneaClientFactory.getClient(),
@@ -425,8 +420,7 @@ class CameraPlaybackPresenterImpl internal constructor(
                 SubsystemController.instance().getSubsystemModel(CellBackupSubsystem.NAMESPACE),
                 CorneaClientFactory.getService(VideoService::class.java),
                 AndroidExecutor(Looper.myLooper()),
-                AndroidExecutor.mainExecutor,
-                keepAwakeController
+                AndroidExecutor.mainExecutor
             )
         }
     }

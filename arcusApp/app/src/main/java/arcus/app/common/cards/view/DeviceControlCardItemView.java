@@ -27,7 +27,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.iris.client.capability.HoneywellTCC;
 import com.iris.client.model.DeviceModel;
 import arcus.app.R;
 import arcus.app.common.cards.DeviceControlCard;
@@ -37,7 +36,6 @@ import arcus.app.common.image.picasso.transformation.Invert;
 import arcus.app.common.models.SessionModelManager;
 import arcus.app.common.view.GlowableImageView;
 import arcus.app.common.view.Version1TextView;
-import arcus.app.device.details.presenters.NestThermostatPresenter;
 import arcus.app.device.model.DeviceType;
 
 import java.util.List;
@@ -187,14 +185,6 @@ public class DeviceControlCardItemView extends BaseCardItemView<DeviceControlCar
             rightButton.setVisibility(GONE);
             bottomContainer.setEnabled(false);
             bottomContainer.setAlpha(BUTTON_DISABLED_ALPHA);
-        }
-
-        //This section is specific to honeywell c2c
-        if ((card.isOffline() && card.isHoneywellTcc()) || card.isRequiresLogin() ||
-                (card.getAuthorizationState() != null && card.getAuthorizationState().equals(HoneywellTCC.AUTHORIZATIONSTATE_DEAUTHORIZED))) {
-            showCloudOfflineBanner(card);
-            topButton.setAlpha(BUTTON_DISABLED_ALPHA);
-            divider.setBackgroundColor(getContext().getResources().getColor(R.color.black_with_10));
         }
 
         else {
@@ -362,16 +352,8 @@ public class DeviceControlCardItemView extends BaseCardItemView<DeviceControlCar
     }
 
     private String getErrorMessageForErrorCode(String errorCode) {
-        switch (errorCode.toUpperCase()) {
-            case NestThermostatPresenter.ERROR_AUTH_REVOKED:
-                return getContext().getString(R.string.nest_account_revoked);
-            case NestThermostatPresenter.ERROR_RATE_LIMITED:
-                return getContext().getString(R.string.nest_ratelimited);
-            case NestThermostatPresenter.ERROR_DELETED:
-                return getContext().getString(R.string.nest_device_deleted);
-            default:
-                return errorCode;
-        }
+        // this used to return custom error stuff for Nest
+        return errorCode;
     }
 
     private void showControls() {

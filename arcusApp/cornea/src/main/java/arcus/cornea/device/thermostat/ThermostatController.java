@@ -28,8 +28,6 @@ import arcus.cornea.utils.TemperatureUtils;
 import com.iris.client.capability.Device;
 import com.iris.client.capability.DeviceAdvanced;
 import com.iris.client.capability.DeviceConnection;
-import com.iris.client.capability.HoneywellTCC;
-import com.iris.client.capability.NestThermostat;
 import com.iris.client.capability.RelativeHumidity;
 import com.iris.client.capability.Temperature;
 import com.iris.client.capability.Thermostat;
@@ -53,8 +51,6 @@ public class ThermostatController extends DeviceController<ThermostatProxyModel>
 
     private static final int MIN_SETPOINT_NOMINAL = 45;
     private static final int MAX_SETPOINT_NOMINAL = 95;
-    private static final int MIN_SETPOINT_NEST = 50;
-    private static final int MAX_SETPOINT_NEST = 90;
 
     private static final int DEBOUNCE_REQUEST_DELAY_MS = 500;
     private static final int DEBOUNCE_REQUEST_DELAY_CLOUD_MS = 3000;
@@ -95,9 +91,7 @@ public class ThermostatController extends DeviceController<ThermostatProxyModel>
             Thermostat.ATTR_CONTROLMODE,
             Thermostat.ATTR_COOLSETPOINT,
             Thermostat.ATTR_HEATSETPOINT,
-            Thermostat.ATTR_HVACMODE,
-            HoneywellTCC.ATTR_REQUIRESLOGIN,
-            HoneywellTCC.ATTR_AUTHORIZATIONSTATE
+            Thermostat.ATTR_HVACMODE
         );
         if(source.get() != null && source.get().getDevtypehint().equals("TCCThermostat")) {
             debouncedRequestScheduler = new DebouncedRequestScheduler(DEBOUNCE_REQUEST_DELAY_CLOUD_MS);
@@ -138,15 +132,6 @@ public class ThermostatController extends DeviceController<ThermostatProxyModel>
                     break;
                 case Thermostat.HVACMODE_ECO:
                     model.setMode(ThermostatMode.ECO);
-            }
-        }
-        if(thermostat.getDevtypehint().equals("TCCThermostat")) {
-            HoneywellTCC cloudDevice = (HoneywellTCC) device;
-            if(cloudDevice.getRequiresLogin() != null) {
-                model.setRequiresLogin(cloudDevice.getRequiresLogin());
-            }
-            if(cloudDevice.getAuthorizationState() != null) {
-                model.setAuthorizationState(cloudDevice.getAuthorizationState());
             }
         }
 
@@ -387,22 +372,11 @@ public class ThermostatController extends DeviceController<ThermostatProxyModel>
     }
 
     private int getMinimumSetpointF(DeviceModel model) {
-        try {
-            NestThermostat nest = NestThermostat.class.cast(model);
-            return nest.getLocked() ? TemperatureUtils.roundCelsiusToFahrenheit(nest.getLockedtempmin()) : MIN_SETPOINT_NEST;
-        } catch (ClassCastException e) {
-            return MIN_SETPOINT_NOMINAL;
-        }
+        return MIN_SETPOINT_NOMINAL;
     }
 
     private int getMaximumSetpointF(DeviceModel model) {
-        // TODO: Someday these values should come from model
-        try {
-            NestThermostat nest = NestThermostat.class.cast(model);
-            return nest.getLocked() ? TemperatureUtils.roundCelsiusToFahrenheit(nest.getLockedtempmax()) : MAX_SETPOINT_NEST;
-        } catch (ClassCastException e) {
-            return MAX_SETPOINT_NOMINAL;
-        }
+        return MAX_SETPOINT_NOMINAL;
     }
 
     private void showError(Throwable throwable) {

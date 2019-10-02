@@ -30,15 +30,12 @@ import arcus.app.R;
 import arcus.app.common.fragments.BaseFragment;
 import arcus.app.common.image.ImageManager;
 import arcus.app.common.image.Wallpaper;
-import arcus.app.subsystems.alarm.promonitoring.presenters.AlarmProviderOfflinePresenter;
-
 
 public class DeviceConfigFragment extends BaseFragment implements SecurityDeviceConfigController.SelectedDeviceCallback,
         View.OnClickListener, PresentedView {
 
     private SecurityDeviceConfigController mConfigController;
     private ListenerRegistration mSelectedDeviceListener;
-    private AlarmProviderOfflinePresenter presenter = new AlarmProviderOfflinePresenter();
 
     private String mSelectedDeviceId;
 
@@ -83,8 +80,6 @@ public class DeviceConfigFragment extends BaseFragment implements SecurityDevice
     public void onResume() {
         super.onResume();
 
-        presenter.startPresenting(this);
-
         if (mConfigController == null) {
             mConfigController = SecurityDeviceConfigController.instance();
         }
@@ -99,7 +94,6 @@ public class DeviceConfigFragment extends BaseFragment implements SecurityDevice
     @Override
     public void onPause() {
         super.onPause();
-        presenter.stopPresenting();
         mSelectedDeviceListener.remove();
     }
 
