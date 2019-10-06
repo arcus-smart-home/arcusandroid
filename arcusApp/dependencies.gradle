@@ -16,7 +16,7 @@ ext {
     deps = [:]
 
     deps.classpath = [:]
-    deps.classpath.gradleTools = 'com.android.tools.build:gradle:3.3.0'
+    deps.classpath.gradleTools = 'com.android.tools.build:gradle:3.5.1'
     deps.classpath.dexCount = 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
     deps.classpath.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
