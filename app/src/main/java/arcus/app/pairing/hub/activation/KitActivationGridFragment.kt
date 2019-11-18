@@ -30,7 +30,6 @@ import android.widget.LinearLayout
 
 import arcus.app.R
 import arcus.app.activities.DashboardActivity
-import arcus.app.common.ConfettiGenerator
 import arcus.app.common.fragment.BackPressInterceptor
 import arcus.app.common.fragment.FragmentContainerHolder
 import arcus.app.common.popups.ScleraPopup
@@ -54,16 +53,6 @@ class KitActivationGridFragment : Fragment(),
     private lateinit var confettiContainer : ViewGroup
     private var rvAdapter : KitActivationRecyclerViewAdapter? = null
     private var fragmentContainer : FragmentContainerHolder? = null
-    private var confettiGenerator: ConfettiGenerator? = null
-    private val confettiRunnable = Runnable {
-        context?.let { nnContext ->
-            confettiGenerator?.stopConfetti()
-            confettiGenerator = ConfettiGenerator(
-                nnContext,
-                confettiContainer
-            ).startConfetti()
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -106,11 +95,6 @@ class KitActivationGridFragment : Fragment(),
         presenter.setView(this)
         presenter.loadKitItems()
         fragmentContainer?.setTitle(getString(R.string.kit_setup))
-    }
-
-    override fun onPause() {
-        super.onPause()
-        confettiGenerator?.stopConfetti()
     }
 
     override fun onDestroy() {
@@ -165,14 +149,6 @@ class KitActivationGridFragment : Fragment(),
             compatActivity.findViewById<LinearLayout>(R.id.watch_tutorial_banner).visibility = View.GONE
             title.text = getString(R.string.congrats_kit_setup_completed)
             subtitle.visibility = View.GONE
-
-            // Give a slight delay in the event we're resuming this view
-            // Want to ensure the width of the container is known
-            //
-            // Could do this by listening to when the view has been laid out and measured
-            // but this should work just fine as wel.
-            confettiContainer.removeCallbacks(confettiRunnable)
-            confettiContainer.postDelayed(confettiRunnable, 500)
         }
     }
 

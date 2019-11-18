@@ -41,7 +41,7 @@ import com.iris.client.capability.Hub;
 import com.iris.client.event.ListenerRegistration;
 import com.iris.client.model.HubModel;
 import arcus.app.R;
-import arcus.app.account.creation.CreationConfettiFragment;
+import arcus.app.account.creation.CreateAccountSuccessFragment;
 import arcus.app.account.settings.SettingsWalkthroughFragment;
 import arcus.app.account.settings.SideNavSettingsFragment;
 import arcus.app.common.backstack.BackstackManager;
@@ -54,12 +54,10 @@ import arcus.app.common.image.ImageManager;
 import arcus.app.common.image.Wallpaper;
 import arcus.app.common.models.SessionModelManager;
 import arcus.app.common.utils.ActivityUtils;
-import arcus.app.common.utils.PreferenceUtils;
 import arcus.app.common.utils.StringUtils;
 import arcus.app.common.utils.ToolbarColorizeHelper;
 import arcus.app.dashboard.HomeFragment;
 import arcus.app.dashboard.NavigationDrawerFragment;
-import arcus.app.dashboard.popups.responsibilities.alarm.AlarmCardPopupManager;
 import arcus.app.dashboard.popups.responsibilities.dashboard.DashboardPopupManager;
 import arcus.app.device.DeviceListingFragment;
 import arcus.app.subsystems.alarm.DeprecatedAlertFragment;
@@ -171,7 +169,7 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
         boolean accountConfetti = getIntent().getBooleanExtra(TAG_ACCOUNT_CONFETTI, false);
         
         if (accountConfetti) {
-            BackstackManager.getInstance().navigateToFragment(CreationConfettiFragment.newInstance(), true);
+            BackstackManager.getInstance().navigateToFragment(CreateAccountSuccessFragment.newInstance(), true);
         } else {
             // Send the user to screen targeted by the given address or do nothing if no address target exists
             DeepLinkDispatcher.dispatchToAddress(getIntent().getStringExtra(TAG_ADDRESS));

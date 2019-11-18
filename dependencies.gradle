@@ -41,7 +41,6 @@ ext {
     deps.gifDrawable = 'pl.droidsonroids.gif:android-gif-drawable:1.2.8' // MIT for animated gifs
     deps.dexaMaterialList = 'com.github.dexafree:materiallist:2.4.5' // MIT for Card Based Dashboard
     deps.advRecyclerView  = 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar' // Apache 2
-    deps.confetti = 'com.github.jinatonic.confetti:confetti:1.1.0' // Apache 2
 
     deps.picasso = 'com.squareup.picasso:picasso:2.5.2' // Apache 2
     deps.okhttp = 'com.squareup.okhttp:okhttp:2.7.5' // Apache 2
