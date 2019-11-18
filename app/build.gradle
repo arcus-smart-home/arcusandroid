@@ -114,7 +114,6 @@ dependencies {
     implementation deps.eventBus
     implementation deps.gifDrawable
     implementation deps.dexaMaterialList
-    implementation deps.confetti
     implementation(deps.advRecyclerView) {
         transitive = true
     }
