@@ -1990,6 +1990,8 @@
     <string name="care_add_behavior_activity_title">ADD A CARE BEHAVIOR</string>
     <string name="generic_shop_text">SHOP</string>
     <string name="generic_save_text">SAVE</string>
+    <string name="save_text">SAVE</string>
+    <string name="take_photo_description">Take Photo.</string>
 
     <string name="care_behavior_participating_devices_title">PARTICIPATING DEVICES</string>
     <string name="care_behavior_participating_devices_desc">Choose the devices that will trigger the Care Alarm when no activity is detected.</string>

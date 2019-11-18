@@ -64,8 +64,6 @@
             android:name="asset_statements"
             android:resource="@string/asset_statements" />
 
-        <receiver android:name=".seasonal.christmas.receiver.ChristmasNotificationReceiver" />
-
         <activity
             android:name=".activities.LaunchActivity"
             android:launchMode="singleTop"
@@ -133,10 +131,6 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
-        <activity
-            android:name=".seasonal.christmas.activity.SantaPictureActivity"
-            android:hardwareAccelerated="false"
-            android:launchMode="singleTop" />
 
         <meta-data
             android:name="com.google.android.gms.version"
