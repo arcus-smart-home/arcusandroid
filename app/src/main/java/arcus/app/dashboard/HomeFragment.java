@@ -74,18 +74,12 @@ import arcus.app.common.models.SessionModelManager;
 import arcus.app.common.utils.ActivityUtils;
 import arcus.app.common.utils.PreferenceUtils;
 import arcus.app.common.view.DashboardRecyclerItemClickListener;
-import arcus.app.dashboard.popups.responsibilities.alarm.AlarmCardPopupManager;
 import arcus.app.dashboard.popups.responsibilities.dashboard.DashboardPopupManager;
 import arcus.app.dashboard.popups.responsibilities.history.HistoryServicePopupManager;
 import arcus.app.dashboard.settings.favorites.FavoritesOrderChangedEvent;
 import arcus.app.dashboard.settings.services.CardListChangedEvent;
 import arcus.app.dashboard.settings.services.ServiceCard;
 import arcus.app.device.ota.controller.FirmwareUpdateController;
-import arcus.app.seasonal.christmas.cards.SantaCard;
-import arcus.app.seasonal.christmas.cards.views.SantaCardItemView;
-import arcus.app.seasonal.christmas.fragments.AboutChristmasEvent;
-import arcus.app.seasonal.christmas.fragments.SantaEditMain;
-import arcus.app.seasonal.christmas.util.ChristmasModelUtils;
 import arcus.app.subsystems.alarm.promonitoring.presenters.AlarmCardPresenter;
 import arcus.app.subsystems.alarm.safety.SafetyAlarmParentFragment;
 import arcus.app.subsystems.alarm.safety.controllers.SafetyCardController;
@@ -189,7 +183,6 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
     private ComingSoonCard windowsAndBlindsCard;
     private CareDashboardViewController careCard;
     private ComingSoonCard energyCard;
-    private SantaCard santaTrackerCard;
     private FeatureCard featureCard;
 
     private AtomicBoolean isDashboardInQuietPeriod = new AtomicBoolean(false);
@@ -271,7 +264,6 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
         if (activity != null) {
             windowsAndBlindsCard = new ComingSoonCard(activity, ServiceCard.WINDOWS_AND_BLINDS);
             energyCard = new ComingSoonCard(activity, ServiceCard.ENERGY);
-            santaTrackerCard = new SantaCard(activity);
             featureCard = new FeatureCard(activity);
         }
     }
@@ -336,13 +328,6 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
                 }
                 else if (view instanceof LawnAndGardenCardItemView) {
                     BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(new LawnAndGardenParentFragment(), true);
-                } else if(view instanceof SantaCardItemView) {
-                    if (ChristmasModelUtils.getModelCacheFromDisk().isSetupComplete()) {
-                        BackstackManager.getInstance().navigateToFragment(SantaEditMain.newInstance(), true);
-                    }
-                    else {
-                        BackstackManager.getInstance().navigateToFragment(AboutChristmasEvent.newInstance(), true);
-                    }
                 } else if (view instanceof FeatureCardItemView) {
                     ActivityUtils.launchShopNow();
                 }
@@ -411,7 +396,7 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
         ((BaseActivity)getActivity()).showTitle(false);
         getActivity().setTitle(getTitle());
 
-	mAlarmCardPresenter.setCallback(this);
+        mAlarmCardPresenter.setCallback(this);
         mSecurityCardController.setCallback(this);
         mSafetyCardController.setCallback(this);
         mDoorsnlocksCardController.setCallback(this);
@@ -426,9 +411,6 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
 
         // No callback because no means to asynchronously notify us when history changes
         mHistoryCardController.updateHistoryLogEntries();
-
-        // No callback because no means to notify when time/date enters or leaves event times
-        santaTrackerCard.updateCardDescription();
 
         onPopped(); // sets the bg wallpaper.
         addHubPropertyChangeListener();
@@ -631,8 +613,6 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
                 return energyCard;
             case LAWN_AND_GARDEN:
                 return mLawnAndGardenCardController.getCard();
-            case SANTA_TRACKER:
-                return santaTrackerCard;
             case FEATURE:
                 return featureCard;
             default:

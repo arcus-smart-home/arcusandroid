@@ -27,7 +27,6 @@ import com.iris.client.model.Model;
 import com.iris.client.model.SubsystemModel;
 import arcus.app.BuildConfig;
 import arcus.app.dashboard.settings.services.ServiceCard;
-import arcus.app.seasonal.christmas.util.SantaEventTiming;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,8 +74,6 @@ public class PreferenceUtils {
     private static final String PLACE_BACKGROUND_MAP = "place-background-map";
     private static final String TUTORIAL_FLAG = "tutorialFlagKey";
     private static final String WEATHER_RADIO_SHOW_SNOOZE = "weatherRadioShowSnooze";
-    private static final String FORCE_SANTA_VISIBLE = "FORCE_SANTA_VISIBLE_" + SantaEventTiming.instance().getSantaSeasonYear();
-    private static final String FORCE_SANTA_ORDER = "FORCE_SANTA_ORDER_" + SantaEventTiming.instance().getSantaSeasonYear();
     private static final String FORCE_ALARMS_VISIBLE = "FORCE_ALARMS_VISIBLE";
     private static final String FORCE_ALARMS_ORDER = "FORCE_ALARMS_ORDER";
     private static final String ALARM_ACTIVITY_FILTER = "ALARM_ACTIVITY_FILTER";
@@ -247,7 +244,7 @@ public class PreferenceUtils {
             }
         }
         
-        return forceSantaTrackerVisible(forceAlarmsVisible(visibleCards));
+        return forceAlarmsVisible(visibleCards);
 
     }
 
@@ -300,7 +297,7 @@ public class PreferenceUtils {
             Collections.addAll(serviceCardList, ServiceCard.values());
         }
 
-        return forceActiveSubsystemRefresh(forceSantaTrackerOrder(forceAlarmsOrder(serviceCardList)));
+        return forceActiveSubsystemRefresh(forceAlarmsOrder(serviceCardList));
     }
 
     private static List<ServiceCard> forceActiveSubsystemRefresh(List<ServiceCard> serviceCardList){
@@ -329,81 +326,6 @@ public class PreferenceUtils {
         }
 
         return serviceCardList;
-    }
-
-    @NonNull
-    private static List<ServiceCard> forceSantaTrackerOrder(@NonNull List<ServiceCard> cardOrder) {
-
-        // The first time we enter "Santa Season" show the dashboard card (but never force it shown again)
-        if (PreferenceCache.getInstance().getBoolean(FORCE_SANTA_ORDER, true) && SantaEventTiming.instance().isSantaSeason()) {
-
-            // One-shot behavior; don't forcibly show Santa card again if user hides it
-            PreferenceCache.getInstance().putBoolean(FORCE_SANTA_ORDER, false);
-
-            // Add Santa card to card order and save the results
-            addSantaCardToCardList(cardOrder);
-            putOrderedServiceList(cardOrder);
-        }
-
-        // Not in Santa Season, forcibly remove the Santa card
-        else if (!SantaEventTiming.instance().isSantaSeason()) {
-
-            if (cardOrder.contains(ServiceCard.SANTA_TRACKER)) {
-                cardOrder.remove(ServiceCard.SANTA_TRACKER);
-                putOrderedServiceList(cardOrder);
-            }
-        }
-
-        // In Santa season, but card is not in list, meaning user has not saved a card order since Santa season started;
-        // show Santa card, but don't save new list. This is required to make Santa card visible in dashboard card settings
-        // list even when the card is hidden on the dashboard.
-        else if (!cardOrder.contains(ServiceCard.SANTA_TRACKER)) {
-            addSantaCardToCardList(cardOrder);
-        }
-
-        return cardOrder;
-    }
-
-    private static void addSantaCardToCardList (@NonNull List<ServiceCard> cardOrder) {
-
-        // Remove card for order if it already exists
-        if (cardOrder.contains(ServiceCard.SANTA_TRACKER)) {
-            cardOrder.remove(ServiceCard.SANTA_TRACKER);
-        }
-
-        // Favorites card is visible; place Santa Tracker directly beneath it
-        if (cardOrder.contains(ServiceCard.FAVORITES) && getVisibleServiceSet().contains(ServiceCard.FAVORITES)) {
-            cardOrder.add(cardOrder.indexOf(ServiceCard.FAVORITES) + 1, ServiceCard.SANTA_TRACKER);
-        }
-
-        // Favorites card is not visible; add Santa Tracker at the top
-        else {
-            cardOrder.add(0, ServiceCard.SANTA_TRACKER);
-        }
-    }
-
-    @NonNull
-    private static Set<ServiceCard> forceSantaTrackerVisible(@NonNull Set<ServiceCard> visibleCards) {
-
-        // One shot behavior; once we enter "Santa Season", show the dashboard card but never force it shown again
-        if (PreferenceCache.getInstance().getBoolean(FORCE_SANTA_VISIBLE, true) && SantaEventTiming.instance().isSantaSeason()) {
-            PreferenceCache.getInstance().putBoolean(FORCE_SANTA_VISIBLE, false); // One-shot
-
-            if (!visibleCards.contains(ServiceCard.SANTA_TRACKER)) {
-                visibleCards.add(ServiceCard.SANTA_TRACKER);
-                putVisibleServiceSet(visibleCards);
-            }
-        }
-
-        else if (!SantaEventTiming.instance().isSantaSeason()) {
-
-            if (visibleCards.contains(ServiceCard.SANTA_TRACKER)) {
-                visibleCards.remove(ServiceCard.SANTA_TRACKER);
-                putVisibleServiceSet(visibleCards);
-            }
-        }
-
-        return visibleCards;
     }
 
     @NonNull

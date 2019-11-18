@@ -31,8 +31,6 @@ import arcus.app.common.cards.view.DashboardCenteredTextCardItemView;
 import arcus.app.common.cards.view.TopImageCardItemView;
 import arcus.app.common.view.DashboardFlipViewHolder;
 import arcus.app.dashboard.settings.services.ServiceCard;
-import arcus.app.seasonal.christmas.cards.SantaCard;
-import arcus.app.seasonal.christmas.cards.views.SantaCardItemView;
 import arcus.app.subsystems.alarm.promonitoring.cards.ProMonitoringDashboardCard;
 import arcus.app.subsystems.alarm.promonitoring.views.ProMonitoringDashboardCardItemView;
 import arcus.app.subsystems.alarm.safety.cards.SafetyAlarmCard;
@@ -73,7 +71,7 @@ import java.util.ArrayList;
 public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<SimpleDividerCard> dashboardCards = new ArrayList<>();
-    private final int SANTA_TRACKER = 0, FAVORITES = 1, HISTORY = 2, LIGHTS_AND_SWITCHES = 3, ALERTS = 4, SECURITY_ALARM = 5,
+    private final int FAVORITES = 1, HISTORY = 2, LIGHTS_AND_SWITCHES = 3, ALERTS = 4, SECURITY_ALARM = 5,
             CLIMATE = 6, DOORS_AND_LOCKS = 7, HOME_AND_FAMILY = 8, SAFETY_ALARM = 9, CAMERAS = 10, WINDOWS_AND_BLINDS = 11,
             LAWN_AND_GARDEN = 12, CARE = 13, WATER = 14, ENERGY = 15, TOP_CARD = 16, LEARNMORE = 17, COMING_SOON = 18, NO_FAVORITES = 20, FEATURE = 21;
 
@@ -126,10 +124,6 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             case WATER:
                 view = inflater.inflate(R.layout.dashboard_subsystem_water, viewGroup, false);
                 viewHolder = new WaterCardItemView(view);
-                break;
-            case SANTA_TRACKER:
-                view = inflater.inflate(R.layout.dashboard_subsystem_santa, viewGroup, false);
-                viewHolder = new SantaCardItemView(view);
                 break;
             case ALERTS:
                 view = inflater.inflate(R.layout.dashboard_subsystem_alert, viewGroup, false);
@@ -205,8 +199,6 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             ((CareCardItemView)holder).build((CareCard)dashboardCards.get(position));
         } else if(dashboardCards.get(position) instanceof WaterCard) {
             ((WaterCardItemView)holder).build((WaterCard)dashboardCards.get(position));
-        } else if(dashboardCards.get(position) instanceof SantaCard) {
-            ((SantaCardItemView)holder).build((SantaCard)dashboardCards.get(position));
         } else if(dashboardCards.get(position) instanceof AlertCard) {
             ((AlertCardItemView)holder).build((AlertCard)dashboardCards.get(position));
         } else if(dashboardCards.get(position) instanceof LearnMoreCard) {
@@ -255,8 +247,6 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             return CARE;
         } else if(dashboardCards.get(position) instanceof WaterCard) {
             return WATER;
-        } else if(dashboardCards.get(position) instanceof SantaCard) {
-            return SANTA_TRACKER;
         } else if(dashboardCards.get(position) instanceof AlertCard) {
             return ALERTS;
         } else if(dashboardCards.get(position) instanceof LearnMoreCard) {
@@ -365,8 +355,6 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             card.setType(CARE);
         } else if(card instanceof WaterCard) {
             card.setType(WATER);
-        } else if(card instanceof SantaCard) {
-            card.setType(SANTA_TRACKER);
         } else if(card instanceof AlertCard) {
             card.setType(ALERTS);
         } else if(card instanceof LearnMoreCard) {
@@ -403,8 +391,6 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             return CARE;
         } else if(card.getTag().equals(ServiceCard.WATER.toString())) {
             return WATER;
-        } else if(card.getTag().equals(ServiceCard.SANTA_TRACKER.toString())) {
-            return SANTA_TRACKER;
         } else if(card.getTag().equals(ServiceCard.HISTORY.toString())) {
             return HISTORY;
         } else if(card.getTag().equals(ServiceCard.SECURITY_ALARM.toString())) {

@@ -104,10 +104,6 @@
     <color name="blue_confetto">#1083C0</color>
     <color name="turqoise_confetto">#17B3A3</color>
 
-    <!-- Santa -->
-    <color name="santa_arcus_red">#FFBD202A</color>
-
-
     <color name="mock_background_color">#FFB0C7D8</color>
 
     <color name="dashboard_divider">@color/black_with_20</color>

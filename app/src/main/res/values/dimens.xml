@@ -28,12 +28,6 @@
 
     <dimen name="list_edittext_height">70dp</dimen>
 
-    <dimen name="santa_outer_padding">20dp</dimen>
-    <dimen name="santa_margin_and_or_padding">25dp</dimen>
-    <dimen name="santa_medium_space">15dp</dimen>
-    <dimen name="santa_small_space">10dp</dimen>
-    <dimen name="santa_divider_height">2px</dimen>
-
     <dimen name="tiny_padding_margin">5dp</dimen>
     <dimen name="normal_padding_margin">15dp</dimen>
     <dimen name="xxxl_padding_margin">120dp</dimen>
