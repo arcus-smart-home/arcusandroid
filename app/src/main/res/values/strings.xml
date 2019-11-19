@@ -60,7 +60,6 @@
         <item>DEVICES</item>
         <item>SETTINGS</item>
         <item>SUPPORT</item>
-        <item>SHOP</item>
     </string-array>
 
     <string-array name="navDrawer_sub_title_array">
@@ -70,7 +69,6 @@
         <item>Manage &amp; Control Devices</item>
         <item>Profile, People &amp; Places</item>
         <item>FAQs &amp; Customer Support</item>
-        <item>Browse Arcus-Compatible Products</item>
     </string-array>
 
     <string name="generic_support_number">1&#8211;555&#8211;555&#8211;1212</string>
