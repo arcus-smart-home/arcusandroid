@@ -17,9 +17,8 @@ package arcus.app.account.settings;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.LayoutInflater;
+import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -27,17 +26,12 @@ import arcus.app.R;
 import arcus.app.account.settings.data.WalkthroughType;
 import arcus.app.account.settings.walkthroughs.WalkthroughBaseFragment;
 import arcus.app.common.adapters.IconizedChevronListAdapter;
-import arcus.app.common.backstack.TransitionEffect;
 import arcus.app.common.controller.BackstackPopListener;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.fragments.BaseFragment;
-import arcus.app.common.fragments.WebViewFragment;
 import arcus.app.common.image.ImageManager;
 import arcus.app.common.image.Wallpaper;
 import arcus.app.common.models.ListItemModel;
-import arcus.app.common.utils.GlobalSetting;
-import arcus.app.common.view.Version1Button;
-import arcus.app.common.view.Version1ButtonColor;
 
 import java.util.ArrayList;
 
@@ -51,31 +45,9 @@ public class SettingsWalkthroughFragment extends BaseFragment implements Backsta
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = super.onCreateView(inflater, container, savedInstanceState);
-
-        if (view != null) {
-            tutorialsListView = (ListView) view.findViewById(R.id.walkthrough_list);
-            Version1Button moreInfoButton = (Version1Button) view.findViewById(R.id.more_information);
-            moreInfoButton.setColorScheme(Version1ButtonColor.WHITE);
-            moreInfoButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    WebViewFragment webViewFragment = new WebViewFragment();
-                    Bundle arguments = new Bundle();
-                    arguments.putString(WebViewFragment.KEY_ARGUMENT_URL, GlobalSetting.SUPPORT_URL);
-                    webViewFragment.setArguments(arguments);
-                    BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(webViewFragment, true);
-                }
-            });
-
-            setupView();
-        }
-
-        return view;
-    }
-
-    private void setupView() {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        tutorialsListView = view.findViewById(R.id.walkthrough_list);
 
         ArrayList<ListItemModel> data = new ArrayList<>();
         data.add(new ListItemModel(getString(R.string.tutorials_security), ""));
@@ -119,7 +91,6 @@ public class SettingsWalkthroughFragment extends BaseFragment implements Backsta
             }
         });
     }
-
 
     public void onPopped() {
         ImageManager.with(getActivity()).setWallpaper(Wallpaper.ofCurrentPlace().darkened());
