@@ -15,6 +15,7 @@
  */
 package arcus.cornea.subsystem.cameras;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -31,6 +32,12 @@ import arcus.cornea.subsystem.BaseSubsystemController;
 import arcus.cornea.subsystem.SubsystemController;
 import arcus.cornea.utils.AddressableListSource;
 import arcus.cornea.utils.ModelSource;
+import okhttp3.Call;
+import okhttp3.Dispatcher;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 import com.iris.client.IrisClient;
 import com.iris.client.capability.CamerasSubsystem;
 import com.iris.client.model.DeviceModel;
@@ -38,10 +45,6 @@ import com.iris.client.model.ModelAddedEvent;
 import com.iris.client.model.ModelChangedEvent;
 import com.iris.client.model.ModelDeletedEvent;
 import com.iris.client.model.SubsystemModel;
-import com.squareup.okhttp.Dispatcher;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -98,10 +101,12 @@ public class CameraPreviewGetter extends BaseSubsystemController<CameraPreviewGe
         this.irisClient = client;
         this.cameras = cameras;
         this.callbackRefs = new HashMap<>();
-        this.okHttpClient = new OkHttpClient();
-        this.okHttpClient.setDispatcher(new Dispatcher());
-        this.okHttpClient.setConnectTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS);
-        this.okHttpClient.setReadTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS);
+        this.okHttpClient = new OkHttpClient
+                .Builder()
+                .dispatcher(new Dispatcher())
+                .connectTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
+                .readTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
+                .build();
     }
 
     public static CameraPreviewGetter instance() {
@@ -221,8 +226,8 @@ public class CameraPreviewGetter extends BaseSubsystemController<CameraPreviewGe
             return;
         }
 
-        int running = okHttpClient.getDispatcher().getRunningCallCount();
-        int active  = okHttpClient.getDispatcher().getQueuedCallCount();
+        int running = okHttpClient.dispatcher().runningCallsCount();
+        int active  = okHttpClient.dispatcher().queuedCallsCount();
         if (running >= deviceCount || active >= deviceCount) {
             postNewTask(getBackoffTime()); // We've started to run-away; Backoff a little bit.
             return;
@@ -265,7 +270,7 @@ public class CameraPreviewGetter extends BaseSubsystemController<CameraPreviewGe
         return REFRESH_TIME_SECONDS * 1000;
     }
 
-    private class OkHttpCallback implements com.squareup.okhttp.Callback {
+    private class OkHttpCallback implements okhttp3.Callback {
         private final boolean isLast;
         private final String id;
 
@@ -275,13 +280,13 @@ public class CameraPreviewGetter extends BaseSubsystemController<CameraPreviewGe
         }
 
         @Override
-        public void onFailure(Request request, IOException e) {
-            logger.debug("Failed to execute " + request, e);
+        public void onFailure(Call call, IOException e) {
+            logger.debug("Failed to execute " + call.request(), e);
             rePost();
         }
 
         @Override
-        public void onResponse(Response response) throws IOException {
+        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
             try {
                 if (response.isSuccessful()) {
                     Bitmap bmd = BitmapFactory.decodeStream(response.body().byteStream());

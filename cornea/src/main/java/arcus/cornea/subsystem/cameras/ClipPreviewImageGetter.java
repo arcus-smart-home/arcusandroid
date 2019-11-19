@@ -18,12 +18,19 @@ package arcus.cornea.subsystem.cameras;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import com.google.common.base.Strings;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.provider.PagedRecordingModelProvider;
 import arcus.cornea.utils.Listeners;
+import okhttp3.Call;
+import okhttp3.Dispatcher;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 import com.iris.client.capability.Recording;
 import com.iris.client.event.Listener;
 import com.iris.client.event.ListenerRegistration;
@@ -31,11 +38,6 @@ import com.iris.client.model.ModelAddedEvent;
 import com.iris.client.model.RecordingModel;
 import com.iris.client.session.SessionActivePlaceSetEvent;
 import com.iris.client.session.SessionEvent;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Dispatcher;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,10 +85,12 @@ public class ClipPreviewImageGetter {
     private final OkHttpClient okHttpClient;
 
     public ClipPreviewImageGetter() {
-        this.okHttpClient = new OkHttpClient();
-        this.okHttpClient.setDispatcher(new Dispatcher());
-        this.okHttpClient.setConnectTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS);
-        this.okHttpClient.setReadTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS);
+        this.okHttpClient = new OkHttpClient
+                .Builder()
+                .dispatcher(new Dispatcher())
+                .connectTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
+                .readTimeout(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS)
+                .build();
     }
 
     public static ClipPreviewImageGetter instance() {
@@ -251,7 +255,7 @@ public class ClipPreviewImageGetter {
         call.enqueue(new OkHttpCallback(recordingID, previewURL));
     }
 
-    private class OkHttpCallback implements com.squareup.okhttp.Callback {
+    private class OkHttpCallback implements okhttp3.Callback {
         private final String recordingID;
         private final String previewURL;
 
@@ -262,12 +266,12 @@ public class ClipPreviewImageGetter {
         }
 
         @Override
-        public void onFailure(Request request, IOException e) {
-            logger.error("--FAILED-- Trying to download a clip image. [{}]", request, e);
+        public void onFailure(@NonNull Call call, @NonNull IOException e) {
+            logger.error("--FAILED-- Trying to download a clip image. [{}]", call.request(), e);
         }
 
         @Override
-        public void onResponse(Response response) throws IOException {
+        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
             logger.trace("Response For [{}]", recordingID);
             try {
                 Bitmap bmd = BitmapFactory.decodeStream(response.body().byteStream());
