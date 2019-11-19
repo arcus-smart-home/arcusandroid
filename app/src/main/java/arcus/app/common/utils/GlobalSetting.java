@@ -17,10 +17,10 @@ package arcus.app.common.utils;
 
 import android.net.Uri;
 
+import arcus.app.BuildConfig;
 import arcus.cornea.SessionController;
 import com.iris.client.model.DeviceModel;
 import com.iris.client.session.SessionInfo;
-
 
 public class GlobalSetting {
     private static String getRedirectUrl() {
@@ -31,6 +31,9 @@ public class GlobalSetting {
             return "";
         }
     }
+
+    public static final String ARCUS_PLATFORM_WS = BuildConfig.ARCUS_BASE_PLATFORM_URL;
+    public static final String IMAGE_SERVER_BASE_URL = BuildConfig.ARCUS_BASE_SSR_FALLBACK_URL;
 
     public static final int HISTORY_LOG_ENTRIES_DASH = 3;
     public static final Uri NO_CONNECTION_HUB_SUPPORT_URL = Uri.parse(getRedirectUrl() + "s_hub");
@@ -80,9 +83,6 @@ public class GlobalSetting {
     public static final String CREDIT_INFO_CARD_NUMBER_KEY = "credit card number";
     public static final String CREDIT_INFO_VERIFICATION_CODE_KEY = "credit verification code";
 
-    public static final String ARCUS_PLATFORM_WS = "https://bc.irisbylowes.com";
-
-    public static final String IMAGE_SERVER_BASE_URL = "http://ssr.irisbylowes.com:8180";
     public static final long HUB_PAIRING_MODE_TIME = 300000L;  //  5 minutes
 
     /* Device specific redirects */
