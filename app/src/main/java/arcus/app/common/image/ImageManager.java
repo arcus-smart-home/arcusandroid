@@ -27,6 +27,12 @@ import com.iris.client.bean.ActionTemplate;
 import com.iris.client.model.DeviceModel;
 import com.iris.client.model.HubModel;
 import com.iris.client.model.ProductModel;
+import com.squareup.picasso.LruCache;
+import com.squareup.picasso.Picasso;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.common.image.picasso.transformation.AlphaOverlayTransformation;
@@ -36,13 +42,7 @@ import arcus.app.common.utils.CorneaUtils;
 import arcus.app.device.model.DeviceType;
 import arcus.app.device.pairing.catalog.model.ProductCatalogEntry;
 import arcus.app.subsystems.scenes.catalog.model.SceneCategory;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.picasso.LruCache;
-import com.squareup.picasso.OkHttpDownloader;
-import com.squareup.picasso.Picasso;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import okhttp3.OkHttpClient;
 
 import static android.content.Context.ACTIVITY_SERVICE;
 import static android.content.pm.ApplicationInfo.FLAG_LARGE_HEAP;
@@ -91,7 +91,7 @@ public class ImageManager {
             Picasso.Builder builder = new Picasso.Builder((ArcusApplication.getContext()));
 
             if (diskCacheEnabled) {
-                builder.downloader(new OkHttpDownloader(new OkHttpClient()));
+                builder.downloader(new OkHttp3Downloader(new OkHttpClient()));
             }
 
             if (cacheHeapPercent != null) {

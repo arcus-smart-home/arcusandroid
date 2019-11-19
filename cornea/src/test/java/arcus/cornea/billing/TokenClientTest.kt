@@ -17,12 +17,6 @@ package arcus.cornea.billing
 
 import arcus.cornea.KFixtures
 import com.iris.client.exception.ErrorResponseException
-import com.squareup.okhttp.Interceptor
-import com.squareup.okhttp.MediaType
-import com.squareup.okhttp.OkHttpClient
-import com.squareup.okhttp.Protocol
-import com.squareup.okhttp.Response
-import com.squareup.okhttp.ResponseBody
 
 import org.junit.Before
 import org.junit.Test
@@ -32,11 +26,16 @@ import java.util.concurrent.ExecutionException
 import java.util.concurrent.atomic.AtomicReference
 
 import com.google.common.truth.Truth.assertThat
+import okhttp3.Interceptor
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.Protocol
+import okhttp3.Response
+import okhttp3.ResponseBody.Companion.toResponseBody
 import org.junit.Assert.fail
 
 class TokenClientTest {
-    private val okHttpClient = OkHttpClient()
-
+    private lateinit var okHttpClient: OkHttpClient
     private lateinit var interceptor: SettableInterceptor
     private lateinit var tokenClient: TokenClient
 
@@ -52,8 +51,10 @@ class TokenClientTest {
     @Before
     fun setUp() {
         interceptor = SettableInterceptor()
-        okHttpClient.interceptors().clear()
-        okHttpClient.interceptors().add(interceptor)
+        okHttpClient = OkHttpClient
+                .Builder()
+                .addInterceptor(interceptor)
+                .build()
 
         tokenClient = TokenClient(okHttpClient)
     }
@@ -111,8 +112,9 @@ class TokenClientTest {
             responseRef.set(
                     Response.Builder()
                             .code(200)
+                            .message("Success")
                             .protocol(Protocol.HTTP_1_1)
-                            .body(ResponseBody.create(MediaType.parse("text/json"), responseString))
+                            .body(responseString.toResponseBody("text/json".toMediaTypeOrNull()))
             )
         }
     }

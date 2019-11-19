@@ -41,9 +41,11 @@ import com.iris.client.model.ModelChangedEvent
 import com.iris.client.model.RecordingModel
 import com.iris.client.model.SubsystemModel
 import com.iris.client.service.VideoService
-import com.squareup.okhttp.OkHttpClient
-import com.squareup.okhttp.Request
-import com.squareup.okhttp.Response
+import okhttp3.Call
+import okhttp3.Callback as OkHttpCallback
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 
 import org.slf4j.LoggerFactory
 
@@ -67,7 +69,11 @@ class CameraPlaybackPresenterImpl internal constructor(
     private var recordingsListener: ListenerRegistration = Listeners.empty()
     private var changedListener: ListenerRegistration = Listeners.empty()
 
-    private val okHttpClient = OkHttpClient()
+    private val okHttpClient = OkHttpClient
+            .Builder()
+            .connectTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(45, TimeUnit.SECONDS)
+            .build()
 
     private val onError : (Throwable) -> Unit = { throwable -> showError(Exception(throwable)) }
 
@@ -136,9 +142,6 @@ class CameraPlaybackPresenterImpl internal constructor(
         CameraPreviewGetter.instance().addCallback(deviceID) {
             this.updateViewOnMain()
         }
-
-        okHttpClient.setConnectTimeout(15, TimeUnit.SECONDS)
-        okHttpClient.setReadTimeout(45, TimeUnit.SECONDS)
     }
 
     override fun setView(callback: PlaybackView) {
@@ -319,24 +322,18 @@ class CameraPlaybackPresenterImpl internal constructor(
                     .url(url)
                     .get()
                     .build()
-            ).enqueue(object : com.squareup.okhttp.Callback {
-                override fun onFailure(request: Request, e: IOException) {
+            ).enqueue(object : OkHttpCallback {
+                override fun onFailure(call: Call, e: IOException) {
                     showErrorOnLooper(e)
                 }
 
-                @Throws(IOException::class)
-                override fun onResponse(response: Response) {
+                override fun onResponse(call: Call, response: Response) {
                     try {
-                        when (response.code()) {
+                        when (response.code) {
                             200 -> {
                                 val totalDuration = System.currentTimeMillis() - startPollingTime
                                 val durationPollingInSeconds = TimeUnit.MILLISECONDS.toSeconds(totalDuration)
                                 logger.debug("Took [$durationPollingInSeconds] seconds to get a 200 -> [$totalDuration MS]")
-
-                                val attributes = mapOf<String, Any>(
-                                        "deviceAddress" to playbackModel.deviceAddress,
-                                        "playbackDelay" to totalDuration
-                                )
 
                                 if (pollingStatus.compareAndSet(
                                         PollingStatus.ACTIVE,
@@ -374,16 +371,10 @@ class CameraPlaybackPresenterImpl internal constructor(
                                 }
                             }
 
-                            else -> {
-                                val attributes = mapOf<String, Any>(
-                                        "errorMessage" to "Stream timed out; Did not receive a 404 or 200. Was " + response.code()
-                                )
-
-                                showErrorOnLooper(RuntimeException("Did not receive a 404 or 200. Was [${response.code()}]"))
-                            }
+                            else -> showErrorOnLooper(RuntimeException("Did not receive a 404 or 200. Was [${response.code}]"))
                         }
                     } finally {
-                        response.body().close()
+                        response.body?.close()
                     }
                 }
             })
