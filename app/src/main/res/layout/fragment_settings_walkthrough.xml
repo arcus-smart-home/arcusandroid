@@ -47,39 +47,4 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/top_view" />
 
-    <LinearLayout
-        android:id="@+id/learn_more_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:gravity="center">
-
-        <arcus.app.common.view.Version1TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/tutorials_help"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <arcus.app.common.view.Version1TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:text="@string/tutorials_help_des"
-            android:textColor="@color/overlay_white_with_60" />
-
-        <arcus.app.common.view.Version1Button
-            android:id="@+id/more_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tutorials_button"
-            android:textColor="@android:color/black"
-            android:layout_margin="5dp"
-            app:buttonFont="demi"/>
-    </LinearLayout>
-
 </RelativeLayout>
