@@ -323,9 +323,6 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                 setTitle(getString(R.string.support));
                 isHub = false;
                 break;
-            case 6:  //  Shop
-                ActivityUtils.launchShopNow();
-                break;
         }
     }
 
