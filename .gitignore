@@ -19,3 +19,6 @@ local.properties
 # Mac files
 .DS_Store
 *.hprof
+
+# URLs
+/environment.gradle
