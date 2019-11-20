@@ -143,6 +143,7 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/login_email"
                         android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
                         android:textSize="20sp"
                         app:clearable="true"
                         app:met_errorColor="@color/sclera_alert"
@@ -156,10 +157,24 @@
                         android:hint="@string/login_password"
                         android:inputType="textPassword"
                         app:clearable="false"
-                        android:imeActionLabel="GO"
+                        android:imeActionLabel="Next"
+                        android:imeOptions="actionNext"
                         app:met_errorColor="@color/sclera_alert"
                         app:resettable="true"
                         app:showable="true" />
+
+                    <arcus.app.common.view.ScleraEditText
+                        android:id="@+id/platformUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/platform_url"
+                        android:inputType="textUri"
+                        app:clearable="false"
+                        android:imeOptions="actionDone"
+                        android:imeActionLabel="GO"
+                        app:met_errorColor="@color/sclera_alert"
+                        />
 
                     <arcus.app.common.view.ScleraButton
                         android:id="@+id/login"

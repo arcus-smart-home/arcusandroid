@@ -32,7 +32,7 @@ android {
 
         // Setup Base URL values.
         def configurationFile = file("${rootProject.projectDir}/environment.gradle")
-        String baseUrl = "https://arcus.example.com/"
+        String baseUrl = ""
         String baseSsrUrl = "https://arcus.example.com:8180"
         if (configurationFile.exists()) {
             apply from: configurationFile

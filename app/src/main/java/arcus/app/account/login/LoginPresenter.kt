@@ -35,6 +35,7 @@ import arcus.app.activities.GenericConnectedFragmentActivity
 import arcus.app.activities.InvitationActivity
 import arcus.app.common.image.IntentRequestCode
 import arcus.app.common.utils.LoginUtils
+import arcus.app.common.utils.PreferenceUtils
 import arcus.app.createaccount.COMPLETE
 import arcus.app.createaccount.SIGNUP_1
 import arcus.app.launch.AccountLoginForgotFragment
@@ -42,6 +43,17 @@ import arcus.app.launch.CredentialResolutionResultHandler
 import org.slf4j.LoggerFactory
 
 class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginPresenterContract.LoginPresenter, SessionController.LoginCallback {
+
+    override fun startPresenting(view: LoginPresenterContract.LoginView?) {
+        super.startPresenting(view)
+
+        val platformUrl = PreferenceUtils.getPlatformUrl()
+        if (platformUrl.isBlank()) {
+            view?.showPlatformUrlEntry(null)
+        } else {
+            view?.showPlatformUrlEntry(platformUrl)
+        }
+    }
 
     override fun promptForSavedCredentials() {
         val client = (ArcusApplication.getArcusApplication().foregroundActivity as BaseActivity).googleApiClient
@@ -62,10 +74,15 @@ class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginP
         }
     }
 
-    override fun login(placeId: String, username: String, password: CharArray) {
+    override fun login(
+            placeId: String,
+            username: String,
+            password: CharArray,
+            platformUrl: CharSequence
+    ) {
         addListener(SessionController::class.java.simpleName, SessionController.instance().setCallback(this))
 
-        val credentials = getUsernamePasswordCredentials(username, password)
+        val credentials = getUsernamePasswordCredentials(username, password, platformUrl)
 
         logger.debug("Signing into requested place {}", LoginUtils.getContextualPlaceIdOrLastUsed(placeId))
         SessionController.instance().login(credentials, LoginUtils.getContextualPlaceIdOrLastUsed(placeId))
@@ -100,7 +117,12 @@ class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginP
         }
     }
 
-    private fun getUsernamePasswordCredentials(username: String, password: CharArray): Credentials {
+    private fun getUsernamePasswordCredentials(
+            username: String,
+            password: CharArray,
+            platformUrl: CharSequence
+    ): Credentials {
+        PreferenceUtils.putPlatformUrl(platformUrl.trim().toString())
         val credentials = UsernameAndPasswordCredentials()
         credentials.connectionURL = LoginUtils.getPlatformUrl(username)
         credentials.setPassword(password)

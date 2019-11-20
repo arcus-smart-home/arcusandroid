@@ -15,6 +15,8 @@
  */
 package arcus.app.account.login;
 
+import android.support.annotation.Nullable;
+
 import arcus.cornea.common.PresentedView;
 import arcus.cornea.common.Presenter;
 
@@ -24,13 +26,14 @@ public class LoginPresenterContract {
 
     public interface LoginPresenter extends Presenter<LoginView> {
         void promptForSavedCredentials();
-        void login(String placeId, String username, char[] password);
+        void login(String placeId, String username, char[] password, CharSequence platformUrl);
         void useInvitationCode();
         void forgotPassword();
     }
 
     public interface LoginView extends PresentedView {
         void onLoginSucceeded();
+        void showPlatformUrlEntry(@Nullable String value);
         void onLoginFailed(boolean badCredentialsCause);
         void onRetrievedSharedCredential(String shareUsername, String sharedPassword);
 
