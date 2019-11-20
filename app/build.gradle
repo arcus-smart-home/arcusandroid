@@ -33,7 +33,6 @@ android {
         // Setup Base URL values.
         def configurationFile = file("${rootProject.projectDir}/environment.gradle")
         String baseUrl = ""
-        String baseSsrUrl = "https://arcus.example.com:8180"
         if (configurationFile.exists()) {
             apply from: configurationFile
         }
@@ -42,12 +41,7 @@ android {
             baseUrl = project.properties["arcusBasePlatformUrl"].toString()
         }
 
-        if (project.hasProperty("arcusBaseSsrFallbackUrl")) {
-            baseSsrUrl = project.properties["arcusBaseSsrFallbackUrl"].toString()
-        }
-
         buildConfigField("String", "ARCUS_BASE_PLATFORM_URL", "\"$baseUrl\"")
-        buildConfigField("String", "ARCUS_BASE_SSR_FALLBACK_URL", "\"$baseSsrUrl\"")
     }
 
     buildTypes {

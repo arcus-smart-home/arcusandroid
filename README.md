@@ -17,5 +17,3 @@ To avoid having to enter the URL on the login page you can:
 1. Add an `environment.gradle` file to the project root with the base URLs you want to use. Example:
    1. Supported Variables: 
       1. Platform URL: `ext.arcusBasePlatformUrl="http(s)://your.server.domain:port"`
-      1. SSR Fallback (Images) URL: `ext.arcusBaseSsrFallbackUrl="http(s)://your.server.domain:port"` **Optional
-   1. A fallback URL is used for the SSR URL above

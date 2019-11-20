@@ -33,7 +33,6 @@ public class GlobalSetting {
     }
 
     public static final String ARCUS_PLATFORM_WS = BuildConfig.ARCUS_BASE_PLATFORM_URL;
-    public static final String IMAGE_SERVER_BASE_URL = BuildConfig.ARCUS_BASE_SSR_FALLBACK_URL;
 
     public static final int HISTORY_LOG_ENTRIES_DASH = 3;
     public static final Uri NO_CONNECTION_HUB_SUPPORT_URL = Uri.parse(getRedirectUrl() + "s_hub");
