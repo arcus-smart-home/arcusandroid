@@ -3565,4 +3565,7 @@ in the left hand navigation.</string>
     <string name="congrats_kit_setup_completed">Congrats! You\'ve successfully completed kit setup!</string>
     <string name="make_cards_active">How do I make these active?</string>
     <string name="add_a_favorite">Add a Favorite</string>
+
+    <string name="invalid_url">Invalid URL</string>
+    <string name="platform_url">Platform URL</string>
 </resources>

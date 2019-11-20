@@ -25,12 +25,14 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.widget.TextView
 import arcus.app.R
 import arcus.app.activities.DashboardActivity
 import arcus.app.common.error.ErrorManager
 import arcus.app.common.utils.LoginUtils
 import arcus.app.common.validation.EmailValidator
 import arcus.app.common.validation.NotEmptyValidator
+import arcus.app.common.validation.UrlValidator
 import arcus.app.common.view.ScleraButton
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
@@ -48,6 +50,7 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
     private lateinit var createAccountLink: ScleraTextView
     private lateinit var loginButton: ScleraButton
     private lateinit var indeterminateProgress: RelativeLayout
+    private lateinit var platformUrlEntry: ScleraEditText
     private val presenter = LoginPresenter()
 
     private val isEmailValid: Boolean
@@ -75,6 +78,7 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
         createAccountLink = view.findViewById<View>(R.id.create_account) as ScleraTextView
         loginButton = view.findViewById<View>(R.id.login) as ScleraButton
         indeterminateProgress = view.findViewById<View>(R.id.indeterminate_progress) as RelativeLayout
+        platformUrlEntry = view.findViewById(R.id.platformUrl)
     }
 
     override fun onResume() {
@@ -82,9 +86,6 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
         hideProgressBar()
         setupListeners()
         presenter.startPresenting(this)
-
-        // TODO: Disabled pending product management
-        // presenter.promptForSavedCredentials();
     }
 
     override fun onPause() {
@@ -97,15 +98,24 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
 
         // Both email/password validation should fire together, do not short-circuit in if-statement
         context?.run {
+            // Why isn't the presenter doing all of this?
             val validEmail = LoginUtils.isMagicEmail(emailField.text.toString()) || isEmailValid
             val validPassword = NotEmptyValidator(this, passwordField, R.string.account_registration_verify_password_blank_error_msg).isValid
+            val platformUrlValid = UrlValidator(platformUrlEntry).isValid
 
-            if (validEmail && validPassword) {
+            if (validEmail && validPassword && platformUrlValid) {
                 showProgressBar()
-                presenter.login(placeId, emailField.text.toString(), passwordField.text.toString().toCharArray())
+                presenter.login(
+                        placeId,
+                        emailField.text.toString(),
+                        passwordField.text.toString().toCharArray(),
+                        platformUrlEntry.text
+                )
             }
         }
     }
+
+    override fun showPlatformUrlEntry(value: String?) = platformUrlEntry.setText(value)
 
     override fun onLoginSucceeded() {
         context?.run {
@@ -202,13 +212,16 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
         // Hide error banner when user modifies password
         passwordField.setTextChangeListener { _, _ -> setCredentialErrorBannerVisible(false) }
 
-        passwordField.setOnEditorActionListener { v, _, _ ->
+        val actionListener = TextView.OnEditorActionListener { v, _, _ ->
             attemptLogin()
             val imm = activity?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(v.windowToken, 0)
 
             true
         }
+
+        passwordField.setOnEditorActionListener(actionListener)
+        platformUrlEntry.setOnEditorActionListener(actionListener)
 
         createAccountLink.setOnClickListener { _ ->
             activity?.run {
