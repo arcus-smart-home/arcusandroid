@@ -103,22 +103,27 @@ class AdvancedUserViewHolder(view: View, activity: Activity) : RecyclerView.View
 class BrandsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val count = view.findViewById<ScleraTextView>(R.id.brandCount)
     private val image = view.findViewById<ImageView>(R.id.brandImage)
+    private val name = view.findViewById<ScleraTextView>(R.id.brandName)
+    private inner class LoadCallback(val brandName: String) : Callback {
+        override fun onSuccess() {
+            name.visibility = View.GONE
+        }
 
-    fun bindView(brandEntry: BrandCategoryProxyModel
-                 , listener: BrandSelectedListener
-    ) {
-        image.setImageDrawable(null)
+        override fun onError() {
+            name.visibility = View.VISIBLE
+            name.text = brandName
+        }
+    }
+
+    fun bindView(brandEntry: BrandCategoryProxyModel, listener: BrandSelectedListener) {
+        image.setImageResource(R.drawable.icon_cat_placeholder)
         count.text = brandEntry.count.toString()
         val primaryUrl = brandEntry.mainUrl
         val secondaryUrl = brandEntry.backupUrl
 
         val iconURL = imageLocationCache[brandEntry.name]
         if (iconURL != null) {
-            Picasso.with(itemView.context)
-                    .load(iconURL)
-                    .error(R.drawable.icon_cat_placeholder)
-                    .noFade()
-                    .into(image)
+            itemView.loadBrandImage(image, iconURL, brandEntry.name)
         } else {
             Picasso.with(itemView.context)
                     .load(primaryUrl)
@@ -127,18 +132,13 @@ class BrandsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     .fetch(object : Callback {
                         override fun onSuccess() {
                             imageLocationCache[brandEntry.name] = primaryUrl
-                            Picasso.with(itemView.context)
-                                    .load(primaryUrl)
-                                    .into(image)
+                            Picasso.with(itemView.context).load(primaryUrl).into(image)
                         }
 
                         override fun onError() {
                             // If the backup fails we want an error place holder
                             imageLocationCache[brandEntry.name] = secondaryUrl
-                            Picasso.with(itemView.context)
-                                    .load(secondaryUrl)
-                                    .error(R.drawable.icon_cat_placeholder)
-                                    .into(image)
+                            itemView.loadBrandImage(image, secondaryUrl, brandEntry.name)
                         }
                     })
         }
@@ -147,6 +147,12 @@ class BrandsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             listener.onBrandSelected(brandEntry.name)
         }
     }
+
+    private fun View.loadBrandImage(image: ImageView, url: String, brandName: String) = Picasso
+            .with(this.context)
+            .load(url)
+            .error(R.drawable.icon_cat_placeholder)
+            .into(image, LoadCallback(brandName))
 
     companion object {
         private val imageLocationCache = mutableMapOf<String, String>()
