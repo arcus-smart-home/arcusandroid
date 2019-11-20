@@ -19,13 +19,13 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.app.BuildConfig;
 import arcus.app.ArcusApplication;
 import arcus.app.activities.FullscreenFragmentActivity;
 import arcus.app.common.popups.WhatsNewPopup;
-import arcus.app.common.utils.GlobalSetting;
 import arcus.app.common.utils.PreferenceUtils;
 
 import java.net.HttpURLConnection;
@@ -34,8 +34,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-
 
 public class WhatsNewPopupResponsibility extends DashboardPopupResponsibility implements WhatsNewPopup.Callback {
 
@@ -90,7 +88,10 @@ public class WhatsNewPopupResponsibility extends DashboardPopupResponsibility im
     }
 
     private boolean isNot404(String version) {
-        String urlString =  makeWhatsNewUrl(version);
+        String baseUrl = getBaseUrl();
+        if (baseUrl == null) return false;
+
+        String urlString =  makeWhatsNewUrl(version, baseUrl);
 
         try {
             URL whatsNewUrl = new URL(urlString);
@@ -118,7 +119,7 @@ public class WhatsNewPopupResponsibility extends DashboardPopupResponsibility im
         }
 
         // Can't determine status; assume platform has no what's new for us
-        return true;
+        return false;
     }
 
     private String getVersion() {
@@ -150,28 +151,19 @@ public class WhatsNewPopupResponsibility extends DashboardPopupResponsibility im
         }
     }
 
-    public String getBaseUrl() {
-        String defaultURL = GlobalSetting.IMAGE_SERVER_BASE_URL;
+    @Nullable
+    private String getBaseUrl() {
         try {
             return CorneaClientFactory.getClient().getSessionInfo().getStaticResourceBaseUrl();
-        }
-        catch (Exception ex) {
-            return defaultURL;
+        } catch (Exception ex) {
+            return null;
         }
     }
 
-    private String makeWhatsNewUrl(String version) {
-        String whatsNewBaseUrl = getBaseUrl() ;
-        String appVersion = version;
-        String whatsNewSuffix = "notes.html";
-        StringBuilder whatsNewUrl = new StringBuilder();
-
-        whatsNewUrl.append(whatsNewBaseUrl);
-        whatsNewUrl.append("/o/release/android/"); // Android What's New
-        whatsNewUrl.append(appVersion);
-        whatsNewUrl.append("/");
-        whatsNewUrl.append(whatsNewSuffix);
-
-        return whatsNewUrl.toString();
+    private String makeWhatsNewUrl(String version, String whatsNewBaseUrl) {
+        return whatsNewBaseUrl +
+                "/o/release/android/" + // Android What's New
+                version +
+                "/notes.html";
     }
 }
