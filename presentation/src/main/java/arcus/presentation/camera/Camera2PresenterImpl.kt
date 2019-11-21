@@ -354,7 +354,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
                     // coordinate.
                     val displayRotation = defaultDisplay.rotation
 
-                    sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)
+                    sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)!!
                     val swappedDimensions = areDimensionsSwapped(displayRotation)
 
                     val displaySize = Point()
@@ -438,7 +438,9 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             val captureBuilder = mCameraDevice?.createCaptureRequest(
                     CameraDevice.TEMPLATE_STILL_CAPTURE)?.apply {
 
-                addTarget(imageReader?.surface)
+                imageReader?.surface?.let {
+                    addTarget(it)
+                }
 
                 // Sensor orientation is 90 for most devices, or 270 for some devices (eg. Nexus 5X)
                 // We have to take that into account and rotate JPEG properly.
@@ -473,7 +475,9 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             captureSession?.apply {
                 stopRepeating()
                 abortCaptures()
-                capture(captureBuilder?.build(), captureCallback, null)
+                captureBuilder?.let {
+                    capture(it.build(), captureCallback, null)
+                }
             }
 
         } catch (ex: CameraAccessException) {

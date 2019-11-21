@@ -147,7 +147,7 @@ class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { args->
-            hubAvailableWiFiNetwork = args.getParcelable(ARG_HUB_WIFI_NETWORK)
+            hubAvailableWiFiNetwork = args.getParcelable(ARG_HUB_WIFI_NETWORK)!!
         }
     }
 

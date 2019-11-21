@@ -48,8 +48,8 @@ class HubWiFiScanPresenterImpl(
             HubModelProvider.instance().reload().transformNonNull { it.first() }
         }
     },
-    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()),
-    private val scanNetworksScheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()),
+    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
+    private val scanNetworksScheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
     private val hubWiFiScanConfig: HubWiFiScanConfig = HubWiFiScanConfig()
 ) : HubWiFiScanPresenter, KBasePresenter<HubWiFiScanView>() {
     private val logger = LoggerFactory.getLogger(HubWiFiScanPresenter::class.java)

@@ -40,7 +40,7 @@ class EnableBlePairingFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let { bundle ->
-            pairingDevice = bundle.getString(ARG_DEVICE_NAME)
+            pairingDevice = bundle.getString(ARG_DEVICE_NAME)!!
         }
     }
 

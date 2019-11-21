@@ -32,8 +32,8 @@ class ConnectingPopup : ModalBottomSheet() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { args ->
-            titleText = args.getString(ARG_TITLE_TEXT)
-            descriptionText = args.getString(ARG_DESCRIPTION_TEXT)
+            titleText = args.getString(ARG_TITLE_TEXT)!!
+            descriptionText = args.getString(ARG_DESCRIPTION_TEXT)!!
         }
     }
 

@@ -15,10 +15,10 @@
  */
 package arcus.presentation.pairing.device.searching
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
 import arcus.presentation.pairing.device.steps.WebLink
+import kotlinx.android.parcel.Parcelize
 
 interface DeviceSearchingView {
     /**
@@ -131,41 +131,14 @@ enum class HelpStepType {
     FACTORY_RESET,
 }
 
+@Parcelize
 data class HelpStep(
     val id: String,
     val order: Int,
     val action: HelpStepType,
     val message: String,
     val link: WebLink?
-) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readInt(),
-            HelpStepType.values()[source.readInt()],
-            source.readString(),
-            source.readParcelable<WebLink>(WebLink::class.java.classLoader)
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(id)
-        writeInt(order)
-        writeInt(action.ordinal)
-        writeString(message)
-        writeParcelable(link, 0)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<HelpStep> = object :
-            Parcelable.Creator<HelpStep> {
-            override fun createFromParcel(source: Parcel): HelpStep =
-                HelpStep(source)
-            override fun newArray(size: Int): Array<HelpStep?> = arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable
 
 enum class DevicePairingPhase(val canonicalName: String) {
     JOIN ("Found New Device"),
@@ -184,6 +157,7 @@ enum class DevicePairingState(val canonicalName: String) {
     PAIRED ("Paired"),
 }
 
+@Parcelize
 data class DevicePairingData(
     val id: String,
     val productId: String,
@@ -194,45 +168,7 @@ data class DevicePairingData(
     val name: String = "Device Detected",
     val customized: Boolean = false,
     val errorState: Boolean = false
-) : Parcelable {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        DevicePairingState.values()[source.readInt()],
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        1 == source.readInt(),
-        1 == source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(id)
-        writeString(productId)
-        writeString(productScreen)
-        writeInt(pairingState.ordinal)
-        writeString(description)
-        writeString(pairingDeviceAddress)
-        writeString(name)
-        writeInt((if (customized) 1 else 0))
-        writeInt((if (errorState) 1 else 0))
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<DevicePairingData> =
-            object :
-                Parcelable.Creator<DevicePairingData> {
-                override fun createFromParcel(source: Parcel): DevicePairingData =
-                    DevicePairingData(source)
-
-                override fun newArray(size: Int): Array<DevicePairingData?> = arrayOfNulls(size)
-            }
-    }
-}
+) : Parcelable
 
 data class PairedDeviceModel(
     val id: String,

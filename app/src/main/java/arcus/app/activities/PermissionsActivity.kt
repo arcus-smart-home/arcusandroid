@@ -260,7 +260,7 @@ open class PermissionsActivity : AppCompatActivity() {
         val snackbar = coordinatorLayout?.let { Snackbar.make(it, message, 10000) }
         val view = snackbar?.view
         val tv = view?.findViewById<View>(android.support.design.R.id.snackbar_text) as TextView
-        tv.setTextColor(resources.getColor(R.color.white))
+        tv.setTextColor(ContextCompat.getColor(this, R.color.white))
         tv.maxLines = 6
         snackbar.setAction(getString(R.string.action_settings).toUpperCase()) {
             val intent = Intent()
@@ -277,7 +277,7 @@ open class PermissionsActivity : AppCompatActivity() {
         val snackbar = coordinatorLayout?.let { Snackbar.make(it, message, 6000) }
         val view = snackbar?.view
         val tv = view?.findViewById<View>(R.id.snackbar_text) as TextView
-        tv.setTextColor(resources.getColor(R.color.white))
+        tv.setTextColor(ContextCompat.getColor(this, R.color.white))
         tv.maxLines = 6
         snackbar.show()
     }

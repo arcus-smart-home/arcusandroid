@@ -327,7 +327,9 @@ class DebugMenuFragment : Fragment(), SharedPreferences.OnSharedPreferenceChange
             AlertDialog.Builder(activity)
                 .setTitle(getString(R.string.debug_menu_picasso_memory_size_dialog_body))
                 .setAdapter(adapter) { _, which ->
-                    PreferenceUtils.setPicassoMemoryCacheSize(adapter.getItem(which).replace("%", "").toInt())
+                    adapter.getItem(which)?.replace("%", "")?.toInt()?.let {
+                        PreferenceUtils.setPicassoMemoryCacheSize(it)
+                    }
                     current.detailsText = "Current Setting: ${PreferenceUtils.getPicassoMemoryCacheSize()}"
                     rvAdapter.notifyDataSetChanged()
                 }

@@ -15,9 +15,9 @@
  */
 package arcus.presentation.pairing.device.customization.presence
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
 interface PresenceAssignmentView {
 
@@ -58,52 +58,9 @@ interface PresenceAssignmentPresenter : BasePresenterContract<PresenceAssignment
 
 
 sealed class AssignmentOption : Parcelable
-data class PersonAssignmentOption(val personAddress: String, val name: String) : AssignmentOption() {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.readString()
-    )
 
-    override fun describeContents() = 0
+@Parcelize
+data class PersonAssignmentOption(val personAddress: String, val name: String) : AssignmentOption()
 
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(personAddress)
-        writeString(name)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<PersonAssignmentOption> = object :
-            Parcelable.Creator<PersonAssignmentOption> {
-            override fun createFromParcel(source: Parcel): PersonAssignmentOption =
-                PersonAssignmentOption(
-                    source
-                )
-            override fun newArray(size: Int): Array<PersonAssignmentOption?> = arrayOfNulls(size)
-        }
-    }
-}
-
-data class UnassignedAssignmentOption(val name: String) : AssignmentOption() {
-    constructor(source: Parcel) : this(
-        source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(name)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<UnassignedAssignmentOption> = object :
-            Parcelable.Creator<UnassignedAssignmentOption> {
-            override fun createFromParcel(source: Parcel): UnassignedAssignmentOption =
-                UnassignedAssignmentOption(
-                    source
-                )
-            override fun newArray(size: Int): Array<UnassignedAssignmentOption?> = arrayOfNulls(size)
-        }
-    }
-}
+@Parcelize
+data class UnassignedAssignmentOption(val name: String) : AssignmentOption()

@@ -46,7 +46,7 @@ class KitDeviceActivationPresenterImpl(
     private val srsBaseUrl : String = CorneaClientFactory.getClient().sessionInfo?.staticResourceBaseUrl ?: "",
     private val productModelProvider: ProductModelProvider = ProductModelProvider.instance(),
     private val hubModelProvider: HubModelProvider = HubModelProvider.instance(),
-    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()),
+    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
     pairingSubsystemController: PairingSubsystemController = PairingSubsystemControllerImpl,
     pairingDeviceModelProvider: PairingDeviceModelProvider = PairingDeviceModelProvider.instance(),
     deviceModelProvider: DeviceModelProvider = DeviceModelProvider.instance()

@@ -118,9 +118,9 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { args->
-            prefix = args.getString(ARG_DEVICE_PREFIX)
+            prefix = args.getString(ARG_DEVICE_PREFIX)!!
             pairingStep = args.getParcelable(ARG_INPUT_STEP)
-            factoryResetAkaLink = args.getParcelable(ARG_AKA_LINK)
+            factoryResetAkaLink = args.getParcelable(ARG_AKA_LINK)!!
         }
     }
 

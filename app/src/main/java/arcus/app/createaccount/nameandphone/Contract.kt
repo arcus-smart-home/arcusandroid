@@ -16,51 +16,25 @@
 @file:JvmMultifileClass
 package arcus.app.createaccount.nameandphone
 
-import android.os.Parcel
 import android.os.Parcelable
 import com.iris.client.capability.Person
 import arcus.app.createaccount.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class NamePhoneAndImageLocation(
     val firstName: String,
     val lastName: String,
     val phoneNumber: String,
     val fileSaveLocation: String?
 ) : Parcelable {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.readString()
-    )
-
     fun getPersonAttributes() = mapOf(
         Person.ATTR_FIRSTNAME to firstName,
         Person.ATTR_LASTNAME to lastName,
         Person.ATTR_MOBILENUMBER to phoneNumber
     )
 
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(firstName)
-        writeString(lastName)
-        writeString(phoneNumber)
-        writeString(fileSaveLocation)
-    }
-
     companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<NamePhoneAndImageLocation> =
-            object : Parcelable.Creator<NamePhoneAndImageLocation> {
-                override fun createFromParcel(source: Parcel): NamePhoneAndImageLocation =
-                    NamePhoneAndImageLocation(
-                        source
-                    )
-
-                override fun newArray(size: Int): Array<NamePhoneAndImageLocation?> = arrayOfNulls(size)
-            }
-
         @JvmField
         val EMPTY =
             NamePhoneAndImageLocation(

@@ -68,8 +68,8 @@ open class NameAndPhotoFragment : Fragment(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let{ bundle ->
-            deviceAddress = bundle.getString(ARG_PAIRING_DEVICE_ADDRESS)
-            step = bundle.getParcelable(ARG_NAME_AND_PHOTO_STEP)
+            deviceAddress = bundle.getString(ARG_PAIRING_DEVICE_ADDRESS)!!
+            step = bundle.getParcelable(ARG_NAME_AND_PHOTO_STEP)!!
             showCancelButton = bundle.getBoolean(ARG_CANCEL_BUTTON_PRESENT)
             nextButtonText = bundle.getInt(ARG_NEXT_BUTTON_TEXT)
         }

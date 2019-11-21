@@ -65,8 +65,8 @@ class OrbitZoneEditFragment : Fragment(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.run {
-            pairingDeviceAddress = getString(ARG_PAIRING_DEVICE_ADDRESS)
-            customizationStep = getParcelable(ARG_CUSTOMIZATION_STEP)
+            pairingDeviceAddress = getString(ARG_PAIRING_DEVICE_ADDRESS)!!
+            customizationStep = getParcelable(ARG_CUSTOMIZATION_STEP)!!
             cancelPresent = getBoolean(ARG_CANCEL_PRESENT)
             nextButtonText = getInt(ARG_NEXT_BUTTON_TEXT)
             isPopup = getBoolean(ARG_IS_POPUP)

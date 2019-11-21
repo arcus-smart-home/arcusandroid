@@ -15,9 +15,9 @@
  */
 package arcus.presentation.pairing.device.remove
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
 interface RemoveDeviceView {
 
@@ -54,33 +54,10 @@ interface RemoveDevicePresenter : BasePresenterContract<RemoveDeviceView> {
     fun removePairingDevice(pairingDeviceAddress: String)
 }
 
+@Parcelize
 data class DeviceRemovalStep(
         val id: String,
         val instructions: List<String> = emptyList(),
         val order: Int = 1,
         val title: String? = null
-) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.createStringArrayList(),
-            source.readInt(),
-            source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(id)
-        writeStringList(instructions)
-        writeInt(order)
-        writeString(title)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<DeviceRemovalStep> = object : Parcelable.Creator<DeviceRemovalStep> {
-            override fun createFromParcel(source: Parcel): DeviceRemovalStep = DeviceRemovalStep(source)
-            override fun newArray(size: Int): Array<DeviceRemovalStep?> = arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable

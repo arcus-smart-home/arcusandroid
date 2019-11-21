@@ -33,9 +33,9 @@ class OtherDeviceRequiredPopup : ModalBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         arguments?.let {
-            vendor = it.getString(ARG_VENDOR_NAME)
-            shortName = it.getString(ARG_SHORT_NAME)
-            helpUrl = it.getString(ARG_HELP_URL)
+            vendor = it.getString(ARG_VENDOR_NAME)!!
+            shortName = it.getString(ARG_SHORT_NAME)!!
+            helpUrl = it.getString(ARG_HELP_URL)!!
 
         }
 

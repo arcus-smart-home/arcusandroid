@@ -50,8 +50,8 @@ class FobButtonActionModal : Fragment(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            buttonName = it.getString(ARG_BUTTON_NAME)
-            deviceAddress = it.getString(ARG_DEVICE_ADDRESS)
+            buttonName = it.getString(ARG_BUTTON_NAME)!!
+            deviceAddress = it.getString(ARG_DEVICE_ADDRESS)!!
         }
     }
 

@@ -28,7 +28,7 @@ import com.iris.client.capability.Contact
 import java.util.concurrent.TimeUnit
 
 class ContactTestPresenterImpl(
-        private var scheduledExecutor : ScheduledExecutor = AndroidExecutor(Looper.myLooper())
+        private var scheduledExecutor : ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
 ) : ContactTestPresenter, KBasePresenter<ContactTestView>(){
 
     private var listenerRegistration = Listeners.empty()

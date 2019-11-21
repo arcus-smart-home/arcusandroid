@@ -15,8 +15,8 @@
  */
 package arcus.presentation.pairing.device.steps.wifismartswitch.selectwifi
 
-import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
 enum class SignalStrength {
     LEVEL_1,
@@ -26,6 +26,7 @@ enum class SignalStrength {
     LEVEL_5
 }
 
+@Parcelize
 data class WiFiNetwork(
     val name: String = "",
     val isSelected: Boolean = false,
@@ -33,36 +34,7 @@ data class WiFiNetwork(
     val isSecured: Boolean = true,
     val signalStrength: SignalStrength
 ) : Parcelable, Comparable<WiFiNetwork> {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        1 == source.readInt(),
-        1 == source.readInt(),
-        1 == source.readInt(),
-        SignalStrength.values()[source.readInt()]
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(name)
-        writeInt((if (isSelected) 1 else 0))
-        writeInt((if (isOtherNetwork) 1 else 0))
-        writeInt((if (isSecured) 1 else 0))
-        writeInt(signalStrength.ordinal)
-    }
-
     override fun compareTo(other: WiFiNetwork) = compareValuesBy(this, other, { it.isSelected }, { it.name })
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<WiFiNetwork> = object : Parcelable.Creator<WiFiNetwork> {
-            override fun createFromParcel(source: Parcel): WiFiNetwork =
-                WiFiNetwork(
-                    source
-                )
-            override fun newArray(size: Int): Array<WiFiNetwork?> = arrayOfNulls(size)
-        }
-    }
 }
 
 

@@ -58,7 +58,7 @@ class InputPairingStepFragment : Fragment(), DataFragment {
         super.onCreate(savedInstanceState)
 
         arguments?.let{ bundle ->
-            step = bundle.getParcelable(ARG_INPUT_PAIRING_STEP)
+            step = bundle.getParcelable(ARG_INPUT_PAIRING_STEP)!!
         }
     }
 

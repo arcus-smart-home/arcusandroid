@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
 class AndroidBleWiFiSelectPresenter(
-    private val executor : ScheduledExecutor = AndroidExecutor(Looper.myLooper())
+    private val executor : ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
 ) :
     BleWiFiSelectPresenter<Context>,
     KBasePresenter<BleWiFiSelectView>() {
