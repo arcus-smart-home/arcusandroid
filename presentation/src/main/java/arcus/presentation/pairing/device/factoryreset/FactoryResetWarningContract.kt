@@ -15,9 +15,9 @@
  */
 package arcus.presentation.pairing.device.factoryreset
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
 interface FactoryResetWarningView {
 
@@ -70,40 +70,10 @@ interface FactoryResetWarningPresenter : BasePresenterContract<FactoryResetWarni
     fun isInPairingMode(): Boolean
 }
 
+@Parcelize
 data class FactoryResetStep(
         val id: String,
         val info: String? = null,
         val instructions: List<String> = emptyList(),
         val title: String? = null
-) : Parcelable {
-
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
-            source.createStringArrayList(),
-            source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(id)
-        writeString(info)
-        writeStringList(instructions)
-        writeString(title)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<FactoryResetStep> =
-                object :
-                    Parcelable.Creator<FactoryResetStep> {
-                    override fun createFromParcel(source: Parcel): FactoryResetStep =
-                        FactoryResetStep(
-                            source
-                        )
-
-                    override fun newArray(size: Int): Array<FactoryResetStep?> = arrayOfNulls(size)
-                }
-    }
-}
+) : Parcelable

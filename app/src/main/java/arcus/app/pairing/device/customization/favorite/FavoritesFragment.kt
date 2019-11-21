@@ -60,8 +60,8 @@ class FavoritesFragment : Fragment(),
         super.onCreate(savedInstanceState)
 
         arguments?.let{ bundle ->
-            pairingDeviceAddress = bundle.getString(ARG_PAIRING_DEVICE_ADDRESS)
-            customizationStep = bundle.getParcelable(ARG_CUSTOMIZATION_STEP)
+            pairingDeviceAddress = bundle.getString(ARG_PAIRING_DEVICE_ADDRESS)!!
+            customizationStep = bundle.getParcelable(ARG_CUSTOMIZATION_STEP)!!
             cancelPresent = bundle.getBoolean(ARG_CANCEL_PRESENT)
             nextButtonText = bundle.getInt(ARG_NEXT_BUTTON_TEXT)
         }

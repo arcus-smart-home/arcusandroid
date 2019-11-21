@@ -50,7 +50,7 @@ class OAuthPairingStepFragment : Fragment(), OAuthPairingCallback {
         setHasOptionsMenu(true)
 
         arguments?.run {
-            oAuthDetails = getParcelable(OAUTH_DETAILS)
+            oAuthDetails = getParcelable(OAUTH_DETAILS)!!
         }
 
         return inflater.inflate(R.layout.fragment_honeywell_webview, container, false)

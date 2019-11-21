@@ -59,7 +59,7 @@ class PromonUnlockedFragment : Fragment(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let{ bundle ->
-            step = bundle.getParcelable(ARG_PROMON_UNLOCKED_STEP)
+            step = bundle.getParcelable(ARG_PROMON_UNLOCKED_STEP)!!
             showCancelButton = bundle.getBoolean(ARG_CANCEL_BUTTON_PRESENT)
             nextButtonText = bundle.getInt(ARG_NEXT_BUTTON_TEXT)
         }

@@ -15,10 +15,10 @@
  */
 package arcus.presentation.pairing.device.customization
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
 import arcus.presentation.pairing.device.steps.WebLink
+import kotlinx.android.parcel.Parcelize
 
 interface CustomizationView {
     /**
@@ -120,6 +120,7 @@ enum class CustomizationType {
  *                For PROMON_ALARM Customization, it will contain the list of newly available alarms
  *                from the following list: SMOKE, CO, SECURITY, PANIC, WATER
  */
+@Parcelize
 data class CustomizationStep(
     val id: String,
     val order: Int,
@@ -130,42 +131,4 @@ data class CustomizationStep(
     val info: String? = null,
     val link: WebLink? = null,
     val choices: List<String>? = emptyList()
-) : Parcelable {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.readInt(),
-        CustomizationType.values()[source.readInt()],
-        source.readString(),
-        source.readString(),
-        source.createStringArrayList(),
-        source.readString(),
-        source.readParcelable<WebLink>(WebLink::class.java.classLoader),
-        source.createStringArrayList()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(id)
-        writeInt(order)
-        writeInt(type.ordinal)
-        writeString(header)
-        writeString(title)
-        writeStringList(description)
-        writeString(info)
-        writeParcelable(link, 0)
-        writeStringList(choices)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<CustomizationStep> =
-            object :
-                Parcelable.Creator<CustomizationStep> {
-                override fun createFromParcel(source: Parcel): CustomizationStep =
-                    CustomizationStep(source)
-
-                override fun newArray(size: Int): Array<CustomizationStep?> = arrayOfNulls(size)
-            }
-    }
-}
+) : Parcelable

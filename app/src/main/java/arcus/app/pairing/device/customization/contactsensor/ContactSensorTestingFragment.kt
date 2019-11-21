@@ -63,8 +63,8 @@ class ContactSensorTestingFragment : Fragment(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.run {
-            pairingDeviceAddress = getString(ARG_PAIRING_DEVICE_ADDRESS)
-            customizationStep = getParcelable(ARG_CONTACT_TYPE_STEP)
+            pairingDeviceAddress = getString(ARG_PAIRING_DEVICE_ADDRESS)!!
+            customizationStep = getParcelable(ARG_CONTACT_TYPE_STEP)!!
             showCancelButton = getBoolean(ARG_CANCEL_PRESENT)
             nextButtonText = getInt(ARG_NEXT_BUTTON_TEXT)
         }
@@ -132,7 +132,7 @@ class ContactSensorTestingFragment : Fragment(),
     }
 
 
-    override fun getTitle() = customizationStep?.header ?: getString(R.string.customization_contact_type_header)
+    override fun getTitle() = customizationStep.header ?: getString(R.string.customization_contact_type_header)
 
     override fun onContactStateUpdated(state: String) {
         Picasso
@@ -141,12 +141,12 @@ class ContactSensorTestingFragment : Fragment(),
             .into(contactTestImage)
     }
 
-    override fun onError(throwable: Throwable) {
-        logger.error("Contact Type Testing", "Received error: ", throwable)
+    override fun onError(error: Throwable) {
+        logger.error("Contact Type Testing", "Received error: ", error)
     }
 
     private fun getImageUrl(state: String) : String {
-        val stepType = StringUtils.lowerCase(customizationStep?.id)
+        val stepType = StringUtils.lowerCase(customizationStep.id)
         val screenDensity = ImageUtils.screenDensity
         return CUSTOMIZATION_URL_FORMAT.format(SessionController.instance().staticResourceBaseUrl, stepType, state, screenDensity)
     }

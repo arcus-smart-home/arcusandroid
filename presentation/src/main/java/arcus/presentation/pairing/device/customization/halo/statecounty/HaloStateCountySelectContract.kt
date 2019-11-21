@@ -15,70 +15,22 @@
  */
 package arcus.presentation.pairing.device.customization.halo.statecounty
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class HaloStateAndCode(
     val state: String,
     val sameCode: String,
     val isPersonsPlace: Boolean = false
-) : Parcelable {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.readString(),
-        1 == source.readInt()
-    )
+) : Parcelable
 
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(state)
-        writeString(sameCode)
-        writeInt((if (isPersonsPlace) 1 else 0))
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<HaloStateAndCode> =
-            object : Parcelable.Creator<HaloStateAndCode> {
-                override fun createFromParcel(source: Parcel): HaloStateAndCode =
-                    HaloStateAndCode(
-                        source
-                    )
-
-                override fun newArray(size: Int): Array<HaloStateAndCode?> = arrayOfNulls(size)
-            }
-    }
-}
-
+@Parcelize
 data class HaloCounty(
         val county: String,
         val isPersonsCounty: Boolean = false
-) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            1 == source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(county)
-        writeInt((if (isPersonsCounty) 1 else 0))
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<HaloCounty> = object : Parcelable.Creator<HaloCounty> {
-            override fun createFromParcel(source: Parcel): HaloCounty =
-                HaloCounty(
-                    source
-                )
-            override fun newArray(size: Int): Array<HaloCounty?> = arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable
 
 interface HaloStateCountySelectView {
     /**

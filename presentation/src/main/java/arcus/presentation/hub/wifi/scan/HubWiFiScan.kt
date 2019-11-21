@@ -15,10 +15,10 @@
  */
 package arcus.presentation.hub.wifi.scan
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
 import arcus.presentation.common.wifi.DeviceWiFiNetworkSecurity
+import kotlinx.android.parcel.Parcelize
 
 /**
  * @param scanTimeoutInSeconds The amount of time the device should scan for networks.
@@ -41,6 +41,7 @@ class HubWiFiScanConfig(
     val rescanDelayInSeconds = _rescanDelayInSeconds.coerceAtLeast(scanTimeoutInSeconds.toLong() + 1)
 }
 
+@Parcelize
 data class HubAvailableWiFiNetwork(
     val ssid: String,
     val security: DeviceWiFiNetworkSecurity,
@@ -50,26 +51,6 @@ data class HubAvailableWiFiNetwork(
     val isOtherNetwork: Boolean = false
 ) : Parcelable {
     fun isSecure(): Boolean = security != DeviceWiFiNetworkSecurity.NONE && security != DeviceWiFiNetworkSecurity.UNKNOWN
-
-    constructor(source: Parcel) : this(
-        source.readString(),
-        DeviceWiFiNetworkSecurity.values()[source.readInt()],
-        source.readInt(),
-        source.readInt(),
-        1 == source.readInt(),
-        1 == source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(ssid)
-        writeInt(security.ordinal)
-        writeInt(signal)
-        writeInt(channel)
-        writeInt((if (selected) 1 else 0))
-        writeInt((if (isOtherNetwork) 1 else 0))
-    }
 
     companion object {
         @JvmField
@@ -90,16 +71,6 @@ data class HubAvailableWiFiNetwork(
 
             return HubAvailableWiFiNetwork(ssid, security, signal.toInt(), channel.toInt())
         }
-
-        @JvmField
-        val CREATOR: Parcelable.Creator<HubAvailableWiFiNetwork> =
-            object : Parcelable.Creator<HubAvailableWiFiNetwork> {
-                override fun createFromParcel(source: Parcel): HubAvailableWiFiNetwork =
-                    HubAvailableWiFiNetwork(source)
-
-                override fun newArray(size: Int): Array<HubAvailableWiFiNetwork?> =
-                    arrayOfNulls(size)
-            }
     }
 }
 

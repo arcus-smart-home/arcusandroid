@@ -36,10 +36,10 @@ class Generic2ButtonTextDescriptionPopup : ModalBottomSheet() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { args ->
-            titleText = args.getString(ARG_TITLE_TEXT)
-            descriptionText = args.getString(ARG_DESCRIPTION_TEXT)
-            topButtonText = args.getString(ARG_TOP_BUTTON_TEXT)
-            bottomButtonText = args.getString(ARG_BOTTOM_BUTTON_TEXT)
+            titleText = args.getString(ARG_TITLE_TEXT)!!
+            descriptionText = args.getString(ARG_DESCRIPTION_TEXT)!!
+            topButtonText = args.getString(ARG_TOP_BUTTON_TEXT)!!
+            bottomButtonText = args.getString(ARG_BOTTOM_BUTTON_TEXT)!!
         }
     }
 

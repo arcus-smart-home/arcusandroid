@@ -39,7 +39,7 @@ class PairingStepInstructionsPopup: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { bundle ->
-            instructionsUrl = bundle.getString(INSTRUCTIONS_URL)
+            instructionsUrl = bundle.getString(INSTRUCTIONS_URL)!!
         }
     }
 

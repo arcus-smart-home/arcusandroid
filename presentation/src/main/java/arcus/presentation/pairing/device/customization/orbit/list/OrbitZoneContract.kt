@@ -15,9 +15,9 @@
  */
 package arcus.presentation.pairing.device.customization.orbit.list
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
 interface OrbitZoneView {
 
@@ -56,38 +56,10 @@ interface OrbitZonePresenter : BasePresenterContract<OrbitZoneView> {
  * @param wateringTimeInMinutes The watering time in minutes or 1 (if value is not set)
  * @param zoneNumber The zone number as an integer
  */
+@Parcelize
 data class IrrigationZone(
         val zoneInstanceId: String = "z1",
         val name: String = "",
         val zone: String = "Zone 1",
         val wateringTimeInMinutes: Int = 1,
-        val zoneNumber: Int = 1) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readInt(),
-            source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(zoneInstanceId)
-        writeString(name)
-        writeString(zone)
-        writeInt(wateringTimeInMinutes)
-        writeInt(zoneNumber)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<IrrigationZone> = object : Parcelable.Creator<IrrigationZone> {
-            override fun createFromParcel(source: Parcel): IrrigationZone =
-                IrrigationZone(
-                    source
-                )
-            override fun newArray(size: Int): Array<IrrigationZone?> = arrayOfNulls(size)
-        }
-    }
-}
+        val zoneNumber: Int = 1) : Parcelable

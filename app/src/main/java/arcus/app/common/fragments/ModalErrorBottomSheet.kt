@@ -42,10 +42,10 @@ class ModalErrorBottomSheet : ModalBottomSheet() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            errorTitle = it.getString(ModalErrorBottomSheet.ARG_TITLE)
-            errorDescription = it.getString(ModalErrorBottomSheet.ARG_DESCRIPTION)
-            topButtonText = it.getString(ModalErrorBottomSheet.ARG_TOP_BUTTON_TEXT)
-            bottomButtonText = it.getString(ModalErrorBottomSheet.ARG_BOTTOM_BUTTON_TEXT)
+            errorTitle = it.getString(ModalErrorBottomSheet.ARG_TITLE)!!
+            errorDescription = it.getString(ModalErrorBottomSheet.ARG_DESCRIPTION)!!
+            topButtonText = it.getString(ModalErrorBottomSheet.ARG_TOP_BUTTON_TEXT)!!
+            bottomButtonText = it.getString(ModalErrorBottomSheet.ARG_BOTTOM_BUTTON_TEXT)!!
         }
     }
 

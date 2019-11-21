@@ -51,8 +51,8 @@ class RemoveDeviceInstructionsFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             @Suppress("UNCHECKED_CAST")
-            pairingDeviceAddress = it.getString(ARG_PAIRING_DEVICE_ADDRESS)
-            steps = it.getParcelableArrayList(ARG_REMOVE_INSTRUCTIONS)
+            pairingDeviceAddress = it.getString(ARG_PAIRING_DEVICE_ADDRESS)!!
+            steps = it.getParcelableArrayList(ARG_REMOVE_INSTRUCTIONS)!!
 
             if(steps.isEmpty() || steps[0].instructions.isEmpty()){
                 view.findViewById<ScleraTextView>(R.id.alternate).visibility = View.VISIBLE

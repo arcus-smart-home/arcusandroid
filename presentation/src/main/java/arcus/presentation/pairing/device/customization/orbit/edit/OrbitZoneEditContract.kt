@@ -15,41 +15,17 @@
  */
 package arcus.presentation.pairing.device.customization.orbit.edit
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 import java.util.concurrent.TimeUnit
 
+@Parcelize
 data class IrrigationZoneDetails(
     val zoneName: String,
     val minutes: Int
 ) : Parcelable {
     fun minutesToHours() = TimeUnit.MINUTES.toHours(minutes.toLong()).toInt()
-
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(zoneName)
-        writeInt(minutes)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<IrrigationZoneDetails> =
-            object : Parcelable.Creator<IrrigationZoneDetails> {
-                override fun createFromParcel(source: Parcel): IrrigationZoneDetails =
-                    IrrigationZoneDetails(
-                        source
-                    )
-
-                override fun newArray(size: Int): Array<IrrigationZoneDetails?> = arrayOfNulls(size)
-            }
-    }
 }
 
 interface OrbitZoneEditView {

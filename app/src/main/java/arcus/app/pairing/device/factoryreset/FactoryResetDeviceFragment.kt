@@ -49,7 +49,7 @@ class FactoryResetDeviceFragment : Fragment(),
             factoryResetStepList = bundle.getParcelableArrayList<FactoryResetStep>(
                 ARG_FACTORY_RESET_STEP_LIST
             )
-            productName = bundle.getString(ARG_PRODUCT_NAME)
+            productName = bundle.getString(ARG_PRODUCT_NAME)!!
         }
     }
 

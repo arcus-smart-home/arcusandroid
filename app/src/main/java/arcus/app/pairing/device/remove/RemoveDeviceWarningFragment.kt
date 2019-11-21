@@ -48,7 +48,7 @@ class RemoveDeviceWarningFragment : Fragment(),
         super.onViewCreated(view, savedInstanceState)
         presenter.setView(this)
         arguments?.let {
-            pairingDeviceAddress = it.getString(ARG_DEVICE_ADDRESS)
+            pairingDeviceAddress = it.getString(ARG_DEVICE_ADDRESS)!!
         }
 
         presenter.checkForMispairedHue(pairingDeviceAddress)

@@ -52,7 +52,7 @@ import java.util.concurrent.atomic.AtomicReference
 class HubProgressFragment : Fragment(), PairingHubView {
 
     private val presenter = PairingHubPresenterImpl()
-    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper())
+    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
     private val downloadingRunnable = {
         scheduledExecutor.clearExecutor()
         updateErrorState(Errors.Hub.INSTALL_TIMEDOUT)

@@ -16,10 +16,10 @@
 package arcus.presentation.kits
 
 import android.content.Context
-import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
 interface HubKitView {
 
@@ -59,60 +59,14 @@ sealed class ProductAddModel {
     abstract val name: String
 }
 
+@Parcelize
 data class ProductDataModel(
         override val name: String,
         val id: String,
         val canUseBle: Boolean
-) : ProductAddModel(), Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
-            (source.readInt() == 1)
-    )
+) : ProductAddModel(), Parcelable
 
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(name)
-        writeString(id)
-        writeValue(canUseBle)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<ProductDataModel> = object :
-                Parcelable.Creator<ProductDataModel> {
-            override fun createFromParcel(source: Parcel): ProductDataModel =
-                    ProductDataModel(source)
-
-            override fun newArray(size: Int): Array<ProductDataModel?> = arrayOfNulls(size)
-        }
-    }
-}
-
-data class ProductHeaderModel(
-        override val name: String
-) : ProductAddModel(), Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(name)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<ProductHeaderModel> = object :
-                Parcelable.Creator<ProductHeaderModel> {
-            override fun createFromParcel(source: Parcel): ProductHeaderModel =
-                    ProductHeaderModel(source)
-
-            override fun newArray(size: Int): Array<ProductHeaderModel?> = arrayOfNulls(size)
-        }
-    }
-}
+@Parcelize
+data class ProductHeaderModel(override val name: String) : ProductAddModel(), Parcelable
 
 

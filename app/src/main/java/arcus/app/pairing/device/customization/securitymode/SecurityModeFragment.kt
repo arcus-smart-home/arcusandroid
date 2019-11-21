@@ -71,8 +71,8 @@ class SecurityModeFragment : Fragment(),
         super.onCreate(savedInstanceState)
 
         arguments?.let{ bundle ->
-            pairingDeviceAddress = bundle.getString(FavoritesFragment.ARG_PAIRING_DEVICE_ADDRESS)
-            customizationStep = bundle.getParcelable(FavoritesFragment.ARG_CUSTOMIZATION_STEP)
+            pairingDeviceAddress = bundle.getString(FavoritesFragment.ARG_PAIRING_DEVICE_ADDRESS)!!
+            customizationStep = bundle.getParcelable(FavoritesFragment.ARG_CUSTOMIZATION_STEP)!!
             cancelPresent = bundle.getBoolean(FavoritesFragment.ARG_CANCEL_PRESENT)
             nextButtonText = bundle.getInt(FavoritesFragment.ARG_NEXT_BUTTON_TEXT)
         }

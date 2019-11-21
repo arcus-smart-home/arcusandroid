@@ -1,8 +1,8 @@
 ext {
-    minSdk = 19
-    compileSdk = 27
-    targetSdk = 27
-    renderScriptTarget = 19
+    minSdk = 21
+    compileSdk = 28
+    targetSdk = 28
+    renderScriptTarget = 21
     androidToolsVersion = '28.0.3'
     supportLibraryVersion = '27.0.2'
     googleVersion = '11.8.0'

@@ -54,7 +54,7 @@ import java.util.concurrent.TimeUnit
 
 class AndroidBleConnectPresenter(
     private val pairingSubsystemController: PairingSubsystemController = PairingSubsystemControllerImpl,
-    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()),
+    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
     private val client: IrisClient = CorneaClientFactory.getClient()
 ) : BleConnectPresenter<Context>, KBasePresenter<BleConnectView>() {
     @Volatile

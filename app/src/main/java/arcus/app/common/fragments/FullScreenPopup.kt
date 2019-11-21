@@ -50,7 +50,7 @@ abstract class FullScreenPopup : DialogFragment() {
         if (d != null) {
             val width = ViewGroup.LayoutParams.MATCH_PARENT
             val height = ViewGroup.LayoutParams.MATCH_PARENT
-            d.window.setLayout(width, height)
+            d.window?.setLayout(width, height)
         }
     }
 

@@ -55,7 +55,7 @@ class InfoFragment : Fragment(), TitledFragment {
         super.onCreate(savedInstanceState)
 
         arguments?.let{ bundle ->
-            customizationStep = bundle.getParcelable(ARG_CUSTOMIZATION_STEP)
+            customizationStep = bundle.getParcelable(ARG_CUSTOMIZATION_STEP)!!
             cancelPresent = bundle.getBoolean(ARG_CANCEL_PRESENT)
             nextButtonText = bundle.getInt(ARG_NEXT_BUTTON_TEXT)
         }

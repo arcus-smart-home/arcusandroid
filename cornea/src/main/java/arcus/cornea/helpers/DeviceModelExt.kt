@@ -26,7 +26,7 @@ import com.iris.client.model.DeviceModel
  */
 fun <T, U> DeviceModel.laterAs(clazz: Class<T>, action: (T) -> ClientFuture<U>) : ClientFuture<U> {
     return if (clazz.isAssignableFrom(this::class.java)) {
-        action(clazz.cast(this))
+        action(clazz.cast(this)!!)
     } else {
         Futures.failedFuture(RuntimeException("[${this::class.java.name}] is not assignable from [${clazz.name}]"))
     }
@@ -40,7 +40,7 @@ fun <T, U> DeviceModel.laterAs(clazz: Class<T>, action: (T) -> ClientFuture<U>) 
  */
 fun <T, U> DeviceModel.nowAs(clazz: Class<T>, action: (T) -> U?) : U? {
     return if (clazz.isAssignableFrom(this::class.java)) {
-        action(clazz.cast(this))
+        action(clazz.cast(this)!!)
     } else {
         null
     }

@@ -42,6 +42,7 @@ class HaloCountySelectionPopup : ModalBottomSheet() {
 
         arguments?.let {
             initialCounty = it.getParcelable(ARG_CURRENT_COUNTY) as HaloCounty?
+            @Suppress("UNCHECKED_CAST")
             spinnerOptions = it.getSerializable(ARG_SPINNER_OPTIONS) as List<HaloCounty>
             title.text = it.getString(ARG_SPINNER_TITLE) ?: resources.getString(R.string.halo_choose_county)
             okButton.text = it.getString(ARG_TOP_BUTTON)

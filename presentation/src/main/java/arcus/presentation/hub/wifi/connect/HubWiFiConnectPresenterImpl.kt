@@ -40,7 +40,7 @@ class HubWiFiConnectPresenterImpl(
         HubModelProvider.instance().load().transformNonNull { it.first() }
     },
     private val client: IrisClient = CorneaClientFactory.getClient(),
-    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper())
+    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
 ) : HubWiFiConnectPresenter, KBasePresenter<HubWiFiConnectView>() {
     private val logger = LoggerFactory.getLogger(HubWiFiConnectPresenter::class.java)
     private var eventListenerReg = Listeners.empty()

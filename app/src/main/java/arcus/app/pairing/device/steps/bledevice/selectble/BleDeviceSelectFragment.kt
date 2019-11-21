@@ -80,10 +80,10 @@ class BleDeviceSelectFragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let { bundle ->
-            val prefix = bundle.getString(ARG_DEVICE_PREFIX)
+            val prefix = bundle.getString(ARG_DEVICE_PREFIX)!!
             presenter = AndroidBleDeviceSelectPresenter.forPrefix(prefix)
-            pairingDevice = bundle.getString(ARG_DEVICE_NAME)
-            needHelpUri = bundle.getParcelable(ARG_NEED_HELP_URI) as Uri
+            pairingDevice = bundle.getString(ARG_DEVICE_NAME)!!
+            needHelpUri = bundle.getParcelable<Uri>(ARG_NEED_HELP_URI) as Uri
         }
 
         needHelpLink = view.findViewById(R.id.ble_need_help_link)

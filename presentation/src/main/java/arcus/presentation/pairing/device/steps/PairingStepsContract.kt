@@ -15,10 +15,10 @@
  */
 package arcus.presentation.pairing.device.steps
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
 import arcus.presentation.pairing.WIFI_SMART_SWITCH_PRODUCT_ID
+import kotlinx.android.parcel.Parcelize
 
 interface PairingStepsView {
     /**
@@ -96,6 +96,7 @@ enum class PairingStepInputType {
  * @param value - opt - If specified this is the default value for the form, or in the case of
  *                      HIDDEN this value should be submitted as the value to the Search command
  */
+@Parcelize
 data class PairingStepInput(
     val inputType: PairingStepInputType,
     val keyName: String,
@@ -103,39 +104,7 @@ data class PairingStepInput(
     val maxLength: Int,
     val label: String,
     val value: String? = null
-) : Parcelable {
-    constructor(source: Parcel) : this(
-        PairingStepInputType.values()[source.readInt()],
-        source.readString(),
-        source.readInt(),
-        source.readInt(),
-        source.readString(),
-        source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeInt(inputType.ordinal)
-        writeString(keyName)
-        writeInt(minLength)
-        writeInt(maxLength)
-        writeString(label)
-        writeString(value)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<PairingStepInput> =
-            object :
-                Parcelable.Creator<PairingStepInput> {
-                override fun createFromParcel(source: Parcel): PairingStepInput =
-                    PairingStepInput(source)
-
-                override fun newArray(size: Int): Array<PairingStepInput?> = arrayOfNulls(size)
-            }
-    }
-}
+) : Parcelable
 
 /**
  * Holds data pertaining to a web (internet) link
@@ -143,32 +112,11 @@ data class PairingStepInput(
  * @param text - The text to use for the link
  * @param url  - The url to navigate to when this link is activated
  */
+@Parcelize
 data class WebLink(
         val text: String,
         val url: String
-) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(text)
-        writeString(url)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<WebLink> = object :
-            Parcelable.Creator<WebLink> {
-            override fun createFromParcel(source: Parcel): WebLink =
-                WebLink(source)
-            override fun newArray(size: Int): Array<WebLink?> = arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable
 
 /**
  * Describes the type of pairing mode
@@ -185,32 +133,11 @@ enum class PairingModeType {
  * @param oAuthUrl - The url to start OAuth authentication
  * @param oAuthStyle - The style of oAuth integration
  */
+@Parcelize
 data class OAuthDetails(
         val oAuthUrl: String?,
         val oAuthStyle: String?
-) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(oAuthUrl)
-        writeString(oAuthStyle)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<OAuthDetails> = object :
-            Parcelable.Creator<OAuthDetails> {
-            override fun createFromParcel(source: Parcel): OAuthDetails =
-                OAuthDetails(source)
-            override fun newArray(size: Int): Array<OAuthDetails?> = arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable
 
 /**
  * Marker class for a type of Pairing Step
@@ -220,33 +147,15 @@ sealed class ParsedPairingStep(stepNumber: Int) : OrderedPairingStep(stepNumber)
 /**
  * Ordered step
  */
-open class OrderedPairingStep(val stepNumber: Int) : Parcelable {
-    constructor(source: Parcel) : this(
-            source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeInt(stepNumber)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<OrderedPairingStep> = object :
-            Parcelable.Creator<OrderedPairingStep> {
-            override fun createFromParcel(source: Parcel): OrderedPairingStep =
-                OrderedPairingStep(source)
-            override fun newArray(size: Int): Array<OrderedPairingStep?> = arrayOfNulls(size)
-        }
-    }
-}
+@Parcelize
+open class OrderedPairingStep(val stepNumber: Int) : Parcelable
 
 /**
  * Describes, in full, a particular step in the pairing flow.
  * This should contain ALL information required to display the step it is describing - including
  * Form inputs, Oauth information, etc.
  */
+@Parcelize
 data class InputPairingStep(
     val productId: String,
     val instructions: List<String>,
@@ -257,50 +166,14 @@ data class InputPairingStep(
     val link: WebLink? = null,
     private val order: Int,
     val id: String
-) : ParsedPairingStep(order),
-    Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.createStringArrayList(),
-            source.createTypedArrayList(PairingStepInput.CREATOR),
-            PairingModeType.values()[source.readInt()],
-            source.readString(),
-            source.readString(),
-            source.readParcelable<WebLink>(WebLink::class.java.classLoader),
-            source.readInt(),
-            source.readString()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(productId)
-        writeStringList(instructions)
-        writeTypedList(inputs)
-        writeInt(pairingModeType.ordinal)
-        writeString(title)
-        writeString(info)
-        writeParcelable(link, 0)
-        writeInt(order)
-        writeString(id)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<InputPairingStep> = object :
-            Parcelable.Creator<InputPairingStep> {
-            override fun createFromParcel(source: Parcel): InputPairingStep =
-                InputPairingStep(source)
-            override fun newArray(size: Int): Array<InputPairingStep?> = arrayOfNulls(size)
-        }
-    }
-}
+) : ParsedPairingStep(order), Parcelable
 
 /**
  * Describes, in full, a particular step in the pairing flow.
  * This should contain ALL information required to display the step it is describing - including
  * Form inputs, Oauth information, etc.
  */
+@Parcelize
 data class SimplePairingStep(
     val productId: String,
     val instructions: List<String>,
@@ -311,52 +184,14 @@ data class SimplePairingStep(
     private val order: Int,
     val id: String,
     val oAuthDetails: OAuthDetails? = null
-) : ParsedPairingStep(order),
-    Parcelable {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.createStringArrayList(),
-        PairingModeType.values()[source.readInt()],
-        source.readString(),
-        source.readString(),
-        source.readParcelable<WebLink>(WebLink::class.java.classLoader),
-        source.readInt(),
-        source.readString(),
-        source.readParcelable<OAuthDetails>(OAuthDetails::class.java.classLoader)
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(productId)
-        writeStringList(instructions)
-        writeInt(pairingModeType.ordinal)
-        writeString(title)
-        writeString(info)
-        writeParcelable(link, 0)
-        writeInt(order)
-        writeString(id)
-        writeParcelable(oAuthDetails, 0)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<SimplePairingStep> =
-            object :
-                Parcelable.Creator<SimplePairingStep> {
-                override fun createFromParcel(source: Parcel): SimplePairingStep =
-                    SimplePairingStep(source)
-
-                override fun newArray(size: Int): Array<SimplePairingStep?> = arrayOfNulls(size)
-            }
-    }
-}
+) : ParsedPairingStep(order), Parcelable
 
 /**
  * Describes, in full, a particular step in the pairing flow.
  * This should contain ALL information required to display the step it is describing - including
  * Form inputs, Oauth information, etc.
  */
+@Parcelize
 data class AssistantPairingStep(
     val productId: String,
     val pairingModeType: PairingModeType,
@@ -365,76 +200,17 @@ data class AssistantPairingStep(
     private val order: Int,
     val instructions : String? = null,
     val appUrl: String? = null
-) : ParsedPairingStep(order),
-    Parcelable {
-    constructor(source: Parcel) : this(
-            source.readString(),
-            PairingModeType.values()[source.readInt()],
-            source.readString(),
-            source.readString(),
-            source.readInt(),
-            source.readString(),
-            source.readString()
-    )
+) : ParsedPairingStep(order), Parcelable
 
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(productId)
-        writeInt(pairingModeType.ordinal)
-        writeString(manufacturer)
-        writeString(name)
-        writeInt(order)
-        writeString(instructions)
-        writeString(appUrl)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<AssistantPairingStep> = object :
-            Parcelable.Creator<AssistantPairingStep> {
-            override fun createFromParcel(source: Parcel): AssistantPairingStep =
-                AssistantPairingStep(source)
-            override fun newArray(size: Int): Array<AssistantPairingStep?> = arrayOfNulls(size)
-        }
-    }
-}
-
+@Parcelize
 data class WiFiSmartSwitchPairingStep(
     private val order: Int,
     val inputs: List<PairingStepInput> = emptyList()
-) : ParsedPairingStep(order),
-    Parcelable {
+) : ParsedPairingStep(order), Parcelable {
     fun getProductId() = WIFI_SMART_SWITCH_PRODUCT_ID
-
-    constructor(source: Parcel) : this(
-        source.readInt(),
-        source.createTypedArrayList(PairingStepInput.CREATOR)
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeInt(order)
-        writeTypedList(inputs)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<WiFiSmartSwitchPairingStep> =
-            object :
-                Parcelable.Creator<WiFiSmartSwitchPairingStep> {
-                override fun createFromParcel(source: Parcel): WiFiSmartSwitchPairingStep =
-                    WiFiSmartSwitchPairingStep(
-                        source
-                    )
-
-                override fun newArray(size: Int): Array<WiFiSmartSwitchPairingStep?> =
-                    arrayOfNulls(size)
-            }
-    }
 }
 
+@Parcelize
 data class BleGenericPairingStep(
     private val order: Int,
     val productId: String,
@@ -442,37 +218,9 @@ data class BleGenericPairingStep(
     val bleNamePrefix: String,
     val inputs: List<PairingStepInput> = emptyList(),
     val isForReconnect: Boolean = false
-) : ParsedPairingStep(order), Parcelable {
-    constructor(source: Parcel) : this(
-        source.readInt(),
-        source.readString(),
-        source.readString(),
-        source.readString(),
-        source.createTypedArrayList(PairingStepInput.CREATOR),
-        1 == source.readInt()
-    )
+) : ParsedPairingStep(order), Parcelable
 
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeInt(order)
-        writeString(productId)
-        writeString(productShortName)
-        writeString(bleNamePrefix)
-        writeTypedList(inputs)
-        writeInt((if (isForReconnect) 1 else 0))
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<BleGenericPairingStep> =
-            object : Parcelable.Creator<BleGenericPairingStep> {
-                override fun createFromParcel(source: Parcel): BleGenericPairingStep = BleGenericPairingStep(source)
-                override fun newArray(size: Int): Array<BleGenericPairingStep?> = arrayOfNulls(size)
-            }
-    }
-}
-
+@Parcelize
 data class BleWiFiReconfigureStep(
     val productId: String,
     val instructions: List<String>,
@@ -480,33 +228,4 @@ data class BleWiFiReconfigureStep(
     val info: String? = null,
     val link: WebLink? = null,
     private val order: Int
-) : ParsedPairingStep(order), Parcelable {
-    constructor(source: Parcel) : this(
-        source.readString(),
-        source.createStringArrayList(),
-        source.readString(),
-        source.readString(),
-        source.readParcelable<WebLink>(WebLink::class.java.classLoader),
-        source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(productId)
-        writeStringList(instructions)
-        writeString(title)
-        writeString(info)
-        writeParcelable(link, 0)
-        writeInt(order)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<BleWiFiReconfigureStep> =
-            object : Parcelable.Creator<BleWiFiReconfigureStep> {
-                override fun createFromParcel(source: Parcel): BleWiFiReconfigureStep = BleWiFiReconfigureStep(source)
-                override fun newArray(size: Int): Array<BleWiFiReconfigureStep?> = arrayOfNulls(size)
-            }
-    }
-}
+) : ParsedPairingStep(order), Parcelable

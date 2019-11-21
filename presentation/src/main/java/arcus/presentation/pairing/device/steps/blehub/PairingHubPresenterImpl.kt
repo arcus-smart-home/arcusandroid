@@ -30,7 +30,7 @@ import com.iris.client.model.PlaceModel
 import java.util.concurrent.TimeUnit
 
 class PairingHubPresenterImpl(
-        private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()),
+        private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
         private val currentPlace: () -> ModelSource<PlaceModel> = {
             PlaceModelProvider.getCurrentPlace()
         },

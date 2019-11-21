@@ -45,7 +45,7 @@ class AssistantPairingStepFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let { bundle ->
-            step = bundle.getParcelable(ARG_ASSISTANT_PAIRING_STEP)
+            step = bundle.getParcelable(ARG_ASSISTANT_PAIRING_STEP)!!
         }
     }
 

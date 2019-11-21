@@ -86,8 +86,8 @@ class BleWiFiSelectFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let { bundle ->
-            pairingDevice = bundle.getString(ARG_DEVICE_NAME)
-            wifiNotFoundUri = bundle.getParcelable(ARG_WIFI_NOT_FOUND_URI)
+            pairingDevice = bundle.getString(ARG_DEVICE_NAME)!!
+            wifiNotFoundUri = bundle.getParcelable(ARG_WIFI_NOT_FOUND_URI)!!
         }
 
         searchingContainer = view.findViewById(R.id.searching_container)

@@ -38,7 +38,7 @@ class CustomizeDevicesPopup : ModalBottomSheet() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         arguments?.let {
             pairedCorrectly = it.getBoolean(ARG_PAIRED_CORRECTLY)
-            description = it.getString(ARG_DESCRIPTION)
+            description = it.getString(ARG_DESCRIPTION)!!
 
         }
         val title = view.findViewById<ScleraTextView>(R.id.required_title)

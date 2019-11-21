@@ -41,7 +41,7 @@ class RemoveDeviceUnsuccessfulFragment : Fragment(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { bundle ->
-            pairingDeviceAddress = bundle.getString(ARG_PAIRING_DEVICE_ADDRESS)
+            pairingDeviceAddress = bundle.getString(ARG_PAIRING_DEVICE_ADDRESS)!!
         }
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

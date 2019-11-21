@@ -410,7 +410,7 @@ class CameraPlaybackPresenterImpl internal constructor(
                 deviceId,
                 SubsystemController.instance().getSubsystemModel(CellBackupSubsystem.NAMESPACE),
                 CorneaClientFactory.getService(VideoService::class.java),
-                AndroidExecutor(Looper.myLooper()),
+                AndroidExecutor(Looper.myLooper()!!),
                 AndroidExecutor.mainExecutor
             )
         }

@@ -42,7 +42,7 @@ import kotlin.properties.Delegates
 class AndroidBleDeviceSelectPresenter
 private constructor(
     private val namePrefix: String,
-    private var scheduledExecutor : ScheduledExecutor = AndroidExecutor(Looper.myLooper())
+    private var scheduledExecutor : ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
 ) : BleDeviceSelectPresenter<Context>, KBasePresenter<BleDeviceSelectView>() {
     private val receiverRegistered = AtomicBoolean(false)
     private val bleAdapterRef = AtomicReference<BluetoothAdapter?>(null)

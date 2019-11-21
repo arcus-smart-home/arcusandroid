@@ -15,43 +15,18 @@
  */
 package arcus.presentation.pairing.device.customization.halo.station
 
-import android.os.Parcel
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class RadioStation(
     val id: Int,
     val name: String,
     val frequency: String,
     val rssi: Double,
     val selected: Boolean
-) : Parcelable {
-    constructor(source: Parcel) : this(
-        source.readInt(),
-        source.readString(),
-        source.readString(),
-        source.readDouble(),
-        1 == source.readInt()
-    )
-
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeInt(id)
-        writeString(name)
-        writeString(frequency)
-        writeDouble(rssi)
-        writeInt((if (selected) 1 else 0))
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<RadioStation> = object : Parcelable.Creator<RadioStation> {
-            override fun createFromParcel(source: Parcel): RadioStation = RadioStation(source)
-            override fun newArray(size: Int): Array<RadioStation?> = arrayOfNulls(size)
-        }
-    }
-}
+) : Parcelable
 
 interface HaloStationSelectView {
     /**

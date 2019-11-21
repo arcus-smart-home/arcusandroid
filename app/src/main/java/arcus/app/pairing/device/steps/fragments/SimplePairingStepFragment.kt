@@ -43,7 +43,7 @@ class SimplePairingStepFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         arguments?.let { bundle ->
-            step = bundle.getParcelable(ARG_SIMPLE_PAIRING_STEP)
+            step = bundle.getParcelable(ARG_SIMPLE_PAIRING_STEP)!!
         }
     }
 
