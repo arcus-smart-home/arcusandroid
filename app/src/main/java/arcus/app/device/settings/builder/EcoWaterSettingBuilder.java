@@ -16,7 +16,7 @@
 package arcus.app.device.settings.builder;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.utils.Listeners;
 import com.iris.client.capability.EcowaterWaterSoftener;

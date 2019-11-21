@@ -36,7 +36,7 @@ android {
         manifestPlaceholders = [
                 devAppName: "Arcus [DBG]"
         ]
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // Setup Base URL values.
         def configurationFile = file("${rootProject.projectDir}/environment.gradle")
@@ -100,12 +100,6 @@ android {
     }
 }
 
-configurations.all({
-    resolutionStrategy.force deps.v7Support
-    resolutionStrategy.force deps.v4Support
-    resolutionStrategy.force deps.recyclerView
-})
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
@@ -115,7 +109,7 @@ dependencies {
     implementation project(':viewpager_indicator')
     implementation project(':materialEditText')
 
-    implementation deps.v7Support
+    implementation deps.appcompat
     implementation deps.annotations
     implementation deps.multiDex
     implementation deps.design

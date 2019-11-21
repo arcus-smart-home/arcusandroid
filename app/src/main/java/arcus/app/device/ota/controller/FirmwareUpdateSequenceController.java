@@ -16,7 +16,7 @@
 package arcus.app.device.ota.controller;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;

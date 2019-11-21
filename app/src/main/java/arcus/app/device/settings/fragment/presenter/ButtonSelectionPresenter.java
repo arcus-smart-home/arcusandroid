@@ -17,7 +17,7 @@ package arcus.app.device.settings.fragment.presenter;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.RuleController;

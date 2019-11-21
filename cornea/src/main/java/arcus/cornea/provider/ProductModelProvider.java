@@ -15,7 +15,7 @@
  */
 package arcus.cornea.provider;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import arcus.cornea.CorneaClientFactory;

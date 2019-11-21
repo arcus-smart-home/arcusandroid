@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/controls"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -115,6 +115,6 @@
             android:text="@string/retake_text"
             android:visibility="gone"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

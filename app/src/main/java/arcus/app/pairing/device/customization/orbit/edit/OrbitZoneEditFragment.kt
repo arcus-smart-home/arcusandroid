@@ -17,7 +17,7 @@ package arcus.app.pairing.device.customization.orbit.edit
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import arcus.cornea.SessionController
 import arcus.app.R
 import arcus.app.common.utils.ImageUtils

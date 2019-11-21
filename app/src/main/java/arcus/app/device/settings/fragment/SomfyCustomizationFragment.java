@@ -15,7 +15,7 @@
  */
 package arcus.app.device.settings.fragment;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.app.R;
 import arcus.app.common.fragments.BaseFragment;

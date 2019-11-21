@@ -15,7 +15,7 @@
  */
 package arcus.cornea.device.camera.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 

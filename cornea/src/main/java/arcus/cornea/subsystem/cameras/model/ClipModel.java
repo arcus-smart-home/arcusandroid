@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.cameras.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.io.File;
 import java.util.ArrayList;

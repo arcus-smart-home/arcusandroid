@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.alarm.promonitoring.models;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.ArcusApplication;
 import arcus.app.R;

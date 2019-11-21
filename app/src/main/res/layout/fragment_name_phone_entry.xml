@@ -25,7 +25,7 @@
     android:scrollbarThumbVertical="@color/sclera_drop_shadow_color"
     tools:context="arcus.app.createaccount.CreateAccountActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/focus_hog"
         style="@style/ScleraColumnLayout"
         android:layout_width="match_parent"
@@ -140,5 +140,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:scleraButtonColor="purple_outline"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

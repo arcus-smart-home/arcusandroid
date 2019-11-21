@@ -15,7 +15,7 @@
  */
 package arcus.cornea.controller;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.base.Predicate;
 import arcus.cornea.dto.ProductBrandAndCount;

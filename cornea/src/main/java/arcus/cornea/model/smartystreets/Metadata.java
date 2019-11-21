@@ -15,7 +15,7 @@
  */
 package arcus.cornea.model.smartystreets;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -16,7 +16,7 @@
 package arcus.app.subsystems.favorites.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.subsystem.favorites.FavoritesController;
 import com.iris.client.event.ListenerRegistration;

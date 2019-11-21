@@ -25,7 +25,7 @@
     android:scrollbarStyle="insideOverlay"
     android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/ScleraColumnLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:textSize="@dimen/pt_16"
             tools:text="@string/promon_unlocked_description"/>
 
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/list_line_start"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
@@ -148,5 +148,5 @@
                 app:scleraButtonColor="purple_outline"/>
         </LinearLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

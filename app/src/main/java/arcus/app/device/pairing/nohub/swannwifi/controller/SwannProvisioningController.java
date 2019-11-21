@@ -18,8 +18,8 @@ package arcus.app.device.pairing.nohub.swannwifi.controller;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.SessionController;

@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.place.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.account.settings.SettingsUpdatePin;
 import arcus.app.common.sequence.SequencedFragment;

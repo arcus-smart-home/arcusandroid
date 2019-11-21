@@ -18,7 +18,7 @@ package arcus.app.pairing.device.steps.fragments
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +32,7 @@ import arcus.app.R
 import arcus.app.common.error.ErrorManager
 
 
-class PairingStepInstructionsPopup: Fragment() {
+class PairingStepInstructionsPopup: androidx.fragment.app.Fragment() {
     private lateinit var webView: WebView
     private lateinit var instructionsUrl: String
 

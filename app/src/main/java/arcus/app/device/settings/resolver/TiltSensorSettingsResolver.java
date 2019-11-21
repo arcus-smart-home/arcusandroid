@@ -16,7 +16,7 @@
 package arcus.app.device.settings.resolver;
 
 import android.app.Activity;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import com.google.common.collect.ImmutableSet;

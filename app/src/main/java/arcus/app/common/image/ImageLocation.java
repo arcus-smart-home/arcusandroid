@@ -15,7 +15,7 @@
  */
 package arcus.app.common.image;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * Specifies the location of an image, either as a String (uri), integer (drawable resource), file

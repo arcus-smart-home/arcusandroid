@@ -23,7 +23,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:animateLayoutChanges="true"
@@ -54,7 +54,7 @@
             android:textSize="14sp"
             tools:text="@string/device_name_generic"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:id="@+id/divider"

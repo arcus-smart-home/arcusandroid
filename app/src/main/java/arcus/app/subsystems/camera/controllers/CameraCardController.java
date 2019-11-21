@@ -16,7 +16,7 @@
 package arcus.app.subsystems.camera.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.subsystem.cameras.ClipPreviewImageGetter;

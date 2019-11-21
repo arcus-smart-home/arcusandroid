@@ -15,8 +15,8 @@
  */
 package arcus.app.common.popups;
 
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.view.ViewStub;
 

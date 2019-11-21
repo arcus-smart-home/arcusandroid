@@ -29,7 +29,7 @@
         android:layout_marginBottom="@dimen/dp_30"
         >
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/productImage"
             android:layout_width="@dimen/dp_147"
             android:layout_height="@dimen/dp_90"
@@ -49,7 +49,7 @@
             tools:text="Device with a long name that wraps to the 2nd line."
             />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/chevron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

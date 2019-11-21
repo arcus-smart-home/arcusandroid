@@ -16,9 +16,9 @@
 package arcus.app.pairing.device.remove
 
 import android.app.Activity
-import android.support.annotation.DrawableRes
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.DrawableRes
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -41,7 +41,7 @@ class DeviceRemovalStepsAdapter(
     override fun getItemCount() = removalSteps.size
 
     override fun onBindViewHolder(
-        holder: DeviceRemovalStepViewHolder?,
+        holder: DeviceRemovalStepViewHolder,
         position: Int) {
         holder?.bindView(removalSteps[position], position)
     }

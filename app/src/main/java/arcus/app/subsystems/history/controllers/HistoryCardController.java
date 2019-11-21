@@ -16,7 +16,7 @@
 package arcus.app.subsystems.history.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.dexafree.materialList.events.BusProvider;
 import arcus.cornea.SessionController;

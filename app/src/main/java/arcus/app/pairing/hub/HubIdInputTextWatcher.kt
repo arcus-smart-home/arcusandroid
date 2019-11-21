@@ -15,7 +15,7 @@
  */
 package arcus.app.pairing.hub
 
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher

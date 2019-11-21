@@ -17,7 +17,7 @@ package arcus.app.device.settings.builder;
 
 import android.app.Activity;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.iris.client.capability.Contact;
 import com.iris.client.model.DeviceModel;

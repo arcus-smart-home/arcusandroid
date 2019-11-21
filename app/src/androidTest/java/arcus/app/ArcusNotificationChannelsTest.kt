@@ -17,8 +17,8 @@ package arcus.app
 
 import android.app.NotificationManager
 import android.content.Context
-import android.support.test.InstrumentationRegistry
-import android.support.test.filters.SmallTest
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.filters.SmallTest
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -26,7 +26,7 @@ import org.junit.Test
 @SmallTest
 class ArcusNotificationChannelsTest {
     private val context: Context
-        get() = InstrumentationRegistry.getTargetContext()
+        get() = InstrumentationRegistry.getInstrumentation().targetContext
 
     @Test
     fun hasCorrectNumberOfChannels() {

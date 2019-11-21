@@ -15,7 +15,7 @@
  */
 package arcus.presentation.pairing.device.customization.halo.station
 
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import arcus.cornea.device.smokeandco.halo.HaloRadioController
 import arcus.cornea.device.smokeandco.halo.HaloRadioControllerImpl
 import arcus.cornea.presenter.KBasePresenter

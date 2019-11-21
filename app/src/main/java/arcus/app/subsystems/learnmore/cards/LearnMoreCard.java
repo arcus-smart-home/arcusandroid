@@ -16,7 +16,7 @@
 package arcus.app.subsystems.learnmore.cards;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.controller.SubscriptionController;
 import arcus.app.R;

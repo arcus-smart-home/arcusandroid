@@ -18,7 +18,7 @@ package arcus.app.common.utils;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;

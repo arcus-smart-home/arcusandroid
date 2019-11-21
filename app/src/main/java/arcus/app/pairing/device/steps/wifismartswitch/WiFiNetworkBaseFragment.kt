@@ -22,7 +22,7 @@ import android.content.IntentFilter
 import android.net.wifi.ScanResult
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import java.util.concurrent.atomic.AtomicBoolean
 
 abstract class WiFiNetworkBaseFragment : Fragment() {

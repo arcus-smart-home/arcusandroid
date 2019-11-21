@@ -16,8 +16,8 @@
 package arcus.app.dashboard.adapter
 
 import android.app.Activity
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.cornea.SessionController

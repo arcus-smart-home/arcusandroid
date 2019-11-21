@@ -15,7 +15,7 @@
  */
 package arcus.app.common.validation;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.EditText;
 
 import arcus.app.ArcusApplication;

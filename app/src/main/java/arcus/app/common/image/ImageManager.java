@@ -15,12 +15,11 @@
  */
 package arcus.app.common.image;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import com.iris.client.bean.ActionTemplate;
@@ -46,8 +45,6 @@ import okhttp3.OkHttpClient;
 
 import static android.content.Context.ACTIVITY_SERVICE;
 import static android.content.pm.ApplicationInfo.FLAG_LARGE_HEAP;
-import static android.os.Build.VERSION.SDK_INT;
-import static android.os.Build.VERSION_CODES.HONEYCOMB;
 
 /**
  * An image management facade; provides a specific API for locating, placing and transforming
@@ -96,11 +93,7 @@ public class ImageManager {
 
             if (cacheHeapPercent != null) {
                 ActivityManager am = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
-                boolean largeHeap = (context.getApplicationInfo().flags & FLAG_LARGE_HEAP) != 0;
                 int memoryClass = am.getMemoryClass();
-                if (largeHeap && SDK_INT >= HONEYCOMB) {
-                    memoryClass = ActivityManagerHoneycomb.getLargeMemoryClass(am);
-                }
 
                 int heapSize = (int) ((float)(1024 * 1024 * memoryClass) * ((float) cacheHeapPercent / 100.0));
                 builder.memoryCache(new LruCache(heapSize));
@@ -111,13 +104,6 @@ public class ImageManager {
 
         } catch (IllegalStateException e) {
             logger.warn("Picasso setConfiguration() has already been called; ignoring request.");
-        }
-    }
-
-    @TargetApi(HONEYCOMB)
-    private static class ActivityManagerHoneycomb {
-        static int getLargeMemoryClass(ActivityManager activityManager) {
-            return activityManager.getLargeMemoryClass();
         }
     }
 

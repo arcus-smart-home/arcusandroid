@@ -16,8 +16,8 @@
 package arcus.app.device.pairing
 
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.design.widget.BottomSheetBehavior
+import androidx.annotation.LayoutRes
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,7 +80,7 @@ class ModalMustardSheet : FullScreenModalBottomSheet() {
     override fun onResume() {
         super.onResume()
 
-        val bottomSheet = dialog.findViewById<FrameLayout>(android.support.design.R.id.design_bottom_sheet)
+        val bottomSheet = dialog.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
         BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
     }
 

@@ -17,7 +17,7 @@ package arcus.app.common.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.ArcusApplication;
 

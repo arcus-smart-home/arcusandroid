@@ -23,7 +23,7 @@
     android:scrollbarStyle="insideOverlay"
     android:fillViewport="true" >
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10">
@@ -76,7 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:tracking="true"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

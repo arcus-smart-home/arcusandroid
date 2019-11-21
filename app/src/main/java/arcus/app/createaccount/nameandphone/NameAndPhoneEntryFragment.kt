@@ -17,7 +17,7 @@ package arcus.app.createaccount.nameandphone
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.text.InputFilter
 import android.view.LayoutInflater

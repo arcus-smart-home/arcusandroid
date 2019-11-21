@@ -15,7 +15,7 @@
  */
 package arcus.app.common.controller;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.base.Preconditions;
 import arcus.cornea.CorneaClientFactory;

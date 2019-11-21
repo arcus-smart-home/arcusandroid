@@ -17,7 +17,7 @@ package arcus.app.pairing.device.steps.bledevice.connect
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.annotation.LayoutRes
+import androidx.annotation.LayoutRes
 import android.view.View
 import android.widget.TextView
 import arcus.app.R

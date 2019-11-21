@@ -15,7 +15,7 @@
  */
 package arcus.app.dashboard.settings.services;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -20,13 +20,11 @@ import android.app.Activity;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.view.menu.ActionMenuItemView;
-import android.support.v7.widget.ActionMenuView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.ActionMenuItemView;
+import androidx.appcompat.widget.ActionMenuView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 
 /**
@@ -86,14 +84,6 @@ public class ToolbarColorizeHelper {
             //Step 3: Changing the color of title and subtitle.
             toolbarView.setTitleTextColor(toolbarIconsColor);
             toolbarView.setSubtitleTextColor(toolbarIconsColor);
-        }
-    }
-
-    private static void removeOnGlobalLayoutListener(@NonNull View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            v.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
-        } else {
-            v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
         }
     }
 }

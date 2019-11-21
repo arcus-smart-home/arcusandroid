@@ -15,8 +15,8 @@
  */
 package arcus.app.device.more
 
-import android.support.design.widget.BaseTransientBottomBar
-import android.support.v4.content.ContextCompat
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import androidx.core.content.ContextCompat
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button

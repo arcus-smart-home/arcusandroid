@@ -17,7 +17,7 @@ package arcus.cornea.subsystem.alarm;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.dto.HistoryLogEntries;
 import arcus.cornea.provider.AlarmIncidentProvider;

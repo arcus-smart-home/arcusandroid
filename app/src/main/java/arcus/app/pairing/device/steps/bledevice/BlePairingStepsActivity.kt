@@ -23,8 +23,8 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet

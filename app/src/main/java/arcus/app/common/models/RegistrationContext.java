@@ -17,8 +17,8 @@ package arcus.app.common.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.SessionController;
 import arcus.cornea.dto.ProductBrandAndCount;

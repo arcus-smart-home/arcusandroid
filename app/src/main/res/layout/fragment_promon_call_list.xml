@@ -54,12 +54,12 @@
             android:background="@color/white_with_20"
             tools:background="@color/black_with_20" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fragment_alarm_call_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="90dp">
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
         <arcus.app.common.view.Version1TextView
             android:id="@+id/add_monitoring_station_contact"

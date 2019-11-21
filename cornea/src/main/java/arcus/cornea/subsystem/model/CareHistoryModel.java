@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.utils.DateUtils;
 

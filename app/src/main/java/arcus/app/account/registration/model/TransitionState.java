@@ -15,9 +15,9 @@
  */
 package arcus.app.account.registration.model;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import arcus.app.account.registration.AccountAboutYourHomeFragment;
 import arcus.app.account.registration.AccountBillingInfoFragment;

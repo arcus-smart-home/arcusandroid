@@ -16,8 +16,8 @@
 package arcus.app.device.buttons.model;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.app.ArcusApplication;
 import arcus.app.R;

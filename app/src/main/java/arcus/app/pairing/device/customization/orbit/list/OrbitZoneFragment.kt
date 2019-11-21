@@ -17,10 +17,10 @@ package arcus.app.pairing.device.customization.orbit.list
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import arcus.cornea.SessionController
 import arcus.app.R
 import arcus.app.common.utils.ImageUtils

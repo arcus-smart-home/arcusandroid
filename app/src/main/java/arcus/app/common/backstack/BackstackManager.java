@@ -15,9 +15,9 @@
  */
 package arcus.app.common.backstack;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import arcus.app.R;
 import arcus.app.common.controller.BackstackPopListener;

@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.lawnandgarden.schedule;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.gson.internal.LinkedTreeMap;
 import arcus.cornea.subsystem.lawnandgarden.BaseLawnAndGardenController;

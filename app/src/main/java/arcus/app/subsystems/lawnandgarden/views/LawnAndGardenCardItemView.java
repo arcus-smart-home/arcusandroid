@@ -16,7 +16,7 @@
 package arcus.app.subsystems.lawnandgarden.views;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 

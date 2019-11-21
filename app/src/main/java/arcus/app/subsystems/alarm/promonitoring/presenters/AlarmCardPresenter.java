@@ -18,8 +18,8 @@ package arcus.app.subsystems.alarm.promonitoring.presenters;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.provider.DeviceModelProvider;
 import arcus.cornea.provider.HubModelProvider;

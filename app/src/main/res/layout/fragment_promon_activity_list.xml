@@ -98,7 +98,7 @@
 
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/alarm_history_list"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"

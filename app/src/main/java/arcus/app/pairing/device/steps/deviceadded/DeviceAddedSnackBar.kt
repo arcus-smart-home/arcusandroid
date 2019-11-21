@@ -15,9 +15,9 @@
  */
 package arcus.app.pairing.device.steps.deviceadded
 
-import android.support.annotation.IntRange
-import android.support.design.widget.BaseTransientBottomBar
-import android.support.v4.content.ContextCompat
+import androidx.annotation.IntRange
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import androidx.core.content.ContextCompat
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button

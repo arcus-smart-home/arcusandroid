@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.cameras;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import arcus.cornea.provider.DeviceModelProvider;
 import arcus.cornea.provider.PagedRecordingModelProvider;

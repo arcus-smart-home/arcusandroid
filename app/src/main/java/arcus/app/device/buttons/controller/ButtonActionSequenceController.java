@@ -16,7 +16,7 @@
 package arcus.app.device.buttons.controller;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.CorneaClientFactory;
 import com.iris.client.model.DeviceModel;

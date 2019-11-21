@@ -20,8 +20,8 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat;
 
 import arcus.app.ArcusApplication;
 import arcus.app.R;

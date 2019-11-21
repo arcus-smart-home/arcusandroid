@@ -1,7 +1,7 @@
 package arcus.app.common.image.picasso.transformation;
 
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.squareup.picasso.Transformation;
 

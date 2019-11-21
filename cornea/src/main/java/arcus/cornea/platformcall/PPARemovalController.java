@@ -15,7 +15,7 @@
  */
 package arcus.cornea.platformcall;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.utils.Listeners;

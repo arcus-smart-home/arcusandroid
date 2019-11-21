@@ -16,9 +16,9 @@
 package arcus.app.pairing.hub.ethernet
 
 import android.os.Bundle
-import android.support.annotation.DrawableRes
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

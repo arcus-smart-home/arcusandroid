@@ -23,7 +23,7 @@
     android:fillViewport="true"
     android:keepScreenOn="true">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true">
@@ -44,7 +44,7 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/error_banner_icon"
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="@dimen/dp_20"
@@ -166,7 +166,7 @@
                 android:text="@string/v3_hub_pairing_connecting_text"
                 />
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="16dp">
@@ -222,7 +222,7 @@
                     app:layout_constraintVertical_bias="1.0"
                     />
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ViewSwitcher>
 
@@ -244,6 +244,6 @@
             android:visibility="gone"
             />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

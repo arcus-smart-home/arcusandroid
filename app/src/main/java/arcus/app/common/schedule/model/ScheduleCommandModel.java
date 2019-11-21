@@ -15,7 +15,7 @@
  */
 package arcus.app.common.schedule.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.utils.DayOfWeek;
 import arcus.cornea.utils.TimeOfDay;

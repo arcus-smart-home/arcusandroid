@@ -75,13 +75,13 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:layout_below="@id/description">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/device_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:src="@drawable/camera_icon_small" />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/device_chevron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,14 +190,14 @@
         android:layout_below="@id/divider1"
         android:visibility="gone"
         tools:visibility="visible" >
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/basic_date_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/showclipsfrom"
             android:tint="@color/arcus_med_light_gray"
             />
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/basic_date_chevron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

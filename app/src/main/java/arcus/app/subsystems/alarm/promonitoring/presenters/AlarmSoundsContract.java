@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.alarm.promonitoring.presenters;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.common.PresentedView;
 import arcus.cornea.common.Presenter;

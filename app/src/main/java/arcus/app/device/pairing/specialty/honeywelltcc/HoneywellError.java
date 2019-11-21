@@ -16,7 +16,7 @@
 package arcus.app.device.pairing.specialty.honeywelltcc;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

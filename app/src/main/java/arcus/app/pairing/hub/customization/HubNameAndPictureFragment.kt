@@ -17,9 +17,9 @@ package arcus.app.pairing.hub.customization
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.AppCompatButton
-import android.support.v7.widget.AppCompatImageView
+import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

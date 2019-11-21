@@ -16,7 +16,7 @@
 package arcus.app.common.sequence;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Represents a sequence of fragments whose ordering is static, that is, the visited order of

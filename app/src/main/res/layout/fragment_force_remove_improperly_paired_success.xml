@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,7 +23,7 @@
     android:paddingBottom="@dimen/dp_16"
     android:gravity="center" >
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/force_remove_success_image"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -83,4 +83,4 @@
         app:layout_constraintTop_toBottomOf="@+id/force_remove_success_desc"
         app:layout_constraintVertical_bias="1.0"/>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,8 +19,8 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 
+import androidx.annotation.Nullable;
 import arcus.cornea.CorneaClientFactory;
 import arcus.app.BuildConfig;
 import arcus.app.ArcusApplication;

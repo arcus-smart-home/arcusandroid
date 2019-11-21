@@ -17,8 +17,9 @@ package arcus.app.dashboard.popups;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
+import androidx.fragment.app.FragmentManager;
 import arcus.cornea.subsystem.DashboardSubsystemController;
 import arcus.cornea.subsystem.model.DashboardState;
 import arcus.app.common.backstack.BackstackManager;
@@ -74,7 +75,7 @@ public abstract class PopupResponsibility {
      * Determine if the popup represented by this responsibility is currently visible.
      *
      * WARNING: The application has no "reliable" mechanism for determining this. Most subclasses
-     * will delegate to {@link BackstackManager} which will, in turn, delegate to {@link android.support.v4.app.FragmentManager}.
+     * will delegate to {@link BackstackManager} which will, in turn, delegate to {@link FragmentManager}.
      * FragmentManager is "eventually consistent" and will not immediately report that a popup has been shown. You
      * may to manually track visibility of your popups if this is problematic.
      *

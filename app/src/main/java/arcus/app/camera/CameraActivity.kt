@@ -23,7 +23,7 @@ import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import arcus.app.ArcusApplication
 import arcus.app.R
 import arcus.app.activities.LaunchActivity
@@ -75,33 +75,29 @@ class CameraActivity : AppCompatActivity() {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun shouldUseCamera2Api() : Boolean {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            try {
-                val manager = this.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-                val idList = manager.cameraIdList
-                var cameraApi2 = true
-                if (idList.isEmpty()) {
-                    cameraApi2 = false
-                } else {
-                    for (id in idList) {
-                        if (id.trim { it <= ' ' }.isEmpty()) {
-                            cameraApi2 = false
-                            break
-                        }
-                        val characteristics = manager.getCameraCharacteristics(id)
+        try {
+            val manager = this.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+            val idList = manager.cameraIdList
+            var cameraApi2 = true
+            if (idList.isEmpty()) {
+                cameraApi2 = false
+            } else {
+                for (id in idList) {
+                    if (id.trim { it <= ' ' }.isEmpty()) {
+                        cameraApi2 = false
+                        break
+                    }
+                    val characteristics = manager.getCameraCharacteristics(id)
 
-                        val supportLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)
-                        if (supportLevel == CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY) {
-                            cameraApi2 = false
-                            break
-                        }
+                    val supportLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)
+                    if (supportLevel == CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY) {
+                        cameraApi2 = false
+                        break
                     }
                 }
-                return cameraApi2
-            } catch (e: Exception) {
-                return false
             }
-        } else {
+            return cameraApi2
+        } catch (e: Exception) {
             return false
         }
     }

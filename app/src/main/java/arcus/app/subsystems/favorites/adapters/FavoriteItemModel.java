@@ -15,8 +15,8 @@
  */
 package arcus.app.subsystems.favorites.adapters;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.iris.client.model.DeviceModel;
 import com.iris.client.model.Model;

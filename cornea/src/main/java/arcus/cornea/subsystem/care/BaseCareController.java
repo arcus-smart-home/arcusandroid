@@ -15,8 +15,8 @@
  */
 package arcus.cornea.subsystem.care;
 
-import android.support.annotation.CallSuper;
-import android.support.annotation.Nullable;
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.provider.CareBehaviorTemplateProvider;
 import arcus.cornea.provider.CareBehaviorsProvider;

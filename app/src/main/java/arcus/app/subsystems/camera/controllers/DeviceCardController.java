@@ -17,8 +17,8 @@ package arcus.app.subsystems.camera.controllers;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import com.google.common.base.Strings;

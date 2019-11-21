@@ -15,7 +15,7 @@
  */
 package arcus.app.pairing.device.customization.presence
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -54,7 +54,7 @@ class PresenceAssignmentAdapter(
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val checked = R.drawable.check_teal_30x30
         val unchecked = R.drawable.uncheck_30x30
         val assignmentOption: AssignmentOption = assignmentOptionList[position]

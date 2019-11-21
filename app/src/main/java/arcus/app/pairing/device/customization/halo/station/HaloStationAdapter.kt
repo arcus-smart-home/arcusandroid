@@ -15,8 +15,8 @@
  */
 package arcus.app.pairing.device.customization.halo.station
 
-import android.support.v7.widget.AppCompatRadioButton
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatRadioButton
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -44,7 +44,7 @@ class HaloStationAdapter(
                 callback)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as HaloStationViewHolder).bindView(
                 stations[position],
                 (lastSelection == position),

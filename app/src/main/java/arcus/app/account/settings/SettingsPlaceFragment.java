@@ -21,9 +21,9 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -35,7 +35,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Spinner;
 
 import arcus.cornea.CorneaClientFactory;
-import arcus.cornea.controller.SubscriptionController;
 import arcus.cornea.model.PlaceAndRoleModel;
 import arcus.cornea.subsystem.model.TimeZoneModel;
 import arcus.cornea.utils.CachedModelSource;
@@ -51,7 +50,6 @@ import arcus.app.R;
 import arcus.app.account.registration.controller.task.ArcusTask;
 import arcus.app.account.registration.controller.task.SaveHomeTask;
 import arcus.app.activities.BaseActivity;
-import arcus.app.activities.FullscreenFragmentActivity;
 import arcus.app.common.adapters.SpinnerAdapter;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.error.ErrorManager;
@@ -66,8 +64,6 @@ import arcus.app.common.view.Version1EditText;
 import arcus.app.common.view.Version1TextView;
 import arcus.app.device.pairing.post.AddressValidationFragment;
 import arcus.app.integrations.Address;
-
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

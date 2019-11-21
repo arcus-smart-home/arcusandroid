@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.security;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.common.collect.Sets;
 import arcus.cornea.CorneaClientFactory;

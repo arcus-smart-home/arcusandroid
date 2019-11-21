@@ -15,9 +15,9 @@
  */
 package arcus.app.common.validation
 
-import android.support.annotation.StringRes
 import android.util.Patterns
 import android.widget.EditText
+import androidx.annotation.StringRes
 
 import arcus.app.R
 

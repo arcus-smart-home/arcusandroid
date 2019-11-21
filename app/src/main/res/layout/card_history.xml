@@ -19,7 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="fill_parent"
@@ -234,6 +234,6 @@
                 />
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </arcus.app.subsystems.history.view.HistoryCardItemView>

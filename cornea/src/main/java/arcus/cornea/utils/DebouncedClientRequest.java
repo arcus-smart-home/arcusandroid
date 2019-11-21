@@ -15,7 +15,7 @@
  */
 package arcus.cornea.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.base.Preconditions;
 import com.iris.client.ClientEvent;

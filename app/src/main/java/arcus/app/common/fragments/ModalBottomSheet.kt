@@ -16,11 +16,11 @@
 package arcus.app.common.fragments
 
 import android.os.Bundle
-import android.support.annotation.CallSuper
-import android.support.annotation.LayoutRes
-import android.support.design.widget.BottomSheetBehavior
-import android.support.design.widget.BottomSheetDialogFragment
-import android.support.v4.app.FragmentManager
+import androidx.annotation.CallSuper
+import androidx.annotation.LayoutRes
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import androidx.fragment.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -61,7 +61,7 @@ abstract class ModalBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun blockDragging() {
-        val bottomSheet = dialog.findViewById<View>(android.support.design.R.id.design_bottom_sheet)
+        val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
 
         if (bottomSheet != null) {
             behavior = BottomSheetBehavior.from(bottomSheet)

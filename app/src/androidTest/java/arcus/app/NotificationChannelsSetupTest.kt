@@ -18,8 +18,8 @@ package arcus.app
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.support.test.InstrumentationRegistry
-import android.support.test.filters.SmallTest
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.filters.SmallTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -28,7 +28,7 @@ import org.junit.Test
 @SmallTest
 class NotificationChannelsSetupTest {
     private val context: Context
-        get() = InstrumentationRegistry.getTargetContext()
+        get() = InstrumentationRegistry.getInstrumentation().targetContext
 
     private val notificationChannelsSetup = NotificationChannelsSetup()
     private lateinit var notificationManager: NotificationManager

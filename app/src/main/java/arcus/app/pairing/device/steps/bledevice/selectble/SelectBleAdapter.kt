@@ -16,10 +16,10 @@
 package arcus.app.pairing.device.steps.bledevice.selectble
 
 import android.content.res.ColorStateList
-import android.support.annotation.ColorRes
-import android.support.v4.app.FragmentActivity
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.ColorRes
+import androidx.fragment.app.FragmentActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -40,10 +40,10 @@ class SelectBleAdapter(
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(holder: BleViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: BleViewHolder, position: Int) {
         val item = items[position]
-        holder?.bindView(item)
-        holder?.itemView?.setOnClickListener {
+        holder.bindView(item)
+        holder.itemView?.setOnClickListener {
             clickedCallback(item)
         }
     }

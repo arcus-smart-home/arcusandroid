@@ -17,7 +17,7 @@ package arcus.cornea.rules;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.collect.Lists;
 import arcus.cornea.CorneaClientFactory;

@@ -15,7 +15,7 @@
  */
 package arcus.app.common.image;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * An enumeration of known Android {@link android.content.Intent} request codes.

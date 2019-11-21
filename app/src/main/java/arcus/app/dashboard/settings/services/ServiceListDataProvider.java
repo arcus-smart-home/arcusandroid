@@ -16,7 +16,7 @@
 package arcus.app.dashboard.settings.services;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.subsystem.SubsystemController;
 import com.iris.client.capability.Alarm;

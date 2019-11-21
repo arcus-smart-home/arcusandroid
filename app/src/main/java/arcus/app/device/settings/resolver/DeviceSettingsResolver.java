@@ -16,7 +16,7 @@
 package arcus.app.device.settings.resolver;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.device.settings.core.SettingChangedParcelizedListener;
 import arcus.app.device.settings.core.SettingsList;

@@ -17,7 +17,7 @@ package arcus.app.device.settings.style;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.ArcusApplication;
 import arcus.app.device.settings.core.Setting;

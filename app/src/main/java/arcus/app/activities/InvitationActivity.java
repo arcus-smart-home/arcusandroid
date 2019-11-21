@@ -38,7 +38,7 @@ public class InvitationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invitation);
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.my_toolbar);
+        toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.my_toolbar);
 
         View root = findViewById(R.id.container);
         ImageManager.setWallpaperView(this, root);

@@ -15,7 +15,7 @@
  */
 package arcus.app.device.pairing.nohub.model;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.app.common.sequence.Sequenceable;
 import arcus.app.common.utils.GlobalSetting;

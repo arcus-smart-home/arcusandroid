@@ -16,7 +16,7 @@
 package arcus.app.subsystems.care.controller;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 

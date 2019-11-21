@@ -16,7 +16,7 @@
 package arcus.app.subsystems.people.controller;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.model.InviteModel;
 import arcus.app.account.settings.SettingsUpdatePin;

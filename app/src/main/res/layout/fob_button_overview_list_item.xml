@@ -24,7 +24,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:paddingTop="@dimen/sclera_widget_edge_LR_padding"
         android:paddingBottom="@dimen/sclera_widget_edge_LR_padding"
         android:layout_width="match_parent"
@@ -79,7 +79,7 @@
             app:layout_constraintEnd_toStartOf="@+id/chevron_image"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Fob Button Action" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:layout_width="match_parent"

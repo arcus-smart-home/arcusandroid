@@ -19,10 +19,10 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -41,8 +41,8 @@ class TroubleshootingStepsAdapter(val activity: Activity, private val helpSteps:
 
     override fun getItemCount() = helpSteps.size
 
-    override fun onBindViewHolder(holder: TroubleshootingStepsViewHolder?, position: Int) {
-        holder?.bindView(helpSteps[position], position)
+    override fun onBindViewHolder(holder: TroubleshootingStepsViewHolder, position: Int) {
+        holder.bindView(helpSteps[position], position)
     }
 }
 

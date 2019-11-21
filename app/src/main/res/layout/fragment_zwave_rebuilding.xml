@@ -24,7 +24,7 @@
     android:fillViewport="true"
     xmlns:tools="http://schemas.android.com/tools" >
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/sclera_widget_edge_combined"
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:paddingBottom="@dimen/dp_16" >
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/zwave_image"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -127,5 +127,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:scleraButtonColor="purple_outline"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

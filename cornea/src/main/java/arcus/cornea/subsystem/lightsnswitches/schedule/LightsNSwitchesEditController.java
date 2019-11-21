@@ -15,8 +15,8 @@
  */
 package arcus.cornea.subsystem.lightsnswitches.schedule;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 
 import com.google.common.base.Preconditions;
 import com.google.gson.internal.LinkedTreeMap;

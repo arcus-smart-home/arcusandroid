@@ -15,7 +15,7 @@
  */
 package arcus.app.common.error.type;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.iris.client.exception.ErrorResponseException;
 import arcus.app.R;

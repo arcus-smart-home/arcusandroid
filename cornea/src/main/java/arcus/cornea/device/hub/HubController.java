@@ -15,8 +15,8 @@
  */
 package arcus.cornea.device.hub;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 import com.google.common.collect.ImmutableSet;
 import arcus.cornea.provider.HubModelProvider;

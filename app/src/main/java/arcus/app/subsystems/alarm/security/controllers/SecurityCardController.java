@@ -16,7 +16,7 @@
 package arcus.app.subsystems.alarm.security.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.subsystem.security.SecurityDashboardCardController;
 import arcus.cornea.subsystem.security.model.AlarmStatus;

@@ -16,8 +16,8 @@
 package arcus.app.subsystems.alarm;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import android.text.TextUtils;
 import android.view.View;
 
