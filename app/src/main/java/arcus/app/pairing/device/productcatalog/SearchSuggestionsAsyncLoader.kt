@@ -21,7 +21,7 @@ import android.content.Intent
 import android.database.Cursor
 import android.database.MatrixCursor
 import android.provider.BaseColumns
-import android.support.v4.content.AsyncTaskLoader
+import androidx.loader.content.AsyncTaskLoader
 
 import arcus.cornea.CorneaClientFactory
 import arcus.cornea.SessionController

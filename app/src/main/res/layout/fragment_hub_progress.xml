@@ -26,7 +26,7 @@
     android:keepScreenOn="true"
     android:background="@color/white">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp_24"
@@ -49,7 +49,7 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/error_banner_icon"
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="@dimen/dp_20"
@@ -184,5 +184,5 @@
             app:scleraButtonColor="purple"
             tools:visibility="visible"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

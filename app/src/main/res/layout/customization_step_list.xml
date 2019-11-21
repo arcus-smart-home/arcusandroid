@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/list_item_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -64,7 +64,7 @@
             android:visibility="gone"/>
     </LinearLayout>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/chevron"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,4 +84,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/sclera_divider_color"/>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

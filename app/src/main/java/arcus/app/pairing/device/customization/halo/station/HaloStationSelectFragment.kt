@@ -17,11 +17,11 @@ package arcus.app.pairing.device.customization.halo.station
 
 import android.content.Context
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -156,7 +156,7 @@ class HaloStationSelectFragment : Fragment(),
 
         // Add the first set of stations and notify
         radioStations.addAll(0, initialStations)
-        recyclerView.adapter.notifyItemRangeInserted(
+        recyclerView.adapter?.notifyItemRangeInserted(
                 0,
                 radioStations.size)
 
@@ -165,7 +165,7 @@ class HaloStationSelectFragment : Fragment(),
             moreStations.visibility = View.VISIBLE
             moreStations.setOnClickListener {
                 radioStations.addAll(radioStations.size, additionalStations)
-                recyclerView.adapter.notifyItemRangeInserted(
+                recyclerView.adapter?.notifyItemRangeInserted(
                         initialStations.size,
                         additionalStations.size)
                 moreStations.visibility = View.GONE

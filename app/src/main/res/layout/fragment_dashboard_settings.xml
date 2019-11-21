@@ -23,7 +23,7 @@
     android:layout_marginStart="@dimen/dp_13"
     android:orientation="vertical">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/favorites_settings_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,13 +57,13 @@
             android:src="@drawable/chevron"
             tools:src="@drawable/chevron" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <arcus.app.common.view.ScleraDivider
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cards_settings_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,13 +97,13 @@
             android:src="@drawable/chevron"
             tools:src="@drawable/chevron" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <arcus.app.common.view.ScleraDivider
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/background_photo_settings_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -137,13 +137,13 @@
             android:src="@drawable/chevron"
             tools:src="@drawable/chevron" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <arcus.app.common.view.ScleraDivider
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dev_settings_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
             android:src="@drawable/chevron"
             tools:src="@drawable/chevron" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <arcus.app.common.view.ScleraDivider
         android:layout_width="match_parent"

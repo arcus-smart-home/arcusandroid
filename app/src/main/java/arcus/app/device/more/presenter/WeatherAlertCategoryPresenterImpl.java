@@ -15,8 +15,8 @@
  */
 package arcus.app.device.more.presenter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.device.smokeandco.WeatherAlertModel;
 import arcus.cornea.provider.DeviceModelProvider;

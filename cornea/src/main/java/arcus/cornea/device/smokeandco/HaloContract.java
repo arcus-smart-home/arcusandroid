@@ -15,7 +15,7 @@
  */
 package arcus.cornea.device.smokeandco;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.common.PresentedView;
 

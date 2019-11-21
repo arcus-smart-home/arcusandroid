@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.alarm.promonitoring.presenters;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.common.BasePresenter;
 import arcus.cornea.subsystem.alarm.AlarmProviderController;

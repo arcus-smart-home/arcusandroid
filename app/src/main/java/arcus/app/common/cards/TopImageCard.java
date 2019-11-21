@@ -16,7 +16,7 @@
 package arcus.app.common.cards;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.app.R;
 

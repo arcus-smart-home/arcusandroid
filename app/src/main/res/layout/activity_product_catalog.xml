@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,12 +24,12 @@
     tools:parent="arcus.app.activities.DashboardActivity"
     >
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -38,7 +38,7 @@
             tools:title="Title Of Toolbar"
             />
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -49,7 +49,7 @@
 
         <include layout="@layout/banner_sclera_chevron"/>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/category_filter_items"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -58,25 +58,25 @@
             app:tabIndicatorColor="@color/sclera_tab_green"
             app:tabTextAppearance="@style/ScleraTabItemStyle">
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:text="@string/filter_all_products"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:text="@string/filter_hub_required"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
                 android:text="@string/filter_no_hub_required"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
 
-        </android.support.design.widget.TabLayout>
+        </com.google.android.material.tabs.TabLayout>
 
         <View
             android:contentDescription="@string/chevron_content_description"
@@ -93,4 +93,4 @@
 
     </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

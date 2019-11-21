@@ -16,7 +16,7 @@
 package arcus.app.pairing.device.searching.timeout
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet

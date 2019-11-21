@@ -15,7 +15,7 @@
  */
 package arcus.app.common.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextPaint;
 import android.text.style.URLSpan;
 

@@ -19,7 +19,7 @@ import android.Manifest;
 import android.content.ContentProviderOperation;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import arcus.app.R;

@@ -19,9 +19,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatButton;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -142,10 +141,7 @@ public class ScleraButton extends AppCompatButton implements View.OnTouchListene
         applyColorScheme(color);
         a.recycle();
         setOnTouchListener(this);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setStateListAnimator(null);
-        }
+        setStateListAnimator(null);
     }
 
     private Drawable getStrokedBackground(int strokeColor, int fillColor) {

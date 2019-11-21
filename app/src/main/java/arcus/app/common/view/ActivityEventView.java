@@ -16,9 +16,9 @@
 package arcus.app.common.view;
 
 import android.annotation.TargetApi;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

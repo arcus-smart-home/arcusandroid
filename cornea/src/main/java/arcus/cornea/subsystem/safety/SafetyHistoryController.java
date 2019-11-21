@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.safety;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.dto.HistoryLogEntries;
 import arcus.cornea.subsystem.SubsystemController;

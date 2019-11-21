@@ -18,7 +18,7 @@ package arcus.app.common.error;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.R;
 import arcus.app.common.error.base.RejectableError;

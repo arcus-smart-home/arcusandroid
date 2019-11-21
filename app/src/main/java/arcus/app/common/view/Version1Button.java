@@ -22,7 +22,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ScaleXSpan;

@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.alarm.safety;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.CheckBox;
 
 import arcus.app.R;

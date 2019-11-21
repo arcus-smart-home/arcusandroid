@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.people;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;

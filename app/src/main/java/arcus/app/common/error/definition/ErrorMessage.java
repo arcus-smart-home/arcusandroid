@@ -16,7 +16,7 @@
 package arcus.app.common.error.definition;
 
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.common.error.base.Error;
 

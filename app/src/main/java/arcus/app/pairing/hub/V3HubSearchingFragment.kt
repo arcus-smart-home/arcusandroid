@@ -22,8 +22,8 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.AppCompatImageView
+import androidx.fragment.app.Fragment
+import androidx.appcompat.widget.AppCompatImageView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater

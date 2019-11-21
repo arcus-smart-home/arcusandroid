@@ -17,9 +17,6 @@ package arcus.app.common.cards.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 
@@ -38,16 +35,6 @@ public abstract class BaseCardItemView<T extends BasicCard> extends CardItemView
     @TargetApi(11)
     public BaseCardItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-    }
-
-    public void build(@NonNull T card) {
-        super.build(card);
-        CardView cardView = (CardView)this.findViewById(com.dexafree.materialList.R.id.cardView);
-        if(cardView != null) {
-            if(Build.VERSION.SDK_INT < 21) {
-                cardView.setBackgroundDrawable(null);
-            }
-        }
     }
 
     public float dpToPx(int dp) {

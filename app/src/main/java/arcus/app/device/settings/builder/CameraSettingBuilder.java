@@ -17,7 +17,7 @@ package arcus.app.device.settings.builder;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 
 import arcus.cornea.utils.Listeners;

@@ -15,7 +15,7 @@
  */
 package arcus.app.device.details.presenters;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.common.PresentedView;
 import arcus.cornea.common.Presenter;

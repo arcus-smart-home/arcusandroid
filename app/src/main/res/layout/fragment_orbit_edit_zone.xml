@@ -25,13 +25,13 @@
     android:focusableInTouchMode="true"
     android:overScrollMode="ifContentScrolls">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:focusableInTouchMode="true"
         android:descendantFocusability="beforeDescendants"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/customization_info_image"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@+id/bottom_divider"
             />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginTop="13dp"
             android:id="@+id/zone_information"
             android:layout_width="match_parent"
@@ -137,7 +137,7 @@
                 app:scleraFontStyle="normal"
                 tools:text="1 Min" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/chevron"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                 app:scleraFontStyle="normal"
                 app:srcCompat="@drawable/chevron" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:id="@+id/second_bottom_divider"
@@ -188,5 +188,5 @@
                 android:text="@string/cancel_text"
                 app:scleraButtonColor="purple_outline"/>
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

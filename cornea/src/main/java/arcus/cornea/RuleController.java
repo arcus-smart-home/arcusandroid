@@ -15,7 +15,7 @@
  */
 package arcus.cornea;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.base.Function;
 import com.google.common.base.Preconditions;

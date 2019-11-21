@@ -17,8 +17,8 @@ package arcus.app.subsystems.alarm.safety;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.app.R;
 import arcus.app.common.popups.ArcusFloatingFragment;

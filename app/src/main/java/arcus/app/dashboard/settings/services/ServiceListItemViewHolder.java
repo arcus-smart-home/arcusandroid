@@ -15,7 +15,7 @@
  */
 package arcus.app.dashboard.settings.services;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;

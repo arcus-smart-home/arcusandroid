@@ -16,7 +16,7 @@
 package arcus.app.subsystems.favorites.cards;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.R;
 import arcus.app.common.cards.CenteredTextCard;

@@ -15,7 +15,7 @@
  */
 package arcus.cornea.account;
 
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import arcus.cornea.utils.Listeners;
 import arcus.cornea.utils.LooperExecutor;

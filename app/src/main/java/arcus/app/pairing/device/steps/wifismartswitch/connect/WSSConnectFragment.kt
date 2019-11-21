@@ -19,7 +19,7 @@ import android.content.Context
 import android.net.wifi.ScanResult
 import android.net.wifi.WifiInfo
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View

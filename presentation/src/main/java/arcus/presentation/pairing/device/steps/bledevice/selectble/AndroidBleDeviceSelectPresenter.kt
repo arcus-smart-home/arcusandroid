@@ -24,7 +24,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.HandlerThread
 import android.os.Looper
-import android.support.annotation.WorkerThread
+import androidx.annotation.WorkerThread
 import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.utils.AndroidExecutor
 import arcus.cornea.utils.ScheduledExecutor

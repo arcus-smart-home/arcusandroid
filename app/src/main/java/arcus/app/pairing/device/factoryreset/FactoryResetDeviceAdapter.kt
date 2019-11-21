@@ -15,9 +15,9 @@
  */
 package arcus.app.pairing.device.factoryreset
 
-import android.support.annotation.DrawableRes
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.DrawableRes
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -32,7 +32,7 @@ class FactoryResetDeviceAdapter(private val resetSteps: ArrayList<FactoryResetSt
 
     override fun getItemCount() = resetSteps.size
 
-    override fun onBindViewHolder(holder: FactoryResetStepsViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: FactoryResetStepsViewHolder, position: Int) {
         holder?.bindView(resetSteps[position], position)
     }
 }

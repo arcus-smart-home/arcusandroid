@@ -15,9 +15,9 @@
  */
 package arcus.app.subsystems.camera
 
-import android.support.annotation.StringRes
-import android.support.design.widget.BaseTransientBottomBar
-import android.support.v4.content.ContextCompat
+import androidx.annotation.StringRes
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

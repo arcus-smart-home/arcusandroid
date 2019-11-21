@@ -15,8 +15,8 @@
  */
 package arcus.app.subsystems.alarm.promonitoring;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * onScrolled from http://stackoverflow.com/questions/31000964/how-to-implement-setonscrolllistener-in-recyclerview

@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.care;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 
 import arcus.cornea.provider.CareBehaviorTemplateProvider;

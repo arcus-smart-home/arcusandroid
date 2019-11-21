@@ -17,7 +17,7 @@ package arcus.app.account.registration.controller.task;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import arcus.cornea.CorneaService;
 import com.iris.client.event.SettableClientFuture;

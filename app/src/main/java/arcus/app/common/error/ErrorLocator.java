@@ -15,7 +15,7 @@
  */
 package arcus.app.common.error;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.common.error.base.Error;
 import arcus.app.common.error.definition.GenericFatalError;

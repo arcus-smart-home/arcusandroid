@@ -15,7 +15,7 @@
  */
 package arcus.cornea.controller;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.RuleController;
 import arcus.cornea.dto.RuleCategoryCounts;

@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.scenes.editor.model;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import com.google.common.base.Strings;
 import arcus.app.R;

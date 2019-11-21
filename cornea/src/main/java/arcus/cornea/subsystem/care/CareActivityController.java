@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.care;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;

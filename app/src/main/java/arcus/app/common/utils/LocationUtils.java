@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.IntentSender;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationRequest;

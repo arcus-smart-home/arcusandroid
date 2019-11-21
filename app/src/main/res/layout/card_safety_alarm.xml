@@ -21,7 +21,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/MainCardLayout">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cardView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -79,6 +79,6 @@
                 android:visibility="invisible" />
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </arcus.app.subsystems.alarm.safety.view.SafetyAlarmCardItemView>

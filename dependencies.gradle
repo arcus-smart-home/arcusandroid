@@ -21,16 +21,14 @@ ext {
     deps.classpath.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
     // Deps
-    deps.v7Support = "com.android.support:appcompat-v7:$supportLibraryVersion"
-    deps.v4Support = "com.android.support:support-v4:$supportLibraryVersion"
-    deps.annotations = "com.android.support:support-annotations:$supportLibraryVersion"
-    deps.recyclerView = "com.android.support:recyclerview-v7:$supportLibraryVersion"
-    deps.design = "com.android.support:design:$supportLibraryVersion"
+    deps.appcompat = 'androidx.appcompat:appcompat:1.0.0'
+    deps.annotations = 'androidx.annotation:annotation:1.0.0'
+    deps.design = 'com.google.android.material:material:1.0.0'
 
     deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    deps.constraintLayout = "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
-    deps.multiDex = "com.android.support:multidex:$multiDexVersion"
+    deps.constraintLayout = 'androidx.constraintlayout:constraintlayout:1.1.3'
+    deps.multiDex = 'androidx.multidex:multidex:2.0.0'
 
     deps.playServicesAuth = "com.google.android.gms:play-services-auth:$googleVersion"
     deps.playServicesGcm = "com.google.android.gms:play-services-gcm:$googleVersion"
@@ -58,8 +56,8 @@ ext {
     deps.test.junit    = 'junit:junit:4.12'
     deps.test.mockitoCore = 'org.mockito:mockito-core:2.13.0'
     deps.test.mockitoAndroid = 'org.mockito:mockito-android:2.13.0'
-    deps.test.androidTestRunner = "com.android.support.test:runner:$atslVersion"
-    deps.test.androidTestRules = "com.android.support.test:rules:$atslVersion"
+    deps.test.androidTestRunner = 'androidx.test.ext:junit:1.1.1'
+    deps.test.androidTestRules = 'androidx.test:rules:1.1.1'
     deps.test.truth = 'com.google.truth:truth:0.37'
     deps.test.mockitoKotlin = "com.nhaarman:mockito-kotlin:1.5.0"
 }

@@ -16,7 +16,7 @@
 package arcus.app.device.pairing.catalog.controller;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import arcus.cornea.subsystem.alarm.AlarmSubsystemController;
 import arcus.app.common.backstack.BackstackManager;

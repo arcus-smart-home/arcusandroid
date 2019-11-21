@@ -15,7 +15,7 @@
  */
 package arcus.cornea.common;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public interface Presenter<PresentedViewType> {
 

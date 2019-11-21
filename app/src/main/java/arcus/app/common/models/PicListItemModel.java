@@ -15,7 +15,7 @@
  */
 package arcus.app.common.models;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import arcus.cornea.subsystem.presence.model.PresenceState;

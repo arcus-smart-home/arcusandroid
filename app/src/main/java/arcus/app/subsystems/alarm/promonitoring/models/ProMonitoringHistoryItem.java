@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.alarm.promonitoring.models;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.common.collect.ComparisonChain;
 import com.iris.client.bean.HistoryLog;

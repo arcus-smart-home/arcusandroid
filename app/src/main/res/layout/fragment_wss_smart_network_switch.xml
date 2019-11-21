@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/sclera_widget_edge_combined"
@@ -51,7 +51,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title"
             />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/step_1_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toTopOf="@+id/step_1_image"
             />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/step_2_image"
             android:layout_marginStart="30dp"
             android:layout_marginTop="31dp"
@@ -98,5 +98,5 @@
             app:layout_constraintStart_toEndOf="@+id/step_2_image"
             app:layout_constraintTop_toTopOf="@+id/step_2_image"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

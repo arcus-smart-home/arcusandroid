@@ -15,7 +15,7 @@
  */
 package arcus.app.common.models;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.iris.client.capability.Device;
 import com.iris.client.capability.Person;

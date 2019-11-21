@@ -16,7 +16,7 @@
 package arcus.app.subsystems.climate.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.subsystem.climate.ClimateDashboardCardController;
 import arcus.cornea.subsystem.climate.model.ClimateBadge;

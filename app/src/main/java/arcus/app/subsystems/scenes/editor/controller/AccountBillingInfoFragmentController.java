@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.scenes.editor.controller;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.model.PlacesWithRoles;
 import arcus.cornea.platformcall.BillableEntitiesController;

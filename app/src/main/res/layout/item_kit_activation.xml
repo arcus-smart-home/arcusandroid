@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,7 +23,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/product_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/product_configured"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,4 +74,4 @@
         tools:text="Pull The Tab"
         />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

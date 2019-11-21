@@ -17,8 +17,8 @@ package arcus.app.common.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;

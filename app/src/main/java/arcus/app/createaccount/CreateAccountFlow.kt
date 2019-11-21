@@ -15,7 +15,7 @@
  */
 package arcus.app.createaccount
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 /**
  * Describes Account Creation flow - can flow forward / backward and be finished.

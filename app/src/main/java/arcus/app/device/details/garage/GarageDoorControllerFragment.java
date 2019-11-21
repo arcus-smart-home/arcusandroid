@@ -15,7 +15,7 @@
  */
 package arcus.app.device.details.garage;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.iris.client.capability.DevicePower;
 import arcus.app.R;

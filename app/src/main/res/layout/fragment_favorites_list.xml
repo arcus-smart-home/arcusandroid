@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.v4.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -22,7 +22,7 @@
     android:fillViewport="true"
     android:overScrollMode="ifContentScrolls">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusableInTouchMode="true"
@@ -74,7 +74,7 @@
             android:visibility="visible"
             />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favorites_list"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             />
 
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="match_parent"
             android:layout_height="@dimen/sclera_widget_edge_combined"
             app:layout_constraintTop_toBottomOf="@id/favorites_list"
@@ -107,5 +107,5 @@
             android:text="@string/close_text"
             android:visibility="gone"
             />
-    </android.support.constraint.ConstraintLayout>
-</android.support.v4.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

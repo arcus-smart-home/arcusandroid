@@ -16,7 +16,7 @@
 package arcus.app.pairing.device.steps.wifismartswitch.connect
 
 import android.os.Bundle
-import android.support.annotation.LayoutRes
+import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet

@@ -16,7 +16,7 @@
 package arcus.app.account.registration.controller;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.SessionController;
 import arcus.cornea.utils.Listeners;

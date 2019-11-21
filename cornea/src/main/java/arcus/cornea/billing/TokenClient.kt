@@ -15,7 +15,7 @@
  */
 package arcus.cornea.billing
 
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 
 import com.google.common.net.HttpHeaders
 import com.iris.client.event.ClientFuture

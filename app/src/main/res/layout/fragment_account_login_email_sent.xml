@@ -41,7 +41,7 @@
         android:layout_below="@+id/alert_banner"
         android:background="@color/white">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/loginLinearLayout"
@@ -162,7 +162,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

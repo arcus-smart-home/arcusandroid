@@ -15,7 +15,7 @@
  */
 package arcus.cornea.model.smartystreets;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

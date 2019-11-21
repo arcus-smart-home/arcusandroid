@@ -15,7 +15,7 @@
  */
 package arcus.app.pairing.hub.kickoff
 
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import arcus.app.common.steps.container.StepContainer
 
 interface V3HubKickoffStepContainer : StepContainer, ViewPager.OnPageChangeListener {

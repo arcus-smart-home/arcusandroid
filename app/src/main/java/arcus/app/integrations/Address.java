@@ -21,7 +21,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 import arcus.app.R;

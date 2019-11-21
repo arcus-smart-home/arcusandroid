@@ -23,7 +23,7 @@
     android:orientation="vertical"
     android:scrollbarStyle="insideOverlay">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ScleraColumnLayout">
@@ -69,5 +69,5 @@
             tools:text="View Instructions"
             android:visibility="gone"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

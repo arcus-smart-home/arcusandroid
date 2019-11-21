@@ -19,8 +19,8 @@ import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.net.Uri
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
+import androidx.appcompat.app.AppCompatActivity
 import arcus.cornea.provider.DeviceModelProvider
 import arcus.cornea.provider.HubModelProvider
 import arcus.cornea.provider.ProductModelProvider

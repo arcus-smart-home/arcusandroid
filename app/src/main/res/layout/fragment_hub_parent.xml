@@ -41,7 +41,7 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/error_banner_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"

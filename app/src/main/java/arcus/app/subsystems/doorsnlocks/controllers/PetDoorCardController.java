@@ -17,7 +17,7 @@ package arcus.app.subsystems.doorsnlocks.controllers;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.device.DeviceController;
 import arcus.cornea.device.petdoor.PetDoorController;

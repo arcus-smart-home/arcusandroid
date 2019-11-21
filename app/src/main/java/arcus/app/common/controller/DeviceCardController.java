@@ -16,7 +16,7 @@
 package arcus.app.common.controller;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.cards.SimpleDividerCard;

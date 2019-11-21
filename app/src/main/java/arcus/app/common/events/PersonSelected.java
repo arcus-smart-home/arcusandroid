@@ -15,7 +15,7 @@
  */
 package arcus.app.common.events;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class PersonSelected {
     @Nullable

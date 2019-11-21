@@ -15,7 +15,7 @@
  */
 package arcus.app.common.schedule.controller;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.utils.DayOfWeek;

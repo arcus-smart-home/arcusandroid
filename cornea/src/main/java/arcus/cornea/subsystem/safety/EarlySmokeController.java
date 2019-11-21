@@ -15,8 +15,8 @@
  */
 package arcus.cornea.subsystem.safety;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.provider.DeviceModelProvider;

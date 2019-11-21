@@ -16,7 +16,7 @@
 package arcus.app.device.settings.enumeration;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.R;
 import arcus.app.device.settings.core.Abstractable;

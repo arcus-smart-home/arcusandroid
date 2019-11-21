@@ -17,10 +17,10 @@ package arcus.app.hub.wifi.scan
 
 import android.content.res.ColorStateList
 import android.net.wifi.WifiManager
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -46,7 +46,7 @@ class HubWiFiScanAdapter(
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(holder: HubWifiViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: HubWifiViewHolder, position: Int) {
         val item = items[position]
         holder?.bindView(item, position == selection)
     }

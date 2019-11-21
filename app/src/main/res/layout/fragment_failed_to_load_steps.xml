@@ -23,12 +23,12 @@
     android:scrollbarStyle="insideOverlay"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ScleraColumnLayout">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/placholder_image"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             app:tint="@color/black_with_35"
             android:visibility="visible"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/placeholder_text"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/dp_20"
@@ -53,7 +53,7 @@
             android:background="@color/sclera_input_color"
             android:visibility="visible"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/placeholder_text2"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/dp_20"
@@ -66,7 +66,7 @@
             android:background="@color/sclera_input_color"
             android:visibility="visible"/>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/placeholder_text3"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/dp_20"
@@ -78,5 +78,5 @@
             app:layout_constraintTop_toBottomOf="@id/placeholder_text2"
             android:background="@color/sclera_input_color"
             android:visibility="visible"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

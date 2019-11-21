@@ -17,7 +17,7 @@ package arcus.cornea.subsystem.cameras;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;

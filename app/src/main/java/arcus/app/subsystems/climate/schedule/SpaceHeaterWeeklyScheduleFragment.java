@@ -16,7 +16,7 @@
 package arcus.app.subsystems.climate.schedule;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.utils.DayOfWeek;
 import arcus.app.R;

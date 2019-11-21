@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.v4.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,7 +24,7 @@
     android:keepScreenOn="true"
     tools:context="arcus.app.activities.GenericFragmentActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
@@ -113,7 +113,7 @@
             android:focusableInTouchMode="false"
             />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/kit_items_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             tools:itemCount="6"
-            tools:layoutManager="android.support.v7.widget.GridLayoutManager"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/item_kit_activation"
             tools:spanCount="2" />
 
@@ -156,5 +156,5 @@
             app:layout_constraintTop_toBottomOf="@+id/kit_items_rv"
             app:layout_constraintVertical_bias="1.0"
             />
-    </android.support.constraint.ConstraintLayout>
-</android.support.v4.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

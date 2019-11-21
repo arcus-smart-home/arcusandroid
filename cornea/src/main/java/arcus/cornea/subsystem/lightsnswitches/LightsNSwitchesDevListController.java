@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.lightsnswitches;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSet;

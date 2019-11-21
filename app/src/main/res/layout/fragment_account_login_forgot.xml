@@ -23,12 +23,12 @@
     android:fillViewport="true"
     android:background="@color/white">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
-        <android.support.constraint.Group
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/enable_disable_field_group"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -148,5 +148,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

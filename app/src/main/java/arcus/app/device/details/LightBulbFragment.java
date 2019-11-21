@@ -16,7 +16,7 @@
 package arcus.app.device.details;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 

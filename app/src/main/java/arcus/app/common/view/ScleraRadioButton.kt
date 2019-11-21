@@ -16,8 +16,8 @@
 package arcus.app.common.view
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.AppCompatRadioButton
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.AppCompatRadioButton
 import android.util.AttributeSet
 import arcus.app.R
 import arcus.app.common.utils.FontUtils

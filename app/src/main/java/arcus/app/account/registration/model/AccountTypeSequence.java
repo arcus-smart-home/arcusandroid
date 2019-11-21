@@ -15,7 +15,7 @@
  */
 package arcus.app.account.registration.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.account.registration.AccountAboutYouFragment;
 import arcus.app.account.registration.AccountAboutYourHomeFragment;

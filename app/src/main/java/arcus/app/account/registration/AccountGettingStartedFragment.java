@@ -16,8 +16,8 @@
 package arcus.app.account.registration;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import android.view.LayoutInflater;

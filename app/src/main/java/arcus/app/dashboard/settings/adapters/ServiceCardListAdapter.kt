@@ -16,7 +16,7 @@
 package arcus.app.dashboard.settings.adapters
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.h6ah4i.android.widget.advrecyclerview.draggable.DraggableItemAdapter

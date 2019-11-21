@@ -16,7 +16,7 @@
 package arcus.app.pairing.device.customization.orbit.list
 
 import android.app.Activity
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
@@ -46,8 +46,8 @@ class OrbitZonesAdapter(
 
     override fun getItemCount(): Int = itemsList.size
 
-    override fun onBindViewHolder(holder: CustomizationListItemViewHolder?, position: Int) {
-        holder?.bindView(itemsList[position], pairingDeviceAddress, stepId)
+    override fun onBindViewHolder(holder: CustomizationListItemViewHolder, position: Int) {
+        holder.bindView(itemsList[position], pairingDeviceAddress, stepId)
     }
 }
 

@@ -15,8 +15,8 @@
  */
 package arcus.app.subsystems.camera.adapter;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public abstract class EndlessScrollRecycleListener extends RecyclerView.OnScrollListener {
     private int previousTotalItemCount = 0; // Total number of items in the data-set after the last load

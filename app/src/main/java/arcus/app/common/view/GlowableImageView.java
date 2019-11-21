@@ -26,9 +26,8 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
@@ -227,20 +226,7 @@ public class GlowableImageView extends CircularImageView {
             case OFF:
                 return 0;
             case OPEN_CLOSE:
-
-                // Android seems to have changed the way it calculates the radius of a drawn circle.
-                // In older versions, the radius appears to be measured from the center point to the
-                // inner-most pixel of the circle's stroke...
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-                    return ((imageWidth + (strength * 2)) / 2);
-                }
-
-                // ... but in newer versions, the radius is calculated from the center point to the
-                // center of the stroke. Thus, we need to add the size of a full stroke (2 * 1/2 stroke)
-                // to compensate. Thanks Google! This was fun.
-                else {
-                    return ((imageWidth + (strength * 2)) / 2) + getGlowStrokeForMode(mode, strength);
-                }
+                return ((imageWidth + (strength * 2)) / 2) + getGlowStrokeForMode(mode, strength);
 
             default:
                 throw new IllegalStateException("Bug! Unimplemented GlowMode");

@@ -16,7 +16,7 @@
 package arcus.app.subsystems.lawnandgarden.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.subsystem.lawnandgarden.LawnAndGardenDashboardCardController;
 import arcus.cornea.subsystem.lawnandgarden.model.LawnAndGardenDashboardCardModel;

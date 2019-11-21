@@ -15,7 +15,7 @@
  */
 package arcus.app.pairing.device.steps.wifismartswitch
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import arcus.app.pairing.device.steps.StepsNavigationDelegate
 
 interface WSSStepsNavigationDelegate : StepsNavigationDelegate {

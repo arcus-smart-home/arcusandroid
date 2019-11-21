@@ -15,7 +15,7 @@
  */
 package arcus.app.camera
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import arcus.presentation.camera.AutoFitTextureView
 import java.io.File
 

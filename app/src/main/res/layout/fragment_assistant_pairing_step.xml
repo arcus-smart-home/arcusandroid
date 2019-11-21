@@ -23,7 +23,7 @@
     android:orientation="vertical"
     android:scrollbarStyle="insideOverlay">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ScleraColumnLayout">
@@ -70,5 +70,5 @@
             tools:text="Download Alexa"
             android:visibility="visible"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

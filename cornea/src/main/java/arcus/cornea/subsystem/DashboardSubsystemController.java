@@ -17,7 +17,7 @@ package arcus.cornea.subsystem;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import arcus.cornea.subsystem.model.DashboardState;

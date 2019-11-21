@@ -15,7 +15,7 @@
  */
 package arcus.cornea.device.blinds;
 
-import android.support.annotation.StringDef;
+import androidx.annotation.StringDef;
 
 import arcus.cornea.device.DeviceController;
 import arcus.cornea.device.blinds.model.SomfyBlindsSettingModel;

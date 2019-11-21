@@ -16,7 +16,7 @@
 package arcus.app.common.view
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import android.util.AttributeSet
 import android.view.View
 import android.widget.ProgressBar
@@ -54,7 +54,7 @@ class ScleraButtonWithProgress : ConstraintLayout {
     }
 
     private fun initView(context: Context, attrs: AttributeSet?) {
-        View.inflate(getContext(), R.layout.sclera_button_with_progress, this)
+        View.inflate(context, R.layout.sclera_button_with_progress, this)
 
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.ScleraButtonWithProgress)
 

@@ -24,7 +24,7 @@
     android:orientation="vertical"
     android:scrollbarStyle="insideOverlay"
     android:fillViewport="true">
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/viewGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -119,5 +119,5 @@
                 app:scleraButtonColor="purple_outline"
                 tools:visibility="visible" />
         </LinearLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

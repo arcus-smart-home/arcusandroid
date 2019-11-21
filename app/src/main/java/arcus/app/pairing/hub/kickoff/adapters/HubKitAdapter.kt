@@ -16,8 +16,8 @@
 package arcus.app.pairing.hub.kickoff.adapters
 
 import android.content.Context
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,15 +49,13 @@ class HubKitAdapter(private val context: Context?, private val data: List<Produc
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder? {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         inflater = LayoutInflater.from(parent.context)
 
-        when (viewType) {
-            HEADER_TYPE -> return HeaderViewHolder(inflater.inflate(R.layout.header_list_item, parent, false))
-            DATA_TYPE -> return DataViewHolder(inflater.inflate(R.layout.hubkit_line_item, parent, false))
+        return when (viewType) {
+            HEADER_TYPE -> HeaderViewHolder(inflater.inflate(R.layout.header_list_item, parent, false))
+            else -> DataViewHolder(inflater.inflate(R.layout.hubkit_line_item, parent, false))
         }
-
-        return null
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

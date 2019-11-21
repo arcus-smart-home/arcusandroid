@@ -18,7 +18,7 @@ package arcus.app.device.pairing.catalog.controller;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.ListAdapter;
 
 import com.google.common.base.Predicate;

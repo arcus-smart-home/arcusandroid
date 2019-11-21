@@ -16,8 +16,8 @@
 package arcus.app.device.more;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +28,7 @@ import android.widget.TextView;
 import com.google.common.base.Strings;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.utils.Listeners;
-import arcus.cornea.utils.TemperatureUtils;
+
 import com.iris.client.ClientEvent;
 import com.iris.client.capability.DeviceAdvanced;
 import com.iris.client.capability.DeviceOta;
@@ -45,7 +45,6 @@ import com.iris.client.model.ProductModel;
 import arcus.app.R;
 import arcus.app.common.fragments.BaseFragment;
 import arcus.app.common.utils.CorneaUtils;
-import arcus.app.common.utils.StringUtils;
 import arcus.app.common.view.Version1TextView;
 import arcus.app.device.model.DeviceType;
 

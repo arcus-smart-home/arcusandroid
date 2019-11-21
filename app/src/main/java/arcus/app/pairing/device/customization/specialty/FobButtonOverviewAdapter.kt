@@ -16,8 +16,8 @@
 package arcus.app.pairing.device.customization.specialty
 
 import android.app.Activity
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -40,7 +40,7 @@ class FobButtonOverviewAdapter(
         return CustomViewHolder(parent.inflate(R.layout.fob_button_overview_list_item, false))
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val appCompatActivity = activity as? AppCompatActivity
         val currentButton: ButtonWithAction = buttonList[position]
 

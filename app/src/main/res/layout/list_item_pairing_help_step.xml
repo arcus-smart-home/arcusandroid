@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,7 +24,7 @@
     android:layout_marginStart="71dp"
     android:layout_marginEnd="71dp">
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/step_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,5 +48,5 @@
         app:scleraFontStyle="normal"
         tools:text="If possible, move the device closer to the Arcus hub and make sure the image is aligned to the baseline of the text." />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -18,8 +18,8 @@ package arcus.cornea.subsystem.cameras;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 import com.google.common.base.Strings;
 import arcus.cornea.CorneaClientFactory;

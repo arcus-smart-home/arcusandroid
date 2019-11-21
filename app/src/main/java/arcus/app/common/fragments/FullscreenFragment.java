@@ -16,7 +16,7 @@
 package arcus.app.common.fragments;
 
 import android.app.Activity;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.app.common.sequence.SequenceController;
 import arcus.app.common.sequence.SequencedFragment;

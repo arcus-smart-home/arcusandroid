@@ -15,7 +15,7 @@
  */
 package arcus.app.device.settings.enumeration;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.iris.client.capability.Contact;
 import arcus.app.R;

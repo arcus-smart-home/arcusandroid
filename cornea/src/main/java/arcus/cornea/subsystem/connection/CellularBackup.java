@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.connection;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.cornea.subsystem.BaseSubsystemController;
 import arcus.cornea.subsystem.connection.model.CellBackupModel;

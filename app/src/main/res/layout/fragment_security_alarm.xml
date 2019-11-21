@@ -18,7 +18,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:column_count="1"
         android:layout_width="fill_parent"

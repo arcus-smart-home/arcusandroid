@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,7 +23,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="arcus.app.pairing.device.productcatalog.brandsoverview.BrandsOverviewFragment">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/brands_result_count_container"
         app:elevation="@dimen/dp_0"
         android:background="@color/white"
@@ -60,9 +60,9 @@
 
         </LinearLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/brands_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,4 +73,4 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:visibility="visible"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

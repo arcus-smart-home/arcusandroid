@@ -20,7 +20,7 @@ import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import arcus.app.ArcusApplication;
 import arcus.app.R;

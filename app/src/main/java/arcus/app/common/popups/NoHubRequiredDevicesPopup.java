@@ -15,7 +15,7 @@
  */
 package arcus.app.common.popups;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 

@@ -15,7 +15,7 @@
  */
 package arcus.presentation.pairing.device.customization.halo.statecounty
 
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import arcus.cornea.SessionController
 import arcus.cornea.device.smokeandco.halo.HaloLocationController
 import arcus.cornea.device.smokeandco.halo.HaloLocationControllerImpl

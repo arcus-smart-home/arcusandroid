@@ -17,7 +17,7 @@ package arcus.app.subsystems.alarm.promonitoring.presenters;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.Html;
 
 import arcus.cornea.SessionController;

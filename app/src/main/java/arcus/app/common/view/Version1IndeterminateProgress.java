@@ -18,7 +18,7 @@ package arcus.app.common.view;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 

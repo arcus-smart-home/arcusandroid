@@ -16,7 +16,7 @@
 package arcus.app.subsystems.care.fragment;
 
 import android.content.pm.ActivityInfo;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;

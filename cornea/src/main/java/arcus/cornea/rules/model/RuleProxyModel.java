@@ -17,7 +17,7 @@ package arcus.cornea.rules.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.iris.capability.util.Addresses;
 import com.iris.client.capability.Rule;

@@ -15,7 +15,7 @@
  */
 package arcus.cornea.subsystem.security;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.utils.LooperExecutor;
 import com.iris.client.event.DefaultExecutor;

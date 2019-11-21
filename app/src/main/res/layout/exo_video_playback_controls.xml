@@ -48,17 +48,17 @@
         app:layout_constraintEnd_toStartOf="@id/arcus_logo"
         >
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@id/exo_play"
             style="@style/ExoMediaButton.Play"
             />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@id/exo_pause"
             style="@style/ExoMediaButton.Pause"
             />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="25dp"
             android:layout_height="match_parent"
             />
@@ -94,7 +94,7 @@
             android:textColor="@color/white"
             />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/arcus_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

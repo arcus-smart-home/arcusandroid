@@ -16,7 +16,7 @@
 package arcus.app.subsystems.lightsnswitches.controllers;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.subsystem.lightsnswitches.LightsNSwitchesDashCardController;
 import arcus.cornea.subsystem.lightsnswitches.model.LightsNSwitchesSummary;

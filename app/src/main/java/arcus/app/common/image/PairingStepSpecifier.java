@@ -15,7 +15,7 @@
  */
 package arcus.app.common.image;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * A model specifying a unique pairing step illustration given its product id and step number.

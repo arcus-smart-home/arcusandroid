@@ -17,7 +17,7 @@ package arcus.app.dashboard.settings.adapters
 
 import android.content.Context
 import android.graphics.Color
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import arcus.app.R
@@ -31,8 +31,8 @@ import arcus.app.dashboard.settings.services.ServiceListItemViewHolder
 class InactiveServicesListAdapter(private val context: Context, private val inactiveServices: List<ServiceListItemModel>)
     : RecyclerView.Adapter<ServiceListItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ServiceListItemViewHolder {
-        val inflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceListItemViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.inactive_card_service_list_item, parent, false)
         return ServiceListItemViewHolder(view)
     }

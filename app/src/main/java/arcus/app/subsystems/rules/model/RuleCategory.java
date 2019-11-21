@@ -15,7 +15,7 @@
  */
 package arcus.app.subsystems.rules.model;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import arcus.app.R;
 

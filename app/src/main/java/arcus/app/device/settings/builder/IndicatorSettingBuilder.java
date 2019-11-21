@@ -16,7 +16,7 @@
 package arcus.app.device.settings.builder;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.iris.client.capability.Indicator;
 import com.iris.client.model.DeviceModel;

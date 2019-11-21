@@ -15,7 +15,7 @@
  */
 package arcus.app.device.pairing.specialty.petdoor;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import arcus.app.R;
 import arcus.app.common.popups.ArcusFloatingFragment;

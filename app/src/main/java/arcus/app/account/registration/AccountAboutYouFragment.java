@@ -16,7 +16,7 @@
 package arcus.app.account.registration;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.InputFilter;
 import android.view.LayoutInflater;

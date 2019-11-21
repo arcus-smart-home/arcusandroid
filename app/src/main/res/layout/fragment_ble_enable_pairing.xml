@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<android.support.v4.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -23,12 +23,12 @@
     android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
     android:fillViewport="true"
     >
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
         android:descendantFocusability="beforeDescendants">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_marginTop="20dp"
             android:id="@+id/location_image"
             android:layout_width="wrap_content"
@@ -54,6 +54,6 @@
             app:scleraFontStyle="normal"
             android:gravity="center_horizontal"
             />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

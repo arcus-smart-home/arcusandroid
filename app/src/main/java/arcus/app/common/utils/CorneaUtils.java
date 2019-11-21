@@ -15,8 +15,8 @@
  */
 package arcus.app.common.utils;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.common.base.Strings;
 import arcus.cornea.CorneaClientFactory;
@@ -32,7 +32,6 @@ import com.iris.client.capability.Camera;
 import com.iris.client.capability.Capability;
 import com.iris.client.capability.Device;
 import com.iris.client.capability.DeviceAdvanced;
-import com.iris.client.capability.DeviceConnection;
 import com.iris.client.capability.DeviceOta;
 import com.iris.client.capability.HubAdvanced;
 import com.iris.client.capability.Place;
@@ -47,7 +46,6 @@ import com.iris.client.service.SessionService;
 import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.common.models.SessionModelManager;
-import arcus.app.device.model.DeviceType;
 import arcus.app.subsystems.alarm.promonitoring.models.ProMonitoringHistoryItem;
 import arcus.app.subsystems.people.model.PersonRelationshipFamilyTag;
 import arcus.app.subsystems.people.model.PersonRelationshipServiceTag;

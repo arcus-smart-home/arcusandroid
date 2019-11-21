@@ -16,8 +16,8 @@
 package arcus.app.subsystems.doorsnlocks.controllers;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import arcus.cornea.device.DeviceController;
 import arcus.cornea.device.motorizeddoor.MotorizedDoorController;
