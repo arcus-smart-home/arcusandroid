@@ -26,7 +26,6 @@
     <string name="error_generic_accept">Ok</string>
     <string name="error_generic_reject">Call Support</string>
     <string name="error_hub_already_paired">Hub already paired</string>
-    <string name="error_hub_already_paired_desc">\nOnly 1 Hub can be paired to each Place.\n</string>
 
     <!-- LOGIN TITLE -->
     <string name="invalid_username_password_title">Invalid Email or Password</string>
@@ -94,8 +93,6 @@
     <string name="rule_instruct_where_to_add_text">Tap on Rules in the side menu and browse the Buttons &amp; Fobs category.</string>
 
     <!-- NO NETWORK CONNECTION -->
-    <string name="no_network_connection_title">Phone offline.</string>
-    <string name="no_network_connection_message">Check Internet connection.</string>
 
     <!-- SIGN_UP_TITLE -->
     <string name="email_already_registered_title">Email Already Registered</string>

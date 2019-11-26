@@ -24,11 +24,6 @@
     </style>
 
     <!-- ActionBar styles -->
-    <style name="DashboardTheme.ActionBar"
-        parent="@style/Widget.AppCompat.ActionBar">
-        <item name="android:displayOptions">showHome|showTitle</item>
-        <item name="displayOptions">showHome|showTitle</item>
-    </style>
 
     <style name="DashboardTheme.TextView" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@android:color/black</item>
@@ -52,17 +47,4 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="DashboardDialog" parent="android:Theme.Dialog">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">bottom</item>
-
-        <!-- No backgrounds, titles or window float -->
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowMinWidthMajor">100%</item>
-        <item name="android:windowMinWidthMinor">100%</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
-    </style>
 </resources>

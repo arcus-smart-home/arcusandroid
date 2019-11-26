@@ -23,7 +23,6 @@
 
     <dimen name="edit_text_drawable_left_padding">25dp</dimen>
 
-    <dimen name="video_tab_bar_height">40dp</dimen>
     <dimen name="sclera_video_tab_bar_height">50dp</dimen>
 
     <dimen name="list_edittext_height">70dp</dimen>
@@ -39,9 +38,7 @@
     <dimen name="dashboard_text_size_medium">16sp</dimen>
     <dimen name="dashboard_text_size_mediumsmall">14sp</dimen>
     <dimen name="dashboard_text_size_small">12sp</dimen>
-    <dimen name="dashboard_text_size_superscript">12sp</dimen>
     <dimen name="dashboard_card_vertical_padding">15dp</dimen>
-    <dimen name="dashboard_card_vertical_padding_no_title">20dp</dimen>
     <dimen name="close_button_padding">10dp</dimen>
 
     <!-- Sclera dimensions -->
@@ -49,7 +46,6 @@
     <dimen name="sclera_screen_edge_LR_margin">17dp</dimen>
     <dimen name="sclera_widget_edge_LR_padding">14dp</dimen>
     <dimen name="sclera_widget_edge_combined">31dp</dimen>
-    <dimen name="sclera_edge_LR_margin_wide">45dp</dimen>
     <dimen name="sclera_text_to_button_spacing">34dp</dimen>
     <dimen name="sclera_title_to_description_spacing">11dp</dimen>
     <dimen name="sclera_button_to_button_spacing">10dp</dimen>
@@ -64,7 +60,6 @@
     <dimen name="dp_155">155dp</dimen>
     <dimen name="dp_147">147dp</dimen>
     <dimen name="dp_120">120dp</dimen>
-    <dimen name="dp_95">95dp</dimen>
     <dimen name="dp_90">90dp</dimen>
     <dimen name="dp_80">80dp</dimen>
     <dimen name="dp_68">68dp</dimen>
@@ -98,10 +93,7 @@
     <dimen name="dp_0">0dp</dimen>
     <dimen name="match_constraint">@dimen/dp_0</dimen> <!-- Alias -->
     <dimen name="horizontal_divider_height">1dp</dimen>
-    <dimen name="vertical_divider_width">1dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="pt_24">24sp</dimen>
     <dimen name="pt_20">20sp</dimen>
     <dimen name="pt_18">18sp</dimen>
     <dimen name="pt_16">16sp</dimen>
