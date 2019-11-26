@@ -35,7 +35,6 @@ import arcus.app.activities.ConnectedActivity
 import arcus.app.activities.GenericConnectedFragmentActivity
 import arcus.app.common.utils.ActivityUtils
 import arcus.app.common.utils.GlobalSetting
-import arcus.app.device.pairing.ModalMustardSheet
 import arcus.app.pairing.device.post.zwaveheal.ZWaveRebuildActivity
 import arcus.app.pairing.device.productcatalog.brandsoverview.BrandsOverviewFragment
 import arcus.app.pairing.device.productcatalog.popups.FilterSelection

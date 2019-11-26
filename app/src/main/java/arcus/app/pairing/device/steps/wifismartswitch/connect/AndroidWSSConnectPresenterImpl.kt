@@ -21,7 +21,7 @@ import arcus.cornea.subsystem.pairing.PairingSubsystemController
 import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
 import com.iris.client.model.DeviceModel
 import arcus.app.common.machine.State
-import arcus.app.device.pairing.nohub.swannwifi.controller.SwannProvisioningController
+import arcus.app.pairing.device.steps.wifismartswitch.connect.swannwifi.controller.SwannProvisioningController
 import arcus.presentation.pairing.device.steps.wifismartswitch.connect.SwannAPName
 import arcus.presentation.pairing.device.steps.wifismartswitch.connect.WSSConnectPresenter
 import arcus.presentation.pairing.device.steps.wifismartswitch.connect.WSSConnectView

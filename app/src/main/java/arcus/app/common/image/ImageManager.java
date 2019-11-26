@@ -39,12 +39,10 @@ import arcus.app.common.image.picasso.transformation.AlphaPreset;
 import arcus.app.common.image.picasso.transformation.BlurTransformation;
 import arcus.app.common.utils.CorneaUtils;
 import arcus.app.device.model.DeviceType;
-import arcus.app.device.pairing.catalog.model.ProductCatalogEntry;
 import arcus.app.subsystems.scenes.catalog.model.SceneCategory;
 import okhttp3.OkHttpClient;
 
 import static android.content.Context.ACTIVITY_SERVICE;
-import static android.content.pm.ApplicationInfo.FLAG_LARGE_HEAP;
 
 /**
  * An image management facade; provides a specific API for locating, placing and transforming
@@ -279,11 +277,6 @@ public class ImageManager {
     @NonNull
     public ImageRequestBuilder putSmallProductImage(@Nullable String productId) {
         return new ImageRequestBuilder(context, wallpaperTarget, ImageCategory.PRODUCT_SMALL, CorneaUtils.getNormalizedId(productId));
-    }
-
-    @NonNull
-    public ImageRequestBuilder putSmallProductImage(ProductCatalogEntry productCatalogEntry) {
-        return new ImageRequestBuilder(context, wallpaperTarget, ImageCategory.PRODUCT_SMALL, productCatalogEntry);
     }
 
     /**

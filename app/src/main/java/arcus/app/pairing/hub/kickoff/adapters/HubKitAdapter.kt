@@ -30,7 +30,7 @@ import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.utils.ImageUtils
 import arcus.app.common.view.ScleraDivider
 import arcus.app.common.view.ScleraTextView
-import arcus.app.device.pairing.hub.HubParentFragment
+import arcus.app.pairing.hub.original.HubParentFragment
 import arcus.app.pairing.hub.kickoff.V3HubKickoffStepHostFragment
 import arcus.presentation.kits.ProductAddModel
 import arcus.presentation.kits.ProductDataModel

@@ -18,13 +18,10 @@ package arcus.app.pairing.device.productcatalog.popups
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
+import android.content.pm.PackageManager.NameNotFoundException
 import android.net.Uri
-import androidx.core.content.ContextCompat.startActivity
 import androidx.appcompat.app.AppCompatActivity
-import arcus.cornea.provider.DeviceModelProvider
-import arcus.cornea.provider.HubModelProvider
-import arcus.cornea.provider.ProductModelProvider
-import com.iris.client.capability.Hub
+import androidx.core.content.ContextCompat.startActivity
 import arcus.app.R
 import arcus.app.activities.GenericFragmentActivity
 import arcus.app.common.backstack.BackstackManager
@@ -32,15 +29,18 @@ import arcus.app.common.fragments.ModalErrorBottomSheet
 import arcus.app.common.utils.ActivityUtils
 import arcus.app.common.utils.GlobalSetting
 import arcus.app.dashboard.HomeFragment
-import arcus.app.device.pairing.catalog.controller.ProductCatalogFragmentController
 import arcus.app.pairing.device.steps.PairingStepsActivity
 import arcus.app.pairing.device.steps.bledevice.BleNotFoundPopup
 import arcus.app.pairing.device.steps.bledevice.BlePairingStepsActivity
 import arcus.app.pairing.device.steps.wifismartswitch.WSSPairingStepsActivity
+import arcus.cornea.provider.DeviceModelProvider
+import arcus.cornea.provider.HubModelProvider
+import arcus.cornea.provider.ProductModelProvider
 import arcus.presentation.pairing.BLE_GS_INDOOR_PLUG_PRODUCT_ID
 import arcus.presentation.pairing.BLE_GS_OUTDOOR_PLUG_PRODUCT_ID
-import arcus.presentation.pairing.WIFI_SMART_SWITCH_PRODUCT_ID
 import arcus.presentation.pairing.BLE_SWANN_CAMERA_PRODUCT_ID
+import arcus.presentation.pairing.WIFI_SMART_SWITCH_PRODUCT_ID
+import com.iris.client.capability.Hub
 
 /**
  * While this class doesn't really manage the popups it is designed to centralize the logic for
@@ -72,7 +72,43 @@ class ProductCatalogPopupManager {
             }
         }
 
-        fun requiresAppUpdate(activity: Activity) =  ProductCatalogFragmentController.instance().isAppVersionOlderThan(activity, minVersion)
+        fun requiresAppUpdate(activity: Activity) =  isAppVersionOlderThan(activity, minVersion)
+
+        private fun isAppVersionOlderThan(activity: Activity, minimumVersion: String?): Boolean {
+            val appVersionString: String
+            if (minimumVersion == null) {
+                return false
+            }
+            appVersionString = try {
+                val pInfo = activity.packageManager.getPackageInfo(activity.packageName, 0)
+                pInfo.versionName
+            } catch (e: NameNotFoundException) {
+                //logger.error("An error occurred getting the version of this app.", e)
+                return true
+            }
+            val minVersionComponents = minimumVersion.split("\\.").toTypedArray()
+            val appVersionComponents = appVersionString.split("\\.").toTypedArray()
+            // Get rid of the commit hash
+            if (appVersionComponents.size == 3 && appVersionComponents[2].indexOf("-") > 0) {
+                appVersionComponents[2] = appVersionComponents[2].substring(0, appVersionComponents[2].indexOf("-"))
+            } else if (appVersionComponents.size == 2 && appVersionComponents[1].indexOf("-") > 0) {
+                appVersionComponents[1] = appVersionComponents[1].substring(0, appVersionComponents[1].indexOf("-"))
+            } else if (appVersionComponents.size == 1 && appVersionComponents[0].indexOf("-") > 0) {
+                appVersionComponents[0] = appVersionComponents[0].substring(0, appVersionComponents[0].indexOf("-"))
+            }
+            return try {
+                val appMajor = if (appVersionComponents.isNotEmpty()) appVersionComponents[0].toInt() else 0
+                val appMinor = if (appVersionComponents.size >= 2) appVersionComponents[1].toInt() else 0
+                val appMaint = if (appVersionComponents.size >= 3) appVersionComponents[2].toInt() else 0
+                val minMajor = if (minVersionComponents.isNotEmpty()) minVersionComponents[0].toInt() else 0
+                val minMinor = if (minVersionComponents.size >= 2) minVersionComponents[1].toInt() else 0
+                val minMaint = if (minVersionComponents.size >= 3) minVersionComponents[2].toInt() else 0
+                minMajor > appMajor || minMajor == appMajor && minMinor > appMinor || minMajor == appMajor && minMinor == appMinor && minMaint > appMaint
+            } catch (e: NumberFormatException) {
+                // logger.error("Failed to parse version numbers. App version: $appVersionComponents Min version: $minVersionComponents", e)
+                false
+            }
+        }
     }
 
     private fun getProductInfo(productAddress: String) : ProductEntity {
