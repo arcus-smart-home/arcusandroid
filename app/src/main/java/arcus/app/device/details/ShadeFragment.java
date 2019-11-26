@@ -25,8 +25,8 @@ import android.widget.TextView;
 import arcus.cornea.device.blinds.model.ShadeClientModel;
 import arcus.app.R;
 import arcus.app.common.utils.DeviceSeekArc;
-import arcus.app.device.presenters.ShadeContract;
-import arcus.app.device.presenters.ShadePresenter;
+import arcus.app.device.details.presenters.ShadeContract;
+import arcus.app.device.details.presenters.ShadePresenter;
 
 
 public class ShadeFragment extends ArcusProductFragment implements DeviceSeekArc.OnSeekArcChangeListener, ShadeContract.ShadeView {

@@ -32,7 +32,6 @@ import arcus.app.device.settings.resolver.DeviceSettingsResolver;
 import arcus.app.device.settings.resolver.GenieSettingsResolver;
 import arcus.app.device.settings.resolver.HaloSettingsResolver;
 import arcus.app.device.settings.resolver.HubSettingsResolver;
-import arcus.app.device.settings.resolver.PetDoorSettingsResolver;
 import arcus.app.device.settings.resolver.SettingsResolver;
 import arcus.app.device.settings.resolver.SomfyBlindsResolver;
 import arcus.app.device.settings.resolver.SwitchSettingsResolver;
@@ -151,8 +150,6 @@ public class SettingsManager {
                 return new WaterSoftenerSettingsResolver();
             case GENIE_GARAGE_DOOR_CONTROLLER:
                 return new GenieSettingsResolver();
-            case PET_DOOR:
-                return new PetDoorSettingsResolver();
             case SOMFYV1BLINDS:
                 return new SomfyBlindsResolver();
             case HALO:

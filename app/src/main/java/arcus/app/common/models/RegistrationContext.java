@@ -29,8 +29,7 @@ import com.iris.client.model.PersonModel;
 import com.iris.client.model.PlaceModel;
 import com.iris.client.model.ProductModel;
 import com.iris.client.session.SessionInfo;
-import arcus.app.device.pairing.catalog.model.ProductCatalogEntry;
-import arcus.app.device.pairing.hub.model.ArcusStep;
+import arcus.app.pairing.hub.original.model.ArcusStep;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -74,9 +73,6 @@ public class RegistrationContext implements Parcelable {
 
     @Nullable
     private ArrayList<ArcusStep> devicePairingArcusStepList = null;
-
-    @Nullable
-    private ArrayList<ProductCatalogEntry> transformedProducts = null;  // used for product search
 
     @Nullable
     private List<ProductCategoryAndCount> categoryCountList = null;

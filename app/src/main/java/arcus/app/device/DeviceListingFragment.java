@@ -75,8 +75,7 @@ public class DeviceListingFragment extends BaseFragment implements BackstackPopL
             public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
                 removeListener();
                 if (deviceListAdapter.getItemViewType(position) == DeviceListAdapter.TYPE_ITEM) {
-                    BackstackManager.getInstance()
-                            .navigateToFragment(DeviceDetailParentFragment.newInstance(position), true);
+                    BackstackManager.getInstance().navigateToFragment(DeviceDetailParentFragment.newInstance(position), true);
                 } else {
                     new ZWaveToolsSequence().startSequence(getActivity(), null);
                 }
@@ -122,11 +121,6 @@ public class DeviceListingFragment extends BaseFragment implements BackstackPopL
     @Override
     public Integer getLayoutId() {
         return R.layout.fragment_device_listing;
-    }
-
-    @Override
-    public Integer getMenuId() {
-        return R.menu.menu_device_list;
     }
 
     private void addListener() {

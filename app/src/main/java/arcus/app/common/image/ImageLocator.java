@@ -28,7 +28,6 @@ import arcus.app.R;
 import arcus.app.common.utils.ImageUtils;
 import arcus.app.common.utils.StringUtils;
 import arcus.app.device.model.DeviceType;
-import arcus.app.device.pairing.catalog.model.ProductCatalogEntry;
 import arcus.app.subsystems.scenes.catalog.model.SceneCategory;
 
 import java.io.File;
@@ -150,13 +149,6 @@ public class ImageLocator {
 
         }
 
-        if (hint instanceof ProductCatalogEntry) {
-            ProductCatalogEntry entry = (ProductCatalogEntry) hint;
-
-            productImageUrl = getLargeProductUrl(entry.getId());
-            deviceType = DeviceType.fromHint(entry.getScreen());
-        }
-
         if (hint instanceof ProductModel) {
             ProductModel model = (ProductModel) hint;
 
@@ -199,13 +191,6 @@ public class ImageLocator {
                 return new ImageLocation(getSmallDeviceTypeUrl(deviceType.getHint()));
             }
 
-        }
-
-        if (hint instanceof ProductCatalogEntry) {
-            ProductCatalogEntry entry = (ProductCatalogEntry) hint;
-
-            productImageUrl = getSmallProductUrl(entry.getId());
-            deviceType = DeviceType.fromHint(entry.getScreen());
         }
 
         if (hint instanceof ProductModel) {

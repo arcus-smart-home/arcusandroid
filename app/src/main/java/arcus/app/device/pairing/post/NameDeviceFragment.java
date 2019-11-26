@@ -27,6 +27,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import arcus.app.common.fragments.BaseFragment;
+import arcus.app.device.settings.fragment.HaloRoomFragment;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.SessionController;
 import arcus.cornea.device.smokeandco.HaloController;
@@ -52,7 +54,6 @@ import arcus.app.common.image.picasso.transformation.Invert;
 import arcus.app.common.models.ListItemModel;
 import arcus.app.common.popups.ArcusFloatingFragment;
 import arcus.app.common.popups.MultiModelPopup;
-import arcus.app.common.sequence.SequencedFragment;
 import arcus.app.common.utils.CorneaUtils;
 import arcus.app.common.utils.StringUtils;
 import arcus.app.common.validation.NotEmptyValidator;
@@ -62,17 +63,15 @@ import arcus.app.common.view.Version1EditText;
 import arcus.app.common.view.Version1TextView;
 import arcus.app.device.model.DeviceType;
 import arcus.app.device.pairing.post.controller.NameDeviceFragmentController;
-import arcus.app.device.pairing.post.controller.PostPairingSequenceController;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class NameDeviceFragment extends SequencedFragment<PostPairingSequenceController> implements NameDeviceFragmentController.Callbacks, HaloController.Callback {
+public class NameDeviceFragment extends BaseFragment implements NameDeviceFragmentController.Callbacks, HaloController.Callback {
 
     private static final String DEVICE_NAME = "DEVICE_NAME";
     private static final String DEVICE_ADDRESS = "DEVICE_ADDRESS";
-    private static final String SCREEN_VARIANT = "SCREEN_VARIANT";
 
     private Version1Button nextButton;
     private ImageView deviceImage;
@@ -91,7 +90,8 @@ public class NameDeviceFragment extends SequencedFragment<PostPairingSequenceCon
     private Version1TextView deviceAttributeValue;
     private HaloController haloController;
 
-    private boolean isEditMode, takingPicture;
+    private boolean takingPicture;
+    private final boolean isEditMode = true;
 
     @Override
     public void onError(Throwable throwable) {
@@ -128,7 +128,6 @@ public class NameDeviceFragment extends SequencedFragment<PostPairingSequenceCon
         Bundle arguments = new Bundle();
         arguments.putString(DEVICE_NAME, deviceName);
         arguments.putString(DEVICE_ADDRESS, deviceAddress);
-        arguments.putSerializable(SCREEN_VARIANT, screenVariant);
         instance.setArguments(arguments);
 
         return instance;
@@ -153,8 +152,6 @@ public class NameDeviceFragment extends SequencedFragment<PostPairingSequenceCon
         assignmentChevron = (ImageView) view.findViewById(R.id.imgChevron);
         deviceAttributeLayout = view.findViewById(R.id.device_attribute_layout);
         deviceAttributeValue = (Version1TextView) view.findViewById(R.id.device_attribute_value);
-
-        isEditMode = getArguments().getSerializable(SCREEN_VARIANT) == ScreenVariant.SETTINGS;
 
         return view;
     }
@@ -358,7 +355,7 @@ public class NameDeviceFragment extends SequencedFragment<PostPairingSequenceCon
 
     @Override
     public void onSuccess() {
-        goNext();
+        BackstackManager.getInstance().navigateBack();
     }
 
     @Override
