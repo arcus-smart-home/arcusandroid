@@ -19,8 +19,6 @@
     <!-- Arcus colors -->
     <color name="sclera_purple">#3C1053</color>
     <color name="sclera_alt_purple">#8A7098</color>
-    <color name="sclera_teal">#00BFB3</color>
-    <color name="sclera_blue">#004B87</color>
     <color name="sclera_light_blue">#0095C8</color>
     <color name="sclera_light_blue_depressed">#800095C8</color>
     <color name="sclera_green">#00BA6D</color>
@@ -39,7 +37,6 @@
 
     <!-- Text, label, input, border, etc. colors -->
     <color name="sclera_text_color_dark">#222222</color>
-    <color name="sclera_text_color_gray">#454345</color>
     <color name="sclera_text_color_light">#FFFFFF</color>
     <color name="sclera_text_color_light_depressed">#80FFFFFF</color>
     <color name="sclera_text_color_light_gray">#9a9a9a</color>
@@ -47,8 +44,6 @@
     <color name="sclera_disabled_color">#C3C3C3</color>
     <color name="sclera_drop_shadow_color">#C3C3C3</color>
     <color name="sclera_background_color">#F0F0F0</color>
-    <color name="sclera_border_color">#F0F0F0</color>
-    <color name="sclera_widget_color">#FFFFFF</color>
 
     <color name="sclera_divider_color">#FFE7E7E7</color>
     <color name="sclera_vide_tab_color">#E6F0F0F0</color>

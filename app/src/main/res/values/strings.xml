@@ -33,7 +33,6 @@
     <string name="app_out_of_date">Please download the latest version of the &appName; app in order to pair the device.</string>
     <string name="update_app">UPDATE APP</string>
     <string name="update_to_latest">Update to Latest Version</string>
-    <string name="back">Back</string>
     <string name="chevron_content_description">More details</string>
     <string name="checkmark_content_description">A checkmark to indicate success</string>
     <string name="upgrade">Upgrade</string>
@@ -90,15 +89,6 @@
     <string name="clip_expires_hours_minutes">Expires in %s Hours, %s Minutes</string>
     <string name="clip_expires_minutes">Expires in %s Minutes</string>
 
-    <string name="hub_not_in_pairing_mode_zero_devices_found">&#8230;</string>
-    <string name="hub_pairing_in_unpairing_mode_text">Busy</string>
-    <string name="hub_pairing_in_pairing_mode_text">In Pairing Mode</string>
-    <string name="hub_pairing_requested_text">Entering Pairing Mode</string>
-    <string name="hub_pairing_not_in_pairing_mode_text">Not In Pairing Mode</string>
-    <string name="hub_offline_text">Offline</string>
-    <string name="hub_pairing_looking_text">Looking&#8230;</string>
-    <string name="hub_none_text">No Hub</string>
-
     <string name="hub_error_code_e01">Hub Error Code E01</string>
     <string name="hub_error_code_e02">Hub Error Code E02</string>
     <string name="no_shortNames_found">No %1$ss Were Found</string>
@@ -108,7 +98,6 @@
     <string name="hub_searching_description">This may take 5–10 minutes\nand it is normal for the hub to blink.\nPlease leave the app open.</string>
     <string name="hub_longsearching_error">Hub ID, %s, is taking longer\nthan usual to connect.</string>
     <string name="v3_hub_longsearching_error">Hub ID, %s, is taking longer than usual.</string>
-    <string name="hub_longsearching_title">Hub ID, %s, is taking longer than usual to connect to the Arcus Cloud Platform.</string>
     <string name="hub_longsearching_description"><![CDATA[<u>Need Help?<u>]]></string>
     <string name="hub_longsearching_wrong_hub_id">Wrong Hub ID? No worries.\nEnter the correct Hub ID below:</string>
     <string name="hub_reporting_error_code">Your Hub, %1$s, is reporting\nerror code %2$s.</string>
@@ -141,12 +130,8 @@
     <string name="device_not_support_string">This device is not supported yet.</string>
 
     <!-- General Messages -->
-    <string name="password_reset_code">Code</string>
-    <string name="field_not_blank">%s cannot be blank.</string>
 
     <!-- Adding Hubs -->
-    <string name="hub_id_label">Hub ID:</string>
-    <string name="add_hub_fragment_title">Add Your Hub</string>
     <string name="hub_id_wrong_format">Invalid Hub ID</string>
     <string name="hub_id_missing">Missing Hub ID</string>
     <string name="search_for_new_hub_id">Search for new Hub ID</string>
@@ -163,42 +148,18 @@
 
     <!-- Adding Choose a Device    -->
 
-    <plurals name="devices_found_plural">
-        <item quantity="one">%d Device Found</item>
-        <item quantity="other">%d Devices Found</item>
-    </plurals>
-
-    <plurals name="devices_found_plural_exclamation">
-        <item quantity="one">%d Device Found!</item>
-        <item quantity="other">%d Devices Found!</item>
-    </plurals>
-    <string name="tap_to_customize">Tap the device below to customize your device.</string>
-
-    <string name="multiparinglist_title">You can now control these devices in Arcus.</string>
-    <string name="multiparinglist_subtitle">Name your devices and add a photo if you like.</string>
-    <string name="choose_device_fragment_title">ADD A DEVICE</string>
     <string name="choose_device_search_title">Search Device</string>
     <string name="choose_device_search_hint">Search for a device</string>
-    <string name="choose_device_search_titlebar">Search</string>
-    <string name="choose_device_search_not_found">No Products Found!</string>
-    <string name="multipairinglist_screen_title">FOUND DEVICES</string>
-    <string name="multipairinglist_dialog_msg">Not all your devices have been named. Do you want to exit?</string>
-    <string name="one_device_found">Device Found</string>
-    <string name="multi_devices_found">Devices Found</string>
-    <string name="multipairinglist_dialog_title">Device Pairing</string>
-    <string name="multipairinglist_dialog_pos_btn_text">Continue Naming</string>
-    <string name="multipairinglist_dialog_neg_btn_text">Exit Pairing</string>
     <string name="pairing_done">DONE</string>
     <string name="pairing_next">NEXT</string>
     <string name="pairing_add_a_photo">Now just name your device and\nadd a photo if you like.</string>
     <string name="pairing_device_name">Device Name</string>
-    <string name="pairing_uncertified_device">Uncertified Device</string>
     <string name="device_activation_title">Follow the steps below to activate and customize your devices.</string>
     <string name="device_activation_subtitle">It’s best to activate one at a time. Activation may take a few minutes.</string>
     <string name="kit_setup">Kit Setup</string>
 
-    <string name="activation_generic_error_title">Error</string> <!-- Replace once we have real error text -->
-    <string name="activation_generic_error_desc">Error</string>  <!-- Replace once we have real error text -->
+    <!-- Replace once we have real error text -->
+    <!-- Replace once we have real error text -->
 
     <string name="device_activation_incomplete_title">Device Activation Incomplete</string>
     <string name="device_activation_incomplete_desc">"It’s best to activate all of your devices now. Do you want to proceed?"</string>
@@ -208,56 +169,27 @@
     <string name="customize_my_devices">Customize my devices</string>
 
     <!-- Account registration -->
-    <string name="account_registration_title">SIGN UP</string>
     <string name="account_registration_next_btn">NEXT</string>
     <string name="account_registration_create_account">Create an Account</string>
     <string name="account_registration_sing_up">Sign Up</string>
-    <string name="account_registration_launch1">Life, made easier</string>
-    <string name="account_registration_launch2">Help protect\nwhat matters most.</string>
-    <string name="account_registration_launch3">Know when the kids\nget home from school.</string>
-    <string name="account_registration_launch4">Peace of mind\nwherever you go.</string>
-    <string name="account_registration_invitation_code">USE INVITATION CODE</string>
     <string name="account_registration_your_information">About you</string>
     <string name="account_registration_home_information">About Your Home</string>
     <string name="account_registration_home_verify_title">VERIFY ADDRESS</string>
-    <string name="account_registration_home_verify_message">Please ensure you have entered the correct address</string>
-    <string name="account_registration_home_verify_use_btn">USE WHAT I TYPED</string>
-    <string name="account_registration_home_verify_edit_btn">EDIT WHAT I TYPED</string>
-    <string name="account_registration_email_password">Email   Password</string>
     <string name="account_registration_security">Security Questions</string>
-    <string name="account_registration_login">Log In</string>
-    <string name="account_registration_login_invite_title">Invitation</string>
-    <string name="account_registration_login_invite_code_hint">Invitation Code</string>
-    <string name="account_registration_login_invite_email_hint">Email Address</string>
-    <string name="account_registration_login_invite_code_prompt">Enter your invitation code and\nthe email address it was sent to.</string>
-    <string name="account_registration_login_invite_next_btn">NEXT</string>
     <string name="account_registration_login_submit_btn">Submit</string>
-    <string name="account_registration_login_done_btn">Done</string>
-    <string name="account_registration_login_forgot_btn">Forgot Password</string>
     <string name="account_registration_phone_number">Phone Number</string>
     <string name="account_registration_forgot_password">Forgot Password</string>
-    <string name="account_registration_email_sent">Email Sent</string>
-    <string name="account_registration_promo">Promo</string>
-    <string name="account_registration_notifications">Notifications</string>
     <string name="account_registration_premium_plan">Premium Plan</string>
     <string name="account_registration_credit_card">Billing Information</string>
     <string name="account_registration_done">Congrats</string>
-    <string name="account_registration_get_started_prompt1">Let\'s get started!</string>
-    <string name="account_registration_get_started_prompt2">This is your personalized dashboard.\nThere isn\'t much to see just yet, but that will\nall change once you add devices.</string>
-    <string name="account_registration_get_started_prompt3">Tap the + in the top right to\nadd your first device.</string>
-    <string name="account_registration_pin_code_screen_title">PIN CODE</string>
     <string name="Account_registration_enter_pin_code_message"> The PIN Code will be used to disarm \n your alarm, unlock locks and more.</string>
     <string name="Account_registration_confirm_pin_code_message"> Please confirm the PIN code.</string>
-    <string name="Account_registration_saved_pin_code_message"> Your PIN code has been saved!</string>
-    <string name="account_login_success_message">Success! \n \n Continue your dashboard \n or create an account.</string>
 
     <string name="account_registration_first_name_hint">First Name</string>
     <string name="account_registration_first_name_blank_error">First name cannot be blank</string>
     <string name="account_registration_last_name_hint">Last Name</string>
     <string name="account_registration_last_name_blank_error">Last name cannot be blank</string>
-    <string name="account_registration_enter_pin_code">Enter a 4 digit Pin Code</string>
     <string name="account_registration_by_register">By clicking \"Next,\" I agree to the Arcus&#174;</string>
-    <string name="account_registration_call_for_help">Need to call support for help? \n This will confirm your identity. \n (Also helps with forgotten passwords)</string>
     <string name="account_registration_credit_card_hint">Credit Card Number</string>
     <string name="account_registration_card_number_blank_error">Card number cannot be blank</string>
     <string name="account_registration_cvv_blank_error">CVV cannot be blank</string>
@@ -267,41 +199,23 @@
     <string name="account_registration_question3_hint" />
     <string name="account_registration_answer_hint">Answer</string>
 
-    <string name="account_registration_notifications_prompt1">Arcus would like to send you\npush notifications\nto alert you when there\nare emergencies.</string>
-    <string name="account_registration_notifications_prompt2">You can always edit notifications\n in Account Settings.</string>
-    <string name="account_registration_notifications_warning">If we cannot send you\npush notifications\nthen we will inform you of\nemergencies by email.</string>
-    <string name="account_registration_sign_up_check_box_notifications">Send me push notifications</string>
-
     <string name="account_registration_premium_plan_prompt1">Try our Premium Plan, FREE for two \n months! Only $9.99/mo afterwards.</string>
-    <string name="account_registration_premium_plan_prompt2">* A credit card is required.\n\nWe\'ll send you a reminder before the trial\nexpires so you can choose to continue\nor cancel the Premium Plan.</string>
     <string name="account_registration_premium_plan_prompt_credit_card">* A credit card is required. \n Cancel during FREE trial period \n to avoid any fees. Cancel Anytime.</string>
     <string name="account_registration_premium_plan_prompt_free">Subscribe to the Professional Monitoring plan, $14.95/month, by logging into your account at example.com.</string>
-    <string name="account_registration_premium_plan_prompt_cancel">Cancel during FREE trial period to avoid any fees.</string>
 
-    <string name="account_registration_billing_information">Billing Information</string>
     <string name="account_registration_billing_street1_hint">Address Line 1</string>
     <string name="account_registration_billing_street2_hint">Address Line 2</string>
     <string name="account_registration_billing_city_hint">City</string>
-    <string name="account_registration_billing_state_hint">State</string>
     <string name="account_registration_billing_zipcode_hint">Zip</string>
     <string name="account_registration_street_blank_error">Street cannot be blank</string>
     <string name="account_registration_city_blank_error">City cannot be blank</string>
     <string name="account_registration_state_blank_error">State cannot be blank</string>
     <string name="account_registration_zipcode_blank_error">Zip code cannot be blank</string>
-    <string name="account_registration_billing_residence_hint">Primary Residence</string>
     <string name="account_registration_billing_cvv_hint">CVV</string>
     <string name="account_registration_billing_home_nickname_hint">Name</string>
-    <string name="account_registration_credit_addr_choice">Use my home address</string>
 
     <string name="account_registration_phone_hint">555&#8211;555&#8211;5555</string>
     <string name="account_registration_phone_error_hint">A valid phone number is required</string>
-    <string name="account_registration_phone_info">A phone number is needed \n in case of an emergency.</string>
-    <string name="account_registration_phone_not_share">We do not share this information \n without your explicit consent.</string>
-
-    <string name="account_registration_getting_started">GETTING STARTED</string>
-    <string name="account_registration_has_hub">I HAVE A HUB</string>
-    <string name="account_registration_no_hub">I DON\'T HAVE A HUB</string>
-    <string name="account_registration_no_hub_info">Pair your stand-alone devices \n to the Arcus platform. </string>
 
     <string name="no_hub_devices">NO HUB REQUIRED DEVICES</string>
     <string name="no_hub_devices_title">Here are some examples of the \n devices that work with &appName; \n without the use of a Hub.</string>
@@ -318,12 +232,8 @@
     <string name="sign_up_confirm_password_hint">Confirm Password</string>
     <string name="sign_up_password_prompt1">Password is case-sensitive and \n- Must be at least 8 characters in length\n- Must have at least 1 letter &amp; 1 number\n- Cannot use spaces\n- Cannot be your email address</string>
     <string name="sign_up_check_box_text">Send me offers and promotions</string>
-    <string name="forgot_password_will_sent">Forget your password? \n No big deal.</string>
-    <string name="forgot_password_instruction">Enter your email address and \n we"'"ll send instructions on how
-       to reset it. \n But hurry - the link will expire in 30 minutes.</string>
     <string name="forgot_password_dont_worry">Don\'t worry, just enter the email address you registered with and we will send you instructions to reset your password.</string>
     <string name="forgot_password_hurry">But hurry, the link will expire in 30 minutes.</string>
-    <string name="forgot_password_show_password">Show Password</string>
     <string name="forgot_password_password_requirements">&#8226; Password is case-sensitive\n&#8226; Must be at least 8 characters in length\n&#8226; Must have at least 1 letter &amp; 1 number\n&#8226; Cannot use spaces\n&#8226; Cannot be your email address</string>
 
     <string name="forgot_password_quick">Already Have a Code From Support?</string>
@@ -333,14 +243,10 @@
     <string name="forgot_password_check_inbox">Check Your Inbox</string>
     <string name="forgot_password_email_sent">We\'ve sent an email to %s with a code to reset your password.</string>
     <string name="forgot_password_button">Send Email</string>
-    <string name="forgot_password_code_button">NEXT</string>
     <string name="submit">Submit</string>
     <string name="current_password_text">Current Password</string>
     <string name="forgot_password_reset_password_hint">New Password</string>
     <string name="forgot_password_reset_confirm_password_hint">Confirm Password</string>
-    <string name="forgot_password_reset_prompt1">Passwords are case-sensitive and require:</string>
-    <string name="forgot_password_reset_prompt2">&#8226; At least 1 number and 1 special character\n&#8226; Cannot be your email address\n&#8226; Contain no spaces</string>
-    <string name="forgot_password_sent">An email has been sent to you. \n Check you inbox.</string>
     <string name="account_registration_email_blank_error_msg">Email must be entered</string>
     <string name="account_registration_email_well_formed_error_msg">Invalid email</string>
     <string name="account_registration_missing_email_error_msg">Missing email</string>
@@ -350,15 +256,8 @@
     <string name="account_registration_verify_password_blank_error_msg">Missing password</string>
     <string name="missing_code">Missing code</string>
     <string name="invalid_code">Invalid code</string>
-    <string name="generic_banner">Invalid code</string>
 
     <string name="password_hint_small_text">(min 8 characters)</string>
-    <string name="reset_password_title">Password Reset</string>
-    <string name="reset_password_hint">New Password</string>
-    <string name="reset_password_confirm_hint">Confirm New Password</string>
-    <string name="reset_password_not_match">Password not match!</string>
-    <string name="reset_password_guide">Password are case-sensitive and require: \n
-        \n &#8226;At least 1 number and 1 special characters \n &#8226;Cannot be your email address \n &#8226;Contain no spaces</string>
 
     <string name="account_registration_done_congrats">Account Created!\nYou\'re one step closer\nto a smarter home.</string>
     <string name="account_registration_done_success_line">________________</string>
@@ -367,12 +266,6 @@
     <string name="account_registration_done_success_thermostat">Control your thermostat</string>
     <string name="account_registration_done_success_lighting">Turn on your lights</string>
 
-    <string name="account_registration_premium_plan_smart_device">Control multiple smart devices\nwith the push of a button</string>
-    <string name="account_registration_premium_plan_rules">Automate smart devices based on\nwho\'s home, the climate and more</string>
-    <string name="account_registration_premium_plan_favorites">\nAccess your favorite devices fast\n</string>
-
-    <string name="account_registration_password_reqs">"&#8226;  At least eight characters \n &#8226; At least one number \n &#8226; At least one special character \n &#8226; Can not be your email address \n &#8226; No spaces"</string>
-
     <string name="account_registration_password_contains_space_error_msg">Password must not contain spaces</string>
     <string name="account_registration_password_equals_email_error_msg">Password must not equal email</string>
     <string name="account_registration_password_contains_email_error_msg">Password must not contain username from email</string>
@@ -380,7 +273,6 @@
     <string name="account_registration_password_contains_no_num_error_msg">Password must contain at least 1 number</string>
     <string name="account_registration_password_contains_no_char_error_msg">Password must contain at least 1 letter</string>
     <string name="account_registration_verify_password_not_equal_to_password_error_msg">Passwords do not match.</string>
-    <string name="account_registration_password_contains_no_special_error_msg">Password needs to contain 1 special char.</string>
 
     <string-array name="account_registration_exp_month_list">
         <item>MM</item>
@@ -413,39 +305,22 @@
         <item>2026</item>
     </string-array>
 
-    <string name="title_activity_launch">LaunchActivity</string>
-
-    <string name="login_btn">Log In</string>
-    <string name="sign_up_btn">Sign Up</string>
-
     <!-- hub -->
     <string name="online">Online</string>
-    <string name="hub_pair_tips">Hub Tips</string>
     <string name="connect_the_hub_title">ADD A HUB</string>
     <string name="pairing_the_hub_title">PAIRING HUB</string>
-    <string name="hub_heart_of_system">The hub is the heart of the \n Arcus Smart Home System, \n so we"'"ll start there.</string>
-    <string name="hub_skip_this">Skip this</string>
     <string name="hub_step_insert_batteries">Remove the battery cover, \n insert the included backup \n batteries, then reattach the cover.</string>
     <string name="hub_step_plug_ethernet">Plug one end of the supplied \n ethernet cable into your router.</string>
-    <string name="hub_step_follow_sequentially">These directions must be \n followed sequentially.</string>
     <string name="hub_step_plug_other_end">Plug the other end \n into the Hub.</string>
     <string name="hub_step_insert_supplied_power">Insert the supplied power \n cable into the Hub.</string>
     <string name="hub_step_plug_into_outlet">Plug the power cable into an outlet.</string>
     <string name="hub_step_enter_hub_id">Enter the Hub ID found \n on the bottom of the Hub.</string>
-    <string name="hub_id_hint">ABC-1234</string>
     <string name="hub_id_edit_title">HUB ID</string>
     <string name="hub_id_hint_title">Hub ID</string>
     <string name="name_your_hub">Name your device \n and add a photo if you like.</string>
     <string name="hub_name_label">Hub Name</string>
     <string name="hub_name_hint">Smart Hub</string>
-    <string name="hub_searching">Searching for Hub with\n ID</string>
-    <string name="hub_searching_almost_done">This may take 5&#8211;10 minutes.\nPlease leave the app open.</string>
-    <string name="hub_searching_prompt1">Did you know\?\n\nArcus works with dozens of brands,\nso you can customize the system\nthat\'s right for you.</string>
-    <string name="hub_time_out">The hub has timed out.</string>
-    <string name="hub_what_now">What now?</string>
     <string name="hub_hooray">Hooray!\nThe hub is the heart of \nyour Arcus network.</string>
-    <string name="hub_with_kit_hooray">Hooray! Your Hub was set up successfully.</string>
-    <string name="hub_is_set_up">Hooray!\nYour Arcus Smart Hub is\nconnected and ready to go.</string>
     <string name="hub_is_set_up_subtext">Now that you are connected, you can start adding devices.\nReady, set, add!</string>
     <string name="hub_horray_on_ethernet">"Hooray! Your Hub was set up successfully using an Ethernet connection."</string>
     <string name="hub_horray_on_ethernet_subtext">"You can move your Hub over to a Wi-Fi connection later on the Hub’s detail page."</string>
@@ -455,10 +330,7 @@
     <string name="connect_hub_wifi">Connect Hub To Wi-Fi</string>
     <string name="continue_kit_setup">Continue Kit Setup</string>
     <string name="hub_with_kit_is_set_up_subtext">"Next, let's activate the rest of your Kit's devices. It is best to leave the app open during this process."</string>
-    <string name="hub_is_set_up_prompt1">So what\'s next\?\n\nAdd a wide variety of devices to\n automate your home\n\nCheck back often for new\nproducts and features\n\nEnjoy the benefits of\nsmart living</string>
-    <string name="have_a_hub">Do you have a Smart Hub or Starter Kit\?</string>
     <string name="hub_is_heart">The Hub is the heart of the Arcus network, but not all devices require a Hub.</string>
-    <string name="explore_the_app">Explore the App</string>
     <string name="take_to_dashboard">Take me to the Dashboard</string>
     <string name="hub_pairing_next_button">NEXT</string>
     <string name="hub_pairing_pair_a_device">ADD  A  DEVICE</string>
@@ -468,14 +340,9 @@
     <string name="hub_on_wifi_description_without_kit">"If your Wi-Fi network isn’t reliable, consider connecting the Hub to your router using the included Ethernet cable."</string>
 
     <!-- product catalog -->
-    <string name="catalog_categories">CATEGORY</string>
-    <string name="catalog_brands">BRAND</string>
-    <string name="catalog_arcus_brand">ARCUS</string>
 
     <!--dashboard settings-->
     <string name="dashboard_settings_title">Dashboard Settings</string>
-    <string name="dashboard_settings_prompt1">Customize your Dashboard,\nedit your favorites,\nand reorder your cards.</string>
-    <string name="dashboard_settings_prompt_basic">Customize your Dashboard\nand reorder your cards.</string>
     <string name="dashboard_settings_favorites_top">Manage Favorites</string>
     <string name="dashboard_settings_favorites_bottom">Choose your Favorite Devices &amp; Scenes</string>
     <string name="dashboard_settings_cards_top">Manage Cards</string>
@@ -483,58 +350,21 @@
     <string name="dashboard_settings_photo_top">Background Photo</string>
     <string name="dashboard_settings_photo_bottom">Update Dashboard Photo</string>
 
-    <string name="update_wi_fi_credentials">Update Wi-Fi Credentials</string>
     <string name="wifi_network_name">Wi-Fi Network Name</string>
     <string name="wifi_signal_strength">Wi-Fi Signal Strength</string>
 
     <!-- device -->
-    <string name="device_searching_may_take_a_few">This may take a few minutes.\nPlease leave the app open.</string>
-    <string name="device_searching_did_you_know">Did you know?\n\n\nArcus works with dozens of major brands,\nso you can customize the system\nthat\'s right for you.</string>
-    <string name="device_searching_text">Searching for %s</string>
-    <string name="device_pair_tips">Pairing Tips</string>
-    <string name="name_your_device">Name your Device \n and add a photo if you like.</string>
     <string name="device_name_hint">DEVICE NAME</string>
-    <string name="paired_to_the_hub">Paired to the Hub \n and ready for action.</string>
-    <string name="find_even_more_rules">Find even more rules in the Side menu</string>
-    <string name="lock_test_instruction_1">Pressing the test button will cause \n the lock to "'"buzz-in."'"</string>
-    <string name="lock_test_instruction_2">The lock will temporarily unlock \n -or stay unlocked if already in \n that state - and will then lock.</string>
-    <string name="devices_paired_title">DEVICES PAIRED</string>
-    <string name="devices_paired_desc">The hub just saved you some time\nand paired multiple devices!</string>
-    <string name="devices_paired_btn">SHOW DEVICES</string>
-    <string name="device_paired_title">PAIRED</string>
-    <string name="device_paired_favorites_title">ADD TO FAVORITES</string>
-    <string name="device_paired_favorites_prompt1">Do you want to add this\ndevice to Favorites?</string>
-    <string name="device_paired_favorites_prompt2">Gain fast access to your Favorite\ndevices at the top of your Dashboard.</string>
-    <string name="device_paired_favorites_prompt3">Add this device to Favorites</string>
-    <string name="device_paired_desc">The hub just saved you some time!</string>
-    <string name="device_paired_btn">CUSTOMIZE</string>
-    <string name="vent_extra_pairing_title">VENT</string>
-    <string name="vent_extra_pairing_next_btn">NEXT</string>
-    <string name="vent_extra_pairing_prompt1">Attention!</string>
-    <string name="vent_extra_pairing_prompt2">Please consult an HVAC professional or\nthe device manufacturer for best practices\non maintaining your HVAC system.</string>
-    <string name="sensor_extra_pairing_step_line_1_txt">Is this contact sensor being</string>
-    <string name="sensor_extra_pairing_step_line_2_txt">used on a door or a window?</string>
-    <string name="sensor_extra_door_text">DOOR</string>
-    <string name="sensor_extra_window_text">WINDOW</string>
-    <string name="sensor_extra_other_text">OTHER</string>
-    <string name="tilt_sensor_extra_pairing_step_line_1_txt">How is this tilt sensor</string>
-    <string name="tilt_sensor_extra_pairing_step_line_2_txt">being used?</string>
     <string name="tilt_sensor_extra_Horizontal_text">HORIZONTAL \u00A0 \u00A0 (Ex: Garage Door)</string>
     <string name="tilt_sensor_extra_vertical_text">VERTICAL \u00A0 \u00A0 (Ex: Jewelry Box)</string>
     <string name="device_last_triggered">LAST TRIGGERED</string>
     <string name="device_last_triggered_unavailable">(UNAVAILABLE)</string>
-    <string name="device_arrived_at">ARRIVED AT:</string>
-    <string name="device_left_at">LEFT AT:</string>
-    <string name="pendant_test_coverage">TEST YOUR COVERAGE</string>
-    <string name="pendant_test_coverage_copy">While the pendant can communicate \n with the hub from up-to 130 ft. away, \n results may vary based on the layout \n of your home. Press the button at \n the furthermost areas of your home. \n\n The device is out of range when you \n do not receive a notification for each \n button press. Consider adding Smart \n Plugs, which serve as range extenders, \n to increase coverage.</string>
     <string name="device_brightness">BRIGHT</string>
     <string name="next_event_label">NEXT EVENT</string>
 
     <!-- key fob pairing  -->
-    <string name="key_fob_pairing_what_button_do">What do you want this button to do?</string>
 
     <!-- smart button pairing  -->
-    <string name="smart_button_pairing_what_button_do">What do you want this button to do?</string>
 
     <!-- device poor connection  -->
     <string name="device_poor_connection">Poor connection</string>
@@ -550,13 +380,10 @@
     <string name="view_hub_details">View Hub Details</string>
 
     <!-- add -->
-    <string name="add_title">ADD</string>
     <string name="add_title_lower">Add</string>
 
     <!-- favorites -->
     <string name="favorites_title">Favorites</string>
-    <string name="favorites_add_anything">Add just about anything \n you want to favorites \n for faster access.</string>
-    <string name="favorites_first_add_decive">To add a favorite, \n you must first pair a device.</string>
 
     <!-- device more page -->
     <string name="device_more_favorite_instr">Add/Remove from Favorites</string>
@@ -565,7 +392,6 @@
     <string name="device_more_product_name_instr_keyfob">Edit Name, Photo &amp; Assignment</string>
     <string name="device_more_product_information">PRODUCT INFORMATION</string>
     <string name="device_more_product_information_instr">Model Number, Purchase Date &amp; More</string>
-    <string name="device_more_settings">SETTINGS</string>
     <string name="device_more_connectivity">CONNECTIVITY &amp; POWER</string>
     <string name="device_more_connectivity_instr">Online &amp; Power Info</string>
     <string name="device_more_firmware">FIRMWARE</string>
@@ -590,7 +416,6 @@
     <string name="hub_connectivity_cellular_sim_card_id">Sim Card ID</string>
     <string name="hub_connectivity_connect_wifi">Connect Wi-Fi</string>
     <string name="hub_connectivity_update_wifi">Update Wi-Fi</string>
-    <string name="hub_connectivity_cellular_esn">ESN</string>
     <string name="hub_wifi_not_reliable">If your Wi-Fi network isn’t reliable, connect the Hub to your router using an Ethernet cable.</string>
     <string name="hub_connect_to_wifi_suggestion">To stay connected to the internet without an Ethernet cable, consider connecting the Hub to your Wi-Fi Network.</string>
 
@@ -612,12 +437,10 @@
     <string name="hub_firmware_wireless">WIRELESS</string>
     <string name="hub_firmware_version">FIRMWARE</string>
     <string name="hub_firmware_update">Hub Firmware Update</string>
-    <string name="hub_firmware_update_btn">UPDATE NOW</string>
     <string name="hub_firmware_update_instr">Updating the hub will improve performance \n and may unlock new features. The update \n may take a few minutes, during which \n your service will be unavailable.</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- Smoke Detector -->
     <string name="smoke_detector_last_test">LAST TESTED</string>
@@ -639,8 +462,6 @@
     <string name="care_pendant_away">AWAY</string>
 
     <!-- Valve -->
-    <string name="valve_open">Open</string>
-    <string name="valve_closed">Closed</string>
     <string name="valve_shut_off">Shut Off</string>
     <string name="valve_obstruction"><i>Obstruction Detected</i></string>
     <string name="valve_obstruction_error">Obstruction Detected. Open and close the valve manually to resolve.</string>
@@ -664,7 +485,6 @@
     <string name="recharge_now_cancel_btn">CANCEL</string>
     <string name="recharge_now_already_recharging">ALREADY RECHARGING</string>
     <string name="recharge_now_already_recharging_des">Check your water softener detail page to see how much time is left remaining until the recharge is complete.</string>
-    <string name="water_softener_title">WATER SOFTENER</string>
 
 
     <string name="water_hardness_level_instr">Your water hardness level is defaulted to &#60;device default value&#62; gpg (grains per gallon). This should vary by location and water source.</string>
@@ -675,12 +495,7 @@
     <string name="v3_hub_step_2_pairing_text">Plug the other end into the hub</string>
     <string name="v3_hub_step_3_pairing_text">Enter the Hub ID found on the bottom of the Hub.</string>
     <string name="v3_hub_step_3_error_text">@string/hub_id_missing</string>
-    <string name="add_a_hub">Add a Hub</string>
 
-    <string name="water_softener_settings">SETTINGS</string>
-    <string name="water_softener_settings_configurations">Water Softener Configurations</string>
-    <string name="water_softener_wifi_network_title">WI-FI NETWORK</string>
-    <string name="water_softener_wifi_network_des">If this device is connected to the incorrect Wi-Fi network, please update it on the device.</string>
     <string name="water_softener_recharge_now_title">RECHARGE NOW</string>
     <string name="water_softener_recharge_now_des">Manually Recharge Your Water Softener</string>
     <string name="water_softener_recharge_time_title">RECHARGE TIME</string>
@@ -695,7 +510,6 @@
     <string name="water_softener_continuous_flow_des">Choose the flow rate that will trigger a push notification and an email when the flow rate has been reached for 20 minutes.</string>
     <string name="water_softener_excessive_flow_title">EXCESSIVE WATER FLOW</string>
     <string name="water_softener_excessive_flow_des">This device learns your average daily water usage. If the amount of water used in a particular day is significantly more than the average for that day of the week, send a high water use push notification and email to %1$s</string>
-    <string name="water_softener_ecowater_settings_title">WATER FLOW RATE</string>
     <string name="water_softener_ecowater_settings_desc">This device can detect the amount \nof water flowing through it.</string>
     <string name="water_softener_ecowater_off_abstract">Off</string>
     <string name="water_softener_ecowater_off_title">OFF</string>
@@ -724,8 +538,6 @@
     <string name="fob_rule_alarm_partial">Set Security Alarm To Partial</string>
     <string name="fob_rule_play_chime">Play Chime</string>
     <string name="fob_rule_activate_rule">Activate Rule</string>
-    <string name="fob_rule_none">None</string>
-    <string name="pendant_rule_panic">Trigger Panic Alarm</string>
     <string name="button_rule_panic">Trigger Panic Alarm</string>
 
     <!--sidenav settings-->
@@ -739,30 +551,21 @@
     <string name="sidenav_settings_people_bottom">Manage People</string>
     <string name="sidenav_settings_places_top">Places</string>
     <string name="sidenav_settings_places_bottom">Manage Places</string>
-    <string name="sidenav_settings_billing_top">Billing</string>
-    <string name="sidenav_settings_billing_bottom">View Payment &amp; Plan Information</string>
     <string name="sidenav_settings_invitation_top">Invitation Code</string>
     <string name="sidenav_settings_invitation_bottom"><![CDATA[Accept Invitation(s) to Someone\'s Place]]></string>
 
     <string name="content_description_chevron">Chevron</string>
-    <string name="content_description_step_number">An icon containing the step number</string>
-    <string name="image_content_description">Image used to illustrate the item described.</string>
 
     <!--sidenav account settings-->
     <string name="content_description_camera">Camera</string>
-    <string name="account_settings_title">Account</string>
     <string name="account_settings_contact_info">Contact Information</string>
     <string name="account_settings_security">Security Questions</string>
     <string name="change_pincode">Change Pin Code</string>
     <string name="account_settings_push_notifications">Push Notifications</string>
     <string name="account_settings_billing">Billing</string>
     <string name="account_settings_marketing">Marketing</string>
-    <string name="account_settings_linked_accounts">Linked Accounts</string>
     <string name="account_settings_terms_of_use">TERMS OF USE</string>
-    <string name="account_settings_sharing">3rd Party Sharing</string>
-    <string name="account_settings_legal">Legal</string>
     <string name="terms_of_use">Terms of Use</string>
-    <string name="account_settings_remove">Remove Account</string>
 
     <!--Settings: Contact Information-->
     <string name="contact_info_title">Contact Information</string>
@@ -790,7 +593,6 @@
 
     <!--Settings: Remove Account-->
     <string name="remove_account_title">DELETE MY Arcus ACCOUNT</string>
-    <string name="remove_account_confirm_prompt">You will no longer be\nable to access this home.</string>
     <string name="are_you_sure">Are You Sure?</string>
     <string name="action_cannot_be_reversed">This action cannot be reversed.</string>
     <string name="remove_account_prompt">Deleting this account will erase your Arcus account, email address, and personal information from the Arcus Hub and the Arcus servers.\n\nAny other places accessed through this account will also be removed.\n\nWe will ensure that any billing plans are cancelled. </string>
@@ -804,13 +606,8 @@
     <string name="setting_about_your_home">ABOUT YOUR HOME</string>
     <string name="settings_place">PLACE</string>
     <string name="settings_place_info">PLACE INFO</string>
-    <string name="settings_place_edit_address">EDIT ADDRESS</string>
     <string name="settings_place_timezone">TIME ZONE</string>
-    <string name="settings_place_utilities">UTILITIES &amp; ENERGY USE</string>
-    <string name="settings_place_sharing">3RD PARTY SHARING</string>
     <string name="settings_place_remove_place">REMOVE PLACE</string>
-    <string name="settings_place_home">HOME</string>
-    <string name="settings_place_done">DONE</string>
 
 
     <!--  vent control page    -->
@@ -829,16 +626,13 @@
     <string name="setting_reverse_switch">REVERSE SWITCH DIRECTION</string>
     <string name="setting_reverse_switch_description">Turn on when the switch is installed upside down. (Typically used if you want the LED on top of the switch rather than the bottom).</string>
     <string name="setting_fan_description">Fan Direction &amp; LED Controls</string>
-    <string name="setting_switch_description">Switch Direction &amp; LED Controls</string>
     <string name="setting">SETTING</string>
     <string name="setting_sensor_desc"> Is this contact sensor being used\n on a door, window or other?"</string>
     <string name="setting_contact_assigned_to_window">WINDOW</string>
     <string name="setting_contact_assigned_to_door">DOOR</string>
     <string name="setting_contact_assigned_to_other">OTHER</string>
-    <string name="setting_contact_assigned_to_unknown">UNKNOWN</string>
     <string name="setting_edit_button_controls">Edit button controls</string>
     <string name="setting_keyfob_what_would_you_like">What do you want this button to do?</string>
-    <string name="setting_camera_currently_connected_via">CURRENT CONNECTION: </string>
     <string name="setting_camera_settings">SETTINGS</string>
     <string name="setting_camera_configurations">Camera Configurations</string>
     <string name="setting_camera_quality_good">GOOD</string>
@@ -862,8 +656,6 @@
     <string name="setting_image_resolution_desc">Choosing a higher quality will capture a better picture, but will use more storage when saved.</string>
     <string name="setting_motion_sensitivity_title">TRUE DETECT MOTION SENSITIVITY</string>
     <string name="setting_motion_sensitivity_desc">A high motion setting will detect movement further away from the camera but may reduce battery life. Use the low setting for optimized battery performance.</string>
-    <string name="setting_image_quality_title">IMAGE QUALITY</string>
-    <string name="setting_image_quality_desc">Choosing a higher quality will capture a better picture, but will use more storage when saved.</string>
     <string name="setting_camera_led_enable_title">INFRARED LIGHT</string>
     <string name="setting_camera_led_enable_desc">Turning the infrared light on improves night vision.</string>
     <string name="setting_camera_led_choose_setting_title">CHOOSE A SETTING</string>
@@ -882,13 +674,6 @@
     <string name="settings_wifi_network_desc">Manage your Network Settings</string>
     <string name="setting_camera_net_and_wifi">WI-FI &amp; NETWORK SETTINGS</string>
     <string name="setting_camera_update_wifi">Update Wi-Fi</string>
-    <string name="setting_camera_security_title">SECURITY SETTING</string>
-    <string name="setting_camera_security_desc">WPA2 is recommended for optimal security. Contact your router manufacturer for help in securing your home network. All Arcus communication and camera image transmissions are encrypted even if your network is unsecured.</string>
-    <string name="setting_camera_wifi">WI-FI</string>
-    <string name="setting_camera_ethernet">ETHERNET</string>
-    <string name="setting_camera_disconnected">NOT CONNECTED</string>
-    <string name="setting_camera_network">WI-FI NETWORK</string>
-    <string name="setting_camera_password">PASSWORD</string>
     <string name="setting_wifi_network_name">NETWORK NAME</string>
     <string name="setting_wifi_security_none">NONE</string>
     <string name="setting_wifi_security_wep">WEP</string>
@@ -902,13 +687,6 @@
     <string name="setting_wifi_security_wpa_enterprise_abstract">WPA</string>
     <string name="setting_wifi_security_wpa2_personal_abstract">WPA2</string>
     <string name="setting_wifi_security_wpa2_enterprise_abstract">WPA2</string>
-    <string name="setting_camera_save">SAVE</string>
-    <string name="setting_wifi_wep_warning_title">WARNING</string>
-    <string name="setting_wifi_wep_warning_desc">Warning! Arcus does not support all WEP configurations as they are not the most secure. For security reasons, please consider using WPA/WAP2 instead. Contact your router manufacturer for assistance in securing your home network.</string>
-    <string name="setting_honeywell_account">HONEYWELL ACCOUNT</string>
-    <string name="setting_honeywell_account_description">My Total Connect Comfort Info</string>
-    <string name="setting_honeywell_update_credentials">Update Honeywell Credentials</string>
-    <string name="setting_honeywell_update_credentials_description">The Honeywell service connects to Arcus using tokens tied to your Honeywell login credentials.  For security reasons, Honeywell requires that the tokens used to link your account with Arcus will periodically expire.\n\nUpdate below to update your Honeywell login credentials.</string>
 
     <string name="setting_button_circle">CIRCLE</string>
     <string name="setting_button_diamond">DIAMOND</string>
@@ -921,15 +699,11 @@
     <string name="setting_button_home">HOME</string>
     <string name="setting_button_b">B</string>
 
-    <string name="setting_color_lights">Color Selection</string>
-
     <!-- Light Switch -->
     <string name="energy_usage_text">ENERGY</string>
 
     <!-- Irrigation -->
     <string name="irrigation_duration">DURATION</string>
-    <string name="irrigation_delay">DELAY</string>
-    <string name="irrigation_watering">WATERING</string>
     <string name="hours_picker_text">HRS</string>
     <string name="minutes_picker_text">MINS</string>
     <string name="irrigation_schedule_weekly">WEEKLY</string>
@@ -947,9 +721,6 @@
     <string name="irrigation_all_zones">ALL ZONES</string>
     <string name="irrigation_current_zone_only">CURRENT ZONE ONLY</string>
     <string name="irrigation_schedule_manual_description">Choose Manual when you do not want to follow a schedule.</string>
-    <string name="irrigation_no_device_des">Manage your irrigation schedule with ease using irrigation devices that &quot;Work with Arcus&quot;.</string>
-    <string name="irrigation_schedule_description">Turn on the schedule by selecting the checkmark.  Uncheck to deactivate the schedule.</string>
-    <string name="irrigation_add_edit_title">Create an event by choosing your start time, zones, and watering duration.</string>
     <string name="irrigation_water_saver_popup_description">Save water and money by reducing your watering time by a percentage for the entire schedule.\n\ne.g. If every event in the schedule is set to 10 min/zone during the summer, you may want to set Water Saver to 50% in the fall, which will reduce watering to 5 min/zone.</string>
     <string name="watering_delay_text">SKIP IRRIGATION FOR</string>
     <string name="irrigation_start_time">START TIME</string>
@@ -969,13 +740,11 @@
     <string name="irrigation_watering_delay_time_48">48 HOURS</string>
     <string name="irrigation_watering_delay_time_72">72 HOURS</string>
     <string name="irrigation_water_every">WATER EVERY</string>
-    <string name="ble_wifi_reconnect_instructions">"To change your Wi-Fi network, first remove the device from Arcus and then re-pair the device. Once re-paired, you'll be prompted to re-enter your Wi-Fi information."</string>
 
     <!-- History -->
     <string name="history_title">HISTORY</string>
     <string name="history_log_label">History Log</string>
     <string name="history_image_acc_text">History Icon</string>
-    <string name="favorite_settings_prompt1">Hide and reorder the items in your Favorites bar.</string>
     <string name="security_alarm">Security Alarm</string>
     <string name="security_alarm_title">SECURITY ALARM</string>
 
@@ -985,8 +754,6 @@
     <string name="homenfamily_away">Away</string>
     <string name="homenfamily_home_list_empty">Hey, where\'d everyone go?</string>
     <string name="homenfamily_away_list_empty">Ahh, all together again.</string>
-    <string name="homenfamily_edit_name">EDIT NAME</string>
-    <string name="homenfamily_assign">ASSIGN</string>
     <string name="homenfamily_assign_to">ASSIGN TO</string>
     <string name="homenfamily_assigned">Assigned to</string>
     <string name="homenfamily_assigned_to_person">Assigned to %s</string>
@@ -1003,7 +770,6 @@
     <string name="lightsnswitches_on">ON</string>
     <string name="lightsnswitches_off">OFF</string>
     <string name="lightsnswitches_percentage">%d %%</string>
-    <string name="lightsnswitches_number_on">%d On</string>
     <string name="lightsnswitches_set_and_forget">Set It and Forget It</string>
     <string name="lightsnswitches_schedule_desc">Tap Add Event below to create a \n schedule for this day. \n\n TIP: By setting your lights to \n automatically turn off on a schedule, \n you could lower energy usage; \n thus saving money on your monthly \n electrical bills.</string>
     <string name="lightsnswitches_state">STATE</string>
@@ -1021,7 +787,6 @@
     <string name="safety_alarm_water_leak">Water</string>
     <string name="safety_alarm_title">SAFETY ALARM</string>
     <string name="silent_alarm">Silent Alarm</string>
-    <string name="safety_alarm_history_title">ALARM HISTORY</string>
     <string name="safety_alarm_notification_list_title">ALARM NOTIFICATION LIST</string>
     <string name="safety_alarm_silent">No sound will be made when an alarm is triggered, but Arcus will send notifications and phone calls based on the Alarm Notification List.</string>
     <string name="water_shut_off_valve_title">WATER SHUT OFF VALVE</string>
@@ -1053,15 +818,12 @@
     <string name="doors_and_locks_access_title">The People listed below have access to this door via their PIN code.</string>
     <string name="doors_and_locks_access_des">Add people by tapping the + sign on the dashboard, then tap Person.</string>
     <string name="doors_and_locks_access_no_people">Don\'t see the person you\'re looking for? Go to Settings > People and give a PIN Code to the person you want to have access, then return to this page.</string>
-    <string name="doors_and_locks_automate_your_garage_door">Automate Your Garage Door</string>
-    <string name="doors_and_locks_automate_your_garage_desc">Manage your garage door schedule \n with ease using garage doors that \n \"Work with Arcus\".</string>
     <string name="doors_and_locks_shop">SHOP</string>
     <string name="doors_and_locks_tap_to_schedule">Tap on the door(s) below to have\nthem open or close at\na specific time.</string>
     <string name="doors_and_locks_state">STATE</string>
     <string name="doors_and_locks_state_open">OPEN</string>
     <string name="doors_and_locks_state_close">CLOSE</string>
     <string name="doors_and_locks_state_title">OPEN OR CLOSE DOOR</string>
-    <string name="doors_and_locks_state_desc">Open or close this garage door?</string>
     <string name="doors_and_locks_repeat_on">REPEAT ON</string>
     <string name="doors_and_locks_set_and_forget">Set It and Forget It</string>
     <string name="doors_and_locks_set_and_forget_desc">Tap Add Event below to create a \n schedule for this day.</string>
@@ -1073,7 +835,6 @@
     <string name="doors_permissions_exceeded_desc">The manufacturer allows for a maximum \n of %d contacts associated with it.</string>
 
     <!-- Pet Door -->
-    <string name="petdoor">PET DOOR</string>
     <string name="petdoor_went_in">%s MOVED THROUGH | </string>
     <string name="petdoor_went_out">%s MOVED THROUGH | </string>
     <string name="petdoor_unknown_pet_name">PET</string>
@@ -1085,49 +846,23 @@
     <string name="petdoor_mode_unlocked">UNLOCKED</string>
     <string name="petdoor_mode_unlocked_desc">Choose Unlocked to allow pets to enter and exit the pet door.</string>
     <string name="petdoor_mode_choose">CHOOSE A MODE</string>
-    <string name="petdoor_control_your_door">Control Your Pet Door</string>
-    <string name="petdoor_tap_doors_and_locks">Tap the Doors &amp; Locks card on the \n Dashboard to manage \n your pet door.</string>
-    <string name="petdoor_smart_key">SMART KEY</string>
     <string name="petdoor_mode">MODE</string>
-    <string name="petdoor_smart_keys">SMART KEYS</string>
-    <string name="petdoor_smart_keys_desc">See Which Smart Keys Have Access</string>
-    <string name="petdoor_smart_key_pairing_next">NEXT</string>
-    <string name="petdoor_smart_key_pairing_save">SAVE</string>
-    <string name="petdoor_smart_key_pairing_remove">REMOVE</string>
-    <string name="petdoor_smart_key_pairing_1">Insert the battery in the SmartKey.</string>
-    <string name="petdoor_smart_key_pairing_2_title">Press and hold the LEARN button on the \n Pet Door until the green light begins to \n flash, then release the button.</string>
-    <string name="petdoor_smart_key_pairing_2_desc">Hold the SmartKey directly below the \n green light until the light stops flashing.</string>
-    <string name="petdoor_smart_key_pairing_3_title">Name your device and add \n a photo of your pet if you like.</string>
-    <string name="petdoor_key_list_title">The Smart Keys listed below have \n access to this door while in Auto Mode.</string>
-    <string name="petdoor_add_smart_key">ADD SMART KEY</string>
-    <string name="petdoor_waiting_for_door">WAITING FOR PET DOOR</string>
-    <string name="petdoor_waiting_for_door_desc">It may take a few minutes for the pet door to find, \n program, and report the SmartKey back to Arcus.</string>
-    <string name="petdoor_are_you_sure">ARE YOU SURE</string>
-    <string name="petdoor_are_you_sure_yes">YES</string>
-    <string name="petdoor_are_you_sure_no">NO</string>
     <string name="petdoor_mode_save">SAVE</string>
     <string name="petdoor_moved_through">%1$s Moved Through %2$s</string>
-    <string name="petdoor_unnamed_key">UNNAMED SMART KEY</string>
     <string name="petdoor_locked_at">Locked %s</string>
     <string name="petdoor_unlocked_at">Unlocked %s</string>
     <string name='petdoor_picker_title'>CHOOSE A MODE</string>
 
     <!--Water Heater-->
-    <string name="water_heater_title">WATER HEATER</string>
-    <string name="water_heater_hot_water_available">HOT WATER\nAVAILABLE</string>
-    <string name="water_heater_hot_water_limited">HOT WATER\nLIMITED</string>
-    <string name="water_heater_hot_water_unavailable">HOT WATER\nNOT AVAILABLE</string>
     <string name="device_choose_mode">CHOOSE A MODE</string>
     <string name="water_heater_mode_energy_smart">ENERGY SMART\u00AE</string>
     <string name="water_heater_mode_energy_smart_title">ENERGY SMART MODE</string>
     <string name="water_heater_mode_energy_smart_prompt">Energy Smart mode is provided by your water heater manufacturer and it saves energy by monitoring usage and adjusting the set point to match the water draw usage.</string>
     <string name="water_heater_mode_standard">STANDARD</string>
     <string name="water_heater_mode_standard_prompt">Choose Weekly if you want the water heater to run on a Schedule.</string>
-    <string name="water_heater_mode_vacation">VACATION</string>
     <string name="water_heater_multiple_errors">Multiple Errors</string>
     <string name="water_heater_errors">ERRORS</string>
     <string name="water_heater_errors_call">Call Service Advantage\nfor assistance.</string>
-    <string name="water_heater_error_E07">E07: The lower temperature sensor in your\nhot water heater has failed. Tap to call\nService Advantage for assistance.</string>
     <string name="water_heater_error_E01">E01: There is an insufficient amount of water\nin the tank. Please see water heater user\n manual for details. Call Service Advantage for assistance.</string>
     <string name="water_heater_error_phone_number">1-888-775-6937</string>
     <string name="water_heater_oops">OOPS!</string>
@@ -1140,8 +875,6 @@
     <string name="water_heater_card_low_target">Low Target</string>
     <string name="water_heater_card_set_to">%dº</string>
     <string name="water_schedule_no_device_des">Manage your water device with ease using schedules that &quot;Work with Arcus&quot;.</string>
-    <string name="water_heater_water_temperature_title">How hot do you want your water?</string>
-    <string name="water_heater_water_temperature_description">The recommended temperature is 120&#xb0;F.  A lower temperature means more energy savings, but less hot water.</string>
 
     <!-- Climate subsystem-->
     <string name="climate_thermostat_no_device_automate_title">Automate Your Climate</string>
@@ -1149,10 +882,6 @@
     <string name="climate_thermostat_no_device_des">Manage the schedule of your thermostats,\nceiling fans and vents with ease using\ndevices that \"Work with Arcus\".</string>
     <string name="climate_thermostat_schedule_disable_title">The thermostat is off.</string>
     <string name="climate_thermostat_schedule_disable_des">Tap off above to choose a different mode.</string>
-    <string name="climate_thermostat_schedule_off_title">Schedule is off.</string>
-    <string name="climate_thermostat_schedule_off_des">Go to Climate > More to turn on the thermostat schedule.</string>
-    <string name="climate_thermostat_honeywell_max_schedule_title">Honeywell Limit</string>
-    <string name="climate_thermostat_honeywell_max_schedule">Honeywell only allows 4 events per day.</string>
     <string name="waiting_on">Waiting on</string>
     <string name="climate_fragment_no_devices_title">Control Your Climate</string>
     <string name="climate_fragment_no_devices_subtitle">Manage you thermostats, ceiling fans and\nvents from the comfort of your couch...\nor virtually anywhere.</string>
@@ -1169,7 +898,6 @@
     <string name="hvac_cool">COOL</string>
     <string name="hvac_heat">HEAT</string>
     <string name="hvac_auto">AUTO</string>
-    <string name="hvac_heatcool">HEAT&#x2022;COOL</string>
     <string name="hvac_eco">ECO</string>
 
     <string name="hvac_off_title">Off</string>
@@ -1196,7 +924,6 @@
     <string name="card_menu_done">DONE</string>
     <string name="card_menu_edit">EDIT</string>
 
-    <string name="card_no_favorites">Choose your favorite devices and scenes under \"Device Details\" and \"Scenes\" in the left hand navigation.</string>
     <string name="card_no_favorites_yet">No Favorites Yet</string>
     <string name="card_no_favorites_description">Tap here to choose your\nFavorite Devices &amp; Scenes</string>
     <string name="card_nothing_to_favorite">You have no devices</string>
@@ -1220,7 +947,6 @@
     <string name="card_lights_and_switches_title">Lights &amp; Switches</string>
     <string name="card_lights_and_switches_desc">See what lights and outlets are in use, \n and turn them on/off from anywhere.</string>
     <string name="card_security_alarm_title">Security Alarm</string>
-    <string name="card_security_alarm_desc">Help protect what matters most\nwith Arcus Security.</string>
     <string name="card_climate_title">Climate</string>
     <string name="card_climate_desc">Control your thermostat, ceiling fans,\nvents and more to create a comfortable\nand energy efficient home.</string>
     <string name="card_doors_and_locks_title">Doors &amp; Locks</string>
@@ -1230,7 +956,6 @@
     <string name="card_windows_and_blinds_title">Windows &amp; Blinds</string>
     <string name="card_windows_and_blinds_desc">This service is coming soon.\nManage your window contact sensors under\nDevices in the left-hand navigation.</string>
     <string name="card_safety_alarm_title">Safety Alarm</string>
-    <string name="card_safety_alarm_desc">Help protect what matters most.\nReceive alerts for water leaks or\nwhen a smoke/CO alarm triggers.</string>
     <string name="card_cameras_title">Cameras</string>
     <string name="card_cameras_desc">Keep an eye on things by live streaming,\nrecording on demand or viewing\npreviously recorded footage.</string>
     <string name="card_lawn_and_garden_title">Lawn &amp; Garden</string>
@@ -1241,8 +966,6 @@
     <string name="card_water_desc">Take control of your hot water heater,\n water softener, and main shutoff valve with Arcus.</string>
     <string name="card_energy_title">Energy</string>
     <string name="card_energy_desc">This service is coming soon.</string>
-    <string name="card_reminders_title">Reminders</string>
-    <string name="card_reminders_desc">Forget to change your air filters?\nNever again with Reminders.</string>
     <string name="card_lawn_and_garden_next">Next</string>
     <string name="card_lawn_and_garden_now">Now</string>
     <string name="card_lawn_and_garden_skip_until">Skip Until</string>
@@ -1275,7 +998,6 @@
     <string name="three_months_and_older">3 Months &amp; Older</string>
     <string name="six_months_and_older">6 Months &amp; Older</string>
     <string name="older_than_one_year">Older Than 1 Year</string>
-    <string name="yesterday_at_time">YESTERDAY %s</string>
     <string name="tomorrow">Tomorrow</string>
     <string name="choose_device_text">CHOOSE A DEVICE</string>
     <string name="choose_day_text">CHOOSE A DAY</string>
@@ -1284,8 +1006,6 @@
     <string name="history_filter_day">DAY</string>
     <string name="history_filter_device">DEVICE</string>
 
-    <string name="pin_code_step_1">Edit your PIN code by\nentering a new 4-digit number.</string>
-    <string name="pin_code_step_2">Verify your new PIN code by\nentering a new 4-digit number again.</string>
     <string name="alarm_devices">ALARM DEVICES</string>
     <string name="alarm_devices_desc"><![CDATA[Assign Devices for On & Partial Alarms]]></string>
     <string name="grace_periods">GRACE PERIODS</string>
@@ -1297,9 +1017,7 @@
 
     <string name="update_service_plan_text">Update your service plan by logging in to\n&arcusportal;</string>
     <string name="service_plans_text">SERVICE PLANS</string>
-    <string name="current_plan_prefix">Current Plan: </string>
     <string name="account_settings_billing_title">BILLING</string>
-    <string name="account_settings_linked_accounts_title">LINKED ACCOUNTS</string>
     <string name="payment_info_text">PAYMENT INFO</string>
     <string name="payment_info_edit_text">Edit and update your credit card information</string>
     <string name="more_info_text">MORE INFO</string>
@@ -1307,14 +1025,10 @@
     <string name="off_first_capital">Off</string>
     <string name="continue_to_arm">CONTINUE TO ARM</string>
     <string name="cancel">CANCEL</string>
-    <string name="vent_open_title">VENT OPEN</string>
 
     <!-- Security alarm -->
-    <string name="security_alarm_devices_title">ON DEVICES</string>
-    <string name="security_alarm_partial_title">PARTIAL ONLY DEVICES</string>
     <string name="security_alarm_alert_dialog_devices_message">A Door or Window Is Open</string>
     <string name="security_alarm_alert_dialog_message">At least one device is open. You may arm anyway, but these devices\nwon\'t participate in monitoring. View\nSecurity Alarm Devices for more details.</string>
-    <string name="security_alarm_config_sounds_section_title">SOUNDS</string>
     <string name="security_alarm_config_sounds_title">ALARM SOUNDS</string>
     <string name="security_alarm_config_sounds_description">Hub and keypad makes sounds while arming?</string>
     <string name="security_alarm_config_silent_title">SILENT ALARM</string>
@@ -1338,7 +1052,6 @@
     <string name="security_alarm_twoline">SECURITY\nALARM</string>
     <string name="security_alarm_off_since">OFF SINCE</string>
     <string name="security_arming_in">ARMING IN</string>
-    <string name="security_arming">ARMING</string>
     <string name="security_devices">DEVICES</string>
     <string name="security_partial_since">PARTIAL SINCE</string>
     <string name="security_on_since">ON SINCE</string>
@@ -1364,7 +1077,6 @@
     <string name="rules_36_char_limit">36 Character Limit</string>
     <string name="rules_name_save">SAVE</string>
     <string name="rules_shop_now">SHOP</string>
-    <string name="rules_all">All rules</string>
     <string name="rules_scheduling_choose">Choose the time window this rule is active.</string>
     <string name="rules_scheduling_title">Rule Scheduling</string>
     <string name="rules_scheduling_desc">Tap add event to choose the time window \n this rule will run. \n\n Without any events, this rule be active \n until you manually deactivate it on the My \n Rules page in the left hand navigation.</string>
@@ -1406,12 +1118,6 @@
     <string name="rules_category_family_friends">HOME &amp; FAMILY</string>
 
 
-    <string name="rules_schedule_choose_state">CHOOSE A STATE</string>
-
-    <string name="rules_schedule_active_sub">Choose the time you want the rule to start running.</string>
-    <string name="rules_schedule_inactive_sub">Choose the time you want the rule to stop running.</string>
-    <string name="rules_schedule_instructions">If you choose to make a rule inactive, the rule won\'t become active again until you schedule a new active event.</string>
-
     <!-- People -->
     <string name="people_add_a_person">ADD A PERSON</string>
     <string name="people_access_type">What type of access do you want\nthis person to have?</string>
@@ -1423,8 +1129,6 @@
     <string name="people_partial_access_desc">Great for anyone you want to let into your home or to receieve Rule Notifications without providing them a login or digital access to your Place.  Perfect for children or individuals who do not have smartphones.</string>
     <string name="people_partial_access_info">\nIdeal for family, close friends, children, and service professionals.</string>
     <string name="people_how_do_you_know">How do you know this person?</string>
-    <string name="people_will_not_have_access">This person will not have access\nto view your home from the Arcus App.</string>
-    <string name="people_people_without_pin">People without an email address can receive\na unique PIN code for locks and keypads.</string>
     <string name="people_family">Family</string>
     <string name="people_family_spouse">Spouse/Partner</string>
     <string name="people_family_child_home">Child (Lives at home)</string>
@@ -1474,19 +1178,16 @@
     <string name="people_success">SUCCESS</string>
     <string name="people_phone_number">PHONE NUMBER</string>
     <string name="people_add_a_photo">Add a phone number and\nif you like, a photo.</string>
-    <string name="people_image_will_appear">The image will appear in the timeline when\nthis person controls a lock or uses a keypad.</string>
     <string name="people_by_entering_number">By entering this phone number, you\nacknowledge that this person has agreed\nto receive phone calls from Arcus in the\nevent of an alarm.</string>
     <string name="people_create_pin">Create PIN code for this person.</string>
     <string name="people_confirm_pin">Please confirm the PIN code.</string>
     <string name="people_more_info">MORE INFO</string>
     <string name="people_people">PEOPLE</string>
-    <string name="people_err_default_title">Oops, that\'s not right</string>
     <string name="people_make_a_selection">Please make a selection before continuing.</string>
     <string name="people_contact_info">CONTACT INFORMATION</string>
     <string name="people_pin_code">PIN CODE</string>
     <string name="people_remove_person">REMOVE PERSON</string>
     <string name="people_account_holder">Account Holder</string>
-    <string name="people_removing_this_account">Removing this account means this\nperson will no longer have access\n to \'${place-name}\'.</string>
     <string name="people_use_contacts">USE MY CONTACTS</string>
     <string name="people_enter_manually">ENTER MANUALLY</string>
     <string name="people_contacts_not_available_title">CANNOT ACCESS CONTACTS</string>
@@ -1496,10 +1197,6 @@
     <string name="people_pin_explanation_title">PIN Codes</string>
     <string name="people_pin_explanation_description_alarm">The PIN code that you provided %1$s\ncan be used on the keypad to control the\nalarm.</string>
     <string name="people_pin_explanation_description_locks">The PIN code will not unlock any locks\nunless you grant %1$s access to each\nlock on the Doors &amp; Locks card under\n the Access tab.</string>
-    <string name="people_congrats_alarms">Security &amp; Panic Alarms</string>
-    <string name="people_congrats_smoke">Smoke &amp; CO Alarms</string>
-    <string name="people_congrats_water_leak">Water Leak Alarms</string>
-    <string name="people_congrats_care">Care Alarm</string>
     <string name="people_congrats_bottom_label_full_access">*Premium Service Required in order to add additional \n people to each alarm notification list.</string>
     <string name="people_congrats_bottom_label"><sup><small><small>1</small></small></sup>Premium service required to add additional \npeople to each notification list. \n<sup><small><small>2</small></small></sup>PIN codes and/or phone numbers required.</string>
     <string name="people_congrats_alarm_title">Alarms</string>
@@ -1511,7 +1208,6 @@
     <string name="people_hobbit_no_phone_title">WARNING</string>
     <string name="people_hobbit_no_phone_desc">A person without a phone number specified will not be notified in the event of an alarm.</string>
 
-    <string name="insert_ethernet_cord_into_router">To connect to Wi-Fi, first insert your Ethernet cord into your router and ensure the Hub is connected to the Internet.</string>
     <string name="picker_timer_text">TIMER</string>
     <string name="picker_indefinitely_text">INDEFINITELY</string>
     <string name="on_partial"><![CDATA[ON & PARTIAL]]></string>
@@ -1524,14 +1220,10 @@
     <string name="water">WATER</string>
     <string name="percent_humidity">% Humidity</string>
     <string name="degree_symbol">&#xb0;</string>
-    <string name="plus_number">+%d</string>
     <string name="bullet">&#x2022;</string>
-    <string name="percent_number">%d%%</string>
     <string name="temperature_degrees">%d&#xb0;</string>
     <string name="temperature_range_degrees">%1$d&#xb0;&#x2022;%2$d&#xb0;</string>
 
-    <string name="climate_more_schedule_on_off">SCHEDULE ON/OFF</string>
-    <string name="climate_more_schedule_on_off_text">Turn the schedule OFF if you want to manually set a constant temperature.</string>
     <string name="climate_more_humidity_title">HUMIDITY</string>
     <string name="climate_more_humidity_text">Dashboard humidity is based off of this device.</string>
     <string name="climate_more_temperature_title">TEMPERATURE</string>
@@ -1541,14 +1233,10 @@
     <string name="humidity_devices_pared_error_desc">You don\'t have a device that can report humidity paired</string>
     <string name="humidity_devices_pared_error_title">No Humidity Sensors Paired</string>
     <string name="no_climate_activity_to_show">No climate activity to show.</string>
-    <string name="no_water_activity_to_show">No water activity to show.</string>
     <string name="no_lawn_and_garden_activity_to_show">No lawn and garden activity to show.</string>
 
     <string name="remove_text">REMOVE</string>
-    <string name="remove_this_person_confirm">YES, REMOVE PERSON</string>
     <string name="yes_i_ack">Yes, I Acknowledge</string>
-    <string name="auto_mode_high_text">HIGH</string>
-    <string name="auto_mode_low_text">LOW</string>
     <string name="climate_add_event_title">ADD EVENT</string>
     <string name="climate_schedule_repeat">REPEAT</string>
     <string name="climate_schedule_repeat_on">REPEAT ON</string>
@@ -1628,16 +1316,9 @@
     <string name="error_upgrade_by">Upgrade by logging in\nto your account at\nwww.example.com</string>
     <string name="error_no_internet_connection">NO INTERNET CONNECTION</string>
     <string name="error_no_internet_connection_check">Please check your internet connection \n and make sure you are not in \n airplane mode.</string>
-    <string name="cloud_honeywell_credentials">HONEYWELL CREDENTIALS</string>
-    <string name="cloud_honeywell_credentials_title">Honeywell Credentials Removed</string>
-    <string name="cloud_honeywell_credentials_description">You\'re about to go to the Honeywell site.\nTap Next to Sign in and follow the steps\nto confirm your Honeywell information.</string>
     <string name="cloud_honeywell_credentials_revoked_title">HONEYWELL CREDENTIALS REVOKED</string>
     <string name="cloud_honeywell_credentials_revoked_description">Access to control Honeywell TCC devices with Arcus has been revoked or removed from within your Honeywell account.  To resolve, first ensure the device is connected to your Honeywell account, then re-pair by tapping the \'+\' button on the Dashboard. \n\nTo remove the device from Arcus, tap \'Remove\' on the Device page under the More tab.</string>
-    <string name="cloud_honeywell_account_information_revoked">Honeywell account information revoked.</string>
-    <string name="cloud_honeywell_account_information_attention">Honeywell login information needs attention.</string>
-    <string name="return_to_dashboard">RETURN TO DASHBOARD</string>
     <string name="just_a_moment">Just a moment&#8230;</string>
-    <string name="premium_upgrade_required_title">Premium Required</string>
     <string name="premium_required_feature1">Up to 3GB of online video storage</string>
     <string name="premium_required_feature2">Alarm Tracker&#8482; (real time updates of alarm events)</string>
     <string name="premium_required_feature3">Care helps you monitor your loved one\'s daily routines</string>
@@ -1649,29 +1330,22 @@
     <string name="works_with_arcus">Works with Arcus</string>
     <string name="hub_version_text">Arcus V%1$s</string>
     <string name="wireless_support_temp_text">Zigbee, Z-Wave, Wi-Fi</string>
-    <string name="hub_connection_wired">Wired</string>
     <string name="hub_connection_ethernet">Ethernet</string>
     <string name="not_connected">Not Connected</string>
     <string name="hub_connection_wifi">Wi-Fi</string>
-    <string name="hub_wifi_state">Wi-Fi (%1$s)</string>
     <string name="hub_connection_cellular">Cellular</string>
     <string name="hub_online_for_days_hours_minutes">(%1$dd, %2$dhrs, %3$dmins)</string>
     <string name="power">POWER</string>
     <string name="ecomode">ECOMODE</string>
     <string name="set_to">SET TO</string>
     <string name="power_source_ac">AC</string>
-    <string name="power_source_line">LINE</string>
     <string name="power_units_abbrev">W</string>
     <string name="loading">Loading...</string>
     <string name="unknown_value">-</string>
     <string name="unknown_time_value">UNKNOWN</string>
 
-    <string name="login_to_upgrade">Log in to your account at &arcusportal; to upgrade.</string>
-    <string name="open_in_the_app_store">OPEN IN THE APP STORE</string>
     <string name="vent_closed">SHUT</string>
 
-    <string name="pairing_input_required">Input required</string>
-    <string name="pairing_input_wrong_length">Input must be exactly %d characters</string>
     <string name="pairing_device_not_found_title">DEVICE NOT FOUND</string>
     <string name="pairing_device_not_found_desc">Check your %s and try again.\nIf the issue persists, contact the\nArcus Support Team.</string>
     <string name="pairing_device_claimed_title">DEVICE ALREADY CLAIMED BY ANOTHER SYSTEM</string>
@@ -1693,7 +1367,6 @@
     <string name="scenes_favorites_title">FAVORITES</string>
     <string name="scenes_favorites_desc">Add to Favorites</string>
     <string name="scenes_edit_name_title">EDIT NAME</string>
-    <string name="scenes_custom_title">CUSTOM</string>
     <string name="scenes_custom_desc">Be creative. Create your own Scene that works for your home.</string>
     <string name="scenes_scene_name">Scene Name</string>
     <string name="scenes_learnmore_goodnight">This Scene is typically used to set the Security Alarm to partial, close the garage door, turn off all lights and lock all doors.</string>
@@ -1701,12 +1374,8 @@
     <string name="scenes_learnmore_vacation">This Scene is typically used to set the Security Alarm to ON, close the water shut-off valve, lower the water heater temperature and lock all doors.</string>
     <string name="scenes_learnmore_welcomehome">This Scene is typically used to disarm the Security Alarm, turn on the foyer light and unlock the front door.</string>
     <string name="scenes_learnmore_goodmorning">This scene is typically used to disarm the Security Alarm, adjust the thermostat, turn lights on at 30% brightness and turn off the night lights.</string>
-    <string name="scenes_learnmore_missingcopy">Additional information is not available for this scene.</string>
     <string name="scene_recommended_for_you">RECOMMENDED FOR YOU</string>
     <string name="scene_more_devices_needed">Additional service or devices required</string>
-    <string name="scene_more_devices_needed_camera_title">UPGRADE</string>
-    <string name="scene_more_devices_needed_camera_description">Premium service is required for the recording of video clips</string>
-    <string name="scene_more_devices_needed_camera_item_name">Record Video From Cameras</string>
     <string name="scene_action_list_default_heading">Tap the devices below to choose\nwhat action they will take\nwhen this Scene runs.</string>
     <string name="scene_no_schedule_text">Manually run this Scene under Favorites on the dashboard.</string>
     <string name="scene_with_schedule_text">Schedule this Scene to run on different days and times.</string>
@@ -1739,7 +1408,6 @@
 
     <string name="choose_devices_text">CHOOSE DEVICES</string>
     <string name="more_deivces_for_action">You need to pair an additional device\nin order to choose this Action.</string>
-    <string name="lights_and_switches_on_off_format">What lights and switches do you want to turn %1$s when this Scene runs?</string>
     <string name="scenes_all">All Scenes</string>
 
     <string name="scene_lights_and_switches_action_format">What lights and switches do you want to turn %1$s when this Scene runs?</string>
@@ -1760,13 +1428,7 @@
     <string name="scene_confirm_delete_desc">Are you sure you wish to discard the scene?</string>
     <string name="scene_confirm_delete_affirmative">Delete</string>
 
-    <string name="open_text">OPEN</string>
     <string name="close_text">CLOSE</string>
-    <string name="lock_text">LOCK</string>
-    <string name="unlock_text">UNLOCK</string>
-    <string name="on_text">ON</string>
-    <string name="off_text">OFF</string>
-    <string name="genie_buy_more_description">This device can control up to three\ngarage doors using Genie tilt sensors.</string>
     <string name="genie_buy_more">BUY MORE</string>
     <string name="energy_smart">ENERGY SMART</string>
     <string name="registered_symbol">®</string>
@@ -1777,9 +1439,7 @@
     <string name="choose_an_option_text">CHOOSE AN OPTION</string>
 
     <string name="zwave_devices_reset">Z-Wave device(s) below have been reset.</string>
-    <string name="zwave_devices_reset_desc">Now that your devices are reset, pair them to Arcus by tapping the + sign on the Dashboard and then tap Devices to get started.</string>
     <string name="zwave_done">DONE</string>
-    <string name="zwave_success">SUCCESS</string>
     <string name="zwave_searching">Searching</string>
     <string name="zwave_searching_desc">To reset the device, put the device in \'learn mode\' which usually involves pressing the Z-Wave button on the device. Check your manufacturer\'s manual for details.</string>
     <string name="zwave_searching_note">Note: Do not use any other Z-Wave devices during this process as they may be removed inadvertently.</string>
@@ -1787,7 +1447,6 @@
     <string name="zwave_unpairing_desc">Perhaps you\'re having trouble adding a Z-Wave device that was previously paired or maybe your new device won\'t connect after several attempts.</string>
     <string name="zwave_unpairing_desc_bottom">Tap \'Remove Z-Wave Devices\' below to remove orphaned Z-Wave devices that no longer appear on your device list page. These devices believe they are paired to the hub, but the hub does not know them.</string>
     <string name="zwave_remove_devices">REMOVE Z-WAVE DEVICES</string>
-    <string name="zwave_tools">Z-WAVE TOOLS</string>
     <string name="zwave_searching_header">SEARCHING</string>
     <string name="zwave_timeout">TIMEOUT</string>
     <string name="zwave_device_not_removed">A device was not removed.</string>
@@ -1823,30 +1482,13 @@
     <string name="device_is_offline_sub_text">"Your device's Wi-Fi credentials were successfully updated, but the device has not reconnected to the Arcus Cloud Platform. Please try again or check your Wi-Fi network can access the internet."</string>
 
     <!-- Thermostat post-pairing -->
-    <string name="thermostat_default_schedule_title">Default Schedule</string>
-    <string name="thermostat_default_schedule_label">Default Schedule Created</string>
-    <string name="thermostat_default_schedule_created">To help you get started, Arcus created the following
-        schedule and put your thermostat in Auto mode. The schedule won\'t run until you activate it.</string>
-    <string name="thermostat_default_schedule_morning">Morning - 6:00 AM to 8:00 AM:\nHeat to 70&#186;F\nCool
-    to 78&#186;F</string>
-    <string name="thermostat_default_schedule_day">Day - 8:00 AM to 6:00 PM:\nHeat to 66&#186;F\nCool
-    to 82&#186;F</string>
-    <string name="thermostat_default_schedule_evening">Evening - 6:00 PM to 10:00 PM:\nHeat to 70&#186;F\nCool
-    to 78&#186;F</string>
-    <string name="thermostat_default_schedule_night">Night - 10:00 PM to 6:00 AM:\nHeat to 66&#186;F\nCool
-    to 80&#186;F</string>
-    <string name="thermostat_default_schedule_manage">You can manage this schedule from the Climate card on your
-    dashboard.</string>
 
 
     <string name="skip_cc_one_time_offer">ONE TIME OFFER</string>
     <string name="skip_cc_content">A credit card is required for the Free Premium trial.  Features included in Premium:</string>
     <string name="skip_cc_yes">SKIP FREE PREMIUM TRIAL</string>
     <string name="skip_cc_no">START FREE PREMIUM TRIAL</string>
-    <string name="skip_scenes_content_desc">Scenes control multiple devices in your home at one time</string>
-    <string name="skip_rule_content_desc">Rules connect &amp; automate your devices</string>
     <string name="skip_care_content_desc">Care helps you monitor your loved ones\' daily routines</string>
-    <string name="skip_favorite_content_desc">Access your Favorite devices fast</string>
     <string name="skip_history_content_desc">Expanded History</string>
     <string name="skip_notifications_content_desc">Add up to 6 people to alarm notification lists</string>
     <string name="skip_cc_free_storage">Up to 3GB of online video storage</string>
@@ -1868,15 +1510,7 @@
     <string name="tilt_display_state_close">CLOSE</string>
     <string name="tilt_display_state_open">OPEN</string>
 
-    <string name="thermostat_no_schedule_text">Choose None if you want to manually control the thermostat. (Commonly used to maintain a constant temperature).</string>
-    <string name="thermostat_with_schedule_text">Choose weekly if you want the thermostat to run on a schedule.</string>
-    <string name="fan_no_schedule_text">Choose None if you want to manually control the fan.</string>
-    <string name="fan_with_schedule_text">Choose weekly if you want the fan to run on a schedule.</string>
-    <string name="vent_no_schedule_text">Choose None if you want to manually control the vent.</string>
-    <string name="vent_with_schedule_text">Choose weekly if you want the vent to run on a schedule.</string>
-
     <string name="rules_schedule_choose_a_state">CHOOSE A STATE</string>
-    <string name="rules_all_rules">All Rules</string>
     <string name="rules_schedule_active">Active</string>
     <string name="rules_schedule_inactivate">Inactive</string>
     <string name="rules_schedule_active_upper">ACTIVE</string>
@@ -1906,25 +1540,6 @@
     <string name="water_heater_sched_title">START TIME</string>
     <string name="water_sched_valve_open">OPEN</string>
     <string name="water_sched_valve_close">CLOSED</string>
-    <string name="water_heater_reminder">Reminder</string>
-    <string name="water_heater_reminder_description">The LCD screen on your water heater will display the maximum water temperature set point.\r\n\r\nFor safety reasons, Arcus cannot increase the temperature beyond the maximum set point on the device.</string>
-    <string name="water_heater_control_yours">Control Your Water Heater</string>
-    <string name="water_heater_tap_on_water_card">Tap the Water card on the \n Dashboard to control \n your water heater.</string>
-
-    <string name="honeywell_no_devices_found_title">NO DEVICES FOUND</string>
-    <string name="honeywell_no_devices_found_desc">Make sure that you\'re the primary account owner\nand that you\'ve granted Arcus\naccess to control the thermsotat.</string>
-    <string name="honeywell_no_devices_retry">RETRY</string>
-    <string name="honeywell_no_devices_cancel">CANCEL</string>
-
-    <string name="honeywell_error_title">ERROR</string>
-    <string name="honeywell_error_description">There was an error linking your\nHoneywell account to Arcus. Please try\nagain. If the error persists, please\ncall Honeywell at 1&#8211;877&#8211;271&#8211;8620.</string>
-    <string name="honeywell_error_button_text">RETURN TO DASHBOARD</string>
-
-    <string name="honeywell_success_title">SUCCESS</string>
-    <string name="honeywell_success_description">Your Arcus account has been linked\nwith your Honeywell account. We\'re\nwaiting on Honeywell to send the\ndevice information over.</string>
-    <string name="honeywell_success_button_text">I\'M DONE</string>
-    <string name="honeywell_success_searching_text">Searching for Devices</string>
-    <string name="honeywell_success_searching_found_text">Devices Found</string>
 
     <string name="storage_download_subtext">To download a recorded video go to the video in storage and click on the download icon under the video.</string>
     <string name="video_storage_text">Unlimited video clips for a rolling %d day period</string>
@@ -1934,12 +1549,6 @@
     <string name="doors_n_locks_pins_updating_title">ACCESS UPDATES PENDING</string>
     <string name="doors_n_locks_pins_updating_desc">The lock is currently updating PIN(s) which may take a few minutes. You can edit who has access when we get confirmation from the lock that the PIN(s) have finished updating.</string>
 
-    <string name="honeywell_pairing_step_two">Linking your Honeywell account allows\nsharing of device information between\nHoneywell &amp; Arcus.</string>
-    <string name="thermostat_schedule_title">THERMOSTAT SCHEDULE</string>
-    <string name="honeywell_auto_mode">AUTO MODE</string>
-    <string name="honeywell_schedule_info_post_pairing">Tap the Climate card on the\nDashboard to manage\nyour thermostat.</string>
-    <string name="honeywell_auto_mode_post_pairing">To use Auto mode on your\nthermostat, Honeywell requires\nyou to first enable the Auto\nmode setting on the device.</string>
-    <string name="honeywell_auto_mode_sub_post_pairing">Check the Honeywell owner\'s manual\n for details</string>
     <string name="water_schedule_no_events">NO EVENTS ON SCHEDULE</string>
     <string name="water_schedule_no_events_sub">You\'ll need to add at least 1 event to the schedule before you can turn on the schedule</string>
     <string name="water_more_extra_text">Tap the Water card on the Dashboard to\nmanage your water heater\'s schedule.</string>
@@ -1948,36 +1557,22 @@
 
     <!-- Care Strings - START -->
     <string name="care_alarm_triggered">CARE ALARM</string>
-    <string name="care_alarm_state">CARE ALARM %1$s</string>
-    <string name="care_alarm_behaviors">%1$d/%2$d Behaviors Active</string>
 
     <string name="care_premium_prefix_para">Designed primarily for caregivers and family\nmembers to encourage independent living, the\nCare service will trigger an alarm when help is needed or when daily routines change\nunexpectedly.</string>
-    <string name="care_premium_suffix_para">Premium is required to access the care service.\nUpgrade to Premium by
-        logging into your\naccount at &arcusportal;</string>
 
     <string name="alarm_type_activity_title">ACTIVITY</string>
     <string name="alarm_type_status_title">STATUS</string>
     <string name="alarm_type_more_title">MORE</string>
 
     <string name="care_default_filter_text">Today</string>
-    <string name="care_filter_date_text">%1$s %2$s</string>
     <string name="care_filter">Filter</string>
 
-    <string name="care_default_shedule_title">MONITORING</string>
-    <string name="care_monitor_text">MONITOR</string>
-    <string name="care_stop_monitoring_text">STOP MONITORING</string>
     <string name="care_alarm_silent">Turn on the Silent Alarm to mute the siren when a Care Alarm is triggered. Arcus will still call and send push notifications based on the Alarm Notification List.</string>
 
     <string name="schedule_adding_new_event_title">NEW EVENT</string>
-    <string name="schedule_none_created_yet_title">Create your schedule</string>
-    <string name="schedule_none_created_yet_desc">Tap \'Add Event\' to choose the time window\nthis behavior will be active.</string>
 
     <string name="care_alarm_alerting_title">Care Alarm</string>
     <string name="care_alarm_icon_content_description">Image used to represent the device that caused the Care Alarm.</string>
-    <string name="care_alarm_caused_by">Triggered By %1$s</string>
-
-    <string name="add_care_behavior_title">CARE BEHAVIOR</string>
-    <string name="add_care_behavior_desc">Trigger a care alarm when a loved one\'s routine is out of the ordinary.</string>
 
     <string name="care_premium_required_behavior_title">Care Behaviors help you monitor your\nloved one\'s daily routines.</string>
     <string name="care_premium_required_behavior_first_title">No Activity Detected</string>
@@ -1991,22 +1586,9 @@
     <string name="save_text">SAVE</string>
     <string name="take_photo_description">Take Photo.</string>
 
-    <string name="care_behavior_participating_devices_title">PARTICIPATING DEVICES</string>
-    <string name="care_behavior_participating_devices_desc">Choose the devices that will trigger the Care Alarm when no activity is detected.</string>
-    <string name="care_behavior_no_activity_for_title">NO ACTIVITY FOR&#8230;</string>
-    <string name="care_behavior_no_activity_for_desc">Trigger an alarm when no activity is detected for a period of time.</string>
-    <string name="care_behavior_days_times_to_monitor_title">DAYS &amp; TIMES TO MONITOR</string>
-    <string name="care_behavior_days_times_to_monitor_desc">Choose when you want to monitor for lack of activity.</string>
-    <string name="care_behavior_edit_name_title">EDIT NAME</string>
     <string name="care_behavior_edit_name_hint">Behavior Name</string>
     <string name="care_behavior_edit_name_error">%1$s is Required.</string>
     <string name="care_behavior_presnce_fob_required">Arcus Senior Care Pendant or Smart Fobs required.</string>
-
-    <string name="care_behavior_presence_curfew_title">CURFEW TIME</string>
-    <string name="care_behavior_presence_curfew_desc">Choose what time you want to check to see if a loved one is home.</string>
-
-    <string name="care_behavior_low_temp_title">CHOOSE A LOW TEMPERATURE</string>
-    <string name="care_behavior_high_temp_title">CHOOSE A HIGH TEMPERATURE</string>
 
     <string name="care_open_closed_header_text">Choose the devices and the maximum number of times they are opened daily before triggering an alarm.</string>
     <string name="care_choose_duration">CHOOSE DURATION</string>
@@ -2014,10 +1596,6 @@
     <string name="care_behavior_more_required">More Behaviors - Add\'l Devices Required</string>
     <string name="care_behavior_duration_abstract">%1$s %2$s</string>
 
-    <plurals name="care_days_plural">
-        <item quantity="one">%1$s Day</item>
-        <item quantity="other">%1$s Days</item>
-    </plurals>
     <plurals name="care_hours_plural">
         <item quantity="one">%1$s Hr</item>
         <item quantity="other">%1$s Hrs</item>
@@ -2041,14 +1619,11 @@
     <string name="care_name_in_use_title">NAME ALREADY IN USE</string>
     <string name="care_name_in_use_desc">Create a unique name for this behavior.\n\n</string>
     <string name="care_behavior_device_list_selection">Devices that are chosen below will participate in the Care Activity log and the graph. Cameras that participate only use the motion sensor to detect activity.</string>
-    <string name="care_behaviors_des">On the dashboard, tap the + sign,\n then Care Behaviors to get started\.</string>
     =
     <string name="generic_end_text">END</string>
     <string name="care_choose_monitoring">Choose when to monitor\nand stop monitoring.</string>
-    <string name="care_tap_to_repeat">Tap below if you would like this\nevent to happen on multiple days.</string>
     <string name="care_time_window_start_time">START</string>
     <string name="care_time_window_end_time">STOP</string>
-    <string name="care_time_window_duration">DURATION</string>
     <string name="care_alarm_call_list_sub_title">If a Care Alarm is triggered, you will be notified via push
         notification and a phone call. \n \n Add up to 6 people to this list with Premium. Log in to your account at &arcusportal;
         to upgrade.</string>
@@ -2085,12 +1660,8 @@
         <item quantity="other">%d Zones</item>
     </plurals>
     <string name="lng_zone_name_hint">ZONE NAME</string>
-    <string name="lng_zone_info_title">Control Your Irrigation Timer</string>
-    <string name="lng_zone_info_desc">Tap the Lawn &amp; Garden card on the \n Dashboard to manage your \n irrigation timer.</string>
     <string name="lng_zone_default_water_title">Default Watering Time</string>
     <string name="lng_zone_default_water_desc">Set the default watering duration for this Zone. This value will be pre-populated when you add an event on the Schedule tab.</string>
-    <string name="lng_name_zone_post_pairing_title">Tap on the zones below\nand name the ones you want to use.</string>
-    <string name="lng_name_zone_post_pairing_desc">(e.g. Front Yard, Flower Bed)</string>
     <string name="lng_set_dial_auto_error_text">Manually set dial to \"Auto\" to work with Arcus</string>
     <string name="lng_next_zone">NEXT ZONE</string>
     <string name="no_schedules_copy_desc">Tap Add Event below to create\na schedule for this day.</string>
@@ -2108,26 +1679,15 @@
     <!-- Lawn & Garden - END -->
 
     <!-- Somfy blinds -->
-    <string name="somfy_blinds_fav_reminder_title">Create a Favorite Position</string>
-    <string name="somfy_blinds_fav_reminder_desc">Move the blind to the desired height, then\npress and hold the \"MY\" button on the\nremote until the blind moves slightly.\n\nOn the Blinds detail page, tap \"FAV\" to\nmove the blind to the Favorite position.\nWhen the blind is moving, tapping \"FAV\"\nwill stop it from moving.</string>
     <string name="blind_configuration">Blind Configuration</string>
     <string name="setting_blind_settings">SETTINGS</string>
     <string name="setting_blind_type_tilt">TILT</string>
     <string name="setting_blind_type_raise">RAISE/LOWER</string>
     <string name="setting_blind_type_header">BLIND TYPE</string>
     <string name="somfy_blind_reverse">REVERSE BLIND DIRECTION</string>
-    <string name="somfy_pairing_controller_first_title">BLINDS CONTROLLER REQUIRED</string>
-    <string name="somfy_pairing_controller_first_description">A blinds controller must be\npaired before pairing individual blinds.\n\n</string>
-    <string name="blind_type">BLIND TYPE</string>
     <string name="blinds_channel">CHANNEL ON CONTROLLER</string>
     <string name="blinds_tilt">TILT</string>
     <string name="blinds_raise_lower">RAISE/LOWER</string>
-    <string name="remove_somfy_roller_blinds">Remove Somfy Roller Blinds</string>
-    <string name="remove_somfy_tilt_blinds">Remove Somfy Tilt Blinds</string>
-    <string name="remove_generic_blinds">Remove Blinds</string>
-    <string name="it_s_best_if_the_device_is_within_10_feet_of_the_hub">It\'s best if the device is within 10 feet of the\nhub.</string>
-    <string name="remove_blinds_paragraph">1. Use the arrow keys on the controller to find\nZ-WAVE OPTIONS and select it using the\ncenter button.\n2. Use the arrows to find VIRTUAL NODE and\nselect it using the center button.\n3. Find and select VIRTUAL NODE EXCLUDE,\nthen find and select the channel number of the\nvirtual node that you wish to remove.\nThe controller will show ‘EXCLUDE SUCCESS!\nonce the blind is removed.</string>
-    <string name="repeat_these_steps_for_each_blind_you_wish_to_remove">Repeat these steps for each blind you wish to\nremove.</string>
     <string name="customization">CUSTOMIZATION</string>
     <string name="somfy_configure_open">Configure Open/Up Position</string>
     <string name="somfy_configure_open_des">1.\tOpen the blind completely.\n\n2.\tSimultaneously press and hold the up and down button on the remote until the shade jogs.\n\n3.\tAdjust the blind to the desired Open/Up position.\n\n4.\tPress and hold “MY” on the remote until the shade jogs.</string>
@@ -2138,11 +1698,9 @@
     <string name="doors_n_locks_no_schedule_desc">Manage your garage door schedule with ease using garage doors that \"Work with Arcus\".</string>
     <!-- Somfy blinds - END -->
 
-    <string name="generic_bridge_pairing_controller_first_title">%1$s %2$s REQUIRED</string>
     <string name="generic_bridge_pairing_controller_first_description">A %1$s %2$s must be paired before pairing this device.\n\n</string>
 
     <string name="generic_bridge_pairing_first_title">%1$s %2$s Required</string>
-    <string name="generic_bridge_pairing__first_description">A %1$s %2$s must be paired before pairing this device.</string>
 
     <string name="time">Time</string>
     <string name="sunrise">Sunrise</string>
@@ -2160,9 +1718,6 @@
     <string name="tutorials_rules">Rules</string>
     <string name="tutorials_scenes">Scenes</string>
     <string name="tutorials_security">Alarms</string>
-    <string name="tutorials_help">Need more help?</string>
-    <string name="tutorials_help_des">Click below for FAQs, how-to articles\nand videos.</string>
-    <string name="tutorials_button">MORE RESOURCES</string>
 
     <!--Introduction to Arcus -->
     <string name="welcome_to_arcus">Welcome to Arcus</string>
@@ -2237,10 +1792,8 @@
     <string name="walkthrough_history_header_1">Activity Graph</string>
     <string name="walkthrough_history_desc_1">The solid white bar highlights\nmovement in your home from\nContact, Motion, &amp; Tilt sensors.</string>
 
-    <string name="enter_email">Enter Email</string>
     <string name="contact_support_forgot_password">If you do not receive the password reset email within a few minutes, please check your spam folder, and ensure the email you entered matches the email used for your Arcus account.</string>
     <string name="contact_support_no_email">If you do not receive the password reset email within a few minutes, please check your spam folder, and ensure the email you reviewed with our support team is correct.</string>
-    <string name="contact_support">Contact Support</string>
 
 
     <!-- Invitations -->
@@ -2257,14 +1810,12 @@
     <string name="type_other">OTHER</string>
     <string name="invitation_personalize_title">Personalize Your Invitation</string>
     <string name="invitation_personalize_description">Tap below to edit your invitation.</string>
-    <string name="invitation_personalize_template">Great news! %1$s would like to give you access to their smart home at the place called %2$s.</string>
     <string name="invitation_send">SEND INVITATION</string>
     <string name="invitation_reminder_title">Reminder</string>
     <string name="invitation_reminder_description1">This person will have the same access\nas the account owner,\nincluding the ability to:</string>
     <string name="invitation_reminder_description2">&#8226; Add and remove people\n&#8226; Control alarms and locks\n&#8226; View and delete camera footage\n&#8226; View/change thermostat settings\n&#8226; And more</string>
     <string name="invitation_reminder_description3">The person will not have access to\nbilling information.</string>
     <string name="invitation_congrats_title">You now have access to %1$s %2$s\'s Place and can manage things like:</string>
-    <string name="invitation_edit_invitation_title">EDIT YOUR INVITATION</string>
     <string name="invitation_message_size">CHARACTER LIMIT %d/360</string>
     <string name="accept">Accept</string>
     <string name="decline">Decline</string>
@@ -2278,7 +1829,6 @@
     <string name="invitations_pending_title">Tap on the invitation(s)\nbelow to accept.</string>
     <string name="invitations_youve_been_invited">You\'ve been invited!</string>
     <string name="invitations_invited_by">Invited by %s</string>
-    <string name="invitation_button">USE INVITATION CODE</string>
     <string name="tap_to_add_to_this_message">Tap here to add to the above message.</string>
     <string name="tap_here">Tap Here</string>
     <string name="support_sent_code">Our support team has sent you an email with a code to reset your password.</string>
@@ -2288,7 +1838,6 @@
     <!-- Place -->
     <string name="place_creation_pin_code_title">This PIN code will only be used for this place, and will be used to
         disarm the alarm, unlock locks and more.</string>
-    <string name="place_info_title">ABOUT YOUR HOME</string>
     <string name="place_creation_title">Add a photo of your home or select a\nwallpaper by tapping the camera.</string>
     <string name="place_creation_name_hint">Name (e.g. John\'s House, Vacation Home)</string>
     <string name="place_creation_time_zone_description">This information will improve accuracy\nacross your Arcus system.</string>
@@ -2300,24 +1849,16 @@
     <string name="place_congrats_message_description">Continue to your Dashboard\nto set up this place.</string>
     <string name="place_done_help_title">Switch Places</string>
     <string name="place_done_help_description">Switch Places by tapping the \n Place on the Dashboard.</string>
-    <string name="place_done_description">The hub is the heart of the\nArcus Smart Home System,\nso let\'s set that up first.</string>
-    <string name="place_done_bottom_text">Using Arcus without a hub?\nSkip this step</string>
-    <string name="place_dashboard_tutorial">DASHBOARD TUTORIAL</string>
-    <string name="place_dashboard_tutorial_description">Insert the Dashboard/Intro to Arcus Tutorial here.</string>
     <string name="choose_a_place">CHOOSE A PLACE</string>
     <!-- Place - END -->
 
     <string name="choose_time_zone">Choose Your Time Zone</string>
-    <string name="daylight_saving_time">Daylight Saving Time</string>
     <string name="add_devices">Add Devices</string>
     <string name="add_people">Add People</string>
     <string name="add_setup_rules_and_scenes">Set Up Rules &amp; Scenes</string>
-    <string name="premium_required_parens">(Premium Required)</string>
     <string name="confirm_address_title">PLEASE CONFIRM YOUR ADDRESS</string>
     <string name="correct">USE WHAT I TYPED</string>
     <string name="edit">EDIT WHAT I TYPED</string>
-    <string name="have_hub">I HAVE A HUB</string>
-    <string name="shop_for_devices">SHOP FOR DEVICES</string>
     <string name="add_arcus_to_your_home">Add Arcus to Your Home</string>
     <string name="add_arcus_to_your_home_desc">Turn your home into a smart home.</string>
     <string name="please_describe">Please describe</string>
@@ -2340,7 +1881,6 @@
     <string name="settings_remove_place">Removing this place will remove all devices associated with this place.\n\nWe will ensure that any billing plans are cancelled.</string>
     <string name="select_place_for_remove_text">Tap below to remove all your places, and access to places you\'ve been invited to.</string>
     <string name="delete_my_arcus_account">Delete my Arcus Account</string>
-    <string name="select_place_for_remove_header_text">Remove access to individual places by tapping the Place(s) below.</string>
     <string name="people_with_full_access_blurb">People with Full Access manage their own Profile information.\n </string>
     <string name="account_owner">Account Owner</string>
     <string name="remove_access_instructions">To remove access to %1$s, type %2$s below and tap on submit.</string>
@@ -2374,16 +1914,12 @@
     <string name="logged_in_cannot_remove_title">SWITCH PLACES\n</string>
     <string name="logged_in_cannot_remove_desc">You are currently viewing this place. To remove, first switch to a different place, then return here to remove.\n\n</string>
     <string name="choose_place">CHOOSE PLACE</string>
-    <string name="mode">MODE</string>
     <string name="normal">NORMAL</string>
     <string name="color">COLOR</string>
     <string name="hue">HUE</string>
     <string name="intensity">INTENSITY</string>
-    <string name="colors">COLORS</string>
     <string name="temperature">TEMPERATURE</string>
     <string name="temp">TEMP</string>
-    <string name="recent_colors">Recent Colors</string>
-    <string name="recent_temperatures">Recent Temperatures</string>
     <string name="brightness">BRIGHTNESS</string>
     <string name="warm">WARM</string>
     <string name="warm_white">WARM WHITE</string>
@@ -2394,18 +1930,8 @@
     <string name="normal_light_bulb">Normal Light Bulb</string>
 
     <!-- Amazon Alexa -->
-    <string name="amazon_alexa">AMAZON ALEXA</string>
-    <string name="amazon_alexa_skills">Arcus works with Alexa</string>
-    <string name="amazon_alexa_home_skill">Arcus Home Skill</string>
-    <string name="amazon_alexa_home_skill_desc">Connecting Arcus and Alexa is done \n through the Alexa app. \n\n Tap below and follow \n the setup instructions to get started.</string>
-    <string name="amazon_alexa_setup_instructions">ALEXA SETUP INSTRUCTIONS</string>
-    <string name="amazon_alexa_setup_done">DONE</string>
 
     <!-- Google Home -->
-    <string name="google_home">GOOGLE ASSISTANT</string>
-    <string name="google_home_skills">Arcus Works with Google Assistant</string>
-    <string name="google_home_skills_desc">Connecting Arcus and Google Assistant is done through the Google Home app. \n\n Tap below and follow the setup instructions to get started.</string>
-    <string name="google_home_setup_instructions">SETUP INSTRUCTIONS</string>
 
     <string name="ok">OK</string>
     <string name="connect">CONNECT</string>
@@ -2417,13 +1943,6 @@
     <string name="unplug_ethernet_desc">Unplug your Ethernet cable and wait 30 seconds to connect or update your Wi-Fi information.</string>
 
     <!-- Swann Wifi Smart Plug -->
-    <string name="swann_smart_plug">WIFI SMART SWITCH</string>
-    <string name="swann_select_your_switch">Select your Wi-Fi Smart Switch</string>
-    <string name="swann_which_wifi_network">What Wi-Fi network would you like \n this device connected to?</string>
-    <string name="swann_wifi_network">WIFI NETWORK</string>
-    <string name="swann_wifi_password">PASSWORD</string>
-    <string name="swann_wifi_show_password">SHOW PASSWORD</string>
-    <string name="swann_wifi_hide_password">HIDE PASSWORD</string>
     <string name="swann_wifi_security_setting">SECURITY SETTING</string>
     <string name="swann_wifi_dont_see_network">If you don\'t see your network in the list above, \n tap below to enter it manually.</string>
     <string name="swann_wifi_enter_ssid_info">ENTER SSID INFO</string>
@@ -2433,19 +1952,8 @@
     <string name="swann_confirm_ssid">CONFIRM SSID</string>
     <string name="swann_ssid_mismatch">Entries do not match.</string>
     <string name="swann_ssid_too_long">SSID cannot exceed 32 characters in length.</string>
-    <string name="swann_searching_for_ap">Arcus is searching for your Wi-Fi Smart \n Switch. This may take a few moments. It\'ll \n appear here when it is detected by Arcus.</string>
     <string name="swann_pairing">PAIRING</string>
     <string name="swann_pairing_patience">Please be patient while the device pairs to Arcus. \n This device may take several minutes to pair.</string>
-    <string name="swann_control_your_switch">Control Your Wi-Fi Smart Switch</string>
-    <string name="swann_control_your_switch_desc">Create and manage a lighting schedule by \n tapping on Lights &amp; Switches in the Dashboard.</string>
-    <string name="swann_connected_title">Connected to Wi-Fi \n and ready for action.</string>
-    <string name="swann_connection_usecase1_title">CUE THE CHRISTMAS LIGHTS</string>
-    <string name="swann_connection_usecase1_desc">Create a schedule to turn on holiday lights every night at sunset.</string>
-    <string name="swann_connection_usecase2_title">A WARM WELCOME HOME</string>
-    <string name="swann_connection_usecase2_desc">Use the Arcus app to turn on a light before arriving home.</string>
-    <string name="swann_connection_usecase3_title">PREPARE DINNER FROM ANYWHERE</string>
-    <string name="swann_connection_usecase3_desc">Start the slow cooker from the office, arrive home to a freshly cooked meal.</string>
-    <string name="swann_connection_usecase_more">Find even more rules in the Side Menu</string>
     <string name="swann_wifi_settings_title">WI-FI &amp; NETWORK SETTINGS</string>
     <string name="swann_wifi_settings_desc">Manage your Network Settings</string>
     <string name="swann_wifi_settings_header">You are currently using Wi-Fi.</string>
@@ -2455,48 +1963,26 @@
     <string name="swann_requires_reset">CONNECTION ERROR</string>
     <string name="swann_requires_reset_desc">Your Arcus Wifi Smart Switch failed to pair. You will need to reset the switch and attempt to pair it again. Press and hold the on/off switch for 15 seconds while the switch is plugged into the wall. The lights will blink from red to purple when it is successfully reset.</string>
     <string name="swann_invalid_credentials">Please verify your Wi-Fi network and password credentials are accurate. \n If you receive this error after validating your Wi-Fi credentials please call the Arcus Support Team.</string>
-    <string name="swann_schedule_set_a_schedule">Set a Schedule</string>
-    <string name="swann_schedule_set_a_schedule_desc">The Smart Switch works best with schedules. \n\n - Turn on lights each night at sunset. \n - Turn off appliances at night to save money. \n - Control the kids\' media time with a TV schedule.</string>
-    <string name="swann_schedule_want_schedule">YES, SET UP A SCHEDULE</string>
-    <string name="swann_schedule_dont_want_schedule">NO, I DON\'T NEED A SCHEDULE</string>
-    <string name="swann_schedule_on">What time would you like the \n switch to turn on?</string>
-    <string name="swann_schedule_time_on">START TIME</string>
-    <string name="swann_schedule_off">What time would you like the \n switch to turn off?</string>
-    <string name="swann_schedule_time_off">STOP TIME</string>
-    <string name="swann_schedule_days">What days would you like this \n schedule to run?</string>
-    <string name="swann_schedule_days_days">DAYS</string>
-    <string name="swann_try_again">TRY AGAIN</string>
-    <string name="swann_try_again_desc">No devices discovered. \n Would you like to try again?</string>
     <string name="swann_schedule_no_days_selected">NO DAYS SELECTED</string>
     <string name="swann_schedule_no_days_selected_desc">Please choose one or more days on which this schedule should run.</string>
-    <string name="swann_wifi_must_be_on">Wi-Fi must be enabled to pair a Wi-Fi Smart Switch. \n Use the toggle below to turn on Wi-Fi.</string>
     <string name="swann_permission_denied_title">PERMISSION REQUIRED</string>
-    <string name="swann_permission_denied_desc">Arcus needs to access your location to pair a WiFi Smart Switch. Open Settings, tap \"Permissions\" and toggle the switch next to \"Location.\" You may choose to revoke this permission once the WiFi Smart Switch is paired.</string>
-    <string name="swann_permission_denied_snack">Arcus needs your location to pair this device.</string>
-    <string name="swann_permission_open_settings">Open Settings</string>
     <string name="swann_permission_step_desc">To search for your Wi-Fi network, Android requires the Location permission to be turned on.</string>
     <string name="swann_android_pairing_info">Android Pairing Info</string>
     <string name="swann_android_pairing_info_desc">Your Android device may have an advanced Wi-Fi feature, commonly called "Smart Network Switch," that will cause communication issues during the pairing process. Resolve by:</string>
     <string name="swann_android_pairing_step1">Putting your Android device into Airplane Mode.</string>
     <string name="swann_android_pairing_step2">On your Android device, turn Wi-Fi On.</string>
-    <string name="swann_android_pairing_support">Need Help?</string>
 
     <string name="wifi_bad_wpa_password">Password must between 8 and 63 characters.</string>
     <string name="wifi_bad_wep_password">Password must be exactly 10 or 23 hex characters (A-F, 0-9).</string>
 
-    <string name="camera_lower">camera</string>
     <string name="bluetooth_camera">Bluetooth Camera</string>
     <string name="smart_hub">Smart Hub</string>
     <string name="ble_failed_to_pair_try_again">Your device failed to pair over Bluetooth. Please turn Bluetooth on your phone/tablet off and on and then try again.</string>
     <string name="wifi_network_tips">Wi-Fi Network Tips</string>
-    <string name="swann_ble_camera_name">Arcus Wireless Security Cam</string>
     <string name="which_wifi_to_use_for_setup">Which Wi-Fi network would you like to use to setup for %s</string>
     <string name="dont_see_wifi_network">"Don't see your Wi-Fi Network?"</string>
-    <string name="great">Great!</string>
-    <string name="ble_device_paired_success">"Bluetooth pairing was successful. Now let's connect your camera to the Arcus Platform."</string>
     <string name="ble_camera_choose_device_to_pair">Choose the %1$s that you would like to pair.</string>
     <string name="ble_searching_for_devices">Searching for Bluetooth devices&#8230;</string>
-    <string name="ble_pairing_device">Pairing the Bluetooth device</string>
     <string name="ble_camera_enable_pairing_mode">"Press and hold the Pair button on the back of your camera for 5 seconds. The camera's LED will slowly blink blue."</string>
     <string name="ble_is_off_title">Bluetooth on your Android device is currently off.</string>
     <string name="ble_is_off_desc">Bluetooth must be enabled to pair a %1$s. Use the toggle below to turn on Bluetooth.</string>
@@ -2536,7 +2022,6 @@
     <string name="premium_free_plan">Premium Free Plan</string>
     <string name="pro_monitoring_plan">Professional Monitoring Plan</string>
     <string name="pro_monitoring_annual_plan">Professional Monitoring Annual Plan</string>
-    <string name="pro_monitoring_plan_discount">Professional Monitoring Plan \nwith Discount</string>
     <string name="pro_monitoring_free_plan">Professional Monitoring Free Plan</string>
     <string name="backup_cellular">Backup Cellular</string>
     <string name="call_support_activate_device">Cellular device configuration required.\nPlease call the Arcus Support Team</string>
@@ -2544,14 +2029,6 @@
     <string name="support_number">@string/generic_support_number</string>
     <string name="update_service_plan_with_place_holder">Update your service plan to include %1$s by logging into &arcusportal;</string>
     <string name="streaming_disabled_description">Streaming &amp; Recording is disabled on Backup Cellular.</string>
-
-    <string name="hub_required">HUB REQUIRED</string>
-    <string name="hub_required_desc">The hub is the heart of the Arcus Smart Home System.</string>
-    <string name="hub_required_benefits">BENEFITS OF HUB</string>
-    <string name="hub_required_benefits_desc">Pair your Arcus Smart Hub with over 70 devices. \n Look for the \"Works with Arcus\" logo \n throughout the store. \n\n Arcus partners include: \n GE, Schlage, Kwikset, Whirlpool, \n Honeywell, First Alert, OSRAM Lightify, Genie, \n NYCE, Keen, Orbit, PetSafe, LeakSmart, and more.</string>
-    <string name="hub_required_wifi_devices">WI-FI DEVICES</string>
-    <string name="hub_required_wifi_devices_desc">Looking for Wi-Fi, no Hub required devices?</string>
-    <string name="hub_required_wifi_devices_link"><u>Click Here.</u></string>
 
     <string name="privacy_statement">Privacy Statement</string>
     <string name="terms_of_service">Terms of Service</string>
@@ -2571,18 +2048,10 @@
     <string name="halo_post_pairing_room_error_title">CHOOSE A ROOM</string>
     <string name="halo_post_pairing_room_error_body">Selecting a room is required.</string>
     <string name="halo_post_pairing_radio_title">WEATHER RADIO</string>
-    <string name="halo_post_pairing_top_text">Manage Your Halo Device</string>
-    <string name="halo_post_pairing_bottom_text">Manage Your Halo Device \n under the Alarm card on \n the Dashboard.</string>
     <string name="halo_multiple_error_title">Review the support article below to troubleshoot.</string>
     <string name="halo_room_title">In what room will this device be installed?</string>
     <string name="halo_room_subtitle">Halo will use this room name when speaking to you in the event of an alarm.</string>
     <string name="halo_location_title">Select the County for the Weather Radio</string>
-    <string name="halo_weather_summary_title">Emergency &amp; Weather Alerts</string>
-    <string name="halo_weather_summary_subtitle">Halo is pre-programmed to alert you with over 25 emergency and weather alerts.</string>
-    <string name="halo_weather_summary_subtitle1">Manage these and over 50 more alerts on Halo\'s detail page under More.</string>
-    <string name="halo_post_pairing_test_title">Test the device by pressing the center Halo button and confirm that Halo is sounding properly.</string>
-    <string name="halo_post_pairing_installation_title">Install Halo as described in the printed instructions included with your device.</string>
-    <string name="halo_post_pairing_installation_subtitle">Double check your radio station\'s quality after installing on a ceiling or wall.</string>
     <string name="halo_fail_smoke_sensor">Halo has an issue with its Smoke sensor.</string>
     <string name="halo_fail_co_sensor">Halo has an issue with its CO sensor.</string>
     <string name="halo_fail_temp_sensor">Halo has an issue with its temperature sensor.</string>
@@ -2606,7 +2075,6 @@
     <string name="weather_radio_skip_setup">SKIP WEATHER RADIO SETUP</string>
     <string name="weather_radio_setup">SETUP WEATHER RADIO</string>
     <string name="rescan">RESCAN</string>
-    <string name="pairing_subtext">Find even more rules in the Side Menu.</string>
     <string name="alert_snoozed">ALERT SNOOZED</string>
     <string name="alert_snoozed_description">If anything changes about this alert, (i.e. End time, type of alert) the device\'s speaker will let you know.</string>
     <string name="default_eas_strings">Avalanche Warning \n Biological Hazard Warning \n Blizzard Warning \n Chemical Hazard Warning \n Civil Danger Warning \n Civil Emergency Message \n Coastal Flood Warning \n Contagious Disease Warning \n Contaminated Water Warning \n Dam Break Warning \n Dam Watch \n Dust Storm Warning \n Earthquake Warning \n Emergency Action Notification \n Emergency Action Termination \n Evacuation Immediate \n Extreme Wind Warning \n Fire Warning \n Flash Flood Warning \n Flash Freeze Warning \n Flood Warning \n Food Contamination Warning \n Freeze Warning \n Hazardous Materials Warning \n High Wind Warning \n Hurricane Warning \n Industrial Fire Warning \n Land Slide Warning \n Law Enforcement Warning \n Local Area Emergency \n Nuclear Power Plant Warning \n Radiological Hazard Warning \n Severe Thunderstorm Warning \n Shelter In-place Warning \n Storm Surge Warning \n Tornado Warning \n Tropical Storm Warning \n Tsunami Warning \n Tsunami Watch \n Unrecognized Warning \n Volcano Warning \n Wild Fire Warning \n Winter Storm Warning</string>
@@ -2621,8 +2089,6 @@
     <string name="weather_radio_setting">Weather Radio</string>
     <string name="weather_radio_setting_child_description">Select a Radio Station</string>
     <string name="weather_radio_setting_description">Manage &amp; Edit your Weather Radio</string>
-    <string name="emergency_station_text">Emergency Weather Station</string>
-    <string name="emergency_station_settings_desc_w_ph">%1$s Mhz</string>
     <string name="test_now_text">Test Now</string>
     <string name="last_tested_with_ph">Last Tested: %1$s</string>
     <string name="never_tested_text">Never Tested</string>
@@ -2637,7 +2103,6 @@
         email to the account owner with the
         results of the test.
     </string>
-    <string name="installation_text">INSTALLATION</string>
     <string name="test_text">TEST</string>
     <string name="halo_test_sent_description">
         A test signal has been sent to the device.
@@ -2673,22 +2138,12 @@
 
     <string name="early_smoke_warning">Early Smoke Warning</string>
     <string name="early_smoke_warning_detected">Early Smoke Warning Detected</string>
-    <string name="early_warning_detected">%1$s detected by %2$s at %3$tl:%3$tM %3$Tp on %3$tb %3$te, %3$tY</string>
     <string name="early_warning_info">
         If smoke levels increase, the Safety Alarm will trigger, and your Alarm Notification List will be contacted.
         \n
         \n
         Silence the triggered device by pressing the center Halo button.
     </string>
-    <string name="weather_alert_selection_title">Select the weather alerts you would like ot subscribe to.</string>
-    <string name="weather_statement_title">STATEMENT (S)</string>
-    <string name="weather_statement_desc">A message containing follow up information to a warning, watch, or emergency.</string>
-
-    <string name="weather_watch_title">WATCH (WT)</string>
-    <string name="weather_watch_desc">Meets the classification of a warning, but either the onset time, probability of occurrence, or location is uncertain.</string>
-
-    <string name="weather_warning_title">WARNING (WR)</string>
-    <string name="weather_warning_desc">An event that alone poses a significant threat to public safety and/or property, probability of occurrence and location is high, and the onset time is relatively short.</string>
 
     <string name="manage_alerts_title">Manage the alerts you\'d like to receive.</string>
     <string name="manage_alerts_desc">Alerts can occur at any time of the day. Hazards urgent enough may warrant sounds and wake people up in the middle of the night.</string>
@@ -2737,10 +2192,6 @@
     <string name="zw_enter_rebuild_description">One or more Z-Wave devices were paired. Z-Wave devices in your home link together to form a network. If devices are added, relocated or removed, the network will need to be rebuilt.\n\nEnsure your devices are placed in their final installation location.\n\n
 Choose Rebuild Now when you have finished pairing all of your devices.</string>
 
-    <string name="zw_start_rebuild_title">Z-Wave devices in your home link together to form a network. If devices are added, relocated or removed, the network may need to be rebuilt.</string>
-    <string name="zw_start_rebuild_description">The rebuild process time varies depending on the number of Z-Wave devices in your home. It may take a few minutes or several hours to complete.\n\n
-Your Z-Wave devices will not work optimally during this process.</string>
-
     <string name="zw_rebuild_rebuilding_title">Rebuilding</string>
     <string name="zw_rebuild_rebuilding_description">The rebuild process time varies depending on the number of Z-Wave devices in your home. It may take a few minutes or several hours to complete.\n\n
         During this process Z-Wave devices will not work optimally. These devices may disconnect and reconnect to the hub until the rebuild process is complete."</string>
@@ -2764,66 +2215,18 @@ in the left hand navigation.</string>
     <string name="duration_secs">SECONDS</string>
     <string name="duration_sec">SECOND</string>
 
-    <string name="nyce_hinge">NYCE HINGE SENSOR</string>
-    <string name="nyce_hinge_post_pair_instruction">If the Door Hinge Sensor does not update \n its status as \"Closed\" when you close your \n door, then your door may not have \n good alignment. \n\n If you cannot achieve a \"Closed\" status \n with the supplied set screws, resolve by \n inserting a longer set screw or tapping a \n small brad nail into the hole.</string>
-
     <!--ProMonitoring -->
-    <string name="promon_alarm_type_count">%1$d of %2$d Devices</string>
-    <string name="send_help">Confirm</string>
     <string name="security_alarm_devices_needed_copy">The Security Alarm service helps you protect what matters most.</string>
     <string name="security_alarm_devices_needed_subtitle">To enable this feature, at least one of the following devices must be paired:\n\nContact Sensor\nMotion Sensor\nGlass Break Sensor\nCameras (via Internal Motion Sensor)\nDoor Hinge Sensor\nTilt Sensor</string>
-    <string name="security_alarm_devices_needed_description">More than 1 security device is strongly recommended to properly secure your home and reduce false alarms.</string>
-    <string name="security_alarm_devices_needed_button">SHOP SECURITY DEVICES</string>
-    <string name="security_alarm_devices">SECURITY DEVICES</string>
-    <string name="alarm_bypassed_devices">Bypassed Devices</string>
-    <string name="alarm_offline_devices">Offline Devices</string>
-    <string name="alarm_participating_devices">Participating Devices</string>
-    <string name="alarm_nonparticipating_devices">Non-Participating Devices</string>
     <string name="smoke_alarm_devices_needed_copy">The Smoke Alarm service helps protect your family and home from fire emergencies.</string>
-    <string name="smoke_alarm_devices_needed_subtitle">To enable this feature, at least one Smoke Detector must be paired.</string>
-    <string name="smoke_alarm_devices_needed_description">More than 1 smoke detector is strongly recommended to protect your home.</string>
-    <string name="smoke_alarm_devices_needed_button">SHOP SMOKE DEVICES</string>
     <string name="co_alarm_devices_needed_copy">The CO Alarm service helps protect your family from danger when CO is detected in your home.</string>
-    <string name="co_alarm_devices_needed_subtitle">To enable this feature, at least one Carbon Monoxide detector must be paired.</string>
-    <string name="co_alarm_devices_needed_description">More than 1 carbon monoxide detector is strongly recommended to properly secure your home.</string>
-    <string name="co_alarm_devices_needed_button">SHOP CO DEVICES</string>
     <string name="waterleak_alarm_devices_needed_copy">The Water Leak Alarm service helps prevent water damage or flooding from occurring.</string>
-    <string name="waterleak_alarm_devices_needed_subtitle">To enable this feature, at least one water leak sensor must be paired.</string>
-    <string name="waterleak_alarm_devices_needed_description">More than 1 water leak sensor is strongly recommended to properly secure your home.  Add a water shut-off valve to automatically turn off the main water line coming into the home to help prevent a large water leak.</string>
-    <string name="waterleak_alarm_devices_needed_button">SHOP WATER LEAK DEVICES</string>
-    <string name="activity_empty_title">Activity log records alarm activity from the past 24 hours.</string>
-    <string name="activity_empty_subtitle">Looking for more? Upgrade to Premium to view 14 days of past recorded history.</string>
     <string name="promon_filter_smoke_and_co">Smoke &amp; CO</string>
     <string name="promon_filter_water_leak">Water Leak</string>
     <string name="promon_filter_security_and_panic">Security &amp; Panic</string>
     <string name="alarming">Alarming</string>
-    <string name="global_settings">Global Settings</string>
-    <string name="security_settings">Security Settings</string>
-    <string name="smoke_co_settings">Smoke &amp; CO Settings</string>
-    <string name="waterleak_settings">Water Leak Settings</string>
-    <string name="control_alarm_sounds">Control sounds during an alarm</string>
-    <string name="alarm_requirements">ALARM REQUIREMENTS</string>
-    <string name="alarm_requirements_desc">Number of Motion Sensors that need to be triggered before the Grace Period begins</string>
     <string name="record_alarm">RECORD SECURITY ALARM</string>
     <string name="record_alarm_desc">Initiate a recording of all Cameras upon a triggered Security Alarm. Battery powered cameras can only record for a short duration unless motion is detected.</string>
-    <string name="co_safety_shut_off">CO SAFETY SHUT OFF</string>
-    <string name="co_safety_shut_off_desc">Set all Thermostats, Fans, and Space Heaters to Off when a CO Alarm is triggered.</string>
-    <string name="smoke_safety_shut_off">SMOKE SAFETY SHUT OFF</string>
-    <string name="smoke_safety_shut_off_desc">Set all Thermostats, Fans, and Space Heaters to Off when a Smoke Alarm is triggered</string>
-    <string name="alarm_sounds_title">When triggered, each alarm below will include sounds from the Hub, Keypad, Siren, and other sounding devices.</string>
-    <string name="alarm_sounds_description">If you wish to have a silent alarm, simply tap the toggle to off.</string>
-    <string name="security_panic_alarm">Security &amp; Panic Alarm</string>
-    <string name="smoke_and_co_alarm">Smoke &amp; CO Alarm</string>
-    <string name="water_leak_alarm">Water Leak Alarm</string>
-    <string name="grace_period_sounds_setting_title">GRACE PERIOD SOUNDS</string>
-    <string name="grace_period_sounds_setting_subtitle">Hub and Keypad beep during Exit Grace Period.</string>
-    <string name="alarm_requirements_title">How many participating motion sensors do you want to trigger before the Security Alarm Grace Period begins?</string>
-    <string name="alarm_requirements_subtitle">A low number may create false alarms.\nA higher number makes your home less secure.</string>
-    <string name="alarm_requirements_description">Participating contact sensors, glass break sensors, and other non-motion devices that trigger will also start the Security Alarm Grace Period.</string>
-    <string name="alarm_requirements_description_title">Contact sensors, glass break sensors, and other non-motion devices that trigger will also start the Security Alarm Grace Period.</string>
-    <string name="alarm_requirements_number_of_sensors">NUMBER OF MOTION SENSORS</string>
-    <string name="shop_capitalized">Shop</string>
-    <string name="x_of_y_devices">%1$d of %2$d Devices</string>
     <string name="x_detecting_y">%1$d Detecting %2$s</string>
     <string name="x_offline">%d Offline</string>
     <string name="x_bypassed">%d Bypassed</string>
@@ -2831,7 +2234,6 @@ in the left hand navigation.</string>
     <string name="alarm_on_since">On Since %s</string>
     <string name="alarm_off_since">Off Since %s</string>
     <string name="alarm_partial_since">Partial Since %s</string>
-    <string name="alarm_type_care">Care</string>
     <string name="alarm_type_co">CO</string>
     <string name="alarm_type_co_alarm">CO Alarm</string>
     <string name="alarm_type_smoke">Smoke</string>
@@ -2842,27 +2244,13 @@ in the left hand navigation.</string>
     <string name="alarm_type_security_alarm">Security Alarm</string>
     <string name="alarm_type_panic">Panic</string>
     <string name="alarm_type_panic_alarm">Panic Alarm</string>
-    <string name="alarm_type_weather">Weather</string>
-    <string name="alarm_setting_grace_period_title">GRACE PERIOD</string>
-    <string name="alarm_setting_grace_period_desc">Time Needed to Enter &amp; Exit</string>
-    <string name="alarm_setting_notification_list_title">NOTIFICATION LIST</string>
-    <string name="alarm_setting_alarm_sounds_title">ALARM SOUNDS</string>
     <string name="alarm_no_activity">You have no alarm activity</string>
     <string name="alarm_choose_an_alarm">CHOOSE AN ALARM</string>
     <string name="security_alarm_on">On</string>
     <string name="security_alarm_off">Off</string>
     <string name="security_alarm_partial">Partial</string>
-    <string name="security_alarm_on_partial">On, Partial</string>
     <string name="alarm_status_okay">Okay</string>
     <string name="alarm_status_ready">Ready</string>
-    <string name="security_device_opened">Opened %s</string>
-    <string name="security_device_closed">Closed %s</string>
-    <string name="security_device_motion">Motion %s</string>
-    <string name="security_device_offline">Offline Devices</string>
-    <string name="security_device_not_participating">Not Participating Devices</string>
-    <string name="security_device_on_partial">On &amp; Partial Devices</string>
-    <string name="security_device_bypassed">Bypassed Devices</string>
-    <string name="security_device_participating">Participating Devices</string>
     <string name="no_history_label">You have no items in your history.</string>
     <string name="security_seconds_suffix">" S"</string>
     <string name="security_devices_divisor">/ %d</string>
@@ -2872,28 +2260,12 @@ in the left hand navigation.</string>
     <string name="security_bypass_devices_title">BYPASSED DEVICE(S)</string>
     <string name="security_bypass_devices_desc">The following device(s) will be bypassed but will participate in monitoring when motion is no longer detected or closed.\n</string>
     <string name="alarm_calltree">NOTIFICATION LIST</string>
-    <string name="alarm_calltree_water_desc">Triggered water leak alarms will result in a push notification and automated phone call from Arcus.</string>
-    <string name="alarm_calltree_basic">A triggered alarm will notify you via \n push notification and a phone call.</string>
-    <string name="alarm_calltree_basic_desc">Add up to 6 people to this list with Premium or for greater peace of
-        mind upgrade to Professional Monitoring. To upgrade, log in to your account at &arcusportal;.</string>
-    <string name="alarm_calltree_premium">A triggered alarm will notify the \n people below in the order they \n are listed.</string>
-    <string name="alarm_calltree_pro">A triggered alarm will result in a \n phone call from the Monitoring \n Station.</string>
-    <string name="alarm_calltree_add_six_people">ADD UP TO 6 PEOPLE</string>
-    <string name="alarm_calltree_add_six_people_desc">Requires a Premium or Professional Monitoring service plan</string>
     <string name="alarm_calltree_recommendation">Recommendation</string>
     <string name="alarm_calltree_recommendation_desc">It is recommended to have at least two people on your Notification List. \n\n The Monitoring Station uses an Enhanced Call Verification technique to verify the alarm is real before dispatching the authorities. \n\n This is done to help reduce false alarms, avoid fines, and to increase the accuracy of information passed to the authorities.</string>
-    <string name="alarm_calltree_subtext">Don\'t see the person you\'re looking for? Go to\nSettings &gt; People and add a phone number and a PIN for the person you want to notify, then return to this page.</string>
-    <string name="alarm_unable_to_arm">UNABLE TO ARM</string>
-    <string name="alarm_unable_to_arm_desc">There are too many devices Open or Offline. \n\n Review these devices or adjust your Alarm Requirements.</string>
-    <string name="alarm_unable_to_arm_pending_desc">The Monitoring Station has an alarm event in progress at your place that must be resolved before you can re-arm. \n\n To resolve this event, call the Monitoring Station at %s.</string>
     <string name="alarm_calltree_error_title">OOPS</string>
     <string name="alarm_calltree_error_toobig_title">TOO MANY PEOPLE SELECTED</string>
     <string name="alarm_calltree_error_toobig_desc">A maximum of 6 people can be added to your Alarm Notification List.</string>
     <string name="alarm_calltree_error_nopin_desc">One or more people cannot be added to the Notification List because they do not have PIN code.</string>
-    <string name="incident_cancel_dispatching">For your safety, the Monitoring Station will call to assist you and will attempt to dispatch Police if unanswered. To cancel this, call the Monitoring Station at 1-844-571-6006.</string>
-    <string name="incident_cancel_dispatched">The Police have been notified and may be on their way. To cancel the dispatch, call the Monitoring Station at 1-844-571-6006.</string>
-    <string name="incident_cancel">CANCEL</string>
-    <string name="incident_cancel_button_text">Cancel</string>
     <string name="incident_cancel_close">CLOSE ALARM TRACKER™</string>
     <string name="incident_grace_countdown">Grace Period Countdown</string>
     <string name="alertstate_arming">Arming</string>
@@ -2907,53 +2279,13 @@ in the left hand navigation.</string>
     <string name="no_phone_number_description">Without a phone number, this person cannot be added to any Alarm Notification list.\nAre you sure you want to skip?</string>
     <string name="skip">SKIP</string>
     <string name="settings_promon_info_title">PROFESSIONAL MONITORING</string>
-    <string name="settings_promon_settings_title">SETTINGS</string>
-    <string name="pro_monitoring_title">PROFESSIONAL MONITORING</string>
     <string name="settings_promon_info_desc">Edit your professional monitoring information</string>
-    <string name="settings_promon_permit_title">PERMIT</string>
-    <string name="pro_monitoring_post_title">You have paired a device that will unlock a new professionally monitored alarm. It\'s now automatically included at no additional cost.</string>
-    <string name="settings_promon_permit_desc">Manage your permit code</string>
-    <string name="settings_promon_additional_directions_title">ADDITIONAL DIRECTIONS</string>
-    <string name="settings_promon_additional_directions_desc">Add additional details about your home</string>
-    <string name="settings_promon_gate_access_title">GATE ACCESS CODE</string>
-    <string name="pro_monitoring_post_subtitle">The authorities may come to %s if one of the following alarms are triggered:</string>
-    <string name="settings_promon_gate_access_desc">Provide your gate access code</string>
-    <string name="settings_promon_first_responder_info_title">FIRST RESPONDER INFORMATION</string>
-    <string name="settings_promon_first_responder_info_desc">Add special instructions for first responders</string>
-    <string name="pro_monitoring_post_expect">&lt;a href="http://www.example.com">What to expect with Professional Monitoring.&lt;/a></string>
-    <string name="settings_promon_who_lives_here_title">WHO LIVES HERE?</string>
-    <string name="settings_promon_who_lives_here_desc">Update the occupants living at this residence</string>
-    <string name="settings_promon_download_certificate_button_text">DOWNLOAD ALARM CERTIFICATE</string>
     <string name="settings_promon_permit_view_title">ALARM MONITORING PERMIT</string>
     <string name="settings_promon_permit_desc_text">Local emergency responders require you to have a dispatch permit on file.</string>
     <string name="settings_promon_permit_edit_helper_text">ENTER YOUR PERMIT CODE</string>
     <string name="settings_promon_permit_warning_text">The authorities will ask for your permit code during the dispatch process.  Failure to obtain and enter permit information may result in fines, and emergency responders may not respond.</string>
     <string name="settings_promon_permit_contact_text">Contact your local city office \n to request your dispatch permit.</string>
     <string name="settings_promon_permit_save_button_text">SAVE</string>
-    <string name="settings_promon_additional_directions_title_text">ADDITIONAL DIRECTIONS</string>
-    <string name="settings_promon_additional_directions_gps_text">Is your home easy to access using common GPS systems?  If not, please elaborate on the directions to your home.</string>
-    <string name="settings_promon_additional_directions_emergency_text">In the event of an emergency, this information will help first responders quickly find your home.</string>
-    <string name="settings_promon_additional_directions_char_limit_text">CHARACTER LIMIT %1$d/360</string>
-    <string name="settings_promon_additional_directions_save_button_text">SAVE</string>
-    <string name="settings_promon_gate_access_view_title">GATE ACCESS CODE</string>
-    <string name="settings_promon_gate_access_view_instructions">Does your home have a gate access code?  If so, please enter the code below</string>
-    <string name="settings_promon_gate_access_view_edit_hint">ENTER YOUR GATE ACCESS CODE</string>
-    <string name="settings_promon_gate_access_save_button_text">SAVE</string>
-    <string name="settings_promon_first_responder_title">FIRST RESPONDER INFORMATION</string>
-    <string name="settings_promon_first_responder_instructions_text">Please list any information that you would like first responders to know.  (i.e unusual obstructions at your property, firearms or important medical requirements.</string>
-    <string name="settings_promon_first_responder_char_limit_text">CHARACTER LIMIT %1$d/360</string>
-    <string name="settings_promon_first_responder_save_button_text">SAVE</string>
-    <string name="settings_promon_who_lives_here_title_text">WHO LIVES HERE?</string>
-    <string name="settings_promon_who_lives_here_instructions">To better assist first responders during an emergency, please provide an accurate count of people and pets living at this Place.</string>
-    <string name="settings_promon_who_lives_here_adults_text">ADULTS</string>
-    <string name="settings_promon_who_lives_here_children_text">CHILDREN</string>
-    <string name="settings_promon_who_lives_here_pets_text">PETS</string>
-    <string name="settings_promon_who_lives_here_adults_popup_title">NUMBER OF ADULTS</string>
-    <string name="settings_promon_who_lives_here_adults_popup_item_type">ADULT</string>
-    <string name="settings_promon_who_lives_here_children_popup_title">NUMBER OF CHILDREN</string>
-    <string name="settings_promon_who_lives_here_children_popup_item_type">CHILDREN</string>
-    <string name="settings_promon_who_lives_here_pets_popup_title">NUMBER OF PETS</string>
-    <string name="settings_promon_who_lives_here_pets_popup_item_type">PET</string>
     <string name="settings_promon_permit_required_title">PERMIT REQUIRED</string>
     <string name="settings_promon_permit_required_responder_header">Local emergency responders require you to have a dispatch permit on file.</string>
     <string name="settings_promon_permit_required_responder_text">The authorities will ask for your permit number during the dispatch process.  You have 45 days to enter your permit information. Failure to obtain and enter permit information may result in fines, and emergency responders may not respond.</string>
@@ -2962,18 +2294,6 @@ in the left hand navigation.</string>
     <string name="settings_promon_permit_required_update_settings_header">Update your professional monitoring settings.</string>
     <string name="settings_promon_permit_required_update_settings_text">Update your gate access code, additional directions, permit code, and more in Sidemenu>Place>Professional Monitoring Settings.</string>
     <string name="settings_promon_permit_required_button_text">DONE</string>
-    <string name="settings_promon_certificate_download_share">Share</string>
-    <string name="settings_promon_certificate_download_print">Print</string>
-    <string name="settings_promon_certificate_download_error_title">UNABLE TO DOWNLOAD</string>
-    <string name="settings_promon_certificate_download_error_text">Please try again later or visit &arcusportal;
-        \nand navigate to Settings > People &amp; Places > \nPro Monitoring info to download.</string>
-    <string name="settings_promon_certificate_download_error_button_text">RETRY</string>
-    <string name="settings_promon_certificate_download_notification_title">Certificate Download</string>
-    <string name="settings_promon_certificate_download_notification_text">Download ProMonitoring Certificate</string>
-    <string name="settings_promon_certificate_send_to">Send To</string>
-    <string name="alarm_more_no_devices_header">Explore the endless possibilities with Arcus.</string>
-    <string name="alarm_more_no_devices_text">Learn how Arcus can protect your home and family with our full line of home protection &amp; security devices</string>
-    <string name="alarm_more_no_devices_button">DISCOVER NOW</string>
 
     <string name="address_verification_display">%1$s, %2$s %3$s</string>
     <string name="address_verification_no_suggestions_title">Entered address could not be verified.</string>
@@ -2989,24 +2309,11 @@ in the left hand navigation.</string>
         this address.\n\nTo continue, first update your service plan by logging into &arcusportal;
         and then
         change your address.</string>
-    <string name="address_verification_permit_warning_text">The authorities will ask for your permit code during the dispatch process. You have 45 days to enter your permit information. Failure to obtain and enter permit information may result in fines, and emergency responders may not respond.</string>
-    <string name="how_do_i_get_permit">How Do I get a Permit?</string>
-    <string name="address_verification_update_your_promon_settings_title">PERMIT REQUIRED</string>
-    <string name="address_verification_update_your_promon_settings">Update your professional monitoring settings.</string>
-    <string name="address_verification_update_your_promon_settings_subtext">Update your gate access code, additional directions, permit code, and more in Sidemenu>Place>Professional Monitoring Settings.</string>
     <string name="alert">ALERT</string>
     <string name="alert_safety_subtitle">SAFETY ALARM TRIGGERED</string>
     <string name="alert_security_subtitle">SECURITY ALARM TRIGGERED</string>
 
     <!-- What's New Screen Text -->
-    <string name="whats_new_title"><b>What\'s New</b></string>
-    <string name="whats_new_subtitle"><b>Arcus Works with Philips Hue</b></string>
-    <string name="whats_new_bullet"><b>&#8226;</b></string>
-    <string name="whats_new_bulleted_list_0">Control your Philips Hue devices with existing Arcus Rules without leaving the app</string>
-    <string name="whats_new_bulleted_list_1"><![CDATA[Support for 2 New Kwikset Locks: Item <a href="https://www.example.com/products/kwikset-smartcode-smartkey-venetian-bronze-single-cylinder-motorized-touchscreen-electronic-entry-door-deadbolt-with-keypad/">#840735</a> &amp; <a href="https://www.example.com/products/kwikset-smartcode-smartkey-satin-nickel-single-cylinder-motorized-electronic-entry-door-deadbolt-with-keypad/">#840739</a>]]></string>
-    <string name="whats_new_bulleted_list_2">Pinning &amp; Filtering of Camera Clips</string>
-    <string name="whats_new_bulleted_list_3"><![CDATA[Now Available: <a href="https://home.example.com">Web Portal Login</a>]]></string>
-    <string name="whats_new_button">LEARN MORE</string>
 
 
     <string name="alarm_upgrade_needed_title">ALARM UPGRADE NEEDED</string>
@@ -3015,17 +2322,12 @@ in the left hand navigation.</string>
     <string name="alarm_upgrade_failed_title">Upgrade Failed</string>
     <string name="alarm_upgrade_failed_desc">Please contact the Arcus support team for assistance.</string>
 
-    <string name="alarm_requirements_no_sensors_title">Have your motion sensor(s) participate in ON or PARTIAL mode to get an additional setting that can help reduce false alarms.</string>
-    <string name="alarm_requirements_no_sensors_subtitle">Go to the Alarms Card and tap on Security to make updates to the motion sensor(s) that participate in your Security Alarm.</string>
-
     <string name="tip_48">TIP #48</string>
     <string name="tip_48_text">Monitor the temperature in your crawl space using a contact or motion sensor.</string>
 
     <!-- Permissions -->
     <string name="permission_rationale_camera_and_storage"><![CDATA[<b>Camera Permission</b><br>This lets Arcus use your camera to take a photo of your home, devices, and people at your Place.<br><br><b>Storage Permission</b><br>This lets Arcus store and access information like photos and your SD card, so you can upload photos of your home, devices and people at your Place.]]></string>
     <string name="permission_rationale_storage"><![CDATA[<b>Storage Permission</b><br>This lets Arcus store and access information like photos and your SD card, so you can upload photos of your home, devices and people at your Place.]]></string>
-    <string name="permission_rationale_storage_promon_cert"><![CDATA[<b>Storage Permission</b><br>This lets Arcus download your certificate, so you can save it to your phone or SD card.]]></string>
-    <string name="permission_rationale_phone_state"><![CDATA[<b>Phone Permission</b><br>This is required for Arcus to communicate with you. Without this permission, Arcus will not work.]]></string>
     <string name="permission_rationale_location"><![CDATA[<b>Location Permission</b><br>Location is used to retrieve information such as timezone, daylight savings time, etc so your scheduled events will run correctly.]]></string>
     <string name="permission_rationale_location_swann"><![CDATA[<b>Location Permission</b><br>To search for your Wi-Fi network, Android requires the Location permission to be turned on.]]></string>
     <string name="permission_rationale_location_ble_swann"><![CDATA[<b>Location Permission</b><br>To search for your Bluetooth devices, Android requires the Location permission to be turned on.]]></string>
@@ -3034,7 +2336,6 @@ in the left hand navigation.</string>
     <string name="permission_rationale_contacts"><![CDATA[<b>Contacts Permission</b><br>This makes it easy for you to invite people to your Place and to add Arcus as a contact.]]></string>
 
     <string name="permission_location_denied_message">You turned off permissions for Location. To edit, go to your Android OS settings to allow \"&appName;\" access to your Location.</string>
-    <string name="permission_read_phone_state_denied_message">You turned off permissions for Phone. Arcus will not work without this access to this permission. To edit, go to your Android OS settings to allow \"&appName;\" access to your Phone.</string>
     <string name="permission_read_contacts_denied_message">You turned off permissions for Contacts. To edit, go to your Android OS settings to allow \"&appName;\" access to your Contacts.</string>
     <string name="permission_camera_denied_message">You turned off permissions for Camera. To edit, go to your Android OS settings to allow \"&appName;\" access to your Camera.</string>
     <string name="permission_storage_denied_message">You turned off permissions for Storage. To edit, go to your Android OS settings to allow \"&appName;\" access to your Storage.</string>
@@ -3045,7 +2346,6 @@ in the left hand navigation.</string>
     <string name="ucc_contact_subtitle">Always know when the Monitoring Station \n is calling in emergency situations by \n tapping "Add to Contacts" \n\n Arcus will add the Monitoring Station to \n your Contact List, so your Caller ID can \n tell you they are calling</string>
     <string name="ucc_contact_add">ADD TO CONTACTS</string>
     <string name="ucc_contact_name">Monitoring Station</string>
-    <string name="ucc_add_contact_link">Add Monitoring Station \n Phone Number to your Contacts </string>
     <string name="cant_access_contacts">CANNOT ACCESS CONTACTS</string>
     <string name="cant_access_contacts_subtitle">Go to your Android OS settings to \n allow \"&appName;\" to access \n your contacts.</string>
 
@@ -3062,12 +2362,8 @@ in the left hand navigation.</string>
     <string name="fob_button_play_chime">Play Chime</string>
     <string name="fob_button_activate_rule">Activate a Rule</string>
 
-    <string name="link_account">LINK ACCOUNT</string>
-
     <string name="nest_more_copy">Manage these settings on your Nest thermostat or in the Nest app.</string>
     <string name="nest_room">ROOM</string>
-    <string name="nest_deviceid">DEVICE ID</string>
-    <string name="nest_firmware">FIRMWARE</string>
     <string name="nest_templock">TEMP. LOCK</string>
     <string name="nest_emergency_shutoff">Device is in Emergency Shutoff mode.</string>
     <string name="nest_account_revoked">Nest account information revoked.</string>
@@ -3076,10 +2372,6 @@ in the left hand navigation.</string>
     <string name="nest_deleted_desc">This device has been removed from within your Nest account. To resolve, first ensure the device is connected to your Nest account, then re-pair by tapping the \'+\' button on the Dashboard. \n\n To remove the device from Arcus, tap \'Remove\' on the Device page under the More tab.</string>
     <string name="nest_account_revoked_title">NEST CREDENTIALS REVOKED</string>
     <string name="nest_account_revoked_desc">Access to control Nest devices with Arcus has been revoked or removed from within your Nest account. To resolve, first ensure the device is connected to your Nest account, then re-pair by tapping the \'+\' button on the Dashboard. \n\n To remove the device from Arcus, tap \'Remove\' on the Device page under the More tab.</string>
-    <string name="nest_reconnect_to_arcus">RECONNECT TO Arcus</string>
-    <string name="nest_templock_off">Off</string>
-    <string name="nest_templock_on">On (%1$d&#xb0; - %2$d&#xb0;)</string>
-    <string name="nest_ratelimited">Temporary Timeout</string>
 
     <!-- Hub Local Provider -->
     <string name="hub_local_offline_dasboard_card_text">Unable to Notify</string>
@@ -3087,7 +2379,6 @@ in the left hand navigation.</string>
     <string name="hub_local_offline_popup_description">Arcus is unable to contact you because your Hub or Wi-Fi security device has lost connection to the internet. This may be a router or service provider issue.</string>
     <string name="hub_local_offline_popup_offline_since">Offline Since:</string>
     <string name="hub_local_offline_popup_last_mode">Last Known Security Alarm Mode:</string>
-    <string name="hub_local_offline_popup_alarm_sound">The alarm will still sound if triggered.</string>
     <string name="hub_local_offline_popup_alarm_event">An alarm event is in progress.</string>
     <string name="hub_local_offline_popup_support_button">GET SUPPORT</string>
     <string name="hub_local_offline_popup_return_button">RETURN TO DASHBOARD</string>
@@ -3097,15 +2388,7 @@ in the left hand navigation.</string>
     <string name="hub_local_offline_incident_popup_title">HUB LOST CONNECTION</string>
     <string name="hub_local_offline_incident_desc_text">Arcus cannot stop sounds in the home until you reconnect the hub.</string>
     <string name="hub_local_offline_incident_promon_text"><![CDATA[<br><br>For your safety, the Monitoring Station will call to assist &amp; attempt to dispatch authorities if left unanswered. To cancel dispatch, call <br> %s]]></string>
-    <string name="hub_local_offline_incident_exception_code">UnknownDevice</string>
     <string name="hub_local_offline_incident_exception_message">[UnknownDevice]: Hub is not currently connected</string>
-    <string name="hub_local_offline_timeout_exception_message">Request timed out</string>
-    <string name="hub_local_offline_timeout_arm_title">Unable to Arm</string>
-    <string name="hub_local_offline_timeout_arm_message">An error occurred when trying to arm your Security Alarm. Please try again later.</string>
-    <string name="hub_local_offline_timeout_disarm_title">Unable to Disarm</string>
-    <string name="hub_local_offline_timeout_disarm_message">An error occurred when trying to disarm your Security Alarm. Please try again later.</string>
-    <string name="hub_local_offline_hub_disarming_title">Unable to Arm</string>
-    <string name="hub_local_offline_hub_disarming_message">Please try again in a few seconds.</string>
 
     <string name="hue_bridge_error">Pairing to Hue Bridge Req\'d</string>
     <string name="ip_address">IP ADDRESS</string>
@@ -3124,11 +2407,6 @@ in the left hand navigation.</string>
     <string name="login_create_account"><u>Create An Account</u></string>
     <string name="login_invalid_password">Email and/or passwords do not match</string>
     <string name="login_generic_error"><![CDATA[Hmm, something\'s wrong. Please try again.]]></string>
-    <string name="login_create_an_account">Create an Account</string>
-    <string name="login_computer">Computer</string>
-    <string name="login_computer_desc">Visit www.example.com on your PC and click \"Create Account\" if you prefer a keyboard to fill out forms.</string>
-    <string name="login_mobile">Phone</string>
-    <string name="login_mobile_desc">Tap Next to create an account using your phone or tablet\'s web browser.</string>
 
     <!-- New Account Confetti -->
     <string name="new_account_confetti_title">Home Smart Home</string>
@@ -3139,18 +2417,9 @@ in the left hand navigation.</string>
     <!-- New Account Hub -->
     <string name="new_account_pair_hub">Add a Hub or Starter Kit</string>
     <string name="new_account_pair_hub_title">Do you have a Smart Hub or Starter Kit?</string>
-    <string name="new_account_pair_hub_subtitle">The Hub is the heart of the Arcus network, but not all devices require a Hub.</string>
-    <string name="new_account_dashboard"><u>Take me to the Dashboard</u></string>
     <string name="hub_kit_header">Which Arcus Hub or Starter Kit would you like to add?</string>
 
     <!-- Almost Finished -->
-    <string name="almost_finished_ready">Account Almost Ready</string>
-    <string name="almost_finished_title">You\'re Almost Finished</string>
-    <string name="almost_finished_subtitle">Only a few more steps until your Arcus account is activated!</string>
-    <string name="almost_finished_complete_account">COMPLETE ACCOUNT CREATION</string>
-    <string name="almost_finished_sign_out"><![CDATA[<u>Sign Out</u>]]></string>
-    <string name="almost_finished_logged_in_as_fname"><![CDATA[Logged in as <b>%1$s, <br> %2$s</b>]]></string>
-    <string name="almost_finished_logged_in_as"><![CDATA[Logged in as <br> <b>%1$s</b>]]></string>
 
     <!-- Lutron -->
     <string name="lutron_device_removed_banner_text">Device removed in Lutron app</string>
@@ -3160,7 +2429,6 @@ in the left hand navigation.</string>
     <string name="lutron_device_deleted_fragment_text">This device has been removed from within your Lutron account. To resolve, first ensure the device is connected to your Lutron account, then re-pair by tapping the \'+\' button on the Dashboard. \n\n To remove the device from Arcus, tap \'Remove\' on the Device page under the More tab. </string>
     <string name="lutron_account_revoked_fragment_title">LUTRON CREDENTIALS REVOKED</string>
     <string name="lutron_account_revoked_fragment_text">Access to control Lutron devices with Arcus has been revoked or removed from within your Lutron account. To resolve, first ensure the device is connected to your Lutron account, then re-pair by tapping the \'+\' button on the Dashboard. \n\n To remove the device from Arcus, tap \'Remove\' on the Device page under the More tab. </string>
-    <string name="lutron_reconnect_to_arcus_button">RECONNECT TO Arcus</string>
     <string name="lutron_bridge_info_operating_mode">OPERATING MODE</string>
     <string name="lutron_bridge_info_serial_number">SERIAL_NUMBER</string>
     <string name="product_item_number_label">ITEM NO</string>
@@ -3182,14 +2450,7 @@ in the left hand navigation.</string>
     <string name="fingerprint_not_recognized">Fingerprint not recognized. Try Again.</string>
     <string name="fingerprint_failed">Fingerprint not available.\nLog in with password.</string>
 
-    <string name="fingerprint_unlock_title">Unlock app with Fingerprint</string>
     <string name="fingerprint_unlock_desc">Use your Fingerprint for quick access to the app. To use, you\'ll need to have your Fingerprint set up in your phone\'s settings. </string>
-    <string name="fingerprint_require_prompt">Require Fingerprint Prompt</string>
-    <string name="fingerprint_require_prompt_desc">How frequently do you want Fingerprint to be displayed?</string>
-    <string name="fingerprint_prompt_title">Fingerprint for "&appName;"</string>
-    <string name="fingerprint_prompt_desc">Please authenticate to proceed</string>
-    <string name="fingerprint_use_password">Use Password</string>
-    <string name="title_activity_fingerprint">FingerprintActivity</string>
 
     <string name="fingerprint_sensor_hardware_missing">No sensor.</string>
     <string name="lock_screen_not_set_up">Screen Lock Required. \n\nTo use Fingerprint, go to \'Settings -> Security -> Screen lock\', and set up one security lock option.</string>
@@ -3235,9 +2496,7 @@ in the left hand navigation.</string>
     <string name="enhanced_hub_offline_desc">The selected device requires the Arcus Smart Hub to pair. Re-connect your Hub and then try to pair this device.</string>
 
     <string name="add_device_title">Add a Device</string>
-    <string name="add_device_and_kits">Hubs &amp; Starter Kits</string>
     <string name="search_devices">Search Devices</string>
-    <string name="device_image_content_description">Device Image</string>
     <string name="divider_content_description">Divider</string>
     <string name="title_activity_pairing_steps">Pairing Steps</string>
     <string name="add_a_device">Add a Device</string>
@@ -3376,7 +2635,6 @@ in the left hand navigation.</string>
     <string name="resolve">Resolve</string>
     <string name="remove">Remove</string>
     <string name="customize">Customize</string>
-    <string name="device_detected">Device Detected</string>
     <string name="device_name_generic">Device Name</string>
     <string name="give_device_a_name_generic">Give your Device a Name</string>
     <string name="name_your_device_generic">Name Your Device</string>
@@ -3397,13 +2655,11 @@ in the left hand navigation.</string>
     <string name="security_on_description"><![CDATA[<b>On</b><br>Ideal when no one is home, and you wish to secure your entire home.]]></string>
     <string name="security_on_partial_description"><![CDATA[<b>On &amp; Partial</b><br>Device participates in both ON &amp; Partial Modes.]]></string>
     <string name="security_partial_description"><![CDATA[<b>Partial</b><br>Typically used when motion sensors are not participating so you can move around the home at night without triggering the alarm.]]></string>
-    <string name="security_pair_motion_sensor">Pair a motion sensor to get additional settings.</string>
     <string name="security_not_participating_description"><![CDATA[<b>Not Participating</b><br>Devices will not participate in your Security Alarm System.]]></string>
 
     <string name="customization_assignment_option_header">Fob Assignment</string>
     <string name="customization_assignment_option_title">Who is going to use this %s?</string>
     <string name="customization_assignment_option_desc">Don’t see the Person you would like to assign it to? Tap Next and you can assign this device to them after you invite that Person to Arcus.</string>
-    <string name="customization_assignment_option_unassigned">Unassigned</string>
 
     <string name="missing_device_name">Missing Device Name</string>
 
@@ -3417,7 +2673,6 @@ in the left hand navigation.</string>
     <string name="halo_weather_radio_description_default">Tap the play button to determine which radio station is the clearest. You’ll hear the radio playing through Halo.</string>
     <string name="halo_weather_radio_info_default">Station quality should increase when plugged into AC power during installation.</string>
     <string name="halo_weather_radio_no_stations_title">Weak Radio Signal</string>
-    <string name="halo_weather_radio_no_stations_description"><![CDATA[There are no weather radio stations within range of this device. Resolve by ensuring the device is connected to AC power and that your location is covered by the <a href="%s" target="_top">NOAA Weather Radio Coverage map.</a>]]></string>
     <string name="halo_weather_radio_more_stations">More Stations</string>
 
 
@@ -3434,7 +2689,6 @@ in the left hand navigation.</string>
     <string name="orbit_zone_title_default">Select and rename each zone you want to use.</string>
     <string name="orbit_zone_description_default">(e.g. Front Yard, Flower bed)</string>
 
-    <string name="add_a_camera_title">Add A Camera</string>
     <string name="wifi_smart_switch_title">Wi-Fi Smart Switch</string>
     <string name="unsecured_network_title">Unsecured Network</string>
     <string name="wifi_network_info_title">Wi-Fi Network Info</string>
@@ -3505,12 +2759,10 @@ in the left hand navigation.</string>
     <string name="removal_unsuccessful_help">Need Help?\nCall Our Support Team</string>
     <string name="force_remove_will_delete">Force Remove will delete the device from the hub. However, in order to re-connect this device, you will need to do a manual reset of the device itself before re-pairing.</string>
     <string name="attempting_to_remove_device">Please follow the step(s) below to remove the device.</string>
-    <string name="to_reset_the_device">To reset the %1$s, follow the steps below:</string>
     <string name="device_was_improperly_paired">A device was improperly paired.</string>
     <string name="are_you_sure_you_want_to_remove_this_device">Are you sure you want to remove this device?</string>
     <string name="the_hub_will_beep">The Hub will beep when it is successfully removed</string>
     <string name="please_remove_and_re_pair_the_device">Please remove and re-pair the device.</string>
-    <string name="pair_my_device_again">Pair My Device Again</string>
     <string name="remove_improperly_paired_hue_description">An %1$s was found. To fix the issue, remove the device from Arcus and pair it to the Hue Bridge. Then re-pair the Hue Bridge to Arcus.</string>
     <string name="rebuild_zwave_second_screen_title">The rebuild process time varies depending on the number of Z-Wave devices in your home.</string>
     <string name="rebuild_zwave_second_screen_desc">It may take a few minutes or several hours to complete. Your Z-Wave devices will not work optimally during this process.</string>

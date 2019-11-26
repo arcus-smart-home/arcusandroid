@@ -25,26 +25,14 @@ import android.widget.TextView;
 import arcus.app.R;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-
 
 public class SpinnerAdapter extends ArrayAdapter<String> {
-
-    private Map<String, String> questionMap;
     private int resource = -1;
     private Context context;
     private boolean isLightColorScheme;
     private List<Integer> disabledItems;
     boolean wrapText = false;       // When true, long text entries will wrapped on multiple lines
-
-    public SpinnerAdapter(Context context, int resource) {
-        super(context, resource);
-        this.context = context;
-        setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    }
-
 
     public SpinnerAdapter(Context context, int resource, String[] items) {
         super(context, resource);
@@ -61,16 +49,6 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
         this.isLightColorScheme = isLightColorScheme;
         setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         addAll(items);
-    }
-
-    public SpinnerAdapter(Context context, int resource, Map<String, String> questionMap, boolean isLightColorScheme) {
-        super(context, resource);
-        this.context = context;
-        setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.questionMap = questionMap;
-        this.isLightColorScheme = isLightColorScheme;
-        this.wrapText = true;
-        covertToStringArray();
     }
 
     public void setDisabledItems(Integer... disabledItems) {
@@ -136,21 +114,8 @@ public class SpinnerAdapter extends ArrayAdapter<String> {
                 ((TextView) v.findViewById(android.R.id.text1)).setTextColor(getContext().getResources().getColor(R.color
                         .arcus_gray));
             }
-            else {
-                try { // No-Op Catch, Rather be the wrong color than crash.
-                    if (isLightColorScheme) {
-                        ((TextView) v.findViewById(R.id.spinner_multiline)).setTextColor(Color.WHITE);
-                    }
-                }catch (Exception ex) {}
-            }
         }
         return v;
-    }
-
-    private void covertToStringArray() {
-        Collection<String> vals = questionMap.values();
-        String[] array = vals.toArray(new String[vals.size()]);
-        addAll(array);
     }
 
 }

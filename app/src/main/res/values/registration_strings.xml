@@ -77,12 +77,5 @@
         <item>WV</item>
         <item>WY</item>
     </string-array>
-    <string name="subscriptionTitle">Choose Subscription</string>
-    <string name="addonTitle">Choose Add On Services</string>
     <string name="requiredField">%1$s is required</string>
-    <string name="invalidEmail">%1$s is not a valid email address</string>
-    <string name="invalidPhone">%1$s is not a valid phone number.  It must be 10 digits long.</string>
-    <string name="invalidMonth">%1$s must be between 01 and 12</string>
-    <string name="ccAlreadyExpired">Credit card is already expired</string>
-    <string name="invalidPincode">Please enter 4 digit pin code</string>
 </resources>

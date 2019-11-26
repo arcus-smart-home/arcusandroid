@@ -102,33 +102,6 @@
         <item name="borderlessButtonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
     </style>
 
-    <style name="TransparentProgressDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:alertDialogStyle">@style/TransparentAlertDialogStyle</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowTitleStyle">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
-        <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:background">@android:color/transparent</item>
-    </style>
-
-    <style name="TransparentAlertDialogStyle">
-        <item name="android:bottomBright">@android:color/transparent</item>
-        <item name="android:bottomDark">@android:color/transparent</item>
-        <item name="android:bottomMedium">@android:color/transparent</item>
-        <item name="android:centerBright">@android:color/transparent</item>
-        <item name="android:centerDark">@android:color/transparent</item>
-        <item name="android:centerMedium">@android:color/transparent</item>
-        <item name="android:fullBright">@android:color/transparent</item>
-        <item name="android:fullDark">@android:color/transparent</item>
-        <item name="android:topBright">@android:color/transparent</item>
-        <item name="android:topDark">@android:color/transparent</item>
-    </style>
-
     <style name="MainCardLayout">
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">match_parent</item>

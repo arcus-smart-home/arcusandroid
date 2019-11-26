@@ -97,13 +97,6 @@
     <!-- Login -->
     <color name="arcus_pale_grey">#F0F0F0</color>
 
-    <!-- Confetti -->
-    <color name="pink_confetto">#E80058</color>
-    <color name="purple_confetto">#320043</color>
-    <color name="yellow_confetto">#FDAA09</color>
-    <color name="blue_confetto">#1083C0</color>
-    <color name="turqoise_confetto">#17B3A3</color>
-
     <color name="mock_background_color">#FFB0C7D8</color>
 
     <color name="dashboard_divider">@color/black_with_20</color>

@@ -32,39 +32,25 @@
     <string name="video_player_loading">Loading</string>
     <string name="video_player_loading_text">Please wait&#8230;</string>
 
-    <string name="camera_record">RECORD</string>
     <string name="camera_recording">RECORDING</string>
     <string name="camera_rec">REC</string>
     <string name="camera_streaming">STREAMING</string>
-
-    <string name="camera_recording_tap_view">Recording - Tap to view.</string>
-    <string name="camera_stream_tap_view">Streaming - Tap to view.</string>
-    <string name="camera_tap_view">Tap to view.</string>
-
-    <string name="camera_premium_required_text">Store your video clips in the cloud (3GB Storage).  Download clips to your personal devices.</string>
-    <string name="camera_premium_required_sub_text">See what triggered the alarm, or who left the back door open with Premium.  Record video anytime, or with Rules, e.g. If Alarm is Triggered, Record Video.</string>
 
     <string name="delete_all_basic_description">Delete All will delete all clips</string>
     <string name="yes_delete_clips">Yes, Delete All Clips</string>
     <string name="yes_clean_up">Yes, Clean Up</string>
     <string name="clean_up_clips">CLEAN UP</string>
     <string name="delete_all_clips">DELETE ALL</string>
-    <string name="camera_clips_top_text">To allow for new recordings, clips will automatically delete, from oldest to newest, as storage capacity is reached (Pinned Clips excluded).</string>
-    <string name="camera_clips_sub_text">To manage how much data is used when recording, lower the Frame Rate and/or
-        decrease the Image Quality of each camera.</string>
     <string name="video_storage">VIDEO STORAGE</string>
 
-    <string name="this_cannot_be_undone">This cannot be undone.</string>
     <string name="cleanup_cannot_be_undone">Clean Up will preserve Pinned Clips and will delete all other clips.
         This cannot be undone.</string>
     <string name="delete_all_cannot_be_undone">Delete All will delete all clips, including Pinned Clips. This cannot
         be undone.</string>
     <string name="manage_video_clips">Manage Your Video Clips</string>
-    <string name="clips_by_text">Triggered by:&#160;%s</string>
     <string name="camera_local_stream_title">LOCAL STREAMING</string>
     <string name="camera_local_stream_desc">Obtain the URL of your camera\'s live stream to view in 3rd party applications.</string>
     <string name="local_streaming_top_text">Use the camera information below to\nlive stream using 3rd party\napplications.</string>
-    <string name="local_streaming_sub_text">Arcus cannot control your local network security settings.</string>
     <string name="local_streaming_username">Camera Username</string>
     <string name="local_streaming_password">Camera Password</string>
     <string name="local_streaming_streaming_ip">IP Address</string>
@@ -75,9 +61,6 @@
 
     <string name="camera_download_in_progress_title">DOWNLOAD IN PROGRESS</string>
     <string name="camera_download_in_progress_desc">Please allow the current download to complete.</string>
-
-    <string name="on_metered_network_title">CELLULAR CONNECTION</string>
-    <string name="on_metered_network_desc">You are on a cellular connection. Data charges may apply. Do you wish to continue?</string>
 
     <string name="cannot_access_storage_title">CANNOT ACCESS STORAGE</string>
     <string name="cannot_access_storage_desc">"Go to your Android OS setting to allow \"&appName;\" access to your storage."\n</string>
@@ -90,7 +73,6 @@
     <string name="camera_duration_size_unknown">Unknown</string>
     <string name="camera_recording_in_progress">In Progress</string>
 
-    <string name="camera_video_storage">VIDEO STORAGE</string>
     <string name="camera_pinned_clips_title">Show Pinned Clips Only</string>
     <string name="camera_filter_type_title">Use the Filters below to narrow your clips.</string>
     <string name="camera_filter_clips_title">Show clips from</string>
@@ -102,11 +84,6 @@
     <string name="all_days">All Days</string>
     <string name="download_started">DOWNLOAD STARTED</string>
     <string name="download_started_body">Your clips will continue to download, even if you close the Arcus app, and will appear in your Downloads Folder.</string>
-    <plurals name="camera_clips_plural">
-        <item quantity="one">%d Clip</item>
-        <item quantity="other">%d Clips</item>
-    </plurals>
     <string name="no_video_clips_filter">You have no video clips for the selected filter.\nCheck filter above for more options.</string>
     <string name="no_video_clips">You have no video clips.</string>
-    <string name="video_premium_required_text">See what triggered the alarm, or who left the back door open with Premium. Record video anytime, or with Rules, e.g. If Alarm is Triggered, Record Video.</string>
 </resources>
