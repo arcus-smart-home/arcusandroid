@@ -58,7 +58,7 @@ import arcus.app.common.utils.ToolbarColorizeHelper;
 import arcus.app.dashboard.HomeFragment;
 import arcus.app.dashboard.NavigationDrawerFragment;
 import arcus.app.dashboard.popups.responsibilities.dashboard.DashboardPopupManager;
-import arcus.app.device.DeviceListingFragment;
+import arcus.app.device.list.DeviceListingFragment;
 import arcus.app.subsystems.alarm.DeprecatedAlertFragment;
 import arcus.app.subsystems.alarm.safety.EarlySmokeWarningFragment;
 import arcus.app.subsystems.care.CareParentFragment;

@@ -15,25 +15,19 @@
   limitations under the License.
 -->
 <LinearLayout
-    android:id="@+id/settings_list_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_gravity="center"
-    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_20"
     android:gravity="center"
     android:orientation="vertical">
-
-    <arcus.app.common.view.Version1TextView
+    <arcus.app.common.view.ScleraTextView
         android:id="@+id/footer_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@drawable/outline_button_style"
-        android:gravity="center"
-        android:text="Z-WAVE TOOLS"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
-
+        android:background="@drawable/outline_button_style_arcus_dark_gray"
+        android:text="@string/z_wave_tools"
+        android:textColor="@color/arcus_dark_gray"
+        android:textSize="@dimen/pt_18"
+        />
 </LinearLayout>

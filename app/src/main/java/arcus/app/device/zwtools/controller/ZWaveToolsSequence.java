@@ -21,7 +21,7 @@ import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.sequence.AbstractSequenceController;
 import arcus.app.common.sequence.Sequenceable;
 
-import arcus.app.device.DeviceListingFragment;
+import arcus.app.device.list.DeviceListingFragment;
 import arcus.app.device.removal.zwave.controller.ZWaveUnpairingSequenceController;
 import arcus.app.device.zwtools.ZWaveToolsFragment;
 

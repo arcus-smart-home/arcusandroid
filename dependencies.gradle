@@ -24,6 +24,7 @@ ext {
     deps.appcompat = 'androidx.appcompat:appcompat:1.0.0'
     deps.annotations = 'androidx.annotation:annotation:1.0.0'
     deps.design = 'com.google.android.material:material:1.0.0'
+    deps.androidLifecycle = "androidx.lifecycle:lifecycle-extensions:2.1.0"
 
     deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
