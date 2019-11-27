@@ -1,0 +1,17 @@
+{
+  "comment" : "Device list sample data.",
+  "devices" : [
+    {
+      "short_names": [
+        { "itemName" : "Device 1" },
+        { "itemName" : "Device 2" },
+        { "itemName" : "Device 3" }
+      ],
+      "long_names": [
+        { "itemName" : "Device 1 doesn't have a long name... Or does it?" },
+        { "itemName" : "Device 2 is the one that I like in my bedroom." },
+        { "itemName" : "Device 3 that mom likes in her room for some reason." }
+      ]
+    }
+  ]
+}

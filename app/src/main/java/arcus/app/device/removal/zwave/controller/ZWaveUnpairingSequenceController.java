@@ -20,7 +20,7 @@ import android.app.Activity;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.sequence.AbstractSequenceController;
 import arcus.app.common.sequence.Sequenceable;
-import arcus.app.device.DeviceListingFragment;
+import arcus.app.device.list.DeviceListingFragment;
 import arcus.app.device.removal.zwave.ZWaveUnpairingFragment;
 import arcus.app.device.removal.zwave.ZWaveUnpairingSearchFragment;
 

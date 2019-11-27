@@ -2820,4 +2820,6 @@ in the left hand navigation.</string>
 
     <string name="invalid_url">Invalid URL</string>
     <string name="platform_url">Platform URL</string>
+    <string name="total_devices">Total Devices</string>
+    <string name="z_wave_tools">Z-WAVE TOOLS</string>
 </resources>
