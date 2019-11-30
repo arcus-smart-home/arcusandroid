@@ -33,7 +33,7 @@ class NoDevicesFoundPopup : ModalBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<ScleraButton>(R.id.try_again_button).setOnClickListener {
-            dialog.dismiss()
+            dismiss()
             tryAgainAction?.invoke()
         }
 

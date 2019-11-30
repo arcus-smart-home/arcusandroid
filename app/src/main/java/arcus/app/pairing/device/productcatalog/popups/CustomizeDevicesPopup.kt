@@ -59,7 +59,7 @@ class CustomizeDevicesPopup : ModalBottomSheet() {
 
         val bottomButton: ScleraButton = view.findViewById(R.id.exit_pairing_button)
          bottomButton.setOnClickListener {
-             dialog.cancel()
+             dismiss()
              exitPairingListener?.invoke()
         }
 

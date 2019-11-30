@@ -16,18 +16,18 @@
 package arcus.app.common.fragments
 
 import android.os.Bundle
-import androidx.annotation.CallSuper
-import androidx.annotation.LayoutRes
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import androidx.fragment.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.slf4j.LoggerFactory
+import androidx.annotation.CallSuper
+import androidx.annotation.LayoutRes
+import androidx.fragment.app.FragmentManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 abstract class ModalBottomSheet : BottomSheetDialogFragment() {
-    private lateinit var behavior : BottomSheetBehavior<View>
+    private var bottomSheetBehavior: BottomSheetBehavior<View>? = null
+    private var bottomSheetCallback: BottomSheetBehavior.BottomSheetCallback? = null
 
     /**
      * Specifies if the modal bottom sheet should be draggable by the user
@@ -61,11 +61,11 @@ abstract class ModalBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun blockDragging() {
-        val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+        val bottomSheet = dialog?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
 
         if (bottomSheet != null) {
-            behavior = BottomSheetBehavior.from(bottomSheet)
-            behavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            val behavior = BottomSheetBehavior.from(bottomSheet)
+            val callback = object : BottomSheetBehavior.BottomSheetCallback() {
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
                     // No-Op
                 }
@@ -75,27 +75,27 @@ abstract class ModalBottomSheet : BottomSheetDialogFragment() {
                         behavior.state = BottomSheetBehavior.STATE_EXPANDED
                     }
                 }
-            })
-        } else {
-            logger.warn("Could not find bottom sheet - unable to block dragging.")
+            }
+            behavior.addBottomSheetCallback(callback)
+
+            bottomSheetBehavior = behavior
+            bottomSheetCallback = callback
+        }
+    }
+
+    fun show(fragmentManager: FragmentManager?) = apply {
+        fragmentManager?.let {
+            show(it, this::class.java.name)
         }
     }
 
     /**
      * Common hook to clean up any references, or resources, this view may hold to help prevent leaks.
      */
+    @CallSuper
     open fun cleanUp() {
-        // No-Op
-    }
-
-    fun show(fragmentManager: FragmentManager?) = apply {
-        if (fragmentManager?.isStateSaved == false) {
-            show(fragmentManager, this::class.java.name)
-        }
-    }
-
-    companion object {
-        @JvmStatic
-        private val logger = LoggerFactory.getLogger(ModalBottomSheet::class.java)
+        val behavior = bottomSheetBehavior ?: return
+        val callback = bottomSheetCallback ?: return
+        behavior.removeBottomSheetCallback(callback)
     }
 }

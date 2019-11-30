@@ -117,7 +117,7 @@ class OrbitZoneFragment : Fragment(),
         presenter.clearView()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         activity?.let {
             try {

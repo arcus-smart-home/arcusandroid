@@ -111,7 +111,7 @@ class HaloStateCountySelectionFragment : Fragment(),
         presenter.clearView()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
 
         activity?.let {
@@ -151,7 +151,7 @@ class HaloStateCountySelectionFragment : Fragment(),
                 stateProgressBar.visibility = View.GONE
                 clearCountySetState(it)
             }
-            popup.show(fragmentManager, HaloStateSelectionPopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
 
     }
@@ -187,7 +187,7 @@ class HaloStateCountySelectionFragment : Fragment(),
                 countySelection.setTextColor(resources.getColor(R.color.sclera_text_color_dark))
                 countySelection.text = it.county
             }
-            popup.show(fragmentManager, HaloStateSelectionPopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
     }
 

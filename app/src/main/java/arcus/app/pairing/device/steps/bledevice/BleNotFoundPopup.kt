@@ -30,7 +30,7 @@ class BleNotFoundPopup : ModalBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<ScleraButton>(R.id.close_button).setOnClickListener {
-            dialog.dismiss()
+            dismiss()
         }
     }
 }

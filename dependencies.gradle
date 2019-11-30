@@ -23,8 +23,9 @@ ext {
     // Deps
     deps.appcompat = 'androidx.appcompat:appcompat:1.0.0'
     deps.annotations = 'androidx.annotation:annotation:1.0.0'
-    deps.design = 'com.google.android.material:material:1.0.0'
+    deps.design = 'com.google.android.material:material:1.1.0-beta02'
     deps.androidLifecycle = "androidx.lifecycle:lifecycle-extensions:2.1.0"
+    deps.swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     deps.rx = "io.reactivex.rxjava2:rxjava:2.2.13"
     deps.rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"

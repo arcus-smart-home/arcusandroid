@@ -58,11 +58,11 @@ class ModalMustardSheet : FullScreenModalBottomSheet() {
 
         view.findViewById<ScleraButton>(R.id.hub_devices_button).setOnClickListener {
             hubDevicesListener?.invoke()
-            dialog.dismiss()
+            dismiss()
         }
 
         view.findViewById<ScleraButton>(R.id.modal_dismiss_button).setOnClickListener {
-            dialog.dismiss()
+            dismiss()
         }
 
         val kitSection = view.findViewById<LinearLayout>(R.id.kit_section)
@@ -79,8 +79,9 @@ class ModalMustardSheet : FullScreenModalBottomSheet() {
     override fun onResume() {
         super.onResume()
 
-        val bottomSheet = dialog.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
-        BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
+        dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)?.let { bottomSheet ->
+            BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
+        }
     }
 
     /**
@@ -102,8 +103,8 @@ class ModalMustardSheet : FullScreenModalBottomSheet() {
         cleanUp()
     }
 
-
     override fun cleanUp() {
+        super.cleanUp()
         kitDevicesListener = null
         hubDevicesListener = null
     }

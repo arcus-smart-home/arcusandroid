@@ -129,7 +129,7 @@ class AccountLoginForgotFragment : Fragment() {
         cancelBtn.setOnClickListener { _ -> LaunchActivity.startLoginScreen(activity) }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentContainerHolder = context as? FragmentContainerHolder?
     }

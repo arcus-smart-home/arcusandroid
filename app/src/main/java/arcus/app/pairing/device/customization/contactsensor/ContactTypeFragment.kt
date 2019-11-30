@@ -111,7 +111,7 @@ class ContactTypeFragment : Fragment(),
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mCallback = context as CustomizationNavigationDelegate
     }

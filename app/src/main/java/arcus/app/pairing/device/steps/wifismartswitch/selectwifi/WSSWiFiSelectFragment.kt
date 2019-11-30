@@ -50,7 +50,7 @@ class WSSWiFiSelectFragment : WiFiNetworkBaseFragment(),
     private val presenter : WSSWiFiSelectPresenter<ScanResult, WifiInfo> =
         AndroidWSSWiFiSelectPresenterImpl()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         wssStepsNavigationDelegate = context as WSSStepsNavigationDelegate
     }

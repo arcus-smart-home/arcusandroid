@@ -34,7 +34,7 @@ class BleDisconnectedPopup : ModalBottomSheet() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<ScleraButton>(R.id.ok_button).setOnClickListener {
-            dialog.dismiss()
+            dismiss()
             okButtonClickAction?.invoke()
         }
     }

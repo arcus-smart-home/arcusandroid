@@ -47,11 +47,11 @@ class EnterZWaveRebuildFragment : Fragment(),
             popup.clickedCancelZwaveRebuildListener = {
                 mCallback.navigateTo(ZWaveRebuildLaterFragment.newInstance())
             }
-            popup.show(fragmentManager, ConfirmCancelZWaveRebuildPopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mCallback = context as FragmentFlow
     }

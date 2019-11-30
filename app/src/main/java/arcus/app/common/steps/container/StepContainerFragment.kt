@@ -86,7 +86,7 @@ abstract class StepContainerFragment : Fragment(),
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentStepContainer = context as FragmentContainerHolder
     }

@@ -56,7 +56,7 @@ class BleLocationFragment : Fragment(),
         return inflater.inflate(R.layout.fragment_ble_location, container, false)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         bleStepsNavigationDelegate = context as BleStepsNavigationDelegate
     }

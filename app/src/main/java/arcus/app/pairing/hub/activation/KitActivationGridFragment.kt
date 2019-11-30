@@ -84,7 +84,7 @@ class KitActivationGridFragment : Fragment(),
         ViewCompat.setNestedScrollingEnabled(kitItemsRV, false)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentContainer = context as? FragmentContainerHolder?
     }

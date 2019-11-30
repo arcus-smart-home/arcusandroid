@@ -58,7 +58,7 @@ class RemoveDeviceWarningFragment : Fragment(),
             popup.clickedRemoveListener = {
                 presenter.removePairingDevice(pairingDeviceAddress)
             }
-            popup.show(fragmentManager, ConfirmRemovePopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
 
         view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {

@@ -45,7 +45,7 @@ class FailedToWriteWiFiCredsPopup : ModalBottomSheet() {
         }
 
         view.findViewById<ScleraButton>(R.id.try_again_button).setOnClickListener {
-            dialog.dismiss()
+            dismiss()
             tryAgainAction?.invoke()
         }
     }

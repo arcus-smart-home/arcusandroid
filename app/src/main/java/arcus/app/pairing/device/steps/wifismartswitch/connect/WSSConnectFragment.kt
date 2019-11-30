@@ -79,7 +79,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
         }
     private val presenter : WSSConnectPresenter<ScanResult> = AndroidWSSConnectPresenterImpl()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         wssStepsNavigationDelegate = context as WSSStepsNavigationDelegate
     }
@@ -208,7 +208,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
             val popup = NoDevicesFoundPopup()
             popup.isCancelable = false
             popup.tryAgainAction = { startSearchingForNetworksWithPopup() }
-            popup.show(fragmentManager, NoDevicesFoundPopup::class.java.name)
+            popup.show(fragmentManager)
         } else {
             presenter.startPairing(swannAPName, connectionInformation)
         }
@@ -218,7 +218,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
         val popup = ConnectingPopup()
         popup.isCancelable = false
         popupShowing = popup
-        popup.show(fragmentManager, ConnectingPopup::class.java.name)
+        popup.show(fragmentManager)
 
         startNetworkSearch()
     }
@@ -228,7 +228,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
 
         val popup = DeviceTakenWSSErrorPopup()
         popupShowing = popup
-        popup.show(fragmentManager, DeviceTakenWSSErrorPopup::class.java.name)
+        popup.show(fragmentManager)
     }
 
     override fun onResetDeviceError() {
@@ -236,7 +236,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
 
         val popup = ResetWSSErrorPopup()
         popupShowing = popup
-        popup.show(fragmentManager, ResetWSSErrorPopup::class.java.name)
+        popup.show(fragmentManager)
     }
 
     override fun onInvalidCredentialsError() {
@@ -244,7 +244,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
 
         val popup = InvalidCredentialsErrorPopup()
         popupShowing = popup
-        popup.show(fragmentManager, InvalidCredentialsErrorPopup::class.java.name)
+        popup.show(fragmentManager)
     }
 
     override fun onNoApsFoundError() {
@@ -255,9 +255,9 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
         context?.let {
             it.startActivity(
                 DeviceSearchingActivity.createIntent(
-                it,
-                false,
-                true
+                context = it,
+                startSearching = false,
+                disableBackPress = true
             ))
         }
     }

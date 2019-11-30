@@ -81,12 +81,12 @@ class OAuthPairingStepFragment : Fragment(), OAuthPairingCallback {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         if (showCancelButton) {
-            inflater?.inflate(R.menu.menu_cancel, menu)
+            inflater.inflate(R.menu.menu_cancel, menu)
         } else {
-            menu?.removeItem(R.id.menu_cancel)
+            menu.removeItem(R.id.menu_cancel)
         }
     }
 

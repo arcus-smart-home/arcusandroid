@@ -149,7 +149,7 @@ class OrbitZoneEditFragment : Fragment(),
         presenter.clearView()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         activity?.let {
             callback = it as? CustomizationNavigationDelegate
@@ -173,7 +173,7 @@ class OrbitZoneEditFragment : Fragment(),
                 )
             }
 
-            popup.show(fragmentManager, WateringDurationPopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
     }
 
