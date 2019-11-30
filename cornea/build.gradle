@@ -53,7 +53,8 @@ dependencies {
     // from platform-client common/***-model/platform-client
     // which will then need to also exclude any possible tc native / epoll that is brought in
     // or just switched to not use netty :o
-    api files('libs/platform-client-2.0.0-2feabba.jar')
+    //api files('libs/platform-client-2.0.0-2feabba.jar')
+    api files('libs/platform-client-okhttp.jar')
 
     implementation project(':analytics')
     implementation deps.kotlin
@@ -62,7 +63,9 @@ dependencies {
     implementation deps.eventBus // Apache 2
     implementation deps.annotations
 
+    implementation deps.rx
     implementation deps.okhttp
+    implementation deps.okHttpLoggingInterceptor
 
     testImplementation deps.test.mockitoCore
     testImplementation deps.test.junit

@@ -26,6 +26,10 @@ ext {
     deps.design = 'com.google.android.material:material:1.0.0'
     deps.androidLifecycle = "androidx.lifecycle:lifecycle-extensions:2.1.0"
 
+    deps.rx = "io.reactivex.rxjava2:rxjava:2.2.13"
+    deps.rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
+    deps.okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.2.2"
+
     deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     deps.constraintLayout = 'androidx.constraintlayout:constraintlayout:1.1.3'
