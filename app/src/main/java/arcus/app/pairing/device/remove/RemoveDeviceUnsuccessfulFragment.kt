@@ -66,7 +66,7 @@ class RemoveDeviceUnsuccessfulFragment : Fragment(),
                 presenter.forceRemove(pairingDeviceAddress)
             }
 
-            popup.show(fragmentManager, ConfirmForceRemovePopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
 
         view.findViewById<View>(R.id.cancel).setOnClickListener {

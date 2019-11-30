@@ -84,7 +84,7 @@ class AddMenuFragment : BaseFragment(), MenuItemClickHandler, KitActivationStatu
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         adapterCallback = this
     }
@@ -168,7 +168,7 @@ class AddMenuFragment : BaseFragment(), MenuItemClickHandler, KitActivationStatu
                     ActivityUtils.launchUrl(GlobalSetting.NO_CONNECTION_HUB_SUPPORT_URL)
                 }
 
-                hubOfflineDialog.show(fragmentManager, ModalErrorBottomSheet::class.java.name)
+                hubOfflineDialog.show(fragmentManager)
             } else {
                 context?.let { nnContext ->
                     startActivity(

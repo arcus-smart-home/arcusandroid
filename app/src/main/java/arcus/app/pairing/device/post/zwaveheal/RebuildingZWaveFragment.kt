@@ -67,7 +67,7 @@ class RebuildingZWaveFragment : Fragment(),
             val popup = ZWaveRebuildNotePopup()
             popup.isCancelable = false
             popupShowing = popup
-            popup.show(fragmentManager, ZWaveRebuildNotePopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
 
         // Clicked Cancel Rebuild
@@ -79,11 +79,11 @@ class RebuildingZWaveFragment : Fragment(),
                 fragmentFlowCallback.navigateTo(ZWaveRebuildLaterFragment.newInstance())
             }
             popupShowing = popup
-            popup.show(fragmentManager, ConfirmCancelZWaveRebuildPopup::class.java.canonicalName)
+            popup.show(fragmentManager)
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         fragmentFlowCallback = context as FragmentFlow
     }

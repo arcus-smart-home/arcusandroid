@@ -42,10 +42,10 @@ class ModalErrorBottomSheet : ModalBottomSheet() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            errorTitle = it.getString(ModalErrorBottomSheet.ARG_TITLE)!!
-            errorDescription = it.getString(ModalErrorBottomSheet.ARG_DESCRIPTION)!!
-            topButtonText = it.getString(ModalErrorBottomSheet.ARG_TOP_BUTTON_TEXT)!!
-            bottomButtonText = it.getString(ModalErrorBottomSheet.ARG_BOTTOM_BUTTON_TEXT)!!
+            errorTitle = it.getString(ARG_TITLE)!!
+            errorDescription = it.getString(ARG_DESCRIPTION)!!
+            topButtonText = it.getString(ARG_TOP_BUTTON_TEXT)!!
+            bottomButtonText = it.getString(ARG_BOTTOM_BUTTON_TEXT)!!
         }
     }
 
@@ -60,11 +60,11 @@ class ModalErrorBottomSheet : ModalBottomSheet() {
         view.findViewById<ScleraButton>(R.id.modal_error_dismiss_button)?.text = bottomButtonText
         view.findViewById<ScleraButton>(R.id.modal_error_support_button)?.setOnClickListener {
             actionListener.invoke()
-            dialog.dismiss()
+            dismiss()
         }
 
         view.findViewById<ScleraButton>(R.id.modal_error_dismiss_button).setOnClickListener {
-            dialog.dismiss()
+            dismiss()
         }
     }
 

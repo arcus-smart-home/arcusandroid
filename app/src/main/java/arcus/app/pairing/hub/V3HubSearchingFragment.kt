@@ -151,7 +151,7 @@ class V3HubSearchingFragment : Fragment(),
         presenter.registerHub(currentHubId)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         containerHost = context as? FragmentContainerHolder?
         presenter.setView(this)

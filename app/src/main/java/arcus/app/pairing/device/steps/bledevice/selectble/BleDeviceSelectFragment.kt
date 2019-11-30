@@ -64,7 +64,7 @@ class BleDeviceSelectFragment
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         stepsDelegate = context as BleStepsNavigationDelegate
     }

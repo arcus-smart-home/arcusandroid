@@ -110,7 +110,7 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
             }
         }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         bleStepsNavigationDelegate = context as BleStepsNavigationDelegate
     }

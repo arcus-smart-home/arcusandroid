@@ -118,7 +118,7 @@ class WaterHeaterModelSerialNumberFragment : Fragment(),
         presenter.clearView()
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         activity?.let {
             callback = it as CustomizationNavigationDelegate

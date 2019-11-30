@@ -46,7 +46,7 @@ class OtherDeviceRequiredPopup : ModalBottomSheet() {
                 .text = resources.getString(R.string.generic_bridge_pairing_controller_first_description, vendor, shortName)
 
         view.findViewById<ScleraButton>(R.id.dismiss_button).setOnClickListener {
-            dialog.cancel()
+            dialog?.cancel()
         }
     }
 

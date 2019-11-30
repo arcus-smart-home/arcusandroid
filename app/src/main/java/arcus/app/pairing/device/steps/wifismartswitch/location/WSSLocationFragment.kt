@@ -49,7 +49,7 @@ class WSSLocationFragment : Fragment(),
         return inflater.inflate(R.layout.fragment_wss_location, container, false)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         stepsNavigationDelegate = context as StepsNavigationDelegate
     }

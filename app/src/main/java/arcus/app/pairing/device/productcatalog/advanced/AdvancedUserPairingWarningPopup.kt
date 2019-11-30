@@ -39,13 +39,13 @@ class AdvancedUserPairingWarningPopup : ModalBottomSheet() {
         okButton.text = getString(R.string.ok)
         okButton.setOnClickListener {
             startActivity(Intent(context, DeviceSearchingActivity::class.java))
-            dialog.dismiss()
+            dismiss()
         }
 
         val cancelButton = view.findViewById<ScleraButton>(R.id.cancel_button)
         cancelButton.text = getString(R.string.cancel)
         cancelButton.setOnClickListener {
-            dialog.cancel()
+            dismiss()
         }
     }
 

@@ -27,7 +27,7 @@ abstract class StepFragment<T : Any> : Fragment() {
     protected lateinit var stepContainer : T
 
     @Suppress("UNCHECKED_CAST") // We want to crash if it's not a [T] (in dev...)
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         stepContainer = parentFragment as T
     }

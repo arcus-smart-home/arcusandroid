@@ -69,7 +69,7 @@ class BleWiFiSelectFragment : Fragment(),
     private lateinit var wifiNotFoundUri: Uri
     private lateinit var wifiNotFoundLink: ScleraLinkView
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         bleStepsNavigationDelegate = context as BleStepsNavigationDelegate
     }

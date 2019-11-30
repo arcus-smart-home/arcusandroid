@@ -98,7 +98,7 @@ class FobButtonOverviewFragment : Fragment(),
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         activity?.let {
             try {
