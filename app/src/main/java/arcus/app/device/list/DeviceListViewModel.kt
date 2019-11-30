@@ -41,8 +41,9 @@ class DeviceListViewModel(
                             .map { it.toListItem() }
                             .sortedBy { it.name }
                             .plus(FooterListItem)
+                    val totalDevices = deviceList.size - 1 /* - 1 to remove FooterListItem */
 
-                    devicesInternal.postValue(ViewState(deviceList.size, deviceList))
+                    devicesInternal.postValue(ViewState(totalDevices, deviceList))
                 }
     }
 
