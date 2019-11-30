@@ -5,7 +5,7 @@ ext {
     renderScriptTarget = 21
     androidToolsVersion = '28.0.3'
     supportLibraryVersion = '27.0.2'
-    googleVersion = '11.8.0'
+    googleVersion = '17.0.0'
     constraintLayoutVersion = '1.1.1'
     multiDexVersion = '1.0.3'
     atslVersion = '1.0.1'
@@ -37,7 +37,6 @@ ext {
 
     deps.playServicesAuth = "com.google.android.gms:play-services-auth:$googleVersion"
     deps.playServicesGcm = "com.google.android.gms:play-services-gcm:$googleVersion"
-    deps.playServices = "com.google.android.gms:play-services-gcm:$googleVersion"
     deps.locationServices = "com.google.android.gms:play-services-location:$googleVersion"
 
     deps.eventBus = 'de.greenrobot:eventbus:2.4.0' // Apache 2

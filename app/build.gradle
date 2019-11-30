@@ -118,7 +118,6 @@ dependencies {
 
     implementation deps.playServicesAuth
     implementation deps.playServicesGcm
-    implementation deps.playServices
     implementation deps.locationServices
 
     implementation deps.rx
