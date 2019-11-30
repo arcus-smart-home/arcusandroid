@@ -121,6 +121,9 @@ dependencies {
     implementation deps.playServices
     implementation deps.locationServices
 
+    implementation deps.rx
+    implementation deps.rxAndroid
+
     implementation deps.exoplayer_core
     implementation deps.exoplayer_ui
     implementation deps.exoplayer_hls

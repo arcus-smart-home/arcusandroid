@@ -15,12 +15,13 @@
  */
 package arcus.cornea;
 
+import com.iris.client.IrisClient2;
 import com.iris.client.IrisClientFactory;
 import com.iris.client.connection.ConnectionState;
-import com.iris.client.impl.netty.NettyIrisClientFactory;
+import com.iris.client.impl.okhttp.OkHttpIrisClientFactory;
 
 public abstract class CorneaClientFactory extends IrisClientFactory {
-    private static final NettyIrisClientFactory delegate = new NettyIrisClientFactory();
+    private static final OkHttpIrisClientFactory delegate = new OkHttpIrisClientFactory();
 
     static {
         init(delegate);
@@ -43,4 +44,7 @@ public abstract class CorneaClientFactory extends IrisClientFactory {
         init(delegate);
     }
 
+    public static IrisClient2 getClient2() {
+        return delegate.getClient2();
+    }
 }
