@@ -64,28 +64,9 @@ public abstract class BaseModelProvider<M extends Model> {
     private final AtomicReference<ClientFuture<List<M>>> loadRef = new AtomicReference<>();
     private final ListenerList<List<M>> storeLoadedListeners = new ListenerList<>();
     private final AtomicBoolean storeLoaded = new AtomicBoolean(false);
-
-    private final Supplier<ClientFuture<List<M>>> supplier =
-            new Supplier<ClientFuture<List<M>>>() {
-                @Override
-                public ClientFuture<List<M>> get() {
-                    return reload();
-                }
-            };
-
-
-    private final Listener<List<M>> onLoaded = Listeners.runOnUiThread(new Listener<List<M>>() {
-        @Override
-        public void onEvent(List<M> models) {
-            onLoaded(models);
-        }
-    });
-    private final Listener<Throwable> onLoadError = Listeners.runOnUiThread(new Listener<Throwable>() {
-        @Override
-        public void onEvent(Throwable throwable) {
-            onLoadError(throwable);
-        }
-    });
+    private final Supplier<ClientFuture<List<M>>> supplier = this::reload;
+    private final Listener<List<M>> onLoaded = Listeners.runOnUiThread(this::onLoaded);
+    private final Listener<Throwable> onLoadError = Listeners.runOnUiThread(this::onLoadError);
 
     protected BaseModelProvider(Class<M> type) {
         this(CorneaClientFactory.getClient(), CorneaClientFactory.getModelCache(), CorneaClientFactory.getStore(type));
@@ -96,15 +77,12 @@ public abstract class BaseModelProvider<M extends Model> {
         Preconditions.checkNotNull(cache);
         Preconditions.checkNotNull(store);
         this.client = client;
-        Listener<SessionEvent> onSessionEvent = Listeners.runOnUiThread(new Listener<SessionEvent>() {
-            @Override
-            public void onEvent(SessionEvent event) {
-                if (event instanceof SessionActivePlaceSetEvent) {
-                    onPlaceSelected((SessionActivePlaceSetEvent) event);
-                }
-                if (event instanceof SessionExpiredEvent) {
-                    onSessionExpired((SessionExpiredEvent) event);
-                }
+        Listener<SessionEvent> onSessionEvent = Listeners.runOnUiThread(event -> {
+            if (event instanceof SessionActivePlaceSetEvent) {
+                onPlaceSelected((SessionActivePlaceSetEvent) event);
+            }
+            if (event instanceof SessionExpiredEvent) {
+                onSessionExpired((SessionExpiredEvent) event);
             }
         });
         this.client.addSessionListener(onSessionEvent);
@@ -211,7 +189,7 @@ public abstract class BaseModelProvider<M extends Model> {
 
     protected void onLoadError(Throwable cause) {
         // TODO do something with this...
-        logger.error("Unable to load models", cause);
+        logger.error("Unable to load models for " + this.getClass().getSimpleName(), cause);
     }
 
     private void fireStoreLoaded(List<M> models) {
