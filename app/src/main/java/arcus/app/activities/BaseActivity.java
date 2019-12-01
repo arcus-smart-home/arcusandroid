@@ -24,8 +24,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.widget.Toolbar;
@@ -38,9 +36,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.CorneaService;
 import arcus.cornea.events.LogoutEvent;
@@ -73,7 +68,7 @@ import java.util.TimerTask;
 import de.greenrobot.event.EventBus;
 
 
-public abstract class BaseActivity extends PermissionsActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public abstract class BaseActivity extends PermissionsActivity {
     public static final Logger logger = LoggerFactory.getLogger(BaseActivity.class);
     private boolean showingNetworkLostPopup = false;
 
@@ -88,7 +83,6 @@ public abstract class BaseActivity extends PermissionsActivity implements Google
     private ScaleGestureDetector konamiCodeDetector;
     private FragmentManager fragmentManager;
     private Set<ActivityResultListener> activityResultListeners = new HashSet<>();
-    private GoogleApiClient googleApiClient;
 
     // Progress spinner
     private View indeterminateProgressView;
@@ -102,12 +96,6 @@ public abstract class BaseActivity extends PermissionsActivity implements Google
         fragmentManager = getSupportFragmentManager();
 
         konamiCodeDetector = new ScaleGestureDetector(this, new KonamiCodeDetector());
-
-        googleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.CREDENTIALS_API)
-                .build();
     }
 
     @Override
@@ -396,24 +384,5 @@ public abstract class BaseActivity extends PermissionsActivity implements Google
         if (getProgressIndicator() != null) {
             getProgressIndicator().setVisibility(View.GONE);
         }
-    }
-
-    public GoogleApiClient getGoogleApiClient() {
-        return googleApiClient;
-    }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-        logger.debug("Google API connection established.");
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-        logger.debug("Google API connection suspended: " + i);
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        logger.error("Google API connection failed: " + connectionResult);
     }
 }

@@ -26,7 +26,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.image.ImageManager;
@@ -36,6 +35,7 @@ import arcus.app.common.popups.AlertPopup;
 import arcus.app.common.view.Version1TextView;
 import arcus.app.subsystems.scenes.active.model.SceneListModel;
 import arcus.app.subsystems.scenes.schedule.controller.SceneScheduleFragmentController;
+import arcus.cornea.utils.LooperExecutor;
 
 import java.util.ArrayList;
 
@@ -140,8 +140,8 @@ public class SceneListAdapter extends ArrayAdapter<SceneListModel> implements Sc
                      }
                      else {
                         holder.activateCheckbox.setChecked(false);
-                        AlertPopup popup = AlertPopup.newInstance(ArcusApplication.getContext().getString(R.string.water_schedule_no_events),
-                                ArcusApplication.getContext().getString(R.string.water_schedule_no_events_sub), null, null, new AlertPopup.AlertButtonCallback() {
+                        AlertPopup popup = AlertPopup.newInstance(getContext().getString(R.string.water_schedule_no_events),
+                                getContext().getString(R.string.water_schedule_no_events_sub), null, null, new AlertPopup.AlertButtonCallback() {
 
                                     @Override
                                     public boolean topAlertButtonClicked() {
@@ -211,13 +211,7 @@ public class SceneListAdapter extends ArrayAdapter<SceneListModel> implements Sc
             if(model.getModelAddress().equals(sceneAddress)) {
                 model.setHasSchedule(hasSchedule);
                 model.setIsEnabled(scheduleEnabled);
-
-                ArcusApplication.getArcusApplication().getForegroundActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        notifyDataSetChanged();
-                    }
-                });
+                LooperExecutor.getMainExecutor().execute(this::notifyDataSetChanged);
                 break;
             }
         }

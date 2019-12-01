@@ -48,12 +48,9 @@ class KonamiCodeDetector : ScaleGestureDetector.OnScaleGestureListener {
         // In order for pinch to count, they need to pinch open a substantial amount; this prevents
         // spurious shakes and accidental gestures from activating the Konami code.
         if (pinchFactorX > PINCH_THRESHOLD && ++pinchesDetected >= PINCHES_REQUIRED) {
-            val activity = ArcusApplication.getArcusApplication().foregroundActivity
-            activity?.startActivity(
-                    GenericFragmentActivity.getLaunchIntent(
-                            activity,
-                            DebugMenuFragment::class.java
-                    )
+            val context = ArcusApplication.getArcusApplication()
+            context?.startActivity(
+                    GenericFragmentActivity.getLaunchIntent(context, DebugMenuFragment::class.java)
             )
             pinchesDetected = 0
         } else {

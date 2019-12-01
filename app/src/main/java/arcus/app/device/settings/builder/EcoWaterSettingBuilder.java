@@ -22,7 +22,6 @@ import arcus.cornea.utils.Listeners;
 import com.iris.client.capability.EcowaterWaterSoftener;
 import com.iris.client.event.Listener;
 import com.iris.client.model.DeviceModel;
-import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.common.error.ErrorManager;
 import arcus.app.common.utils.CorneaUtils;
@@ -32,8 +31,6 @@ import arcus.app.device.settings.enumeration.EcoWaterFlowRate;
 import arcus.app.device.settings.style.BinarySetting;
 import arcus.app.device.settings.style.CenteredTextSetting;
 import arcus.app.device.settings.style.ListSelectionSetting;
-
-
 
 public class EcoWaterSettingBuilder implements SettingBuilder {
 
@@ -54,9 +51,6 @@ public class EcoWaterSettingBuilder implements SettingBuilder {
     }
 
     @NonNull public EcoWaterSettingBuilder buildWaterFlowSettingsDescription(final DeviceModel model) {
-        if(context == null) {
-            context = ArcusApplication.getArcusApplication().getForegroundActivity();
-        }
         final EcowaterWaterSoftener ecoWaterCapability = CorneaUtils.getCapability(model, EcowaterWaterSoftener.class);
 
         String settingsDescription = context.getString(R.string.water_softener_ecowater_settings_desc);
@@ -72,9 +66,6 @@ public class EcoWaterSettingBuilder implements SettingBuilder {
     @NonNull
     public EcoWaterSettingBuilder buildContinuousWaterFlowSetting (@NonNull final DeviceModel model) {
         final EcowaterWaterSoftener ecoWaterCapability = CorneaUtils.getCapability(model, EcowaterWaterSoftener.class);
-        if(context == null) {
-            context = ArcusApplication.getArcusApplication().getForegroundActivity();
-        }
         if (ecoWaterCapability != null) {
 
             EcoWaterFlowRate currentFlowRate = EcoWaterFlowRate.fromFlowRate(ecoWaterCapability.getContinuousRate());
@@ -118,9 +109,6 @@ public class EcoWaterSettingBuilder implements SettingBuilder {
 
     @NonNull public EcoWaterSettingBuilder buildExcessiveWaterFlowSetting(final DeviceModel model) {
         final EcowaterWaterSoftener ecoWaterCapability = CorneaUtils.getCapability(model, EcowaterWaterSoftener.class);
-        if(context == null) {
-            context = ArcusApplication.getArcusApplication().getForegroundActivity();
-        }
         if (ecoWaterCapability != null) {
 
             boolean alertOnExcessive = Boolean.TRUE.equals(ecoWaterCapability.getAlertOnExcessiveUse());

@@ -15,12 +15,7 @@
  */
 package arcus.app.account.login
 
-import android.content.IntentSender
-import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.credentials.Credential
-import com.google.android.gms.auth.api.credentials.CredentialRequest
-import com.google.android.gms.common.api.CommonStatusCodes
-import com.google.android.gms.common.api.Status
+import android.app.Activity
 import arcus.cornea.SessionController
 import arcus.cornea.common.BasePresenter
 import com.iris.client.exception.UnauthorizedException
@@ -29,17 +24,13 @@ import com.iris.client.model.PersonModel
 import com.iris.client.model.PlaceModel
 import com.iris.client.session.Credentials
 import com.iris.client.session.UsernameAndPasswordCredentials
-import arcus.app.ArcusApplication
-import arcus.app.activities.BaseActivity
 import arcus.app.activities.GenericConnectedFragmentActivity
 import arcus.app.activities.InvitationActivity
-import arcus.app.common.image.IntentRequestCode
 import arcus.app.common.utils.LoginUtils
 import arcus.app.common.utils.PreferenceUtils
 import arcus.app.createaccount.COMPLETE
 import arcus.app.createaccount.SIGNUP_1
 import arcus.app.launch.AccountLoginForgotFragment
-import arcus.app.launch.CredentialResolutionResultHandler
 import org.slf4j.LoggerFactory
 
 class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginPresenterContract.LoginPresenter, SessionController.LoginCallback {
@@ -52,25 +43,6 @@ class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginP
             view?.showPlatformUrlEntry(null)
         } else {
             view?.showPlatformUrlEntry(platformUrl)
-        }
-    }
-
-    override fun promptForSavedCredentials() {
-        val client = (ArcusApplication.getArcusApplication().foregroundActivity as BaseActivity).googleApiClient
-
-        val credentialRequest = CredentialRequest.Builder()
-                .setPasswordLoginSupported(true)
-                .build()
-
-        Auth.CredentialsApi.request(client, credentialRequest).setResultCallback { credentialRequestResult ->
-            logger.debug("Completed request for credential.")
-            if (credentialRequestResult.status.isSuccess) {
-                logger.debug("Credential request succeeded.")
-                onCredentialRetrieved(credentialRequestResult.credential)
-            } else {
-                logger.debug("Credential resolution required.")
-                resolveResult(credentialRequestResult.status)
-            }
         }
     }
 
@@ -88,33 +60,22 @@ class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginP
         SessionController.instance().login(credentials, LoginUtils.getContextualPlaceIdOrLastUsed(placeId))
     }
 
-    override fun useInvitationCode() {
+    override fun useInvitationCode(activity: Activity) {
         presentedView.onPending(null)
-        val thisActivity = ArcusApplication.getArcusApplication().foregroundActivity
-        if (thisActivity != null) {
-            InvitationActivity.start(thisActivity)
-            thisActivity.finish()
-        } else if (isPresenting) {
-            presentedView.onError(IllegalStateException("No foreground activity!"))
-        }
+        InvitationActivity.start(activity)
+        activity.finish()
     }
 
-    override fun forgotPassword() {
+    override fun forgotPassword(activity: Activity) {
         presentedView.onPending(null)
-
-        val thisActivity = ArcusApplication.getArcusApplication().foregroundActivity
-        if (thisActivity != null) {
-            thisActivity.startActivity(
+        activity.startActivity(
                 GenericConnectedFragmentActivity.getLaunchIntent(
-                    thisActivity,
-                    AccountLoginForgotFragment::class.java,
+                        activity,
+                        AccountLoginForgotFragment::class.java,
                         allowBackPress = false
                 )
-            )
-            thisActivity.finish()
-        } else if (isPresenting) {
-            presentedView.onError(IllegalStateException("No foreground activity!"))
-        }
+        )
+        activity.finish()
     }
 
     private fun getUsernamePasswordCredentials(
@@ -160,32 +121,6 @@ class LoginPresenter : BasePresenter<LoginPresenterContract.LoginView>(), LoginP
     override fun onError(throwable: Throwable) {
         if (isPresenting) {
             presentedView.onLoginFailed(throwable is UnauthorizedException)
-        }
-    }
-
-    private fun resolveResult(status: Status) {
-        if (status.statusCode == CommonStatusCodes.RESOLUTION_REQUIRED) {
-            try {
-                // Prompt the user to choose a saved credential; do not show the hint selector.
-                CredentialResolutionResultHandler.getInstance().setResolvedCredentialCallback { credential -> onCredentialRetrieved(credential) }
-                status.startResolutionForResult(ArcusApplication.getArcusApplication().foregroundActivity, IntentRequestCode.CREDENTIAL_RETRIEVED.requestCode)
-            } catch (e: IntentSender.SendIntentException) {
-                logger.error("Failed to start credential resolution.", e)
-            }
-
-        } else {
-            logger.debug("No shared credentials available, or error occurred. Status: " + status.statusCode + " - " + status.statusMessage)
-        }
-    }
-
-    private fun onCredentialRetrieved(credential: Credential?) {
-        if (credential != null) {
-            val accountType = credential.accountType
-            if (accountType == null) {
-                presentedView.onRetrievedSharedCredential(credential.id, credential.password)
-            }
-        } else {
-            logger.debug("Credential request complete; user denied access.")
         }
     }
 

@@ -59,8 +59,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
-
 public abstract class BaseThermostatPresenter extends BasePresenter<ThermostatPresenterContract.ThermostatControlView> implements
         ThermostatPresenterContract.ThermostatPresenter,
         ScheduleViewController.Callback,
@@ -450,47 +448,6 @@ public abstract class BaseThermostatPresenter extends BasePresenter<ThermostatPr
         }
 
         return cap;
-    }
-
-    protected void updateFooterState(final boolean inAlertState) {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                if (isPresenting()) {
-                    getPresentedView().onUpdateFooterState(inAlertState);
-                }
-            }
-        });
-    }
-
-    protected void setWaitingIndicatorVisible(final boolean isVisible, final boolean isControlDisabled) {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                if (isPresenting()) {
-                    getPresentedView().setWaitingIndicatorVisible(isVisible, isControlDisabled);
-                }
-            }
-        });
-    }
-
-    protected boolean isBannerVisible(Class<? extends Banner> bannerClazz) {
-        // BannerManager shows/hides banners asynchronously, so we can't delegate to BannerManager if
-        // we expect to see BannerManager.containsBanner() to respond immediate to show/removeBanner()
-        return presentedBanners.contains(bannerClazz);
-    }
-
-    protected void showBanner(final Banner banner) {
-        presentedBanners.add(banner.getClass());
-        BannerManager.in(ArcusApplication.getArcusApplication().getForegroundActivity()).showBanner(banner);
-    }
-
-    @SafeVarargs
-    protected final void removeBanner(Class<? extends Banner>... bannerClazz) {
-        for (Class<? extends Banner> thisClazz : bannerClazz) {
-            presentedBanners.remove(thisClazz);
-            BannerManager.in(ArcusApplication.getArcusApplication().getForegroundActivity()).removeBanner(thisClazz);
-        }
     }
 
     public static List<ThermostatOperatingMode> getSupportedOperatingModes(Thermostat deviceModel) {

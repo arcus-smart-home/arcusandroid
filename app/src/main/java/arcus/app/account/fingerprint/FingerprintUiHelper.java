@@ -15,6 +15,9 @@
  */
 package arcus.app.account.fingerprint;
 
+import android.content.res.Resources;
+
+import androidx.annotation.NonNull;
 import arcus.app.R;
 import arcus.app.account.fingerprint.authentication.AuthenticationFailureReason;
 import arcus.app.account.fingerprint.authentication.AuthenticationListener;
@@ -47,11 +50,11 @@ public class FingerprintUiHelper {
      * Get the result of the authentication attempt from the listener and update the UI
      * If the boolean is true at {@link AuthenticationListener#onFailure(AuthenticationFailureReason, boolean, CharSequence, int, int)}, the sensor has stopped and we call back {@link FingerprintPopup#onUiFailure()}f
      */
-    public void startSensor(){
+    public void startSensor(@NonNull Resources resources){
         mFingerprintImg.setImageResource(R.drawable.fingerprint_icon_small);
         mFingerprintStatus.setText(mFingerprintStatus.getResources().getString(R.string.fingerprint_touch_sensor));
 
-        Fingerprint.initialize();
+        Fingerprint.initialize(resources);
 
         // If there's no fingerprint/hardware, kill the popup
         if(!Fingerprint.isHardwareAvailable()){

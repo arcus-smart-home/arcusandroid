@@ -21,7 +21,6 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import android.view.View
 import android.widget.Button
-import arcus.app.ArcusApplication
 import arcus.app.R
 import arcus.app.activities.GenericConnectedFragmentActivity
 import arcus.app.common.steps.container.StepContainerFragment
@@ -53,8 +52,9 @@ class V3HubKickoffStepHostFragment : StepContainerFragment(),
         }
 
         ethernetButton.setOnClickListener {
-            val activity = ArcusApplication.getArcusApplication().foregroundActivity
-            activity?.startActivity(GenericConnectedFragmentActivity.getLaunchIntent(activity, V3HubEthernetStepHostFragment::class.java))
+            activity?.let {
+                activity?.startActivity(GenericConnectedFragmentActivity.getLaunchIntent(it, V3HubEthernetStepHostFragment::class.java))
+            }
         }
 
         view.findViewById<View>(R.id.watch_tutorial_banner).setOnClickListener {

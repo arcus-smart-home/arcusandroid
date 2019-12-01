@@ -20,12 +20,12 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat;
 
 import arcus.app.ArcusApplication;
 import arcus.app.R;
-import arcus.app.activities.LaunchActivity;
 import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.samsung.android.sdk.SsdkVendorCheck;
 import com.samsung.android.sdk.pass.Spass;
@@ -33,8 +33,6 @@ import com.samsung.android.sdk.pass.SpassFingerprint;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 
 public class BiometricLoginUtils {
 
@@ -45,7 +43,7 @@ public class BiometricLoginUtils {
      * canFingerprint() is used to determine whether we should show the 'Fingerprint' option in
      * Side Menu > Profile > Settings, and whether the fingerprint enrollment popup appears
      */
-    public static boolean canFingerprint() {
+    public static boolean canFingerprint(@NonNull Activity activity) {
         Context context = getApplicationContext();
         // Check if uses Pass and has an enrolled fingerprint
         if (initSamsungPass(context) != null){
@@ -53,7 +51,7 @@ public class BiometricLoginUtils {
         }
 
         // If no Pass with fingerprints, check if we can use native fingerprint
-        if(canUseFingerprint()){
+        if(canUseFingerprint(activity)){
             return true;
         }
 
@@ -70,13 +68,13 @@ public class BiometricLoginUtils {
      * fingerprintUnavailable() is used to enable/disable the toggle to use fingerprint in
      * Side Menu > Profile > Settings > Fingerprint (when it's available)
      *
-     * also in {@link LaunchActivity#initializeFingerprintPrompt(String, int, int)}
+     * also in LaunchActivity#initializeFingerprintPrompt(String, int, int)
      * to prevent the use of fingerprint login if, while the app is backgrounded, the user removes fingerprints or
      * disables screen lock
      *
      * Potential use: toast/snack bar for why fingerprint is unavailable.
      */
-    public static String fingerprintUnavailable() {
+    public static String fingerprintUnavailable(@NonNull Activity activity) {
         Context context = getApplicationContext();
 
         KeyguardManager keyguardManager = null;
@@ -85,7 +83,7 @@ public class BiometricLoginUtils {
         String message;
 
         // Make sure we can use fingerprint
-        if (BiometricLoginUtils.canFingerprint()) {
+        if (BiometricLoginUtils.canFingerprint(activity)) {
             keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
             fingerprintManager = FingerprintManagerCompat.from(context);
         }
@@ -97,7 +95,7 @@ public class BiometricLoginUtils {
             }
         }
         else if(fingerprintManager != null && keyguardManager != null){
-            if(fingerprintPermissionGranted()){
+            if(fingerprintPermissionGranted(activity)){
                 if (!fingerprintManager.hasEnrolledFingerprints()){    // Native no fingerprints?
                     message = context.getString(R.string.fingerprint_not_set_up);
                     if (!keyguardManager.isKeyguardSecure()) {       // Native no lock screen?
@@ -111,9 +109,9 @@ public class BiometricLoginUtils {
         return message;
     }
 
-    private static boolean canUseFingerprint(){
+    private static boolean canUseFingerprint(@NonNull Activity activity){
         Context context = getApplicationContext();
-        if (fingerprintPermissionGranted()) {
+        if (fingerprintPermissionGranted(activity)) {
             return FingerprintManagerCompat.from(context).isHardwareDetected();
         }
         return false;
@@ -150,9 +148,8 @@ public class BiometricLoginUtils {
         return null;
     }
 
-    private static boolean fingerprintPermissionGranted() {
+    private static boolean fingerprintPermissionGranted(@NonNull Activity activity) {
         Context context = getApplicationContext();
-        Activity thisActivity = ArcusApplication.getArcusApplication().getForegroundActivity();
         boolean granted = false;
 
         // The protection level of USE_FINGERPRINT permission (added API 23) is normal instead of dangerous.
@@ -161,13 +158,11 @@ public class BiometricLoginUtils {
 
             if (!(ActivityCompat.checkSelfPermission(context, Manifest.permission.USE_FINGERPRINT) ==
                     PackageManager.PERMISSION_GRANTED)) {
-                if(thisActivity != null){
-                    ActivityCompat.requestPermissions(thisActivity,
-                            new String[]{android.Manifest.permission.USE_FINGERPRINT},
-                            GlobalSetting.PERMISSION_USE_FINGERPRINT);
+                ActivityCompat.requestPermissions(activity,
+                        new String[]{android.Manifest.permission.USE_FINGERPRINT},
+                        GlobalSetting.PERMISSION_USE_FINGERPRINT);
 
-                    granted = true;
-                }
+                granted = true;
             } else {
                 granted = true;
             }

@@ -60,7 +60,7 @@ open class ReConnectActivity : PermissionsActivity() {
             relaunchLoginActivity()
         } else {
             // If for some reason fingerprint deleted or screen lock disabled while the app was backgrounded
-            if (!BiometricLoginUtils.fingerprintUnavailable().isNullOrEmpty()) {
+            if (!BiometricLoginUtils.fingerprintUnavailable(this).isNullOrEmpty()) {
                 PreferenceUtils.setUseFingerPrint(false)
             }
 

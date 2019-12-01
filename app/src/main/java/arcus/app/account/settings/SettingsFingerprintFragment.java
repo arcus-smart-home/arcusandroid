@@ -73,7 +73,7 @@ public class SettingsFingerprintFragment  extends BaseFragment {
         super.onResume();
         getActivity().setTitle(getTitle());
 
-        String message = BiometricLoginUtils.fingerprintUnavailable();
+        String message = BiometricLoginUtils.fingerprintUnavailable(getActivity());
         if(message.length() > 0) {
             toggler.setChecked(false);
             toggler.setEnabled(false);

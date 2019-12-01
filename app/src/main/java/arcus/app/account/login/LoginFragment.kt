@@ -131,11 +131,6 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
         setGenericErrorBannerVisible(!badCredentialsCause)
     }
 
-    override fun onRetrievedSharedCredential(sharedUsername: String, sharedPassword: String) {
-        emailField.setText(sharedUsername)
-        passwordField.setText(sharedPassword)
-    }
-
     override fun onAccountAlmostFinished(personName: String, personEmail: String) {
         context?.run {
             startActivity(CreateAccountActivity.forAlmostFinishedLandingPage(
@@ -193,8 +188,16 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
 
     private fun setupListeners() {
         loginButton.setOnClickListener { attemptLogin() }
-        forgotPasswordLink.setOnClickListener { presenter.forgotPassword() }
-        useInviteCodeLink.setOnClickListener { presenter.useInvitationCode() }
+        forgotPasswordLink.setOnClickListener {
+            activity?.let {
+                presenter.forgotPassword(it)
+            }
+        }
+        useInviteCodeLink.setOnClickListener {
+            activity?.let {
+                presenter.useInvitationCode(it)
+            }
+        }
 
         // Validate email when user focuses other component
         emailField.setLostFocusListener { isEmailValid }

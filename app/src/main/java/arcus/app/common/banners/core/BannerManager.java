@@ -20,23 +20,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.widget.ListView;
 
-import arcus.app.ArcusApplication;
 import arcus.app.R;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
+
 
 public class BannerManager {
 
     private final static Logger logger = LoggerFactory.getLogger(BannerManager.class);
+    private Reference<Activity> activityRef;
 
-    private BannerManager () {
+    private BannerManager(Activity activity) {
+        activityRef = new WeakReference<>(activity);
     }
 
     @NonNull
-    public static BannerManager in (Activity activity) {
-        return new BannerManager();
+    public static BannerManager in(Activity activity) {
+        return new BannerManager(activity);
     }
 
     public boolean showBanner(@NonNull final Banner banner) {
@@ -48,12 +52,17 @@ public class BannerManager {
             return false;
         }
 
-        banner.setBannerAdapter(getBanners());
-        banner.setActivity(getActivity());
+        Activity activity = getActivity();
+        if (activity == null) {
+            return false;
+        }
 
-        final ListView bannersView = (ListView) getActivity().findViewById(R.id.banner_list);
+        banner.setBannerAdapter(getBanners());
+        banner.setActivity(activity);
+
+        final ListView bannersView = activity.findViewById(R.id.banner_list);
         if (bannersView == null) {
-            logger.warn("Not able to find/inflate banners view in this context ({}); banner will not be shown.", getActivity());
+            logger.warn("Not able to find/inflate banners view in this context ({}); banner will not be shown.", activity);
             return false;
         }
 
@@ -63,16 +72,14 @@ public class BannerManager {
             // However, if we do stick with this (ListView), we could attach all banners and as each one gets addressed,
             // and then later removed, we could show the 'next in line' by doing a simple display trick in the adapter
             // Manipulate the item count -> return super.getCount() > 0 ? 1 : 0.
-            getActivity().runOnUiThread(new Runnable() {
-                @Override public void run() {
-                    BannerAdapter bannerAdapter = getBanners();
-                    if (BannerManagerHelper.canShowBanner(getActivity(), banner) && bannerAdapter != null) {
-                        bannerAdapter.clear();
-                        bannerAdapter.add(banner);
+            activity.runOnUiThread(() -> {
+                BannerAdapter bannerAdapter = getBanners();
+                if (BannerManagerHelper.canShowBanner(getActivity(), banner) && bannerAdapter != null) {
+                    bannerAdapter.clear();
+                    bannerAdapter.add(banner);
 
-                        bannersView.setAdapter(bannerAdapter);
-                        logger.debug("Attaching banner list with {} banners visible.", getBanners().getCount());
-                    }
+                    bannersView.setAdapter(bannerAdapter);
+                    logger.debug("Attaching banner list with {} banners visible.", getBanners().getCount());
                 }
             });
 
@@ -94,13 +101,13 @@ public class BannerManager {
         }
 
         if (getBanners() != null) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
+            Activity activity = getActivity();
+            if (activity != null) {
+                activity.runOnUiThread(() -> {
                     getBanners().removeBanner(bannerClass);
                     getBanners().notifyDataSetChanged();
-                }
-            });
+                });
+            }
         }
     }
 
@@ -141,17 +148,18 @@ public class BannerManager {
             return false;
     }
 
-    private Activity getActivity() {
-        return ArcusApplication.getArcusApplication().getForegroundActivity();
-    }
-
+    @Nullable
     private BannerActivity getBannerActivity() {
-        Activity activity = ArcusApplication.getArcusApplication().getForegroundActivity();
+        Activity activity = activityRef.get();
         if (activity == null || !(activity instanceof BannerActivity)) {
             return null;
         }
 
         return (BannerActivity) activity;
+    }
 
+    @Nullable
+    private Activity getActivity() {
+        return activityRef.get();
     }
 }

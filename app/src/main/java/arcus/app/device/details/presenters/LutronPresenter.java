@@ -15,8 +15,11 @@
  */
 package arcus.app.device.details.presenters;
 
+import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.iris.client.capability.Capability;
@@ -63,14 +66,11 @@ public class LutronPresenter extends DevicePresenter<LutronContract.LutronBridge
     }
 
     @Override
-    public void stopPresenting() {
-        removeBanner(LutronDeviceDeletedBanner.class);
-        removeBanner(LutronAccountRevokedBanner.class);
-        removeBanner(LutronBridgeErrorBanner.class);
-
-        super.stopPresenting();
+    public void clearAllBanners(@NonNull Activity activity) {
+        removeBanner(activity, LutronDeviceDeletedBanner.class);
+        removeBanner(activity, LutronAccountRevokedBanner.class);
+        removeBanner(activity, LutronBridgeErrorBanner.class);
     }
-
 
     @Override
     public void requestUpdate() {
@@ -86,27 +86,27 @@ public class LutronPresenter extends DevicePresenter<LutronContract.LutronBridge
         }
 
         if (!isErrorBannerVisible && errors != null && errors.containsKey(ERROR_DELETED_LUTRON)) {
-            showBanner(new LutronDeviceDeletedBanner(deviceAddress,
+            getPresentedView().showBanner(new LutronDeviceDeletedBanner(deviceAddress,
                     GlobalSetting.getDeviceSupportUri(getDeviceModel(), ERROR_DELETED_LUTRON.toLowerCase())));
             isErrorBannerVisible = true;
         } else {
-            removeBanner(LutronDeviceDeletedBanner.class);
+            getPresentedView().removeBanner(LutronDeviceDeletedBanner.class);
         }
 
         if (!isErrorBannerVisible && errors != null && errors.containsKey(ERROR_UNAUTHED_LUTRON)) {
-            showBanner(new LutronAccountRevokedBanner(deviceAddress,
+            getPresentedView().showBanner(new LutronAccountRevokedBanner(deviceAddress,
                     GlobalSetting.getDeviceSupportUri(getDeviceModel(), ERROR_UNAUTHED_LUTRON.toLowerCase())));
             isErrorBannerVisible = true;
         } else {
-            removeBanner(LutronAccountRevokedBanner.class);
+            getPresentedView().removeBanner(LutronAccountRevokedBanner.class);
         }
 
         if (!isErrorBannerVisible && errors != null && errors.containsKey(ERROR_BRIDGE_LUTRON)) {
-            showBanner(new LutronBridgeErrorBanner(
+            getPresentedView().showBanner(new LutronBridgeErrorBanner(
                     GlobalSetting.getDeviceSupportUri(getDeviceModel(), ERROR_BRIDGE_LUTRON.toLowerCase())));
             isErrorBannerVisible = true;
         } else {
-            removeBanner(LutronBridgeErrorBanner.class);
+            getPresentedView().removeBanner(LutronBridgeErrorBanner.class);
         }
 
         lutronDisplayModel.setBannerVisible(isErrorBannerVisible);
@@ -158,17 +158,24 @@ public class LutronPresenter extends DevicePresenter<LutronContract.LutronBridge
         return !DeviceConnection.STATE_OFFLINE.equals(getDeviceModel().get(DeviceConnection.ATTR_STATE));
     }
 
-    private void showBanner(final Banner banner) {
-        presentedBanners.add(banner.getClass());
-        BannerManager.in(ArcusApplication.getArcusApplication().getForegroundActivity()).showBanner(banner);
+    @Override
+    public void showBannerHelper(@NonNull Activity activity, @NonNull Banner banner) {
+        showBanner(activity, banner);
     }
 
-    @SafeVarargs
-    private final void removeBanner(Class<? extends Banner>... bannerClazz) {
-        for (Class<? extends Banner> thisClazz : bannerClazz) {
-            presentedBanners.remove(thisClazz);
-            BannerManager.in(ArcusApplication.getArcusApplication().getForegroundActivity()).removeBanner(thisClazz);
-        }
+    private void showBanner(Activity activity, final Banner banner) {
+        presentedBanners.add(banner.getClass());
+        BannerManager.in(activity).showBanner(banner);
+    }
+
+    @Override
+    public void clearBannerHelper(@NonNull Activity activity, @NonNull Class<? extends Banner> bannerClass) {
+        removeBanner(activity, bannerClass);
+    }
+
+    private void removeBanner(Activity activity, Class<? extends Banner> bannerClazz) {
+        presentedBanners.remove(bannerClazz);
+        BannerManager.in(activity).removeBanner(bannerClazz);
     }
 
 }
