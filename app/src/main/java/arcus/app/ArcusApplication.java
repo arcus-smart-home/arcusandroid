@@ -15,7 +15,6 @@
  */
 package arcus.app;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
@@ -23,27 +22,28 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDex;
 
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.CorneaService;
 
-import arcus.app.activities.LaunchActivity;
 import arcus.app.common.models.RegistrationContext;
 import arcus.app.common.utils.PreferenceUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Observable;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class ArcusApplication extends Application implements Application.ActivityLifecycleCallbacks {
+public class ArcusApplication extends Application {
 
     private static final AtomicBoolean shouldReload = new AtomicBoolean(false);
     private static final Logger logger = LoggerFactory.getLogger(ArcusApplication.class);
@@ -53,7 +53,6 @@ public class ArcusApplication extends Application implements Application.Activit
     private CorneaService corneaService;
     private boolean corneaServiceBound = false;
     private boolean corneaBindInProgress = false;
-    private int activitiesInForeground = 0;
 
     private Handler handler;
     private static int DELAY_BEFORE_CLOSE_MS = 1000 * 30; // 30 seconds, not 1000 * 60 * 10; // 10 Minutes.
@@ -65,10 +64,6 @@ public class ArcusApplication extends Application implements Application.Activit
         @Override
         public void run() {
             if (corneaServiceBound) {
-                ConnectionObservable observable = new ConnectionObservable(corneaServiceBound);
-                observable.addObserver(new LaunchActivity.ConnectionObserver(observable));
-                observable.setState(false);
-
                 unbindService(mConnection);
                 corneaServiceBound = false;
             }
@@ -105,13 +100,13 @@ public class ArcusApplication extends Application implements Application.Activit
     @Override
     public void onCreate() {
         super.onCreate();
+        setupLifecycleListener();
         arcusApplication = this;
         registrationContext = RegistrationContext.getInstance();
 
         String agent = String.format("Android/%s (%s %s)", Build.VERSION.RELEASE, Build.MANUFACTURER, Build.MODEL);
         CorneaClientFactory.init(agent, BuildConfig.VERSION_NAME);
         handler = new Handler();
-        registerActivityLifecycleCallbacks(this);
         bindCornea();
 
         PreferenceUtils.hasUserUpgraded();
@@ -136,31 +131,6 @@ public class ArcusApplication extends Application implements Application.Activit
     public static RegistrationContext getRegistrationContext(){
         return registrationContext;
     }
-
-    public void onActivityStarted(Activity activity) {
-        bindCornea();
-    }
-
-    public void onActivityResumed(Activity activity) {
-        // Go back to 30-second timeout
-        useNormalTimeoutDelay();
-
-        bindCornea();
-
-        logger.debug("Activity [{}] in foreground, cancelling connection close.", activity.getClass().getSimpleName());
-        handler.removeCallbacks(closeCorneaRunnable);
-    }
-
-    public void onActivityPaused(Activity activity) {}
-
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {}
-    public void onActivityStopped(Activity activity) {
-        if (--activitiesInForeground == 0) {
-            handler.postDelayed(closeCorneaRunnable, DELAY_BEFORE_CLOSE_MS);
-        }
-    }
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {}
-    public void onActivityDestroyed(Activity activity) {}
 
     public CorneaService getCorneaService() {
         return corneaService;
@@ -187,19 +157,32 @@ public class ArcusApplication extends Application implements Application.Activit
         DELAY_BEFORE_CLOSE_MS = NORMAL_DELAY_BEFORE_CLOSE_MS;
     }
 
-    public class ConnectionObservable extends Observable {
-        private boolean connected;
+    private void setupLifecycleListener() {
+        ProcessLifecycleOwner
+                .get()
+                .getLifecycle()
+                .addObserver(new LifecycleObserver() {
+                    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+                    public void onCreated() {
+                        bindCornea();
+                    }
 
-        public ConnectionObservable (boolean bool) {
-            connected = bool;
-        }
-        public void setState (Boolean state) {
-            connected = state;
-            setChanged();
-            notifyObservers(state);
-        }
-        public boolean getState() {
-            return connected;
-        }
+                    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+                    public void onForeground() {
+                        // Go back to 30-second timeout
+                        useNormalTimeoutDelay();
+
+                        bindCornea();
+
+                        logger.debug("Application is resumed, cancelling connection close.");
+                        handler.removeCallbacks(closeCorneaRunnable);
+                    }
+
+                    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+                    public void onBackground() {
+                        logger.debug("Application is backgrounded, posting delayed connection close.");
+                        handler.postDelayed(closeCorneaRunnable, DELAY_BEFORE_CLOSE_MS);
+                    }
+                });
     }
 }

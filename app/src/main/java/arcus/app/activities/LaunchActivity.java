@@ -33,7 +33,6 @@ import com.iris.client.model.PlaceModel;
 import com.iris.client.session.Credentials;
 import com.iris.client.session.HandoffTokenCredentials;
 import com.iris.client.session.SessionTokenCredentials;
-import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.account.fingerprint.FingerprintPopup;
 import arcus.app.account.login.LoginFragment;
@@ -44,9 +43,6 @@ import arcus.app.common.utils.PreferenceUtils;
 import arcus.app.common.utils.StringUtils;
 import arcus.app.createaccount.AccountCreationConstantsKt;
 import arcus.app.createaccount.CreateAccountActivity;
-
-import java.util.Observable;
-import java.util.Observer;
 
 /**
  * This activity provides the splash login screen functionality. It this entrypoint to this
@@ -69,7 +65,6 @@ public class LaunchActivity extends BaseActivity {
 
     private AutoLoginRequestObserver loginObserver;
     private ListenerRegistration listenerReg;
-    private static boolean reAuthenticate = true;
     boolean useFingerprint;
     boolean loginPending;
 
@@ -146,7 +141,7 @@ public class LaunchActivity extends BaseActivity {
         else if (!StringUtils.isEmpty(cachedLoginToken)) {
 
             // Use fingerprint, but don't display the prompt if login is already in progress
-            if(useFingerprint && reAuthenticate && !loginPending) {
+            if(useFingerprint && !loginPending) {
                 initializeFingerprintPrompt(cachedLoginToken
                         , R.string.fingerprint_sign_in
                         , R.string.fingerprint_instructions);
@@ -359,28 +354,6 @@ public class LaunchActivity extends BaseActivity {
                 return null;
             }
         }
-    }
-
-
-    public static class ConnectionObserver implements Observer {
-
-        private ArcusApplication.ConnectionObservable observedState= null;
-
-        public ConnectionObserver(ArcusApplication.ConnectionObservable state) {
-            observedState = state;
-        }
-
-        @Override
-        public void update(Observable o, Object arg) {
-            if(o == observedState){
-                gracePeriodExpired(observedState.getState());
-            }
-        }
-    }
-
-    protected static boolean gracePeriodExpired(Boolean expired) {
-        reAuthenticate = expired;
-        return reAuthenticate;
     }
 
     private void logOut() {
