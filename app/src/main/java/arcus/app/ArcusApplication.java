@@ -16,14 +16,10 @@
 package arcus.app;
 
 import android.app.Application;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
-import android.os.IBinder;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
@@ -32,11 +28,11 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDex;
 
-import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.CorneaService;
 
 import arcus.app.common.models.RegistrationContext;
 import arcus.app.common.utils.PreferenceUtils;
+import arcus.cornea.network.NetworkConnectionMonitor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,15 +40,10 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ArcusApplication extends Application {
-
     private static final AtomicBoolean shouldReload = new AtomicBoolean(false);
     private static final Logger logger = LoggerFactory.getLogger(ArcusApplication.class);
     private static ArcusApplication arcusApplication;
     @Nullable private static RegistrationContext registrationContext;
-
-    private CorneaService corneaService;
-    private boolean corneaServiceBound = false;
-    private boolean corneaBindInProgress = false;
 
     private Handler handler;
     private static int DELAY_BEFORE_CLOSE_MS = 1000 * 30; // 30 seconds, not 1000 * 60 * 10; // 10 Minutes.
@@ -60,36 +51,9 @@ public class ArcusApplication extends Application {
     private static final int LONGEST_DELAY_BEFORE_CLOSE_MS = 1000 * 60 * 10; // 10 Minutes.
 
     @NonNull
-    private Runnable closeCorneaRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (corneaServiceBound) {
-                unbindService(mConnection);
-                corneaServiceBound = false;
-            }
-
-            if (corneaService != null && corneaService.isConnected()) {
-                shouldReload.set(true);
-            }
-        }
-    };
-    
-    @NonNull
-    private ServiceConnection mConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName className, IBinder service) {
-            if (service instanceof CorneaService.CorneaBinder) {
-                CorneaService.CorneaBinder binder = (CorneaService.CorneaBinder) service;
-                corneaService = binder.getService();
-                corneaServiceBound = true;
-                corneaBindInProgress = false;
-            }
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName arg0) {
-            corneaServiceBound = false;
-        }
+    private Runnable closeCorneaRunnable = () -> {
+        shouldReload.set(CorneaService.INSTANCE.isConnected());
+        getCorneaService().silentClose();
     };
 
     protected void attachBaseContext(Context base) {
@@ -100,14 +64,13 @@ public class ArcusApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        setupLifecycleListener();
         arcusApplication = this;
-        registrationContext = RegistrationContext.getInstance();
-
         String agent = String.format("Android/%s (%s %s)", Build.VERSION.RELEASE, Build.MANUFACTURER, Build.MODEL);
-        CorneaClientFactory.init(agent, BuildConfig.VERSION_NAME);
+        CorneaService.initialize(agent, BuildConfig.VERSION_NAME);
+
+        setupLifecycleListener();
+        registrationContext = RegistrationContext.getInstance();
         handler = new Handler();
-        bindCornea();
 
         PreferenceUtils.hasUserUpgraded();
 
@@ -124,7 +87,7 @@ public class ArcusApplication extends Application {
     }
 
     public static SharedPreferences getSharedPreferences(){
-        return arcusApplication.getSharedPreferences(arcusApplication.getPackageName(), Context.MODE_PRIVATE);
+        return getArcusApplication().getSharedPreferences(getArcusApplication().getPackageName(), Context.MODE_PRIVATE);
     }
 
     @Nullable
@@ -133,16 +96,7 @@ public class ArcusApplication extends Application {
     }
 
     public CorneaService getCorneaService() {
-        return corneaService;
-    }
-
-    private void bindCornea() {
-        if (!corneaServiceBound && !corneaBindInProgress) {
-            corneaBindInProgress = true;
-            Intent intent = new Intent(this, CorneaService.class);
-            bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-            logger.debug("Cornea service not bound. Calling bind bindService()");
-        }
+        return CorneaService.INSTANCE;
     }
 
     public static boolean shouldReload() {
@@ -162,17 +116,12 @@ public class ArcusApplication extends Application {
                 .get()
                 .getLifecycle()
                 .addObserver(new LifecycleObserver() {
-                    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-                    public void onCreated() {
-                        bindCornea();
-                    }
-
                     @OnLifecycleEvent(Lifecycle.Event.ON_START)
                     public void onForeground() {
+                        NetworkConnectionMonitor.getInstance().startListening(ArcusApplication.this);
+
                         // Go back to 30-second timeout
                         useNormalTimeoutDelay();
-
-                        bindCornea();
 
                         logger.debug("Application is resumed, cancelling connection close.");
                         handler.removeCallbacks(closeCorneaRunnable);
@@ -182,6 +131,7 @@ public class ArcusApplication extends Application {
                     public void onBackground() {
                         logger.debug("Application is backgrounded, posting delayed connection close.");
                         handler.postDelayed(closeCorneaRunnable, DELAY_BEFORE_CLOSE_MS);
+                        NetworkConnectionMonitor.getInstance().stopListening(ArcusApplication.this);
                     }
                 });
     }

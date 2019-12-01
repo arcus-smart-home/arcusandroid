@@ -15,12 +15,6 @@
  */
 package arcus.cornea;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.Binder;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.IBinder;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -28,7 +22,6 @@ import com.google.common.base.Preconditions;
 import arcus.cornea.controller.IProductController;
 import arcus.cornea.controller.IRuleController;
 import arcus.cornea.controller.ISetupController;
-import arcus.cornea.network.NetworkConnectionMonitor;
 import arcus.cornea.utils.Listeners;
 import com.iris.client.ClientMessage;
 import com.iris.client.ClientRequest;
@@ -42,102 +35,33 @@ import com.iris.client.session.SessionEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CorneaService extends Service {
-    private Logger logger = LoggerFactory.getLogger(CorneaService.class);
+import java.io.IOException;
 
-    private static IProductController productController;
-    private static ISetupController setupController;
+public class CorneaService {
+    private static Logger logger = LoggerFactory.getLogger(CorneaService.class);
+    private static IProductController productController = new ProductController();
+    private static ISetupController setupController = new SetupController();
 
-    private final static String HANDLER_THREAD_NAME = "IOThread";
-    private HandlerThread handlerThread;
-    private Handler handler;
+    public static final CorneaService INSTANCE = new CorneaService();
 
-    private ListenerRegistration errorEventListener;
-
-    public class CorneaBinder extends Binder {
-        public CorneaService getService() {
-            return CorneaService.this;
-        }
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        if (handlerThread == null || !handlerThread.isAlive()) {
-            init("onBind");
-        }
-
-        return new CorneaBinder();
-    }
-
-    @Override
-    public void onRebind(Intent intent) {
-        super.onRebind(intent);
-        if (handlerThread == null || !handlerThread.isAlive()) {
-            init("onRebind");
-        }
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        throw new UnsupportedOperationException(getClass().getSimpleName() + " must be bound, not started.");
-    }
-
-    @Override
-    public void onCreate() {
-        init("onCreate");
-    }
-
-    private void init(String from) {
-        if (handlerThread == null || !handlerThread.isAlive()) {
-            handlerThread = new HandlerThread(HANDLER_THREAD_NAME, android.os.Process.THREAD_PRIORITY_BACKGROUND);
-            handlerThread.start();
-            handler = new Handler(handlerThread.getLooper());
-        }
-
+    public static void initialize(@Nullable String agent, @Nullable String version) {
         CorneaClientFactory.init();
+        CorneaClientFactory.init(agent, version);
 
-        setupController   = new SetupController(handler);
-        productController = new ProductController();
-
-        NetworkConnectionMonitor.getInstance().startListening(getApplicationContext());
-
-        addLoggingErrorListener();
-        logger.debug("{} created via {}", getClass().getSimpleName(), from);
-    }
-
-    @Override
-    public void onDestroy() {
-        logger.debug("Destroying Cornea Service.");
-
-        try {
-            removeLoggingErrorListener();
-            CorneaClientFactory.getClient().close();
-            NetworkConnectionMonitor.getInstance().stopListening(getApplicationContext());
-
-            if (handlerThread != null && handlerThread.isAlive()) {
-                handlerThread.quit();
-            }
-        }
-        catch (Exception ex) {
-            logger.debug("Caught Exception while destroying service.", ex);
-        }
-    }
-
-    public void addLoggingErrorListener() {
-        removeLoggingErrorListener();
-        errorEventListener = addMessageListener(new Listener<ClientMessage>() {
-            @Override
-            public void onEvent(ClientMessage clientMessage) {
-                if (clientMessage.getEvent() instanceof ErrorEvent) {
-                    ErrorEvent event = (ErrorEvent) clientMessage.getEvent();
-                    logger.error("CORNEA ErrorEvent: {}", event);
-                }
+        INSTANCE.addMessageListener(clientMessage -> {
+            if (clientMessage.getEvent() instanceof ErrorEvent) {
+                ErrorEvent event = (ErrorEvent) clientMessage.getEvent();
+                logger.error("CORNEA ErrorEvent: {}", event);
             }
         });
     }
 
-    public void removeLoggingErrorListener() {
-        Listeners.clear(errorEventListener);
+    public void silentClose() {
+        try {
+            CorneaClientFactory.getClient().close();
+        } catch (IOException ex) {
+            logger.debug("Error closing connection.", ex);
+        }
     }
 
     public void setConnectionURL(@NonNull String connectionURL) {
