@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.common.base.Preconditions;
-import arcus.cornea.controller.IProductController;
+
 import arcus.cornea.controller.ISetupController;
 import arcus.cornea.utils.Listeners;
 import com.iris.client.ClientMessage;
@@ -38,7 +38,6 @@ import java.io.IOException;
 
 public class CorneaService {
     private static Logger logger = LoggerFactory.getLogger(CorneaService.class);
-    private static IProductController productController = new ProductController();
     private static ISetupController setupController = new SetupController();
 
     public static final CorneaService INSTANCE = new CorneaService();
@@ -78,9 +77,6 @@ public class CorneaService {
             return false;
         }
     }
-
-    @Deprecated // Use ProductModelProvider
-    public IProductController products() { return productController; }
 
     public ISetupController setup() {
         return setupController;
