@@ -90,6 +90,7 @@ public class ActivityUtils {
 
     public static void callSupport() {
         Intent callSupportIntent = new Intent(Intent.ACTION_DIAL, GlobalSetting.SUPPORT_NUMBER_URI);
+        callSupportIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         try {
             ArcusApplication.getArcusApplication().startActivity(callSupportIntent);
         } catch (Exception e) {

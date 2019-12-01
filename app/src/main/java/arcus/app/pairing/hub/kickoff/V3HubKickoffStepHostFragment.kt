@@ -53,7 +53,7 @@ class V3HubKickoffStepHostFragment : StepContainerFragment(),
 
         ethernetButton.setOnClickListener {
             activity?.let {
-                activity?.startActivity(GenericConnectedFragmentActivity.getLaunchIntent(it, V3HubEthernetStepHostFragment::class.java))
+                it.startActivity(GenericConnectedFragmentActivity.getLaunchIntent(it, V3HubEthernetStepHostFragment::class.java))
             }
         }
 

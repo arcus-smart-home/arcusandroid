@@ -15,6 +15,7 @@
  */
 package arcus.app.subsystems.debug
 
+import android.content.Intent
 import android.os.Handler
 import android.view.ScaleGestureDetector
 import arcus.app.BuildConfig
@@ -49,9 +50,9 @@ class KonamiCodeDetector : ScaleGestureDetector.OnScaleGestureListener {
         // spurious shakes and accidental gestures from activating the Konami code.
         if (pinchFactorX > PINCH_THRESHOLD && ++pinchesDetected >= PINCHES_REQUIRED) {
             val context = ArcusApplication.getArcusApplication()
-            context?.startActivity(
-                    GenericFragmentActivity.getLaunchIntent(context, DebugMenuFragment::class.java)
-            )
+            val intent = GenericFragmentActivity.getLaunchIntent(context, DebugMenuFragment::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context?.startActivity(intent)
             pinchesDetected = 0
         } else {
             logger.debug("Pinch count [$pinchesDetected]; Factor: [$pinchFactorX]")
