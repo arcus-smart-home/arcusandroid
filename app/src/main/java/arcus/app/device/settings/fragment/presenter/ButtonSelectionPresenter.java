@@ -20,26 +20,19 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 
 import arcus.cornea.CorneaClientFactory;
-import arcus.cornea.RuleController;
-import arcus.cornea.RuleDeviceSection;
 import arcus.cornea.common.BasePresenter;
 import com.iris.client.model.DeviceModel;
-import com.iris.client.model.RuleModel;
-import arcus.app.ArcusApplication;
 import arcus.app.device.buttons.controller.ButtonActionController;
 import arcus.app.device.buttons.model.Button;
 import arcus.app.device.buttons.model.ButtonAction;
 import arcus.app.device.buttons.model.ButtonDevice;
 import arcus.app.device.buttons.model.FobButton;
 import arcus.app.device.settings.fragment.contract.ButtonSelectionContract;
+import arcus.cornea.provider.RuleModelProvider;
+import arcus.cornea.utils.Listeners;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
-import java.util.Map;
-
-
 
 public class ButtonSelectionPresenter extends BasePresenter implements ButtonSelectionContract.ButtonSelectionPresenter {
 
@@ -69,35 +62,28 @@ public class ButtonSelectionPresenter extends BasePresenter implements ButtonSel
     private void getButtonAction(@NonNull final FobButton[] buttons) {
         logger.debug("Editing button {} of device {}.", buttons, selectedButtonDevice);
 
-        ArcusApplication.getArcusApplication().getCorneaService().rules().listRules(new RuleController.RuleCallbacks() {
-            @Override
-            public void rulesLoaded(@NonNull List<RuleModel> rules) {
-                logger.debug("Loaded rules; got {} rule instances.", rules.size());
+        RuleModelProvider
+                .instance()
+                .getRules()
+                .onSuccess(Listeners.runOnUiThread(rules ->{
+                    logger.debug("Loaded rules; got {} rule instances.", rules.size());
 
-                ButtonAction[] assignableActions = buttonActionController.getAssignableActionsForDevice(selectedButtonDevice);
+                    ButtonAction[] assignableActions = buttonActionController.getAssignableActionsForDevice(selectedButtonDevice);
 
-                for (FobButton thisButton : buttons) {
-                    String currentAction = buttonActionController.getCurrentButtonAction(rules, selectedDeviceAddress, assignableActions, thisButton).toString();
-                    thisButton.setButtonAction(currentAction);
-                }
-
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        getPresentedView().updateView(buttons);
+                    for (FobButton thisButton : buttons) {
+                        String currentAction = buttonActionController.getCurrentButtonAction(rules, selectedDeviceAddress, assignableActions, thisButton).toString();
+                        thisButton.setButtonAction(currentAction);
                     }
-                });
-            }
 
-            @Override
-            public void sectionsLoaded(Map<String, RuleDeviceSection> mapList) {
-                //stub
-            }
-
-            @Override
-            public void requestError(@NonNull Throwable throwable) {
-                logger.debug("Failed to load rules due to: {}", throwable.getMessage());
-            }
-        });
+                    new Handler(Looper.getMainLooper()).post(new Runnable() {
+                        @Override
+                        public void run() {
+                            getPresentedView().updateView(buttons);
+                        }
+                    });
+                }))
+                .onFailure(Listeners.runOnUiThread(throwable -> {
+                    logger.debug("Failed to load rules due to: {}", throwable.getMessage());
+                }));
     }
 }

@@ -26,6 +26,7 @@ import com.iris.client.model.RuleModel;
 import com.iris.client.model.Store;
 import com.iris.client.service.RuleService;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class RuleModelProvider extends BaseModelProvider<RuleModel> {
@@ -62,6 +63,19 @@ public class RuleModelProvider extends BaseModelProvider<RuleModel> {
         super(client, cache, store);
         this.client = client;
         this.cache = cache;
+    }
+
+    public ClientFuture<List<RuleModel>> getRules() {
+        if (RuleModelProvider.instance().isLoaded()) {
+            List<RuleModel> rules = new LinkedList<>();
+            Iterable<RuleModel> rulesIterable = RuleModelProvider.instance().getStore().values();
+            for (RuleModel ruleModel : rulesIterable) {
+                rules.add(ruleModel);
+            }
+            return Futures.succeededFuture(rules);
+        } else {
+            return RuleModelProvider.instance().load();
+        }
     }
 
     @Override

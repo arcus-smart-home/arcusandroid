@@ -24,6 +24,7 @@ import android.widget.ListView;
 
 import arcus.cornea.CorneaService;
 import arcus.cornea.dto.RuleCategoryCounts;
+import arcus.cornea.provider.RuleTemplateModelProvider;
 import arcus.cornea.utils.Listeners;
 import arcus.app.R;
 import arcus.app.account.settings.data.WalkthroughType;
@@ -41,7 +42,6 @@ import arcus.app.subsystems.rules.model.RuleCategory;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 
 public class RuleCategoriesFragment extends BaseFragment implements IShowedFragment {
 
@@ -107,7 +107,7 @@ public class RuleCategoriesFragment extends BaseFragment implements IShowedFragm
             return; // Fabric #199; Need to move Cornea away from a Service.
         }
 
-        corneaService.rules().getCategories().onSuccess(Listeners.runOnUiThread(ruleCategoryCounts -> {
+        RuleTemplateModelProvider.instance().getRuleCategoryCounts().onSuccess(Listeners.runOnUiThread(ruleCategoryCounts -> {
 
             for (RuleCategoryCounts.RuleCountInstance ruleCount : ruleCategoryCounts.getCategoryList()) {
                 ListItemModel categoryItem = new ListItemModel();

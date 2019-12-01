@@ -18,6 +18,8 @@ package arcus.cornea.provider;
 import com.google.common.base.Function;
 
 import arcus.cornea.CorneaClientFactory;
+import arcus.cornea.dto.RuleCategoryCounts;
+
 import com.iris.client.IrisClient;
 import com.iris.client.capability.RuleTemplate;
 import com.iris.client.event.ClientFuture;
@@ -27,6 +29,9 @@ import com.iris.client.model.RuleTemplateModel;
 import com.iris.client.model.Store;
 import com.iris.client.service.RuleService;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class RuleTemplateModelProvider extends BaseModelProvider<RuleTemplateModel> {
@@ -38,6 +43,14 @@ public class RuleTemplateModelProvider extends BaseModelProvider<RuleTemplateMod
 
     private final IrisClient client;
     private final ModelCache cache;
+
+    private static final Comparator<RuleTemplateModel> SORTED_BY_NAME = (lhs, rhs) -> {
+        if (lhs.getName() == null || rhs.getName() == null) {
+            return 0;
+        }
+
+        return lhs.getName().compareToIgnoreCase(rhs.getName());
+    };
 
     private final Function<RuleService.ListRuleTemplatesResponse, List<RuleTemplateModel>> getRuleTemplates =
           new Function<RuleService.ListRuleTemplatesResponse, List<RuleTemplateModel>>() {
@@ -63,6 +76,35 @@ public class RuleTemplateModelProvider extends BaseModelProvider<RuleTemplateMod
         super(client, cache, store);
         this.client = client;
         this.cache = cache;
+    }
+
+    public ClientFuture<List<RuleTemplateModel>> getTemplatesByCategoryName(String category) {
+        return reload().transform(templates -> {
+            if (templates == null) {
+                return Collections.emptyList();
+            }
+
+            List<RuleTemplateModel> results = new ArrayList<>();
+
+            for (RuleTemplateModel model : templates) {
+                if (model.getCategories().contains(category)) {
+                    results.add(model);
+                }
+            }
+
+            Collections.sort(results, SORTED_BY_NAME);
+            return results;
+        });
+    }
+
+    public ClientFuture<RuleCategoryCounts> getRuleCategoryCounts() {
+        String placeId = getPlaceID();
+        if (placeId == null) {
+            return Futures.failedFuture(new RuntimeException("Is Client connected? Place was missing."));
+        } else {
+            RuleService ruleService = CorneaClientFactory.getService(RuleService.class);
+            return Futures.transform(ruleService.getCategories(placeId), RuleCategoryCounts::new);
+        }
     }
 
     @Override
