@@ -23,6 +23,7 @@ import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.dto.HubDeviceModelDTO;
 import arcus.cornea.provider.PersonModelProvider;
 import arcus.cornea.provider.PlaceModelProvider;
+import arcus.cornea.provider.ProductModelProvider;
 import arcus.cornea.subsystem.safety.model.HistoryEvent;
 import com.iris.capability.util.Addresses;
 import com.iris.client.bean.HistoryLog;
@@ -42,6 +43,7 @@ import com.iris.client.model.HubModel;
 import com.iris.client.model.Model;
 import com.iris.client.model.PersonModel;
 import com.iris.client.model.PlaceModel;
+import com.iris.client.model.ProductModel;
 import com.iris.client.service.SessionService;
 import arcus.app.ArcusApplication;
 import arcus.app.R;
@@ -506,10 +508,10 @@ public class CorneaUtils {
             return null;
         }
 
-        try {
-            return ArcusApplication.getArcusApplication().getCorneaService().products().getByProductID(forProductId).get().getShortName();
-        } catch (InterruptedException | ExecutionException e) {
-            Thread.interrupted();
+        ProductModel productModel = ProductModelProvider.instance().getByProductIDOrNull(forProductId);
+        if (productModel != null) {
+            return productModel.getShortName();
+        } else {
             return null;
         }
     }
