@@ -45,10 +45,9 @@ public class NetworkConnectionMonitor {
     private static final Logger logger = LoggerFactory.getLogger(NetworkConnectionMonitor.class);
     private static final NetworkConnectionMonitor instance = new NetworkConnectionMonitor();
     private State state;
-    private Context context;
-    private IntentFilter filter;
     private ConnectivityBroadcastReceiver receiver;
     private AtomicBoolean suppressEvents = new AtomicBoolean(false);
+    private AtomicBoolean isMonitoring = new AtomicBoolean(false);
 
     private ListenerRegistration loginCallbackReg;
     private final SessionController.LoginCallback loginCallback = new SessionController.LoginCallback() {
@@ -78,11 +77,14 @@ public class NetworkConnectionMonitor {
     private class ConnectivityBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (!intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+            if (!ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
                 return;
             }
 
             ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm == null) {
+                return;
+            }
 
             NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
             boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
@@ -93,8 +95,7 @@ public class NetworkConnectionMonitor {
                     EventBus.getDefault().post(new NetworkLostEvent());
                     logger.debug("Posted NetworkLostEvent.");
                 }
-            }
-            else if (state != null) { // Avoid posting if the connection is connected & we haven't posted a disconnected event.
+            } else if (state != null) { // Avoid posting if the connection is connected & we haven't posted a disconnected event.
                 state = State.CONNECTED;
                 // We were previously disconnected before, try to reconnect.
                 loginCallbackReg = SessionController.instance().setCallback(loginCallback);
@@ -119,23 +120,24 @@ public class NetworkConnectionMonitor {
     public State getCurrentState() { return state; }
 
     public synchronized void startListening(@NonNull Context context) {
-        if(this.context == null){
-            filter = new IntentFilter();
+        if (isMonitoring.compareAndSet(false, true)) {
+            IntentFilter filter = new IntentFilter();
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+
+            context.registerReceiver(receiver, filter);
+            logger.debug("Starting to listen for device network changes");
         }
-        this.context = context;
-        context.registerReceiver(receiver, filter);
-        logger.debug("Starting to listen for device network changes");
     }
 
     public synchronized void stopListening(@NonNull Context context) {
-        try {
-            context.unregisterReceiver(receiver);
-            this.context = null;
-        } catch (Exception e) {
-            // Nothing to do; don't die if receiver isn't registered.
-        }
+        if (isMonitoring.compareAndSet(true, false)) {
+            try {
+                context.unregisterReceiver(receiver);
+            } catch (Exception e) {
+                // Nothing to do; don't die if receiver isn't registered.
+            }
 
-        logger.debug("No longer listening for device network changes");
+            logger.debug("No longer listening for device network changes");
+        }
     }
 }

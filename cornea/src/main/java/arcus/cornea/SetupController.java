@@ -15,7 +15,6 @@
  */
 package arcus.cornea;
 
-import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -33,22 +32,11 @@ import com.iris.client.service.AccountService.CreateAccountResponse;
 import com.iris.client.service.I18NService;
 import com.iris.client.service.SessionService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 final class SetupController implements ISetupController {
-    private static final Logger logger = LoggerFactory.getLogger(SetupController.class);
-    private final Handler handler;
-
-    public SetupController(Handler handler) {
-        Preconditions.checkNotNull(handler, "Handler cannot be null.");
-        this.handler = handler;
-    }
-
     @Override
     public ClientFuture<Map<String, Object>> createAccount(
           @NonNull final String platformURL,
@@ -62,43 +50,40 @@ final class SetupController implements ISetupController {
         Preconditions.checkNotNull(opt_in, "Opt-in cannot be null");
 
         final SettableClientFuture<Map<String, Object>> future = new SettableClientFuture<>();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    CorneaClientFactory.getClient().close();
-                    CorneaClientFactory.getClient().setConnectionURL(platformURL);
-                }
-                catch (Exception ex) {
-                    future.setError(ex);
-                    return;
-                }
+        new Thread(() -> {
+            try {
+                CorneaClientFactory.getClient().close();
+                CorneaClientFactory.getClient().setConnectionURL(platformURL);
+            }
+            catch (Exception ex) {
+                future.setError(ex);
+                return;
+            }
 
-                CorneaClientFactory
-                      .getService(AccountService.class)
-                      .createAccount(email, password, opt_in, null, null, null)
-                      .onFailure(new Listener<Throwable>() {
-                          @Override
-                          public void onEvent(Throwable throwable) {
-                              future.setError(throwable);
-                          }
-                      })
-                      .onSuccess(new Listener<CreateAccountResponse>() {
-                          @Override
-                          public void onEvent(CreateAccountResponse response) {
-                              Map<String, Object> accountInfo = new HashMap<>();
-                              accountInfo.put("account", CorneaClientFactory.getModelCache()
+            CorneaClientFactory
+                    .getService(AccountService.class)
+                    .createAccount(email, password, opt_in, null, null, null)
+                    .onFailure(new Listener<Throwable>() {
+                        @Override
+                        public void onEvent(Throwable throwable) {
+                            future.setError(throwable);
+                        }
+                    })
+                    .onSuccess(new Listener<CreateAccountResponse>() {
+                        @Override
+                        public void onEvent(CreateAccountResponse response) {
+                            Map<String, Object> accountInfo = new HashMap<>();
+                            accountInfo.put("account", CorneaClientFactory.getModelCache()
                                     .addOrUpdate(response.getAccount()));
-                              accountInfo.put("person", CorneaClientFactory.getModelCache()
+                            accountInfo.put("person", CorneaClientFactory.getModelCache()
                                     .addOrUpdate(response.getPerson()));
-                              accountInfo.put("place", CorneaClientFactory.getModelCache()
+                            accountInfo.put("place", CorneaClientFactory.getModelCache()
                                     .addOrUpdate(response.getPlace()));
 
-                              future.setValue(accountInfo);
-                          }
-                      });
-            }
-        });
+                            future.setValue(accountInfo);
+                        }
+                    });
+        }).start();
 
         return future;
     }
@@ -110,32 +95,29 @@ final class SetupController implements ISetupController {
 
         final SettableClientFuture<Map<String, String>> future = new SettableClientFuture<>();
 
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                CorneaClientFactory
-                      .getService(I18NService.class)
-                      .loadLocalizedStrings(bundleNames, localeString)
-                      .onFailure(new Listener<Throwable>() {
-                          @Override
-                          public void onEvent(Throwable throwable) {
-                              future.setError(throwable);
-                          }
-                      })
-                      .onSuccess(new Listener<I18NService.LoadLocalizedStringsResponse>() {
-                          @Override
-                          public void onEvent(I18NService.LoadLocalizedStringsResponse response) {
-                              Map<String, String> stringsWithoutBundle = new HashMap<>();
-                              for (Map.Entry<String, String> entries : response.getLocalizedStrings().entrySet()) {
-                                  String key = entries.getKey().substring(entries.getKey().indexOf(":") + 1);
-                                  stringsWithoutBundle.put(key, entries.getValue());
-                              }
+        new Thread(() -> {
+            CorneaClientFactory
+                    .getService(I18NService.class)
+                    .loadLocalizedStrings(bundleNames, localeString)
+                    .onFailure(new Listener<Throwable>() {
+                        @Override
+                        public void onEvent(Throwable throwable) {
+                            future.setError(throwable);
+                        }
+                    })
+                    .onSuccess(new Listener<I18NService.LoadLocalizedStringsResponse>() {
+                        @Override
+                        public void onEvent(I18NService.LoadLocalizedStringsResponse response) {
+                            Map<String, String> stringsWithoutBundle = new HashMap<>();
+                            for (Map.Entry<String, String> entries : response.getLocalizedStrings().entrySet()) {
+                                String key = entries.getKey().substring(entries.getKey().indexOf(":") + 1);
+                                stringsWithoutBundle.put(key, entries.getValue());
+                            }
 
-                              future.setValue(stringsWithoutBundle);
-                          }
-                      });
-            }
-        });
+                            future.setValue(stringsWithoutBundle);
+                        }
+                    });
+        }).start();
 
         return future;
     }
