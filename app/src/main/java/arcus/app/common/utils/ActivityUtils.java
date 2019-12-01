@@ -91,7 +91,7 @@ public class ActivityUtils {
     public static void callSupport() {
         Intent callSupportIntent = new Intent(Intent.ACTION_DIAL, GlobalSetting.SUPPORT_NUMBER_URI);
         try {
-            ArcusApplication.getArcusApplication().getForegroundActivity().startActivity(callSupportIntent);
+            ArcusApplication.getArcusApplication().startActivity(callSupportIntent);
         } catch (Exception e) {
             logger.error("Failed to call support.", e);
         }

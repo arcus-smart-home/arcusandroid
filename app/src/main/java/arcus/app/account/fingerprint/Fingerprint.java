@@ -15,6 +15,9 @@
  */
 package arcus.app.account.fingerprint;
 
+import android.content.res.Resources;
+
+import androidx.annotation.NonNull;
 import arcus.app.account.fingerprint.authentication.AuthenticationFailureReason;
 import arcus.app.account.fingerprint.authentication.AuthenticationListener;
 
@@ -43,8 +46,8 @@ public class Fingerprint {
      *
      * This calls Samsung Pass, followed by Android's native FingerprintManager
      */
-    public static void initialize(){
-        mHelper.initialize();
+    public static void initialize(@NonNull Resources resources){
+        mHelper.initialize(resources);
     }
 
     /**

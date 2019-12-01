@@ -16,9 +16,11 @@
 package arcus.app.account.fingerprint;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.CancellationSignal;
 
+import androidx.annotation.NonNull;
 import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.account.fingerprint.authentication.AuthenticationFailureReason;
@@ -39,6 +41,8 @@ public class FingerprintHelper {
 
     private CancellationSignal mCancellationSignal;
     private FingerprintAuthenticator mAuthenticator;
+    private String sensorMissing = "";
+    private String fingerprintNotSetup = "";
 
     private static final FingerprintHelper INSTANCE = new FingerprintHelper();
 
@@ -48,8 +52,11 @@ public class FingerprintHelper {
 
     private FingerprintHelper(){}
 
-    public FingerprintHelper initialize() {
+    public FingerprintHelper initialize(@NonNull Resources resources) {
         if (mAuthenticator != null) return this;
+
+        sensorMissing = resources.getString(R.string.fingerprint_sensor_hardware_missing);
+        fingerprintNotSetup = resources.getString(R.string.fingerprint_not_set_up);
 
         // Try Pass first
         try {
@@ -109,7 +116,7 @@ public class FingerprintHelper {
         if(!mAuthenticator.isHardwareAvailable()){
             logger.debug("Failing fingerprint authentication for reason {}, at:  ", AuthenticationFailureReason.NO_SENOR, getClass().getSimpleName());
             listener.onFailure(AuthenticationFailureReason.NO_SENOR, true,
-                    getString(R.string.fingerprint_sensor_hardware_missing), 0, 0);
+                    sensorMissing, 0, 0);
             return;
         }
 
@@ -117,7 +124,7 @@ public class FingerprintHelper {
         if(!mAuthenticator.hasRegisteredFingerprint()){
             logger.debug("Failing fingerprint authentication for reason {}, at:  ", AuthenticationFailureReason.NO_REGISTERED_FINGERPRINTS, getClass().getSimpleName());
             listener.onFailure(AuthenticationFailureReason.NO_REGISTERED_FINGERPRINTS, true,
-                    getString(R.string.fingerprint_not_set_up), 0, 0);
+                    fingerprintNotSetup, 0, 0);
         }
 
         mCancellationSignal = new CancellationSignal();
@@ -129,10 +136,5 @@ public class FingerprintHelper {
             mCancellationSignal.cancel();
             mCancellationSignal = null;
         }
-    }
-
-    private String getString(int resId){
-        Activity foregroundActivity = ArcusApplication.getArcusApplication().getForegroundActivity();
-        return foregroundActivity == null ? null : foregroundActivity.getString(resId);
     }
 }

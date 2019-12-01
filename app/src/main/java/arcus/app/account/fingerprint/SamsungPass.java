@@ -16,6 +16,7 @@
 package arcus.app.account.fingerprint;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.CancellationSignal;
 
 import arcus.app.ArcusApplication;
@@ -58,7 +59,7 @@ public class SamsungPass implements FingerprintAuthenticator {
     private Spass mSpass;
     private SpassFingerprint mSpassFingerprint;
 
-    public SamsungPass() { mSpass = BiometricLoginUtils.initSamsungPass(getActivity()); }
+    public SamsungPass() { mSpass = BiometricLoginUtils.initSamsungPass(getContext()); }
 
     @Override
     public boolean isHardwareAvailable() {
@@ -75,7 +76,7 @@ public class SamsungPass implements FingerprintAuthenticator {
         try {
             if(isHardwareAvailable()){
                 if(mSpassFingerprint == null) {
-                    mSpassFingerprint = new SpassFingerprint(getActivity());
+                    mSpassFingerprint = new SpassFingerprint(getContext());
                 }
                 return mSpassFingerprint.hasRegisteredFinger();
             }
@@ -98,7 +99,7 @@ public class SamsungPass implements FingerprintAuthenticator {
             , final int retryCount){
 
         if(mSpassFingerprint == null) {
-            mSpassFingerprint = new SpassFingerprint(getActivity());
+            mSpassFingerprint = new SpassFingerprint(getContext());
         }
 
         try{
@@ -107,7 +108,7 @@ public class SamsungPass implements FingerprintAuthenticator {
                  return;
              }
              if(!mSpassFingerprint.hasRegisteredFinger()) {
-                 listener.onFailure(AuthenticationFailureReason.NO_REGISTERED_FINGERPRINTS, true, getActivity().getString(R.string.pass_fingerprint_not_set_up), TAG, NO_FINGERPRINT_REGISTERED);
+                 listener.onFailure(AuthenticationFailureReason.NO_REGISTERED_FINGERPRINTS, true, getContext().getString(R.string.pass_fingerprint_not_set_up), TAG, NO_FINGERPRINT_REGISTERED);
                  return;
              }
         } catch (Throwable throwable){
@@ -128,10 +129,10 @@ public class SamsungPass implements FingerprintAuthenticator {
                             listener.onSuccess(TAG);
                             return;
                         case STATUS_TIMEOUT_FAILED:
-                            fail(AuthenticationFailureReason.SENSOR_TIMEOUT, false, getActivity().getString(R.string.pass_fingerprint_timeout), result);
+                            fail(AuthenticationFailureReason.SENSOR_TIMEOUT, false, getContext().getString(R.string.pass_fingerprint_timeout), result);
                             break;
                         case STATUS_AUTHENTIFICATION_FAILED:
-                            fail(AuthenticationFailureReason.AUTHENTICATION_FAILED, false, getActivity().getString(R.string.fingerprint_not_recognized), result);
+                            fail(AuthenticationFailureReason.AUTHENTICATION_FAILED, false, getContext().getString(R.string.fingerprint_not_recognized), result);
                             break;
                         case STATUS_QUALITY_FAILED:
                             fingerprintGuide = mSpassFingerprint.getGuideForPoorQuality();
@@ -146,7 +147,7 @@ public class SamsungPass implements FingerprintAuthenticator {
                             fail(AuthenticationFailureReason.USER_CANCELED, true, R.string.user_canceled, result);
                             break;
                         case STATUS_OPERATION_DENIED:
-                            fail(AuthenticationFailureReason.OPERATION_DENIED, true, getActivity().getString(R.string.fingerprint_failed), result);
+                            fail(AuthenticationFailureReason.OPERATION_DENIED, true, getContext().getString(R.string.fingerprint_failed), result);
                             break;
                         default:
                             fail(AuthenticationFailureReason.UNKNOWN, true, R.string.fingerprint_failed, result);
@@ -162,7 +163,7 @@ public class SamsungPass implements FingerprintAuthenticator {
                  *  **/
                 private void fail(AuthenticationFailureReason reason, boolean fatal, int message, int status) {
                     try {
-                        fail(reason, fatal, getActivity().getString(message), status);
+                        fail(reason, fatal, getContext().getString(message), status);
                     } catch (NullPointerException npe) {
                         // A NPE is thrown when the phone sleeps while the dialog is displayed
                         logger.debug("We lost the activity! The phone went to sleep, or the app was backgrounded" + npe);
@@ -218,7 +219,7 @@ public class SamsungPass implements FingerprintAuthenticator {
         }
     }
 
-    private Activity getActivity() {
-        return ArcusApplication.getArcusApplication().getForegroundActivity();
+    private Context getContext() {
+        return ArcusApplication.getArcusApplication().getApplicationContext();
     }
 }

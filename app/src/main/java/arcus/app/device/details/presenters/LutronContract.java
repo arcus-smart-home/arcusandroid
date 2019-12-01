@@ -15,8 +15,11 @@
  */
 package arcus.app.device.details.presenters;
 
+import android.app.Activity;
+
 import androidx.annotation.NonNull;
 
+import arcus.app.common.banners.core.Banner;
 import arcus.cornea.common.PresentedView;
 import arcus.cornea.common.Presenter;
 import com.iris.client.model.DeviceModel;
@@ -26,7 +29,7 @@ import arcus.app.device.details.model.LutronDisplayModel;
 
 public interface LutronContract {
 
-    public interface LutronBridgeView extends PresentedView<LutronDisplayModel> {
+    interface LutronBridgeView extends PresentedView<LutronDisplayModel> {
 
         void onError(Throwable throwable);
 
@@ -36,13 +39,45 @@ public interface LutronContract {
          * @return The DeviceModel. Cannot be null.
          */
         @NonNull DeviceModel getLutronDeviceModel();
+
+        /**
+         * Called when a banner needs to be displayed.
+         * @param banner banner to show.
+         */
+        void showBanner(@NonNull Banner banner);
+
+        /**
+         * Called when a banner needs to be displayed.
+         * @param bannerClass banner class to remove.
+         */
+        void removeBanner(@NonNull Class<? extends Banner> bannerClass);
     }
 
-    public interface LutronPresenter extends Presenter<LutronContract.LutronBridgeView> {
+    interface LutronPresenter extends Presenter<LutronContract.LutronBridgeView> {
 
         /**
          * Requests that the presenter refresh the view.
          */
         void requestUpdate();
+
+        /**
+         * Helper to remove all banners...
+         * @param activity current activity
+         */
+        void clearAllBanners(@NonNull Activity activity);
+
+        /**
+         * Helper to clear banners so that the foreground activity doesn't need to be tracked in the application object...
+         * @param activity current activity
+         * @param bannerClass the banner class to remove
+         */
+        void clearBannerHelper(@NonNull Activity activity, @NonNull Class<? extends Banner> bannerClass);
+
+        /**
+         * Helper to show a banner so the foreground activity doesn't need to be tracked in the application object...
+         * @param activity current activity
+         * @param banner the banner to show
+         */
+        void showBannerHelper(@NonNull Activity activity, @NonNull Banner banner);
     }
 }

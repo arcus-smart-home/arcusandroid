@@ -15,7 +15,9 @@
  */
 package arcus.app.activities;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import arcus.app.ArcusApplication;
 import arcus.cornea.CorneaClientFactory;
 import arcus.app.R;
 import arcus.app.common.image.IntentRequestCode;
@@ -88,6 +91,32 @@ public class FullscreenFragmentActivity extends FragmentActivity {
         }
     }
 
+    public static void launchWithoutResult(
+            @NonNull Class<? extends Fragment> clazz,
+            @Nullable @FragmentOrientation Integer orientation,
+            @Nullable Bundle fragmentArguments
+    ) {
+        Context context = ArcusApplication.getContext();
+
+        Intent intent = new Intent();
+        intent.setClassName(
+                context.getPackageName(),
+                FullscreenFragmentActivity.class.getName()
+        );
+
+        intent.putExtra(FRAGMENT_CLASS, clazz);
+
+        if (orientation != null) {
+            intent.putExtra(FRAGMENT_ORIENTATION, orientation);
+        }
+
+        if (fragmentArguments != null) {
+            intent.putExtra(FRAGMENT_ARGUMENTS, fragmentArguments);
+        }
+
+        context.startActivity(intent);
+    }
+
 
     @Override
     protected void onResume() {
@@ -100,6 +129,7 @@ public class FullscreenFragmentActivity extends FragmentActivity {
         super.onResume();
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

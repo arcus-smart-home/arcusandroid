@@ -102,7 +102,7 @@ public class SettingsProfileFragment extends BaseFragment implements BackstackPo
 
         // Don't show if not M AND has fingerprint hardware, or uses Pass
         fingerPrintContainer.setVisibility(View.GONE);
-        if (BiometricLoginUtils.canFingerprint()) {
+        if (BiometricLoginUtils.canFingerprint(getActivity())) {
             fingerPrintContainer.setVisibility(View.VISIBLE);
             fingerPrintContainer.setOnClickListener(this);
         }

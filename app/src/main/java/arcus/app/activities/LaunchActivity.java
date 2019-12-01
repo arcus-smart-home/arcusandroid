@@ -182,7 +182,7 @@ public class LaunchActivity extends BaseActivity {
 
 
         // If for some reason fingerprint deleted or screen lock disabled while the app was backgrounded
-        String fingerprintSettingsMissing = BiometricLoginUtils.fingerprintUnavailable();
+        String fingerprintSettingsMissing = BiometricLoginUtils.fingerprintUnavailable(this);
         if (fingerprintSettingsMissing.length() > 0) {
             PreferenceUtils.setUseFingerPrint(false);
             logOut();
@@ -388,10 +388,7 @@ public class LaunchActivity extends BaseActivity {
         SessionController.instance().logout();
         LoginUtils.completeLogout();
 
-        Activity activity = ArcusApplication.getArcusApplication().getForegroundActivity();
-        if (activity != null) {
-            LaunchActivity.startLoginScreen(activity);
-            activity.finishAffinity();
-        }
+        LaunchActivity.startLoginScreen(this);
+        finishAffinity();
     }
 }

@@ -15,35 +15,18 @@
  */
 package arcus.app.dashboard.popups.responsibilities.dashboard;
 
-import androidx.fragment.app.Fragment;
-
-import arcus.app.common.popups.UseFingerPrintPopup;
-import arcus.app.common.backstack.BackstackManager;
-import arcus.app.common.backstack.ScleraTransitionManager;
-import arcus.app.common.utils.BiometricLoginUtils;
-import arcus.app.common.utils.PreferenceUtils;
-
-
-
 public class FingerPrintPopupResponsibility extends DashboardPopupResponsibility {
+    @Override
+    public boolean isQualified() {
+        return false;
+    }
 
-    private boolean canFingerprint = BiometricLoginUtils.canFingerprint();
+    @Override
+    public void showPopup() {
+    }
 
-        @Override
-        public boolean isQualified() {
-           return (!PreferenceUtils.getHasSeenFingerPrint() && canFingerprint);
-           //return true;
-        }
-
-        @Override
-        public void showPopup() {
-            PreferenceUtils.setHasSeenFingerPrint(true);
-            Fragment fragment = UseFingerPrintPopup.newInstance();
-            ScleraTransitionManager.displaySheet(fragment);
-        }
-
-        @Override
-        protected boolean isVisible() {
-            return BackstackManager.getInstance().isFragmentOnStack(UseFingerPrintPopup.class);
-        }
+    @Override
+    protected boolean isVisible() {
+        return false;
+    }
 }

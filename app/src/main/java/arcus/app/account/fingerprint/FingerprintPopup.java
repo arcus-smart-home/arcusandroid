@@ -121,7 +121,7 @@ public class FingerprintPopup extends DialogFragment implements FingerprintUiHel
                 statusTxt,
                 this);
 
-        mUiHelper.startSensor();
+        mUiHelper.startSensor(getResources());
 
         return view;
     }

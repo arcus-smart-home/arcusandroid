@@ -54,8 +54,6 @@ public class ArcusApplication extends Application implements Application.Activit
     private boolean corneaServiceBound = false;
     private boolean corneaBindInProgress = false;
     private int activitiesInForeground = 0;
-    private boolean isAlertActive = false;
-    private Activity foregroundActivity;
 
     private Handler handler;
     private static int DELAY_BEFORE_CLOSE_MS = 1000 * 30; // 30 seconds, not 1000 * 60 * 10; // 10 Minutes.
@@ -141,7 +139,6 @@ public class ArcusApplication extends Application implements Application.Activit
 
     public void onActivityStarted(Activity activity) {
         bindCornea();
-        this.foregroundActivity = activity;
     }
 
     public void onActivityResumed(Activity activity) {
@@ -152,7 +149,6 @@ public class ArcusApplication extends Application implements Application.Activit
 
         logger.debug("Activity [{}] in foreground, cancelling connection close.", activity.getClass().getSimpleName());
         handler.removeCallbacks(closeCorneaRunnable);
-        this.foregroundActivity = activity;
     }
 
     public void onActivityPaused(Activity activity) {}
@@ -160,7 +156,6 @@ public class ArcusApplication extends Application implements Application.Activit
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {}
     public void onActivityStopped(Activity activity) {
         if (--activitiesInForeground == 0) {
-            this.foregroundActivity = null;
             handler.postDelayed(closeCorneaRunnable, DELAY_BEFORE_CLOSE_MS);
         }
     }
@@ -169,14 +164,6 @@ public class ArcusApplication extends Application implements Application.Activit
 
     public CorneaService getCorneaService() {
         return corneaService;
-    }
-
-    public boolean isForegrounded() {
-        return activitiesInForeground > 0;
-    }
-
-    @Nullable public Activity getForegroundActivity() {
-        return this.foregroundActivity;
     }
 
     private void bindCornea() {
@@ -198,10 +185,6 @@ public class ArcusApplication extends Application implements Application.Activit
 
     private static void useNormalTimeoutDelay() {
         DELAY_BEFORE_CLOSE_MS = NORMAL_DELAY_BEFORE_CLOSE_MS;
-    }
-
-    public boolean isAlertActive() {
-        return isAlertActive;
     }
 
     public class ConnectionObservable extends Observable {

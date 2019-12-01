@@ -17,11 +17,13 @@ package arcus.app.device.details;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import android.app.Activity;
 import android.view.View;
 
 import com.iris.client.model.DeviceModel;
 import arcus.app.R;
-import arcus.app.common.banners.core.BannerManager;
+import arcus.app.common.banners.core.Banner;
 import arcus.app.common.fragments.IClosedFragment;
 import arcus.app.common.fragments.IShowedFragment;
 import arcus.app.device.details.model.LutronDisplayModel;
@@ -57,7 +59,10 @@ public class LutronBridgeFragment extends ArcusProductFragment implements IShowe
 
     @Override
     public void onClosedFragment() {
-        BannerManager.in(getActivity()).clearBanners();
+        Activity activity = getActivity();
+        if (activity != null) {
+            presenter.clearAllBanners(activity);
+        }
         presenter.stopPresenting();
     }
 
@@ -73,6 +78,21 @@ public class LutronBridgeFragment extends ArcusProductFragment implements IShowe
     @Override
     public DeviceModel getLutronDeviceModel(){return getDeviceModel();}
 
+    @Override
+    public void showBanner(@NonNull Banner banner) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            presenter.showBannerHelper(activity, banner);
+        }
+    }
+
+    @Override
+    public void removeBanner(@NonNull Class<? extends Banner> bannerClass) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            presenter.clearBannerHelper(activity, bannerClass);
+        }
+    }
 
     public void updateView(LutronDisplayModel lutronDisplayModel) {
 

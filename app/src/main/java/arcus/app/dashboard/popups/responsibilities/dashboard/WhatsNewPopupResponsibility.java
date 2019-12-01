@@ -15,7 +15,6 @@
  */
 package arcus.app.dashboard.popups.responsibilities.dashboard;
 
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +22,6 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 import arcus.cornea.CorneaClientFactory;
 import arcus.app.BuildConfig;
-import arcus.app.ArcusApplication;
 import arcus.app.activities.FullscreenFragmentActivity;
 import arcus.app.common.popups.WhatsNewPopup;
 import arcus.app.common.utils.PreferenceUtils;
@@ -57,9 +55,7 @@ public class WhatsNewPopupResponsibility extends DashboardPopupResponsibility im
 
         Bundle bundle = new Bundle(1);
         bundle.putString(WhatsNewPopup.WHATS_NEW_URL, url);
-
-        Activity clickActivity = ArcusApplication.getArcusApplication().getForegroundActivity();
-        FullscreenFragmentActivity.launch(clickActivity, popup.getClass(), ActivityInfo.SCREEN_ORIENTATION_PORTRAIT, bundle);
+        FullscreenFragmentActivity.launchWithoutResult(popup.getClass(), ActivityInfo.SCREEN_ORIENTATION_PORTRAIT, bundle);
     }
 
     @Override

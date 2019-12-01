@@ -16,6 +16,7 @@
 package arcus.app.device.details;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.ColorMatrix;
@@ -28,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import arcus.app.common.banners.core.Banner;
 import arcus.cornea.controller.LightColorAndTempController;
 import com.iris.client.capability.ColorTemperature;
 import com.iris.client.capability.DeviceConnection;
@@ -104,7 +106,10 @@ public class DimmerFragment extends ArcusProductFragment implements IShowedFragm
 
     @Override
     public void onPause() {
-        BannerManager.in(getActivity()).clearBanners();
+        Activity activity = getActivity();
+        if (activity != null) {
+            presenter.clearAllBanners(activity);
+        }
         presenter.stopPresenting();
         super.onPause();
     }
@@ -624,6 +629,22 @@ public class DimmerFragment extends ArcusProductFragment implements IShowedFragm
     @Override
     public DeviceModel getLutronDeviceModel() {
         return getDeviceModel();
+    }
+
+    @Override
+    public void showBanner(@NonNull Banner banner) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            presenter.showBannerHelper(activity, banner);
+        }
+    }
+
+    @Override
+    public void removeBanner(@NonNull Class<? extends Banner> bannerClass) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            presenter.clearBannerHelper(activity, bannerClass);
+        }
     }
 
     @Override
