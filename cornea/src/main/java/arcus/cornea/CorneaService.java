@@ -20,7 +20,6 @@ import androidx.annotation.Nullable;
 
 import com.google.common.base.Preconditions;
 import arcus.cornea.controller.IProductController;
-import arcus.cornea.controller.IRuleController;
 import arcus.cornea.controller.ISetupController;
 import arcus.cornea.utils.Listeners;
 import com.iris.client.ClientMessage;
@@ -79,9 +78,6 @@ public class CorneaService {
             return false;
         }
     }
-
-    @Deprecated // Use RuleModelProvider
-    public IRuleController rules() { return RuleController.instance(); }
 
     @Deprecated // Use ProductModelProvider
     public IProductController products() { return productController; }

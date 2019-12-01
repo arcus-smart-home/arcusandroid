@@ -23,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import arcus.cornea.RuleController;
 import com.iris.client.model.RuleTemplateModel;
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;
@@ -33,6 +32,8 @@ import arcus.app.common.fragments.BaseFragment;
 import arcus.app.common.models.ListItemModel;
 import arcus.app.subsystems.rules.adapters.RuleTemplatesListAdapter;
 import arcus.app.subsystems.rules.model.RuleCategory;
+import arcus.cornea.provider.RuleTemplateModelProvider;
+import arcus.cornea.utils.Listeners;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,8 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public class RuleTemplateListFragment extends BaseFragment implements AdapterView.OnItemClickListener, RuleController.RuleTemplateCallbacks {
+public class RuleTemplateListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     private final static String SELECTED_CATEGORY_ARG = "selected-category-arg";
     private final static String SATISFIABLE_KEY = "satisfiable";
@@ -117,7 +117,10 @@ public class RuleTemplateListFragment extends BaseFragment implements AdapterVie
 
         RuleCategory selectedCategory = (RuleCategory) getArguments().getSerializable(SELECTED_CATEGORY_ARG);
         if (selectedCategory != null) {
-            getCorneaService().rules().getRuleTemplatesByCategory(selectedCategory.getPlatformTag(), this);
+            RuleTemplateModelProvider
+                    .instance()
+                    .getTemplatesByCategoryName(selectedCategory.getPlatformTag())
+                    .onSuccess(Listeners.runOnUiThread(this::templatesLoaded));
         }
         else {
             logger.debug("Did not receive a platform tag from previous fragment. selectedCategory is NULL");
@@ -154,7 +157,6 @@ public class RuleTemplateListFragment extends BaseFragment implements AdapterVie
         return selectedRules;
     }
 
-    @Override
     public void templatesLoaded(@NonNull List<RuleTemplateModel> models) {
 
         if (models.size() == 0) {

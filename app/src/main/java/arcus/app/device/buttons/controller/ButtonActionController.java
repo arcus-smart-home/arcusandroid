@@ -20,8 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import arcus.cornea.CorneaClientFactory;
-import arcus.cornea.RuleController;
-import arcus.cornea.RuleDeviceSection;
+import arcus.cornea.provider.RuleModelProvider;
 import arcus.cornea.provider.RuleTemplateModelProvider;
 import com.iris.capability.util.Addresses;
 import com.iris.client.ClientEvent;
@@ -31,7 +30,6 @@ import com.iris.client.event.Listener;
 import com.iris.client.model.DeviceModel;
 import com.iris.client.model.RuleModel;
 import com.iris.client.model.RuleTemplateModel;
-import arcus.app.ArcusApplication;
 import arcus.app.device.buttons.model.Button;
 import arcus.app.device.buttons.model.ButtonAction;
 import arcus.app.device.buttons.model.ButtonDevice;
@@ -41,12 +39,14 @@ import arcus.app.device.buttons.model.FourButtonGen3FobButtonAction;
 import arcus.app.device.buttons.model.SmartButton;
 import arcus.app.device.buttons.model.SmartButtonAction;
 import arcus.app.device.buttons.model.TwoButtonFobButtonAction;
+import arcus.cornea.utils.Listeners;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -144,30 +144,29 @@ public class ButtonActionController {
 
         selectedButton = button;
         fireOnLoading();
+        RuleModelProvider
+                .instance()
+                .getRules()
+                .onSuccess(Listeners.runOnUiThread(initialRules -> {
+                    if (initialRules == null) {
+                        rulesLoaded(button, Collections.emptyList());
+                    } else {
+                        rulesLoaded(button, initialRules);
+                    }
+                }))
+                .onFailure(Listeners.runOnUiThread(error -> {
+                    logger.debug("Failed to load rules.", error);
+                    fireOnError(error);
+                }));
+    }
 
-        ArcusApplication.getArcusApplication().getCorneaService().rules().listRules(new RuleController.RuleCallbacks() {
-            @Override
-            public void rulesLoaded(@NonNull List<RuleModel> rules) {
-                logger.debug("Loaded rules; got {} rule instances.", rules.size());
+    private void rulesLoaded(@NonNull final Button button, List<RuleModel> rules) {
+        logger.debug("Loaded rules; got {} rule instances.", rules.size());
 
-                ButtonAction[] assignableActions = getAssignableActionsForDevice(selectedButtonDevice);
-                currentAction = getCurrentButtonAction(rules, selectedDeviceAddress, assignableActions, button);
+        ButtonAction[] assignableActions = getAssignableActionsForDevice(selectedButtonDevice);
+        currentAction = getCurrentButtonAction(rules, selectedDeviceAddress, assignableActions, button);
 
-                fireOnShowButtonRuleEditor(assignableActions, currentAction);
-            }
-
-            @Override
-            public void sectionsLoaded(Map<String, RuleDeviceSection> mapList) {
-                //stub
-            }
-
-
-            @Override
-            public void requestError(@NonNull Throwable throwable) {
-                logger.debug("Failed to load rules due to: {}", throwable.getMessage());
-                fireOnError(throwable);
-            }
-        });
+        fireOnShowButtonRuleEditor(assignableActions, currentAction);
     }
 
     /**
@@ -295,47 +294,40 @@ public class ButtonActionController {
     private void deleteButtonAction(@NonNull final ButtonAction action, @Nullable final ButtonActionDeletionListener listener) {
         logger.debug("Removing action {} from button {} of device {}.", action, selectedButton, selectedButtonDevice);
 
-        ArcusApplication.getArcusApplication().getCorneaService().rules().listRules(new RuleController.RuleCallbacks() {
-            @Override
-            public void rulesLoaded(@NonNull List<RuleModel> rules) {
-                logger.debug("Loaded rules; got {} rule instances.", rules.size());
+        RuleModelProvider
+                .instance()
+                .getRules()
+                .onSuccess(Listeners.runOnUiThread(rules -> {
+                    logger.debug("Loaded rules; got {} rule instances.", rules.size());
 
-                RuleModel rule = getRuleAttachedToAction(rules, action, selectedButton, selectedDeviceAddress);
+                    RuleModel rule = getRuleAttachedToAction(rules, action, selectedButton, selectedDeviceAddress);
 
-                if (rule != null) {
+                    if (rule != null) {
 
-                    fireOnLoading();
-                    rule.delete().onSuccess(new Listener<Rule.DeleteResponse>() {
-                        @Override
-                        public void onEvent(Rule.DeleteResponse deleteResponse) {
-                            logger.debug("Successfully removed action rule {} from button {} of device {}.", action, selectedButton, selectedButtonDevice);
-                            if (listener != null) {
-                                listener.onButtonActionDeleted();
+                        fireOnLoading();
+                        rule.delete().onSuccess(new Listener<Rule.DeleteResponse>() {
+                            @Override
+                            public void onEvent(Rule.DeleteResponse deleteResponse) {
+                                logger.debug("Successfully removed action rule {} from button {} of device {}.", action, selectedButton, selectedButtonDevice);
+                                if (listener != null) {
+                                    listener.onButtonActionDeleted();
+                                }
                             }
-                        }
-                    }).onFailure(new Listener<Throwable>() {
-                        @Override
-                        public void onEvent(Throwable throwable) {
-                            logger.debug("An error occured removing action {} from button {} of device {}.", action, selectedButton, selectedButtonDevice);
-                            fireOnError(throwable);
-                        }
-                    });
-                } else {
-                    logger.error("Failed to remove action {} from button {} of device {} because the action could not be resolved to a rule. This button may have multiple actions attached to it.", action, selectedButton, selectedButtonDevice);
-                }
-            }
-
-            @Override
-            public void sectionsLoaded(Map<String, RuleDeviceSection> mapList) {
-                // Nothing to do
-            }
-
-            @Override
-            public void requestError(@NonNull Throwable throwable) {
-                logger.error("Failed to load rules due to: {}. Button action not deleted; this button may have multiple actions attached to it.", throwable.getMessage());
-                fireOnError(throwable);
-            }
-        });
+                        }).onFailure(new Listener<Throwable>() {
+                            @Override
+                            public void onEvent(Throwable throwable) {
+                                logger.debug("An error occured removing action {} from button {} of device {}.", action, selectedButton, selectedButtonDevice);
+                                fireOnError(throwable);
+                            }
+                        });
+                    } else {
+                        logger.error("Failed to remove action {} from button {} of device {} because the action could not be resolved to a rule. This button may have multiple actions attached to it.", action, selectedButton, selectedButtonDevice);
+                    }
+                }))
+                .onFailure(Listeners.runOnUiThread(throwable -> {
+                    logger.error("Failed to load rules due to: {}. Button action not deleted; this button may have multiple actions attached to it.", throwable.getMessage());
+                    fireOnError(throwable);
+                }));
     }
 
     /**
