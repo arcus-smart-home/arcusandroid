@@ -103,6 +103,7 @@ public class FullscreenFragmentActivity extends FragmentActivity {
                 context.getPackageName(),
                 FullscreenFragmentActivity.class.getName()
         );
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         intent.putExtra(FRAGMENT_CLASS, clazz);
 
