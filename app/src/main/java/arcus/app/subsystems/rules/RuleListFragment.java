@@ -19,7 +19,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +27,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import arcus.cornea.RulesScheduleStateController;
+import arcus.cornea.controller.RulesScheduleStateController;
 import arcus.cornea.SessionController;
 import arcus.cornea.error.ErrorModel;
 import arcus.cornea.rules.RuleListingController;
@@ -186,7 +185,6 @@ public class RuleListFragment
             item.setChecked(isChecked);
             rule.setEnabled(isChecked);
 
-            // FIXME: (eanderso) 7/11/16 Do we want to show progress here or just let the view update knowing the call has been made?
             ruleListingController.updateRuleEnabled(rule);
         }
 
@@ -231,7 +229,6 @@ public class RuleListFragment
     }
 
     @Override public void onError(@NonNull Throwable throwable) {
-        // FIXME: (eanderso) 7/11/16 How do we want to handle errors?
         hideProgressBar();
 
         if(throwable instanceof ErrorResponseException && "request.invalid".equals(((ErrorResponseException) throwable).getCode())) {
@@ -288,7 +285,7 @@ public class RuleListFragment
     protected void updateEditMenu() {
         Activity activity = getActivity();
         if (activity != null) {
-            ActivityCompat.invalidateOptionsMenu(activity);
+            activity.invalidateOptionsMenu();
         }
     }
 }
