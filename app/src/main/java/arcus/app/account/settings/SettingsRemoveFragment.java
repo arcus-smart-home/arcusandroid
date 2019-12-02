@@ -398,7 +398,7 @@ public class SettingsRemoveFragment extends BaseFragment implements PPARemovalCo
     @SuppressWarnings("all") protected void logout() {
         SessionController.instance().logout();
         LoginUtils.completeLogout();
-        ArcusApplication.getRegistrationContext().setHubID(null); // FIXME: (eanderso) 4/21/16 Remove ref's to Reg Context..
+        ArcusApplication.getRegistrationContext().setHubID(null); // FIXME: 4/21/16 Remove ref's to Reg Context..
 
         Activity activity = getActivity();
         if (activity != null) {

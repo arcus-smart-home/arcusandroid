@@ -232,7 +232,7 @@ public class CareBehaviorModel {
 
     public boolean canSave() {
         if (requiresTimeWindows && timeWindows.isEmpty()) {
-            // FIXME: (eanderso) 2/19/16 NEED TO ADD THIS IN.
+            // FIXME: 2/19/16 NEED TO ADD THIS IN.
 //            return false;
         }
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(templateID)) {
