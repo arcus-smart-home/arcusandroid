@@ -23,28 +23,26 @@ import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.AttributeSet;
 
+import androidx.appcompat.widget.AppCompatTextView;
 import arcus.app.common.utils.ActivityUtils;
 
-
-
-public class ScleraLinkView extends ScleraTextView {
+public class ScleraLinkView extends AppCompatTextView {
 
     public ScleraLinkView(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     public ScleraLinkView(@NonNull Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     public ScleraLinkView(@NonNull Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
     }
 
-    private void init() {
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
         setPaintFlags(this.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         setClickable(true);
     }

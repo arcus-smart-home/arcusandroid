@@ -102,4 +102,42 @@
     <color name="dashboard_divider">@color/black_with_20</color>
 
     <color name="error_yellow">#ffb500</color>
+
+    <color name="ic_launcher_background">#0095C8</color>
+
+    <!-- Arcus colors -->
+    <color name="sclera_purple">#3C1053</color>
+    <color name="sclera_alt_purple">#8A7098</color>
+    <color name="sclera_light_blue">#0095C8</color>
+    <color name="sclera_light_blue_depressed">#800095C8</color>
+    <color name="sclera_green">#00BA6D</color>
+    <color name="sclera_transparent">@android:color/transparent</color>
+
+    <!-- Info colors -->
+    <color name="sclera_success">#26D07C</color>
+    <color name="sclera_tab_green">#FF00BFB3</color>
+    <color name="sclera_tab_unselected_grey">#FFA7A7A7</color>
+    <color name="sclera_paging_indicator_not_selected_page">#FFC3C3C3</color>
+    <color name="sclera_warning">#FFB500</color>
+    <color name="sclera_alert_banner">#FFCE0F69</color>
+    <color name="sclera_alert">#CE0F69</color>
+    <color name="sclera_alert_depressed">#80CE0F69</color>
+    <color name="sclera_green_tutorial_banner">#E600BFB3</color>
+
+    <!-- Text, label, input, border, etc. colors -->
+    <color name="sclera_text_color_dark">#222222</color>
+    <color name="sclera_text_color_light">#FFFFFF</color>
+    <color name="sclera_text_color_light_depressed">#80FFFFFF</color>
+    <color name="sclera_text_color_light_gray">#9a9a9a</color>
+    <color name="sclera_input_color">#C3C3C3</color>
+    <color name="sclera_disabled_color">#C3C3C3</color>
+    <color name="sclera_drop_shadow_color">#C3C3C3</color>
+    <color name="sclera_background_color">#F0F0F0</color>
+
+    <color name="sclera_divider_color">#FFE7E7E7</color>
+    <color name="sclera_vide_tab_color">#E6F0F0F0</color>
+
+    <color name="sclera_white_button_depressed">#80FFFFFF</color>
+
+    <color name="sclera_snackbar_green">#FF00BA6D</color>
 </resources>

@@ -26,15 +26,13 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             tools:title="@string/add_device_title"
             android:layout_above="@+id/device_searching_scrollbar"
             />
@@ -81,7 +79,6 @@
 
             <arcus.app.common.view.ScleraTextView
                 android:id="@+id/device_searching_title"
-                style="@style/ScleraLineSpacing.1.37"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
@@ -98,7 +95,6 @@
 
             <arcus.app.common.view.ScleraTextView
                 android:id="@+id/device_searching_description"
-                style="@style/ScleraLineSpacing.1.37"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
@@ -132,7 +128,6 @@
 
                 <arcus.app.common.view.ScleraTextView
                     android:id="@+id/device_searching_troubleshooting_title"
-                    style="@style/ScleraLineSpacing.1.37"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/sclera_widget_edge_combined"

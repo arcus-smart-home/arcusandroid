@@ -35,7 +35,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/station_name"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_16"
@@ -49,7 +48,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/station_freq"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp_16"

@@ -15,13 +15,8 @@
   limitations under the License.
 -->
 <resources>
-
-    <style name="ScleraShadowBox">
-        <item name="android:layout_marginLeft">17dp</item>
-        <item name="android:layout_marginRight">17dp</item>
-        <item name="android:padding">14dp</item>
-        <item name="android:background">@drawable/sclera_box</item>
-        <item name="android:elevation">3dp</item>
-        <item name="android:radius">2dp</item>
+    <style name="Theme.Arcus.Signup" parent="Theme.Arcus">
+        <item name="android:colorPrimaryDark">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

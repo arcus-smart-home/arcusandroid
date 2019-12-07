@@ -58,7 +58,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Theme.Arcus"
         tools:replace="android:allowBackup">
         <meta-data
             android:name="asset_statements"
@@ -69,7 +69,7 @@
             android:launchMode="singleTop"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/Theme.Arcus.Splash">
             <intent-filter>
                 <data
                     android:host="dev-app.example.com"
@@ -106,7 +106,7 @@
             android:name=".activities.DashboardActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/DashboardTheme"
+            android:theme="@style/Theme.Arcus"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.searchable"
@@ -116,7 +116,7 @@
             android:name=".activities.ReConnectActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
+            android:theme="@style/Theme.Arcus.Splash"
             />
         <activity
             android:name=".activities.VideoActivity"
@@ -124,13 +124,13 @@
             android:hardwareAccelerated="false"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/Theme.Arcus.Fullscreen" />
         <activity
             android:name=".activities.FullscreenFragmentActivity"
             android:hardwareAccelerated="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/Theme.Arcus.Fullscreen" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -159,7 +159,7 @@
             android:label="@string/lets_get_acquainted"
             android:parentActivityName=".activities.LaunchActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SignupTheme"
+            android:theme="@style/Theme.Arcus.Signup"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -183,7 +183,7 @@
             android:parentActivityName=".activities.DashboardActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
-            android:theme="@style/PairingTheme">
+            android:theme="@style/Theme.Arcus">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.DashboardActivity" />
@@ -200,7 +200,7 @@
             android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/PairingTheme">
+            android:theme="@style/Theme.Arcus">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
@@ -211,7 +211,7 @@
             android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/PairingTheme">
+            android:theme="@style/Theme.Arcus">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
@@ -222,7 +222,7 @@
             android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/PairingTheme">
+            android:theme="@style/Theme.Arcus">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".pairing.device.productcatalog.ProductCatalogActivity" />
@@ -232,7 +232,7 @@
             android:label="@string/add_device_title"
             android:parentActivityName=".pairing.device.productcatalog.ProductCatalogActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowHostTheme"
+            android:theme="@style/Theme.Arcus.PairingWorkflowHost"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -243,7 +243,7 @@
             android:label="@string/reset_device_title"
             android:parentActivityName=".pairing.device.searching.DeviceSearchingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme">
+            android:theme="@style/Theme.Arcus.Workflow">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".pairing.device.searching.DeviceSearchingActivity" />
@@ -253,7 +253,7 @@
             android:label="@string/remove_device_title"
             android:parentActivityName=".pairing.device.searching.DeviceSearchingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme"
+            android:theme="@style/Theme.Arcus.Workflow"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -264,7 +264,7 @@
             android:label="@string/zwave_network"
             android:parentActivityName=".activities.DashboardActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme"
+            android:theme="@style/Theme.Arcus.Workflow"
             android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -275,7 +275,7 @@
             android:label="@string/customize_your_device"
             android:parentActivityName=".pairing.device.searching.DeviceSearchingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme">
+            android:theme="@style/Theme.Arcus.Workflow">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".pairing.device.searching.DeviceSearchingActivity" />
@@ -284,20 +284,20 @@
             android:name=".activities.GenericFragmentActivity"
             android:label=""
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme"
+            android:theme="@style/Theme.Arcus.Workflow"
             android:windowSoftInputMode="adjustPan"
             />
         <activity
             android:name=".activities.GenericConnectedFragmentActivity"
             android:label=""
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme"
+            android:theme="@style/Theme.Arcus.Workflow"
             android:windowSoftInputMode="adjustPan"
             />
         <activity
             android:name=".activities.PermissionsActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/PairingWorkflowTheme">
+            android:theme="@style/Theme.Arcus.Workflow">
         </activity>
         <activity android:name=".camera.CameraActivity"/>
     </application>

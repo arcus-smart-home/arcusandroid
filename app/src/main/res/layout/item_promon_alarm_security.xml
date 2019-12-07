@@ -105,7 +105,7 @@
         <arcus.app.common.view.Version1Button
             android:id="@+id/on_button"
             android:layout_width="0dp"
-            android:layout_height="@dimen/registration_button_height"
+            android:layout_height="@dimen/dp_40"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:clickable="true"
@@ -116,7 +116,7 @@
         <arcus.app.common.view.Version1Button
             android:id="@+id/partial_button"
             android:layout_width="0dp"
-            android:layout_height="@dimen/registration_button_height"
+            android:layout_height="@dimen/dp_40"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:clickable="true"
@@ -127,7 +127,7 @@
         <arcus.app.common.view.Version1Button
             android:id="@+id/off_button"
             android:layout_width="0dp"
-            android:layout_height="@dimen/registration_button_height"
+            android:layout_height="@dimen/dp_40"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:clickable="true"
@@ -144,7 +144,7 @@
         <arcus.app.common.view.Version1Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/registration_button_height"
+            android:layout_height="@dimen/dp_40"
             android:layout_margin="10dp"
             android:clickable="true"
             android:text="@string/cancel"

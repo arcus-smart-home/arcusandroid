@@ -26,15 +26,12 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             tools:title="Title Of Toolbar"
             />
 
@@ -52,11 +49,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/category_filter_items"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:tabTextColor="@color/sclera_tab_unselected_grey"
-            app:tabSelectedTextColor="@color/sclera_tab_green"
-            app:tabIndicatorColor="@color/sclera_tab_green"
-            app:tabTextAppearance="@style/ScleraTabItemStyle">
+            android:layout_height="50dp">
 
             <com.google.android.material.tabs.TabItem
                 android:text="@string/filter_all_products"

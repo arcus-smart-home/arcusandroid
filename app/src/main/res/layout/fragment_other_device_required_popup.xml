@@ -26,7 +26,6 @@
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/required_title"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -40,7 +39,6 @@
         app:scleraFontStyle="demi" />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/required_body"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"

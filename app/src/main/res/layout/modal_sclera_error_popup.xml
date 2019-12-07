@@ -35,7 +35,6 @@
         app:scleraFontStyle="bold" />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/modal_error_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

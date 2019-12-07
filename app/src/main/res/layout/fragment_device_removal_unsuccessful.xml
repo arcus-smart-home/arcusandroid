@@ -20,7 +20,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/ScleraColumnLayout">
+    style="@style/Widget.Arcus.Column">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/step_image"
@@ -36,7 +36,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/step_title"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_24"
@@ -52,7 +51,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/step_description"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_24"
@@ -66,7 +64,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/step_help"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_30"

@@ -52,7 +52,7 @@
 
                 <RelativeLayout
                     android:id="@+id/confetti_container"
-                    style="@style/ScleraColumnLayout"
+                    style="@style/Widget.Arcus.Column"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ScrollView
@@ -71,7 +71,7 @@
                                 android:src="@drawable/check_icon_type_large" />
 
                             <arcus.app.common.view.ScleraTextView
-                                style="@style/ScleraFontTitle2"
+                                style="@style/Widget.Arcus.TextAppearance.Title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="40dp"
@@ -79,14 +79,14 @@
                                 android:text="@string/new_account_confetti_title" />
 
                             <arcus.app.common.view.ScleraTextView
-                                style="@style/ScleraFontSubtitle"
+                                style="@style/Widget.Arcus.TextAppearance.Subtitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="@string/new_account_confetti_subtitle" />
 
                             <arcus.app.common.view.ScleraTextView
-                                style="@style/ScleraFontBody2"
+                                style="@style/Widget.Arcus.TextAppearance.Body.Medium"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"

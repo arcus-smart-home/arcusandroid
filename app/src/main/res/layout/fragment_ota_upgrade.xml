@@ -30,7 +30,6 @@
         android:layout_marginEnd="@dimen/sclera_widget_edge_combined">
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/header_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -47,8 +46,8 @@
 
         <ProgressBar
             android:id="@+id/firmware_update_progress"
-            style="@style/ScleraProgressBar"
-            android:theme="@style/ScleraProgressBar"
+            style="@style/Widget.Arcus.ProgressBar"
+            android:theme="@style/Widget.Arcus.ProgressBar"
             android:paddingTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

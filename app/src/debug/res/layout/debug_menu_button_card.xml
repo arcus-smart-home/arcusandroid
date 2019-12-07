@@ -33,7 +33,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@id/debug_menu_title_text_view"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="Some title text here"
@@ -44,7 +43,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@id/debug_menu_description_text_view"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="Some description text here"
@@ -54,7 +52,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@id/debug_menu_details_text_view"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/sclera_title_to_description_spacing"

@@ -29,16 +29,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:elevation="@dimen/dp_0"
-        android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/app_bar_layout">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
             tools:title="Activity Title"
             />
 

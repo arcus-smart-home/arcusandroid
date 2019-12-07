@@ -48,7 +48,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/product_name"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -62,7 +61,6 @@
     <arcus.app.common.view.ScleraTextView
         android:visibility="gone"
         android:id="@+id/product_extra"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

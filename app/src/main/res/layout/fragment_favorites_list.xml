@@ -82,30 +82,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
-
-
-        <androidx.legacy.widget.Space
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/sclera_widget_edge_combined"
-            app:layout_constraintTop_toBottomOf="@id/favorites_list"
-            />
-
-        <arcus.app.common.view.ScleraButton
-            android:id="@id/close_button"
-            android:layout_width="@dimen/match_constraint"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_24"
-            android:layout_marginBottom="@dimen/dp_24"
-            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
-            android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
-            app:layout_constraintTop_toBottomOf="@id/favorites_list"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:scleraButtonColor="purple"
-            android:text="@string/close_text"
-            android:visibility="gone"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

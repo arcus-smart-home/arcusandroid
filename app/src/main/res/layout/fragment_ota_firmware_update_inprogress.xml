@@ -37,7 +37,8 @@
         android:layout_height="wrap_content"
         android:text="@string/ota_updating_desc"/>
 
-    <arcus.app.common.view.Version1IndeterminateProgress
+    <ProgressBar
+        android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate"
         android:layout_gravity="center"
         android:layout_width="50dp"
         android:layout_height="50dp"/>

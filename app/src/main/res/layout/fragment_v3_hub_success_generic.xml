@@ -55,7 +55,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/title_text"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="@dimen/dp_250"
@@ -72,7 +71,6 @@
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/sub_title_text"
             android:layout_marginTop="37dp"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="@dimen/dp_250"

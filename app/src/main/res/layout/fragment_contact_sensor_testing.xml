@@ -45,7 +45,6 @@
             />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_contact_type_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -63,7 +62,6 @@
             />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_contact_type_description"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -81,7 +79,6 @@
 
         <arcus.app.common.view.ScleraLinkView
             android:id="@+id/customization_contact_type_link"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"

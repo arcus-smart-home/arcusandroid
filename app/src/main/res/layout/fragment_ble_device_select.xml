@@ -93,8 +93,8 @@
 
             <ProgressBar
                 android:id="@+id/progress_bar"
-                style="@style/ScleraProgressIndeterminateBar"
-                android:theme="@style/ScleraProgressIndeterminateBar"
+                style="@style/Widget.Arcus.ProgressBar.Indeterminate"
+                android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate"
                 android:layout_width="@dimen/dp_22"
                 android:layout_height="@dimen/dp_22"
                 android:layout_marginEnd="@dimen/dp_8"

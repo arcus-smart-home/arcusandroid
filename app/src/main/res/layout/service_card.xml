@@ -67,7 +67,7 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/service_subtext"
-            style="@style/ScleraFontBody3"
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"

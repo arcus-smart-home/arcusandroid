@@ -30,7 +30,6 @@
         android:focusableInTouchMode="true" >
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/fob_button_action_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -69,7 +68,7 @@
 
         <LinearLayout
             android:id="@+id/buttons_container"
-            style="@style/ScleraColumnLayout"
+            style="@style/Widget.Arcus.Column"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_16"

@@ -43,7 +43,8 @@
                 tools:visibility="visible"
                 android:visibility="gone">
 
-                <arcus.app.common.view.Version1IndeterminateProgress
+                <ProgressBar
+                    android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"

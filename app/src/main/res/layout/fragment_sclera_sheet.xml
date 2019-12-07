@@ -41,7 +41,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/ScleraFontHeadline"
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:visibility="invisible"
             tools:visibility="visible"
             tools:text="MIGHTY FINE TITLE"/>

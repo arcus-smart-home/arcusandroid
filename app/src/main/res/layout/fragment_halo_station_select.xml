@@ -32,7 +32,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/step_title"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
@@ -49,7 +48,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/step_description"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
@@ -79,7 +77,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            style="@style/ScleraColumnLayout"
+            style="@style/Widget.Arcus.Column"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +89,7 @@
 
         <LinearLayout
             android:id="@+id/buttons_container"
-            style="@style/ScleraColumnLayout"
+            style="@style/Widget.Arcus.Column"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/dp_24"
@@ -116,7 +114,6 @@
 
             <arcus.app.common.view.ScleraTextView
                 android:id="@+id/step_info"
-                style="@style/ScleraLineSpacing.1.37"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_24"

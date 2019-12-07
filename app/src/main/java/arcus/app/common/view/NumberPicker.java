@@ -18,24 +18,19 @@ package arcus.app.common.view;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
 
-import arcus.app.ArcusApplication;
-import arcus.app.common.utils.FontUtils;
+import androidx.core.content.res.ResourcesCompat;
+import arcus.app.R;
 
 
 public class NumberPicker extends android.widget.NumberPicker {
     private static final String TEXT_SIZE = "mTextSize";
     private static final String DIVIDER   = "mSelectionDivider";
     private static final int FONT_SP_SIZE = 40;
-    private static final Typeface typeface;
-    static {
-        typeface = FontUtils.getLight(ArcusApplication.getContext());
-    }
 
     public NumberPicker(Context context) {
         super(context);
@@ -84,7 +79,7 @@ public class NumberPicker extends android.widget.NumberPicker {
     protected void modifyAddedView(View view) {
         if(view instanceof EditText) {
             ((EditText) view).setTextSize(FONT_SP_SIZE);
-            ((EditText) view).setTypeface(typeface);
+            ((EditText) view).setTypeface(ResourcesCompat.getFont(getContext(), R.font.nunito_light));
         }
     }
 

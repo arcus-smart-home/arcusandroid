@@ -30,7 +30,6 @@
         android:layout_height="match_parent" >
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_assignment_option_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -49,7 +48,6 @@
             tools:text="@string/customization_assignment_option_title" />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_assignment_option_desc"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -99,7 +97,7 @@
             app:layout_constraintTop_toBottomOf="@+id/customization_assignment_recycler_view"
             app:layout_constraintVertical_bias="1.0"
             android:orientation="vertical"
-            style="@style/ScleraColumnLayout">
+            style="@style/Widget.Arcus.Column">
 
             <arcus.app.common.view.ScleraButton
                 android:id="@+id/next_button"

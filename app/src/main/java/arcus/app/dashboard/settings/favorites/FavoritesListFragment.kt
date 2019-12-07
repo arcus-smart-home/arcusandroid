@@ -63,10 +63,6 @@ class FavoritesListFragment : Fragment() {
 
         mRecyclerView.itemAnimator = RefactoredDefaultItemAnimator()
         mRecyclerViewDragDropManager.attachRecyclerView(mRecyclerView)
-
-        view.findViewById<ScleraButton>(R.id.close_button).setOnClickListener {
-            activity?.finish()
-        }
     }
 
     override fun onPause() {

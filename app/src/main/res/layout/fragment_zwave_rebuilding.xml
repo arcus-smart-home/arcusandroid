@@ -45,7 +45,6 @@
             />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -66,8 +65,8 @@
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:padding="@dimen/pt_18"
-            style="@style/ScleraProgressBar"
-            android:theme="@style/ScleraProgressBar"
+            style="@style/Widget.Arcus.ProgressBar"
+            android:theme="@style/Widget.Arcus.ProgressBar"
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +87,6 @@
             />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/description"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"

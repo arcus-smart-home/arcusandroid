@@ -206,7 +206,8 @@ open class PermissionsActivity : AppCompatActivity() {
             permissionCallback.permissionsUpdate(permissionType, ArrayList(), ArrayList())
         } else {
             if (bShowRationale) {
-                AlertDialog.Builder(activity, R.style.AlertDialogTheme)
+                AlertDialog
+                        .Builder(activity)
                         .setMessage(Html.fromHtml(activity.getString(rationaleId)))
                         .setPositiveButton(getString(R.string.pairing_next)) { _, _ ->
                             try {

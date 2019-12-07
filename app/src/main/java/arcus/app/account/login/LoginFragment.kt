@@ -23,6 +23,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -33,9 +34,7 @@ import arcus.app.common.utils.LoginUtils
 import arcus.app.common.validation.EmailValidator
 import arcus.app.common.validation.NotEmptyValidator
 import arcus.app.common.validation.UrlValidator
-import arcus.app.common.view.ScleraButton
 import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
 import arcus.app.createaccount.CreateAccountActivity
 
 class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
@@ -44,11 +43,11 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
     private lateinit var passwordField: ScleraEditText
     private lateinit var errorBanner: LinearLayout
     private lateinit var genericErrorBanner: LinearLayout
-    private lateinit var errorBannerText: ScleraTextView
-    private lateinit var forgotPasswordLink: ScleraTextView
-    private lateinit var useInviteCodeLink: ScleraTextView
-    private lateinit var createAccountLink: ScleraTextView
-    private lateinit var loginButton: ScleraButton
+    private lateinit var errorBannerText: TextView
+    private lateinit var forgotPasswordLink: TextView
+    private lateinit var useInviteCodeLink: TextView
+    private lateinit var createAccountLink: TextView
+    private lateinit var loginButton: Button
     private lateinit var indeterminateProgress: RelativeLayout
     private lateinit var platformUrlEntry: ScleraEditText
     private val presenter = LoginPresenter()
@@ -70,13 +69,13 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
 
         errorBanner = view.findViewById<View>(R.id.error_banner) as LinearLayout
         genericErrorBanner = view.findViewById<View>(R.id.generic_error_banner) as LinearLayout
-        errorBannerText = view.findViewById<View>(R.id.error_banner_text) as ScleraTextView
+        errorBannerText = view.findViewById(R.id.error_banner_text)
         emailField = view.findViewById<View>(R.id.email) as ScleraEditText
         passwordField = view.findViewById<View>(R.id.password) as ScleraEditText
-        forgotPasswordLink = view.findViewById<View>(R.id.forgot_password) as ScleraTextView
-        useInviteCodeLink = view.findViewById<View>(R.id.use_invitation_code) as ScleraTextView
-        createAccountLink = view.findViewById<View>(R.id.create_account) as ScleraTextView
-        loginButton = view.findViewById<View>(R.id.login) as ScleraButton
+        forgotPasswordLink = view.findViewById(R.id.forgot_password)
+        useInviteCodeLink = view.findViewById(R.id.use_invitation_code)
+        createAccountLink = view.findViewById(R.id.create_account)
+        loginButton = view.findViewById(R.id.login)
         indeterminateProgress = view.findViewById<View>(R.id.indeterminate_progress) as RelativeLayout
         platformUrlEntry = view.findViewById(R.id.platformUrl)
     }

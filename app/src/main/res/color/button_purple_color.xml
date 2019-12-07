@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/sclera_disabled_color" android:state_enabled="false"/>
+    <item android:color="@color/sclera_disabled_color" android:state_enabled="false" android:state_pressed="true" />
+    <item android:color="@color/sclera_alt_purple" android:state_pressed="true"/>
+    <item android:color="@color/sclera_purple"/>
+</selector>

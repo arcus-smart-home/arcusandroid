@@ -84,10 +84,10 @@
 
         <ProgressBar
             android:id="@+id/progress_bar"
-            style="@style/ScleraProgressBar"
+            style="@style/Widget.Arcus.ProgressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ScleraProgressBar"
+            android:theme="@style/Widget.Arcus.ProgressBar"
             android:layout_marginTop="20dp"
             app:layout_goneMarginTop="59dp"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"

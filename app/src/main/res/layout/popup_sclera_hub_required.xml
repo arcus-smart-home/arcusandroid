@@ -38,7 +38,6 @@
         android:src="@drawable/hub_90x90" />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/hub_required_title_1"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -53,7 +52,6 @@
         app:scleraFontStyle="demi" />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/hub_required_desc_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,7 +77,6 @@
         android:background="@color/white_with_20" />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/hub_required_title_2"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -94,7 +91,6 @@
         app:scleraFontStyle="demi" />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/hub_required_desc_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
