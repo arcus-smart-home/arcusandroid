@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion compileSdk
-    buildToolsVersion androidToolsVersion
 
     defaultConfig {
         minSdkVersion minSdk
