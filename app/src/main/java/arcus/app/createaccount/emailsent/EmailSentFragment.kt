@@ -27,7 +27,7 @@ import arcus.app.R
 import arcus.app.activities.GenericFragmentActivity
 import arcus.app.activities.LaunchActivity
 import arcus.app.common.image.IntentRequestCode
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 import arcus.app.common.view.ScleraTextView
 import arcus.app.createaccount.CreateAccountFlow
@@ -58,11 +58,11 @@ class EmailSentFragment : Fragment(), EmailSentView {
         super.onViewCreated(view, savedInstanceState)
         alertBanner = view.findViewById(R.id.alert_banner)
 
-        view.findViewById<ScleraButton>(R.id.resend_email_button).setOnClickListener {
+        view.findViewById<Button>(R.id.resend_email_button).setOnClickListener {
             presenter.resendEmail()
         }
 
-        view.findViewById<ScleraButton>(R.id.logout_button).setOnClickListener {
+        view.findViewById<Button>(R.id.logout_button).setOnClickListener {
             presenter.logout()
         }
 

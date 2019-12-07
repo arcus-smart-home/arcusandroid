@@ -28,7 +28,7 @@ import android.widget.CheckBox
 import arcus.app.R
 import arcus.app.common.utils.GlobalSetting
 import arcus.app.common.utils.PreferenceUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
 import arcus.app.createaccount.CreateAccountFlow
@@ -41,7 +41,7 @@ class EmailPasswordEntryFragment : Fragment(), EmailPasswordEntryView {
     private lateinit var callback     : CreateAccountFlow
     private lateinit var userInfo     : NamePhoneAndImageLocation
 
-    private lateinit var nextButton   : ScleraButton
+    private lateinit var nextButton   : Button
     private lateinit var email        : ScleraEditText
     private lateinit var password     : ScleraEditText
     private lateinit var confirmPass  : ScleraEditText

@@ -20,13 +20,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;
-import arcus.app.common.view.ScleraButton;
-import arcus.app.common.view.ScleraButtonColor;
+import arcus.app.common.utils.ButtonUtils;
+import arcus.app.common.view.ButtonColor;
 import arcus.app.common.view.ScleraTextView;
-
 
 public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
     private final static String TITLE = "TITLE";
@@ -67,8 +67,8 @@ public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
           @NonNull String message,
           @NonNull String topButtonText,
           @NonNull String bottomButtonText,
-          @Nullable ScleraButtonColor topButtonColorScheme,
-          @Nullable ScleraButtonColor bottomButtonColorScheme
+          @Nullable ButtonColor topButtonColorScheme,
+          @Nullable ButtonColor bottomButtonColorScheme
     ) {
         return newInstance(title, null, message, topButtonText, bottomButtonText, topButtonColorScheme, bottomButtonColorScheme);
     }
@@ -78,8 +78,8 @@ public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
           @NonNull String message,
           @NonNull String topButtonText,
           @NonNull String bottomButtonText,
-          @Nullable ScleraButtonColor topButtonColorScheme,
-          @Nullable ScleraButtonColor bottomButtonColorScheme,
+          @Nullable ButtonColor topButtonColorScheme,
+          @Nullable ButtonColor bottomButtonColorScheme,
           @NonNull boolean showClose
     ) {
         return newInstance(title, null, message, topButtonText, bottomButtonText, topButtonColorScheme, bottomButtonColorScheme, showClose);
@@ -91,8 +91,8 @@ public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
           @NonNull String message,
           @NonNull String topButtonText,
           @NonNull String bottomButtonText,
-          @Nullable ScleraButtonColor topButtonColorScheme,
-          @Nullable ScleraButtonColor bottomButtonColorScheme
+          @Nullable ButtonColor topButtonColorScheme,
+          @Nullable ButtonColor bottomButtonColorScheme
     ) {
         return newInstance(title, subtitle, message, topButtonText, bottomButtonText, topButtonColorScheme, bottomButtonColorScheme, true);
     }
@@ -103,8 +103,8 @@ public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
             @NonNull String message,
             @NonNull String topButtonText,
             @NonNull String bottomButtonText,
-            @Nullable ScleraButtonColor topButtonColorScheme,
-            @Nullable ScleraButtonColor bottomButtonColorScheme,
+            @Nullable ButtonColor topButtonColorScheme,
+            @Nullable ButtonColor bottomButtonColorScheme,
             @NonNull boolean showClose
     ) {
 
@@ -138,8 +138,8 @@ public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
         ScleraTextView infoTitleView = (ScleraTextView) contentView.findViewById(R.id.info_text_title);
         ScleraTextView infoSubTitleView = (ScleraTextView) contentView.findViewById(R.id.info_text_sub_title);
         ScleraTextView infoMessageView = (ScleraTextView) contentView.findViewById(R.id.info_text_message);
-        ScleraButton correct = (ScleraButton) contentView.findViewById(R.id.btn_correct);
-        ScleraButton edit = (ScleraButton) contentView.findViewById(R.id.btn_edit);
+        Button correct = contentView.findViewById(R.id.btn_correct);
+        Button edit = contentView.findViewById(R.id.btn_edit);
 
         String infoTitle = getArguments().getString(TITLE);
         String infoSubTitle = getArguments().getString(SUB_TITLE);
@@ -159,9 +159,9 @@ public class ScleraInfoButtonPopup extends ArcusFloatingFragment {
         }
         infoMessageView.setText(infoMessage);
         correct.setText(topButtonText);
-        correct.setColorScheme(ScleraButtonColor.values()[topButtonColor]);
+        ButtonUtils.applyColorScheme(correct, ButtonColor.values()[topButtonColor]);
         edit.setText(bottomButtonText);
-        edit.setColorScheme(ScleraButtonColor.values()[bottomButtonColor]);
+        ButtonUtils.applyColorScheme(edit, ButtonColor.values()[bottomButtonColor]);
 
         correct.setOnClickListener(new View.OnClickListener() {
             @Override

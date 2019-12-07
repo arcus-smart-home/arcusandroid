@@ -32,7 +32,7 @@ import arcus.app.common.image.ImageManager
 import arcus.app.common.image.picasso.transformation.BlackWhiteInvertTransformation
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation
 import arcus.app.common.image.picasso.transformation.Invert
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
@@ -57,8 +57,8 @@ open class NameAndPhotoFragment : Fragment(),
     private lateinit var mCallback: CustomizationNavigationDelegate
     private lateinit var deviceImage: AppCompatImageView
     private lateinit var cameraImage: AppCompatImageView
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
     private lateinit var stepTitle: ScleraTextView
     private lateinit var stepInstruction: ScleraTextView
     private lateinit var inputField: ScleraEditText

@@ -28,7 +28,7 @@ import arcus.cornea.SessionController
 import arcus.app.R
 import arcus.app.common.utils.ImageUtils
 import arcus.app.common.utils.StringUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.app.pairing.device.customization.favorite.FavoritesFragment.Companion.ARG_CANCEL_PRESENT
@@ -57,8 +57,8 @@ class ContactTypeFragment : Fragment(),
     private lateinit var doorRadioButton: RadioButton
     private lateinit var windowRadioButton: RadioButton
     private lateinit var otherRadioButton: RadioButton
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
 
     private lateinit var mCallback: CustomizationNavigationDelegate
     private val presenter : ContactTypePresenter =

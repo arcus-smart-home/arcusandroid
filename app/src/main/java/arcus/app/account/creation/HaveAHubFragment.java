@@ -23,23 +23,20 @@ import androidx.appcompat.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import arcus.app.R;
 import arcus.app.activities.BaseActivity;
 import arcus.app.activities.DashboardActivity;
 import arcus.app.common.backstack.BackstackManager;
-import arcus.app.common.view.ScleraButton;
 import arcus.app.common.view.ScleraLinkView;
 import arcus.app.dashboard.HomeFragment;
 import arcus.app.pairing.device.productcatalog.ProductCatalogActivity;
 import arcus.app.pairing.hub.kickoff.HubKitFragment;
 
-
-
 public class HaveAHubFragment extends Fragment {
-
-    private ScleraButton yesButton;
-    private ScleraButton noButton;
+    private Button yesButton;
+    private Button noButton;
     private ScleraLinkView dashboardLink;
 
     public static HaveAHubFragment newInstance() {
@@ -51,9 +48,9 @@ public class HaveAHubFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_have_a_hub, container, false);
 
-        yesButton = (ScleraButton) view.findViewById(R.id.yes);
-        noButton = (ScleraButton) view.findViewById(R.id.no);
-        dashboardLink = (ScleraLinkView) view.findViewById(R.id.dashboard);
+        yesButton = view.findViewById(R.id.yes);
+        noButton = view.findViewById(R.id.no);
+        dashboardLink = view.findViewById(R.id.dashboard);
 
         return view;
     }

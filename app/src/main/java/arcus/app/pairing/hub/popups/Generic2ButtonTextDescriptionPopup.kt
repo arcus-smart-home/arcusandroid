@@ -19,7 +19,7 @@ import android.os.Bundle
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 
 class Generic2ButtonTextDescriptionPopup : ModalBottomSheet() {
@@ -49,14 +49,14 @@ class Generic2ButtonTextDescriptionPopup : ModalBottomSheet() {
         view.findViewById<ScleraTextView>(R.id.title_text_view).text = titleText
         view.findViewById<ScleraTextView>(R.id.description_text_view).text = descriptionText
 
-        val topButton = view.findViewById<ScleraButton>(R.id.ok_button)
+        val topButton = view.findViewById<Button>(R.id.ok_button)
         topButton.text = topButtonText
         topButton.setOnClickListener {
             dismiss()
             topListener?.invoke()
         }
 
-        val bottomButton = view.findViewById<ScleraButton>(R.id.cancel_button)
+        val bottomButton = view.findViewById<Button>(R.id.cancel_button)
         bottomButton.text = bottomButtonText
         bottomButton.setOnClickListener {
             dismiss()
@@ -78,6 +78,7 @@ class Generic2ButtonTextDescriptionPopup : ModalBottomSheet() {
     }
 
     override fun cleanUp() {
+        super.cleanUp()
         topListener = null
         bottomListener = null
     }

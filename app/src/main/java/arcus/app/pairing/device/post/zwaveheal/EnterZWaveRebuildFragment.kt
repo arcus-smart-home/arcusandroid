@@ -22,7 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.fragment.TitledFragment
 import arcus.app.pairing.device.post.zwaveheal.popups.ConfirmCancelZWaveRebuildPopup
 
@@ -37,12 +37,12 @@ class EnterZWaveRebuildFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Clicked REBUILD NOW
-        view.findViewById<ScleraButton>(R.id.continue_button).setOnClickListener{
+        view.findViewById<Button>(R.id.continue_button).setOnClickListener{
             mCallback.navigateTo(StartZWaveRebuildFragment.newInstance())
         }
 
         // Clicked REBUILD LATER
-        view.findViewById<ScleraButton>(R.id.cancel_rebuild_button).setOnClickListener{
+        view.findViewById<Button>(R.id.cancel_rebuild_button).setOnClickListener{
             val popup = ConfirmCancelZWaveRebuildPopup()
             popup.clickedCancelZwaveRebuildListener = {
                 mCallback.navigateTo(ZWaveRebuildLaterFragment.newInstance())

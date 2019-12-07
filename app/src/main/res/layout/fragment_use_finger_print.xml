@@ -87,22 +87,22 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical" >
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/use_touch_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fingerprint_login_yes"
                 android:textAllCaps="true"
-                app:scleraButtonColor="purple"/>
+                style="@style/Widget.Arcus.Button.Purple"/>
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/not_now"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
                 android:text="@string/fingerprint_login_no"
                 android:textAllCaps="true"
-                app:scleraButtonColor="purple_outline"/>
+                style="@style/Widget.Arcus.Button.PurpleOutline"/>
 
             <arcus.app.common.view.ScleraTextView
                 style="@style/Widget.Arcus.TextAppearance.Body"

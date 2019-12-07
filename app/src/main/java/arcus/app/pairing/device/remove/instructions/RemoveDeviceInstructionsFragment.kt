@@ -24,7 +24,7 @@ import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
 import arcus.app.common.utils.enterFromRightExitToRight
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.common.fragment.TitledFragment
 import arcus.presentation.pairing.device.remove.DeviceRemovalStep
@@ -71,7 +71,7 @@ class RemoveDeviceInstructionsFragment : Fragment(),
                 }
             }
 
-            view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {
+            view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
                 activity?.finish()
             }
         }

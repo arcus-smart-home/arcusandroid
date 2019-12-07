@@ -149,13 +149,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
 
-            <arcus.app.common.view.ScleraButtonWithProgress
+            <arcus.app.common.view.ButtonWithProgress
+                android:theme="@style/Widget.Arcus.Button.Purple"
                 android:id="@+id/fragment_email_sent_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_40"
                 android:text="@string/submit"
-                app:scleraButtonColor="purple"
                 app:buttonText="@string/submit"
                 app:layout_constraintTop_toBottomOf="@+id/password_requirements"
                 app:layout_constraintLeft_toLeftOf="parent"

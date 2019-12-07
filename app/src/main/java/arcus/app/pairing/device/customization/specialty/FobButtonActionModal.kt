@@ -25,7 +25,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.device.buttons.model.ButtonAction
 import arcus.app.common.fragment.TitledFragment
@@ -39,8 +39,8 @@ class FobButtonActionModal : Fragment(),
     private lateinit var buttonName: String
     private lateinit var deviceAddress: String
     private lateinit var buttonActionTitle: ScleraTextView
-    private lateinit var saveButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var saveButton: Button
+    private lateinit var cancelButton: Button
     private lateinit var selectedAction: ButtonAction
     private lateinit var buttonActionsList: List<ButtonAction>
     private lateinit var buttonActionRecyclerView: RecyclerView

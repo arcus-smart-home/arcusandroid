@@ -90,7 +90,7 @@
             android:background="@color/sclera_transparent"
             android:src="@drawable/swap_35x26"/>
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,9 +100,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/picture"
-            app:scleraButtonColor="white_outline"/>
+            style="@style/Widget.Arcus.Button.WhiteOutline"/>
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/retake_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/crop"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:scleraButtonColor="white_outline"
+            style="@style/Widget.Arcus.Button.WhiteOutline"
             android:text="@string/retake_text"
             android:visibility="gone"
             />

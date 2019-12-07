@@ -94,22 +94,22 @@
                     android:text="@string/hub_is_heart"
                     />
 
-                <arcus.app.common.view.ScleraButton
+                <Button
                     android:id="@+id/yes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_20"
                     android:text="@string/yes"
-                    app:buttonColorScheme="purple"
+                    style="@style/Widget.Arcus.Button.Purple"
                     />
 
-                <arcus.app.common.view.ScleraButton
+                <Button
                     android:id="@+id/no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_20"
                     android:text="@string/no"
-                    app:scleraButtonColor="purple_outline"
+                    style="@style/Widget.Arcus.Button.PurpleOutline"
                     />
 
                 <arcus.app.common.view.ScleraLinkView

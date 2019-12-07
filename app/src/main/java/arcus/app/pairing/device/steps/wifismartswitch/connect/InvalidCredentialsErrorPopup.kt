@@ -21,7 +21,7 @@ import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 
 
@@ -32,7 +32,7 @@ class InvalidCredentialsErrorPopup : ModalBottomSheet() {
     override fun getLayoutResourceId() = R.layout.popup_wss_call_support
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<ScleraButton>(R.id.close_button).setOnClickListener {
+        view.findViewById<Button>(R.id.close_button).setOnClickListener {
             dismiss()
         }
 

@@ -29,7 +29,7 @@ import arcus.presentation.pairing.device.customization.CustomizationType
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
 import arcus.presentation.pairing.device.customization.orbit.edit.IrrigationZoneDetails
@@ -48,8 +48,8 @@ class OrbitZoneEditFragment : Fragment(),
     private lateinit var zoneName: ScleraEditText
     private lateinit var zoneDuration: ScleraTextView
     private lateinit var zoneInformationContainer: View
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
 
     private var callback : CustomizationNavigationDelegate? = null
 

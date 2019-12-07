@@ -79,15 +79,6 @@
 
 
     <!-- Edit Text -->
-    <style name="Widget.Arcus.EditText" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/nunito</item>
-        <item name="android:lineSpacingMultiplier">@dimen/textViewLineSpacingMultiplier</item>
-
-        <item name="android:textColor">@color/sclera_text_color_dark</item>
-        <item name="android:textColorHint">@color/button_red_text_color</item>
-        <item name="hintTextColor">@color/button_red_text_color</item>
-    </style>
-
     <style name="Widget.Arcus.TextInputLayout" parent="Widget.Design.TextInputLayout">
         <item name="android:fontFamily">@font/nunito</item>
         <item name="android:lineSpacingMultiplier">@dimen/textViewLineSpacingMultiplier</item>
@@ -99,7 +90,7 @@
         <item name="android:textColorHint">@color/text_input_hint_color</item>
     </style>
 
-    <style name="Widget.Arcus.TextInputLayout.EditText" parent="Theme.AppCompat.Light">
+    <style name="Widget.Arcus.TextInputLayout.EditText" parent="Widget.AppCompat.EditText">
         <!-- Inactive underline color -->
         <item name="colorControlNormal">@color/arcus_gray</item>
 
@@ -136,6 +127,8 @@
 
     <style name="Widget.Arcus.ProgressBar.Indeterminate.White">
         <item name="colorAccent">@color/white</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
     </style>
 
     <style name="Widget.Arcus.TabLayout" parent="Widget.MaterialComponents.TabLayout">

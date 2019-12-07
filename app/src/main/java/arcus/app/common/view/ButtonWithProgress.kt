@@ -19,15 +19,15 @@ import android.content.Context
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.util.AttributeSet
 import android.view.View
+import android.widget.Button
 import android.widget.ProgressBar
 
 import arcus.app.R
 
-class ScleraButtonWithProgress : ConstraintLayout {
+class ButtonWithProgress : ConstraintLayout {
     private var buttonText: CharSequence? = null
-    private lateinit var initialButtonColor: ScleraButtonColor
 
-    lateinit var scleraButton: ScleraButton
+    lateinit var button: Button
         private set
     lateinit var progressBar: ProgressBar
         private set
@@ -56,42 +56,37 @@ class ScleraButtonWithProgress : ConstraintLayout {
     private fun initView(context: Context, attrs: AttributeSet?) {
         View.inflate(context, R.layout.sclera_button_with_progress, this)
 
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.ScleraButtonWithProgress)
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.ButtonWithProgress)
 
-        buttonText = attributes.getText(R.styleable.ScleraButtonWithProgress_buttonText)
-
-        val buttonColor = attributes.getInteger(R.styleable.ScleraButtonWithProgress_scleraButtonColor, 0)
-        initialButtonColor = ScleraButtonColor.values()[buttonColor]
-
+        buttonText = attributes.getText(R.styleable.ButtonWithProgress_buttonText)
         attributes.recycle()
     }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
 
-        scleraButton = getChildAt(0) as ScleraButton
+        button = getChildAt(0) as Button
         progressBar  = getChildAt(1) as ProgressBar
 
-        scleraButton.text = buttonText
-        scleraButton.setColorScheme(initialButtonColor)
+        button.text = buttonText
     }
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
         if (!enabled) {
-            buttonText = scleraButton.text
-            scleraButton.text = null
+            buttonText = button.text
+            button.text = null
             progressBar.visibility = View.VISIBLE
         } else {
-            scleraButton.text = buttonText
+            button.text = buttonText
             buttonText = null
             progressBar.visibility = View.GONE
         }
 
-        scleraButton.isEnabled = enabled
+        button.isEnabled = enabled
     }
 
     override fun setOnClickListener(listener: View.OnClickListener?) {
-        scleraButton.setOnClickListener(listener)
+        button.setOnClickListener(listener)
     }
 }

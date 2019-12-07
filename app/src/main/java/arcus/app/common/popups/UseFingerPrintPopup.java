@@ -23,23 +23,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import arcus.app.R;
 import arcus.app.common.backstack.ScleraTransitionManager;
 import arcus.app.common.fragments.ScleraSheet;
 import arcus.app.common.utils.PreferenceUtils;
-import arcus.app.common.view.ScleraButton;
 import arcus.app.common.view.ScleraTextView;
-
-
 
 public class UseFingerPrintPopup extends ScleraSheet {
 
     private ScleraTextView fingerprintTitle;
     private ScleraTextView fingerprintSubtitle;
-    private ScleraButton useTouchId;
-    private ScleraButton notNow;
+    private Button useTouchId;
+    private Button notNow;
     private ImageView fingerprintSuccessImg;
     private View contents;
 
@@ -59,8 +57,8 @@ public class UseFingerPrintPopup extends ScleraSheet {
         if(view != null) {
             fingerprintTitle = (ScleraTextView) view.findViewById(R.id.fingerprint_title);
             fingerprintSubtitle = (ScleraTextView) view.findViewById(R.id.fingerprint_subtitle);
-            useTouchId = (ScleraButton) view.findViewById(R.id.use_touch_id);
-            notNow = (ScleraButton) view.findViewById(R.id.not_now);
+            useTouchId = view.findViewById(R.id.use_touch_id);
+            notNow = view.findViewById(R.id.not_now);
             fingerprintSuccessImg = (ImageView) view.findViewById(R.id.fingerprint_success);
             contents = view.findViewById(R.id.fingerprint_buttons);
         }

@@ -20,7 +20,7 @@ import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 class BleTurnedOffPopup : ModalBottomSheet() {
     var tryAgainAction: (() -> Unit)? = null
@@ -31,7 +31,7 @@ class BleTurnedOffPopup : ModalBottomSheet() {
     override fun getLayoutResourceId() = R.layout.popup_ble_turned_off
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<ScleraButton>(R.id.try_again_button).setOnClickListener {
+        view.findViewById<Button>(R.id.try_again_button).setOnClickListener {
             dismiss()
             tryAgainAction?.invoke()
         }

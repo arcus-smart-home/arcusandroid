@@ -71,11 +71,11 @@
         app:extraSpacing="@dimen/sclera_extra_page_indicator_spacing"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:scleraButtonColor="purple"
+        style="@style/Widget.Arcus.Button.Purple"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="@dimen/sclera_widget_edge_combined"

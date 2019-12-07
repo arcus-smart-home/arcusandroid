@@ -28,7 +28,7 @@ import arcus.app.R
 import arcus.app.activities.ConnectedActivity
 import arcus.app.activities.DashboardActivity
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.PairingCustomizationActivity
 import arcus.app.pairing.device.post.zwaveheal.ZWaveRebuildActivity
@@ -72,8 +72,8 @@ class DeviceSearchingActivity
     private lateinit var centerContentContainer : View // Houses the Troubleshooting / Paired Devices list
     private lateinit var deviceSearchingTroubleshootingTitle : ScleraTextView
     private lateinit var recyclerView : RecyclerView
-    private lateinit var pairAnotherDeviceButton : ScleraButton
-    private lateinit var goToDashboardButton : ScleraButton
+    private lateinit var pairAnotherDeviceButton : Button
+    private lateinit var goToDashboardButton : Button
 
     private val restartSearchingCallback = {
         presenter.restartSearching(pairingInputs)

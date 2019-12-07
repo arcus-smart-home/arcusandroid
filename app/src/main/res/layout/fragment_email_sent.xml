@@ -149,7 +149,7 @@
                     app:scleraFontStyle="normal"
                     />
 
-                <arcus.app.common.view.ScleraButton
+                <Button
                     android:id="@+id/resend_email_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -158,10 +158,10 @@
                     app:layout_constraintBottom_toTopOf="@+id/logout_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:scleraButtonColor="purple"
+                    style="@style/Widget.Arcus.Button.Purple"
                     />
 
-                <arcus.app.common.view.ScleraButton
+                <Button
                     android:id="@+id/logout_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:scleraButtonColor="purple_outline"
+                    style="@style/Widget.Arcus.Button.PurpleOutline"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

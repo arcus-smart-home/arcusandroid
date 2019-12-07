@@ -158,7 +158,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -167,10 +167,10 @@
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             app:layout_constraintBottom_toTopOf="@id/cancel_button"
-            app:scleraButtonColor="purple"
+            style="@style/Widget.Arcus.Button.Purple"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

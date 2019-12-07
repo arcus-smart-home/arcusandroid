@@ -105,21 +105,21 @@
             app:layout_constraintTop_toBottomOf="@+id/customization_contact_type_link"
             app:layout_constraintVertical_bias="1.0">
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/next_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pairing_next"
-                app:buttonColorScheme="purple" />
+                style="@style/Widget.Arcus.Button.Purple" />
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/cancel_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
                 android:text="@string/cancel_text"
                 android:visibility="gone"
-                app:scleraButtonColor="purple_outline"
+                style="@style/Widget.Arcus.Button.PurpleOutline"
                 tools:visibility="visible" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.common.fragment.TitledFragment
 import arcus.app.pairing.device.productcatalog.ProductCatalogActivity
@@ -36,7 +36,7 @@ class FactoryResetDeviceFragment : Fragment(),
 
     private var factoryResetStepList: ArrayList<FactoryResetStep>? = null
     private lateinit var factoryResetTitle: ScleraTextView
-    private lateinit var factoryResetButton: ScleraButton
+    private lateinit var factoryResetButton: Button
     private lateinit var factoryResetRecyclerView: RecyclerView
     private lateinit var factoryResetAdapter: FactoryResetDeviceAdapter
     private lateinit var productName: String

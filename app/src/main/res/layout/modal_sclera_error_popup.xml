@@ -44,15 +44,15 @@
         android:textSize="@dimen/pt_14"
         app:scleraFontStyle="normal" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/modal_error_support_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/error_modal_get_support"
-        app:scleraButtonColor="white_with_red_text" />
+        style="@style/Widget.Arcus.Button.White.RedText" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/modal_error_dismiss_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,6 +60,6 @@
         android:layout_marginBottom="@dimen/sclera_screen_edge_LR_margin"
         android:text="@string/dismiss_text"
         android:textAllCaps="true"
-        app:scleraButtonColor="white_outline" />
+        style="@style/Widget.Arcus.Button.WhiteOutline" />
 
 </LinearLayout>

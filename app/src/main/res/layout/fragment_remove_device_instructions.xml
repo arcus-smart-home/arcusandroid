@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
             app:layout_constraintVertical_bias="1.0"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             android:text="@string/cancel_text"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>

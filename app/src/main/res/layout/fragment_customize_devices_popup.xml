@@ -52,7 +52,7 @@
         android:textSize="@dimen/pt_14"
         android:text="@string/customize_paired_devices" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/view_devices_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,10 +60,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/required_body"
-        app:scleraButtonColor="purple"
+        style="@style/Widget.Arcus.Button.Purple"
         android:text="@string/view_paired_devices" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/exit_pairing_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,6 +73,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_devices_button"
-        app:scleraButtonColor="purple_outline"
+        style="@style/Widget.Arcus.Button.PurpleOutline"
         android:text="@string/exit_pairing_plain"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

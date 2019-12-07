@@ -122,21 +122,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" >
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/next_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:text="@string/pairing_next"
-                app:buttonColorScheme="purple"/>
+                style="@style/Widget.Arcus.Button.Purple"/>
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/cancel_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cancel_text"
                 android:visibility="gone"
-                app:scleraButtonColor="purple_outline"
+                style="@style/Widget.Arcus.Button.PurpleOutline"
                 tools:visibility="visible"/>
         </LinearLayout>
 

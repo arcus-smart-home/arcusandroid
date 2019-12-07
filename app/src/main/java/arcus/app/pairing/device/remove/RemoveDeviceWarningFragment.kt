@@ -23,7 +23,7 @@ import android.view.ViewGroup
 import arcus.app.R
 import arcus.app.common.utils.commitAndExecute
 import arcus.app.common.utils.enterFromRightExitToRight
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.common.fragment.TitledFragment
 import arcus.app.pairing.device.remove.instructions.RemoveDeviceInstructionsFragment
@@ -53,7 +53,7 @@ class RemoveDeviceWarningFragment : Fragment(),
 
         presenter.checkForMispairedHue(pairingDeviceAddress)
 
-        view.findViewById<ScleraButton>(R.id.ok_button).setOnClickListener {
+        view.findViewById<Button>(R.id.ok_button).setOnClickListener {
             val popup = ConfirmRemovePopup()
             popup.clickedRemoveListener = {
                 presenter.removePairingDevice(pairingDeviceAddress)
@@ -61,7 +61,7 @@ class RemoveDeviceWarningFragment : Fragment(),
             popup.show(fragmentManager)
         }
 
-        view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {
+        view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
             activity?.finish()
         }
     }

@@ -21,8 +21,11 @@ import androidx.core.content.ContextCompat
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
-import arcus.app.common.view.ScleraButtonColor
+import android.widget.Button
+import arcus.app.common.utils.setColorSchemeWhiteRedText
+import arcus.app.common.utils.setColorSchemePurpleOutline
+import arcus.app.common.utils.setColorSchemeWhiteOutline
+import arcus.app.common.utils.setColorSchemePurple
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.searching.DeviceSearchingActivity
 
@@ -46,7 +49,7 @@ class CustomizeDevicesPopup : ModalBottomSheet() {
         val body = view.findViewById<ScleraTextView>(R.id.required_body)
         body.text = description
 
-        val topButton: ScleraButton = view.findViewById(R.id.view_devices_button)
+        val topButton: Button = view.findViewById(R.id.view_devices_button)
         topButton.setOnClickListener {
             activity?.let {
                 val intent = Intent(it, DeviceSearchingActivity::class.java)
@@ -57,7 +60,7 @@ class CustomizeDevicesPopup : ModalBottomSheet() {
             }
         }
 
-        val bottomButton: ScleraButton = view.findViewById(R.id.exit_pairing_button)
+        val bottomButton: Button = view.findViewById(R.id.exit_pairing_button)
          bottomButton.setOnClickListener {
              dismiss()
              exitPairingListener?.invoke()
@@ -69,15 +72,15 @@ class CustomizeDevicesPopup : ModalBottomSheet() {
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.sclera_alert))
             title.setTextColor(white)
             body.setTextColor(white)
-            topButton.setColorScheme(ScleraButtonColor.SOLID_WHITE_RED_TEXT)
-            bottomButton.setColorScheme(ScleraButtonColor.OUTLINE_WHITE)
+            topButton.setColorSchemeWhiteRedText()
+            bottomButton.setColorSchemeWhiteOutline()
         } else {
             val dark  = ContextCompat.getColor(view.context, R.color.sclera_text_color_dark)
             view.setBackgroundColor(white)
             title.setTextColor(dark)
             body.setTextColor(dark)
-            topButton.setColorScheme(ScleraButtonColor.SOLID_PURPLE)
-            bottomButton.setColorScheme(ScleraButtonColor.OUTLINE_PURPLE)
+            topButton.setColorSchemePurple()
+            bottomButton.setColorSchemePurpleOutline()
         }
 
     }

@@ -27,7 +27,7 @@ import arcus.cornea.SessionController
 import arcus.app.R
 import arcus.app.common.utils.ImageUtils
 import arcus.app.common.utils.StringUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.app.common.fragment.TitledFragment
@@ -50,8 +50,8 @@ class ContactSensorTestingFragment : Fragment(),
     private lateinit var contactTestTitle: ScleraTextView
     private lateinit var contactTestDescription: ScleraTextView
     private lateinit var contactTestLink: ScleraLinkView
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
 
     private lateinit var pairingDeviceAddress: String
     private lateinit var customizationStep: CustomizationStep

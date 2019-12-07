@@ -38,7 +38,7 @@ import arcus.app.common.image.picasso.transformation.Invert
 import arcus.app.common.utils.ActivityUtils
 import arcus.app.common.utils.Errors
 import arcus.app.common.view.ProgressBarFromToAnimation
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.hub.customization.HubNameAndPictureFragment
@@ -76,7 +76,7 @@ class HubProgressFragment : Fragment(), PairingHubView {
     private lateinit var title: ScleraTextView
     private lateinit var description: ScleraTextView
     private lateinit var exitPairing: ScleraLinkView
-    private lateinit var supportButton: ScleraButton
+    private lateinit var supportButton: Button
 
     private lateinit var hubId : String
 

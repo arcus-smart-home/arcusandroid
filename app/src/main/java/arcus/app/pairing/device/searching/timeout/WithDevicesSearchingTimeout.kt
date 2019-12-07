@@ -19,7 +19,7 @@ import android.os.Bundle
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
@@ -36,14 +36,14 @@ class WithDevicesSearchingTimeout : ModalBottomSheet() {
         view.findViewById<ScleraTextView>(R.id.title_text_view).text = getString(R.string.pairing_time_out)
         view.findViewById<ScleraTextView>(R.id.description_text_view).text = getString(R.string.question_keep_searching)
 
-        val cancelButton = view.findViewById<ScleraButton>(R.id.cancel_button)
+        val cancelButton = view.findViewById<Button>(R.id.cancel_button)
         cancelButton.text = getString(R.string.no_view_my_devices)
         cancelButton.setOnClickListener {
             dismiss()
             noViewMyDevicesListener.get()?.invoke()
         }
 
-        val okButton = view.findViewById<ScleraButton>(R.id.ok_button)
+        val okButton = view.findViewById<Button>(R.id.ok_button)
         okButton.text = getString(R.string.yes_keep_searching)
         okButton.setOnClickListener {
             dismiss()
@@ -65,6 +65,7 @@ class WithDevicesSearchingTimeout : ModalBottomSheet() {
     }
 
     override fun cleanUp() {
+        super.cleanUp()
         listener.clear()
         noViewMyDevicesListener.clear()
     }

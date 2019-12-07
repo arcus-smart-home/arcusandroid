@@ -21,7 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.fragment.TitledFragment
 import arcus.presentation.pairing.device.factoryreset.FactoryResetStep
 import arcus.presentation.pairing.device.factoryreset.FactoryResetWarningPresenterImpl
@@ -37,8 +37,8 @@ class FactoryResetWarningFragment :
     private val presenter =
         FactoryResetWarningPresenterImpl()
 
-    private lateinit var confirmButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var confirmButton: Button
+    private lateinit var cancelButton: Button
     private lateinit var productName: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

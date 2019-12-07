@@ -19,7 +19,7 @@ import android.os.Bundle
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 
 class OtherDeviceRequiredPopup : ModalBottomSheet() {
@@ -45,7 +45,7 @@ class OtherDeviceRequiredPopup : ModalBottomSheet() {
         view.findViewById<ScleraTextView>(R.id.required_body)
                 .text = resources.getString(R.string.generic_bridge_pairing_controller_first_description, vendor, shortName)
 
-        view.findViewById<ScleraButton>(R.id.dismiss_button).setOnClickListener {
+        view.findViewById<Button>(R.id.dismiss_button).setOnClickListener {
             dialog?.cancel()
         }
     }

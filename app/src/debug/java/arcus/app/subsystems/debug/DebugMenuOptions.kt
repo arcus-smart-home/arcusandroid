@@ -22,7 +22,7 @@ import android.view.ViewGroup
 import android.widget.Switch
 import arcus.app.R
 import arcus.app.common.utils.inflate
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import kotlin.properties.Delegates
 
@@ -164,7 +164,7 @@ class TextOptionViewHolder(view: View) : BindingViewHolder<TextOption>(view) {
 }
 
 class ButtonOptionViewHolder(view: View) : BindingViewHolder<ButtonOption>(view) {
-    private var button by Delegates.notNull<ScleraButton>()
+    private var button by Delegates.notNull<Button>()
     private var title by Delegates.notNull<ScleraTextView>()
     private var description by Delegates.notNull<ScleraTextView>()
     private var details by Delegates.notNull<ScleraTextView>()

@@ -94,7 +94,7 @@
             android:padding="0dp"
             android:orientation="vertical">
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/fragment_hub_parent_next_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,9 +103,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/hub_pairing_next_button"
-                app:buttonColorScheme="purple"/>
+                style="@style/Widget.Arcus.Button.Purple"/>
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/fragment_hub_parent_dashboard_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="15dp"
                 android:text="@string/hub_pairing_go_to_dashboard"
-                app:scleraButtonColor="purple_outline"
+                style="@style/Widget.Arcus.Button.PurpleOutline"
                 android:visibility="gone"
                 tools:visibility="visible"/>
         </LinearLayout>

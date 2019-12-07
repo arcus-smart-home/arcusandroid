@@ -15,8 +15,10 @@
  */
 package arcus.app.common.view;
 
-
-
-public enum ScleraButtonColor {
-    SOLID_PURPLE, OUTLINE_PURPLE, SOLID_DISABLED, OUTLINE_DISABLED, OUTLINE_WHITE, SOLID_WHITE_BLUE_TEXT, SOLID_WHITE_RED_TEXT
+public enum ButtonColor {
+    SOLID_PURPLE,
+    OUTLINE_PURPLE,
+    OUTLINE_WHITE,
+    SOLID_WHITE_BLUE_TEXT,
+    SOLID_WHITE_RED_TEXT
 }

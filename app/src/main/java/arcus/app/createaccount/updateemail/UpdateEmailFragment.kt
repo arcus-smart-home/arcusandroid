@@ -23,7 +23,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
 import com.rengwuxian.materialedittext.validation.METValidator
@@ -64,13 +64,13 @@ class UpdateEmailFragment : Fragment(), UpdateEmailView {
             }
         })
 
-        view.findViewById<ScleraButton>(R.id.update_and_resend_button).setOnClickListener {
+        view.findViewById<Button>(R.id.update_and_resend_button).setOnClickListener {
             focusHog.requestFocusFromTouch()
             if (emailView.validate()) {
                 presenter.updateEmailAndSendVerification(emailView.text.toString())
             }
         }
-        view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {
+        view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
             activity?.finish()
         }
     }

@@ -29,6 +29,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -53,7 +54,6 @@ import arcus.app.common.utils.ImageUtils;
 import arcus.app.common.utils.RegisterHubTask;
 import arcus.app.common.utils.VideoUtils;
 import arcus.app.common.view.NoSwipeViewPager;
-import arcus.app.common.view.ScleraButton;
 import arcus.app.common.view.ScleraEditText;
 import arcus.app.common.view.ScleraTextView;
 import arcus.app.dashboard.HomeFragment;
@@ -71,8 +71,8 @@ public class HubParentFragment extends BaseFragment implements View.OnClickListe
     private ImageView errorBannerIcon;
     private ScleraTextView errorBannerText;
 
-    private ScleraButton nextBtn;
-    private ScleraButton dashboardBtn;
+    private Button nextBtn;
+    private Button dashboardBtn;
     private RelativeLayout videoTab;
     private NoSwipeViewPager viewPager;
     private StepsViewPagerAdapter adapter;
@@ -159,8 +159,8 @@ public class HubParentFragment extends BaseFragment implements View.OnClickListe
         errorBannerIcon = (ImageView) view.findViewById(R.id.error_banner_icon) ;
         errorBannerText = (ScleraTextView) view.findViewById(R.id.error_banner_text);
 
-        nextBtn = (ScleraButton) view.findViewById(R.id.fragment_hub_parent_next_btn);
-        dashboardBtn = (ScleraButton) view.findViewById(R.id.fragment_hub_parent_dashboard_btn);
+        nextBtn = view.findViewById(R.id.fragment_hub_parent_next_btn);
+        dashboardBtn = view.findViewById(R.id.fragment_hub_parent_dashboard_btn);
         dashboardBtn.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
 

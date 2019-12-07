@@ -105,7 +105,7 @@
         android:maxEms="11"
         scleraFontStyle="normal" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/buy_hub"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -115,10 +115,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:scleraButtonColor="white_with_blue_text" />
+        style="@style/Widget.Arcus.Button.White.BlueText" />
 
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/dismiss_button"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -128,6 +128,6 @@
         app:layout_constraintRight_toRightOf="parent"
         android:text="@string/dismiss_text"
         android:textAllCaps="true"
-        app:scleraButtonColor="white_outline" />
+        style="@style/Widget.Arcus.Button.WhiteOutline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

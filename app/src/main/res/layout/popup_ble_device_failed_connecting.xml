@@ -68,25 +68,25 @@
         app:scleraFontStyle="normal"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/try_again_button"
         android:text="@string/try_again"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
-        app:scleraButtonColor="white_with_red_text"
+        style="@style/Widget.Arcus.Button.White.RedText"
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/need_help"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/cancel_button"
         android:text="@string/cancel"
         android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
-        app:scleraButtonColor="white_outline"
+        style="@style/Widget.Arcus.Button.WhiteOutline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/try_again_button"

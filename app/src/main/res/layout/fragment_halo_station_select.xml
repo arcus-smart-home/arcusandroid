@@ -125,20 +125,20 @@
                 app:scleraFontStyle="normal"
                 tools:text="Info section, informing you of informational information" />
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/next_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pairing_next"
-                app:buttonColorScheme="purple" />
+                style="@style/Widget.Arcus.Button.Purple" />
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/cancel_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
                 android:text="@string/cancel_text"
-                app:scleraButtonColor="purple_outline" />
+                style="@style/Widget.Arcus.Button.PurpleOutline" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -118,14 +118,14 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <arcus.app.common.view.ScleraButtonWithProgress
+        <arcus.app.common.view.ButtonWithProgress
             android:id="@+id/btnSubmitForgot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginBottom="@dimen/dp_10"
-            app:scleraButtonColor="purple"
+            android:theme="@style/Widget.Arcus.Button.Purple"
             app:buttonText="@string/forgot_password_button"
             app:layout_constraintTop_toBottomOf="@+id/email_entry_bypass_link"
             app:layout_constraintEnd_toEndOf="parent"
@@ -134,12 +134,12 @@
             app:layout_constraintVertical_bias="1.0"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             android:layout_marginBottom="@dimen/dp_10"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"

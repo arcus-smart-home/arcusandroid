@@ -29,7 +29,7 @@ import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
 import arcus.app.common.utils.GlobalSetting
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.app.common.fragment.TitledFragment
@@ -54,8 +54,8 @@ class HaloStationSelectFragment : Fragment(),
     private lateinit var stepInfo : ScleraTextView
     private lateinit var moreStations : ScleraTextView
     private lateinit var divider : View
-    private lateinit var nextButton : ScleraButton
-    private lateinit var cancelButton : ScleraButton
+    private lateinit var nextButton : Button
+    private lateinit var cancelButton : Button
     private lateinit var mCallback : CustomizationNavigationDelegate
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterCallback: HaloStationAdapter.HaloStationAdapterCallback

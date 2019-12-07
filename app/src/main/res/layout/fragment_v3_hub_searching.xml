@@ -208,13 +208,13 @@
                     app:resettable="false"
                     />
 
-                <arcus.app.common.view.ScleraButton
+                <Button
                     android:id="@+id/search_for_new_hub_button"
                     android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
                     android:text="@string/recharge_now_continue_btn"
                     android:enabled="false"
-                    app:scleraButtonColor="purple"
+                    style="@style/Widget.Arcus.Button.Purple"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -227,7 +227,7 @@
         </ViewSwitcher>
 
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/call_support_button"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -236,7 +236,7 @@
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/call_support"
-            app:scleraButtonColor="purple"
+            style="@style/Widget.Arcus.Button.Purple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

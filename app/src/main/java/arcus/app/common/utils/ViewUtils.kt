@@ -18,7 +18,6 @@ package arcus.app.common.utils
 
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
-import androidx.fragment.app.Fragment as SupportFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

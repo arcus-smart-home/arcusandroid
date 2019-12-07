@@ -25,7 +25,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import arcus.app.R
 import arcus.app.common.fragments.FullScreenModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 class ModalMustardSheet : FullScreenModalBottomSheet() {
 
@@ -52,16 +52,16 @@ class ModalMustardSheet : FullScreenModalBottomSheet() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<ScleraButton>(R.id.kit_devices_button).setOnClickListener {
+        view.findViewById<Button>(R.id.kit_devices_button).setOnClickListener {
             kitDevicesListener?.invoke()
         }
 
-        view.findViewById<ScleraButton>(R.id.hub_devices_button).setOnClickListener {
+        view.findViewById<Button>(R.id.hub_devices_button).setOnClickListener {
             hubDevicesListener?.invoke()
             dismiss()
         }
 
-        view.findViewById<ScleraButton>(R.id.modal_dismiss_button).setOnClickListener {
+        view.findViewById<Button>(R.id.modal_dismiss_button).setOnClickListener {
             dismiss()
         }
 

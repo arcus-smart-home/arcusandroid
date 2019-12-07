@@ -43,7 +43,7 @@ import arcus.app.common.image.picasso.transformation.Invert
 import arcus.app.common.utils.ActivityUtils
 import arcus.app.common.utils.Errors
 import arcus.app.common.utils.GlobalSetting
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.hub.customization.HubNameAndPictureFragment
@@ -74,7 +74,7 @@ class V3HubSearchingFragment : Fragment(),
     private lateinit var hubIdConnecting: TextView
 
     private lateinit var factoryResetLink: ScleraLinkView
-    private lateinit var callSupportButton: ScleraButton
+    private lateinit var callSupportButton: Button
 
     private var containerHost : FragmentContainerHolder? = null
 

@@ -41,7 +41,7 @@ import arcus.app.common.utils.enableViews
 import arcus.app.common.utils.inflate
 import arcus.app.common.validation.CustomEmailValidator
 import arcus.app.common.validation.PasswordValidator
-import arcus.app.common.view.ScleraButtonWithProgress
+import arcus.app.common.view.ButtonWithProgress
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
 
@@ -58,7 +58,7 @@ class AccountLoginEmailSentFragment : Fragment() {
     private lateinit var confirmPassword: ScleraEditText
     private lateinit var banner: ScleraTextView
     private lateinit var fieldEnableGroups: List<View>
-    private lateinit var submitButtonWithProgress: ScleraButtonWithProgress
+    private lateinit var submitButtonWithProgress: ButtonWithProgress
     private var fragmentContainerHolder: FragmentContainerHolder? = null
 
     private var listenerRegistration = Listeners.empty()

@@ -62,9 +62,9 @@
             android:textIsSelectable="true"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             tools:text="Action Button"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             android:layout_marginTop="@dimen/sclera_title_to_description_spacing"
             android:id="@id/debug_menu_action_button"
             android:layout_width="match_parent"

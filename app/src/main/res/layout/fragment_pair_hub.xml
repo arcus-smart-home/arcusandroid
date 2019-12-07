@@ -172,7 +172,7 @@
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:layout_marginTop="15dp"
             android:id="@+id/hub_pairing_button"
             android:layout_width="match_parent"
@@ -182,8 +182,8 @@
             android:textAllCaps="true"
             tools:visibility="visible"
             app:buttonFont="demi"
-            app:scleraButtonColor="purple" />
-        <arcus.app.common.view.ScleraButton
+            style="@style/Widget.Arcus.Button.Purple" />
+        <Button
             android:layout_marginTop="15dp"
             android:id="@+id/call_support_button"
             android:layout_width="match_parent"
@@ -192,7 +192,7 @@
             android:text="@string/call_support"
             android:textAllCaps="true"
             tools:visibility="visible"
-            app:scleraButtonColor="purple"/>
+            style="@style/Widget.Arcus.Button.Purple"/>
     </RelativeLayout>
 
 </RelativeLayout>

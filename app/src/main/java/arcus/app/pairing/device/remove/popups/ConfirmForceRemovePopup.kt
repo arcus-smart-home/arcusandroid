@@ -19,7 +19,7 @@ import android.os.Bundle
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 class ConfirmForceRemovePopup : ModalBottomSheet() {
     var clickedForceRemoveListener : (() -> Unit)? = null
@@ -30,12 +30,12 @@ class ConfirmForceRemovePopup : ModalBottomSheet() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<ScleraButton>(R.id.ok_button).setOnClickListener {
+        view.findViewById<Button>(R.id.ok_button).setOnClickListener {
             clickedForceRemoveListener?.invoke()
             dismiss()
         }
 
-        view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {
+        view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
             dismiss()
         }
     }

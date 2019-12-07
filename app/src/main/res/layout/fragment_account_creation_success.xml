@@ -99,13 +99,13 @@
                         </LinearLayout>
                     </ScrollView>
 
-                    <arcus.app.common.view.ScleraButton
+                    <Button
                         android:id="@+id/next"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:text="@string/new_account_confetti_button"
-                        app:buttonColorScheme="purple"
+                        style="@style/Widget.Arcus.Button.Purple"
                         android:layout_alignParentBottom="true"/>
 
                 </RelativeLayout>

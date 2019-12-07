@@ -22,7 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.fragment.TitledFragment
 import org.slf4j.LoggerFactory
 
@@ -37,7 +37,7 @@ class StartZWaveRebuildFragment : Fragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<ScleraButton>(R.id.rebuild_button).setOnClickListener{
+        view.findViewById<Button>(R.id.rebuild_button).setOnClickListener{
             mCallback.navigateTo(RebuildingZWaveFragment.newInstance())
         }
     }

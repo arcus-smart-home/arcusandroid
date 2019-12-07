@@ -21,7 +21,7 @@ import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.searching.DeviceSearchingActivity
 
@@ -35,14 +35,14 @@ class AdvancedUserPairingWarningPopup : ModalBottomSheet() {
         view.findViewById<ScleraTextView>(R.id.title_text_view).text = getString(R.string.advanced_user_pairing_title)
         view.findViewById<ScleraTextView>(R.id.description_text_view).text = getString(R.string.advanced_user_pairing_desc)
 
-        val okButton = view.findViewById<ScleraButton>(R.id.ok_button)
+        val okButton = view.findViewById<Button>(R.id.ok_button)
         okButton.text = getString(R.string.ok)
         okButton.setOnClickListener {
             startActivity(Intent(context, DeviceSearchingActivity::class.java))
             dismiss()
         }
 
-        val cancelButton = view.findViewById<ScleraButton>(R.id.cancel_button)
+        val cancelButton = view.findViewById<Button>(R.id.cancel_button)
         cancelButton.text = getString(R.string.cancel)
         cancelButton.setOnClickListener {
             dismiss()
