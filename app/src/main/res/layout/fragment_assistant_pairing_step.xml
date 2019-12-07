@@ -26,7 +26,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/ScleraColumnLayout">
+        style="@style/Widget.Arcus.Column">
 
         <ImageView
             android:id="@+id/product_image"
@@ -41,7 +41,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/step_instructions"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"
@@ -57,7 +56,6 @@
 
         <arcus.app.common.view.ScleraLinkView
             android:id="@+id/download_link"
-            style="@style/ScleraLineSpacing.1.37"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/sclera_widget_edge_combined"

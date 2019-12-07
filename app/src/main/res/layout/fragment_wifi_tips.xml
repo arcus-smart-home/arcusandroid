@@ -107,7 +107,7 @@
             app:layout_constraintVertical_bias="1.0"
             app:scleraButtonColor="purple" />
 
-        <androidx.legacy.widget.Space
+        <Space
             android:id="@+id/spacer"
             android:layout_width="wrap_content"
             android:layout_height="20dp"

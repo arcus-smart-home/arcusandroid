@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Arcus" parent="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- TODO: Decide on these... -->
+        <!--        <item name="colorPrimary">@color/cool_gradient_blue</item>-->
+        <!--        <item name="colorPrimaryDark">@color/cool_gradient_blue</item>-->
+        <!--        <item name="colorAccent">@color/sclera_green</item>-->
+        <!--        <item name="colorSecondary">@color/sclera_green</item>-->
+        <!--        <item name="colorOnBackground">@color/sclera_green</item>-->
+        <!--        <item name="colorOnPrimary">@color/sclera_green</item>-->
+        <!--        <item name="colorOnPrimarySurface">@color/sclera_green</item>-->
+        <!--        <item name="colorControlNormal">@color/sclera_green</item>-->
+        <!--        <item name="android:colorPrimary">@color/sclera_green</item>-->
+
+        <item name="android:windowAnimationStyle">@style/Widget.Arcus.Activity.Animation</item>
+
+        <item name="android:actionOverflowButtonStyle">@style/Widget.Arcus.ActionButton.Overflow</item>
+        <item name="actionMenuTextColor">@color/black</item>
+        <item name="android:actionOverflowMenuStyle">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:actionMenuTextColor">@color/black</item>
+        <item name="android:requiresFadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">5dp</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:alertDialogTheme">@style/Theme.AlertDialog</item>
+
+        <item name="android:textViewStyle">@style/Widget.Arcus.TextView</item>
+        <item name="android:fontFamily">@font/nunito</item>
+
+        <item name="android:radioButtonStyle">@style/Widget.Arcus.RadioButton</item>
+        <item name="radioButtonStyle">@style/Widget.Arcus.RadioButton</item>
+
+        <item name="android:buttonStyle">@style/Widget.Arcus.Button</item>
+        <item name="buttonStyle">@style/Widget.Arcus.Button</item>
+
+        <item name="textInputStyle">@style/Widget.Arcus.TextInputLayout</item>
+
+        <item name="android:editTextStyle">@style/Widget.Arcus.TextInputLayout.EditText</item>
+        <item name="editTextStyle">@style/Widget.Arcus.TextInputLayout.EditText</item>
+
+        <item name="appBarLayoutStyle">@style/Theme.Arcus.AppBarOverlay</item>
+        <item name="tabStyle">@style/Widget.Arcus.TabLayout</item>
+    </style>
+
+    <!-- Other Activities... -->
+    <style name="Theme.Arcus.Signup" parent="Theme.Arcus" />
+
+    <style name="Theme.Arcus.PairingWorkflowHost" parent="Theme.Arcus">
+        <item name="android:windowAnimationStyle">@style/Widget.Arcus.Activity.Animation.WorkflowHost</item>
+    </style>
+
+    <style name="Theme.Arcus.Workflow" parent="Theme.Arcus">
+        <item name="android:windowAnimationStyle">@style/Widget.Arcus.Activity.Animation.Workflow</item>
+    </style>
+
+    <style name="Theme.Arcus.Fullscreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.Arcus.Splash" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/device_90x90</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:progressBarStyleInverse">@style/Widget.Arcus.ProgressBar.Indeterminate</item>
+        <item name="progressBarStyle">@style/Widget.Arcus.ProgressBar.Indeterminate</item>
+    </style>
+
+    <style name="Theme.AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black_with_60</item>
+        <item name="colorAccent">@color/sclera_green_tutorial_banner</item>
+        <item name="borderlessButtonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
+    </style>
+
+    <style name="Theme.Arcus.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="android:toolbarStyle">@style/Theme.Arcus.PopupOverlay</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="Theme.Arcus.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@color/white</item>
+    </style>
+</resources>

@@ -22,7 +22,7 @@
               android:background="@color/white">
 
     <RelativeLayout
-        style="@style/ScleraColumnLayout"
+        style="@style/Widget.Arcus.Column"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -57,7 +57,7 @@
 
             <arcus.app.common.view.ScleraTextView
                 android:id="@+id/fingerprint_title"
-                style="@style/ScleraFontSubtitle"
+                style="@style/Widget.Arcus.TextAppearance.Subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.35"
@@ -68,7 +68,7 @@
 
             <arcus.app.common.view.ScleraTextView
                 android:id="@+id/fingerprint_subtitle"
-                style="@style/ScleraFontBody1"
+                style="@style/Widget.Arcus.TextAppearance.Body.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="53dp"
@@ -105,7 +105,7 @@
                 app:scleraButtonColor="purple_outline"/>
 
             <arcus.app.common.view.ScleraTextView
-                style="@style/ScleraFontBody3"
+                style="@style/Widget.Arcus.TextAppearance.Body"
                 android:layout_below="@id/fingerprint_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,9 +118,4 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-    <View
-        style="@style/ScleraHorizontalRule"
-        android:layout_width="match_parent" />
-
 </LinearLayout>

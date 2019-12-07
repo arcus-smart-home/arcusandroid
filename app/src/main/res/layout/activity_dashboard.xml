@@ -43,7 +43,8 @@
                 tools:visibility="visible"
                 android:visibility="gone">
 
-                <arcus.app.common.view.Version1IndeterminateProgress
+                <ProgressBar
+                    android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
@@ -67,17 +68,12 @@
                 <!--layout="@layout/app_toolbar"/>-->
                 <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:elevation="@dimen/dp_0"
-                    android:theme="@style/AppTheme.AppBarOverlay">
+                    android:layout_height="wrap_content">
                     <androidx.appcompat.widget.Toolbar
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/my_toolbar"
-                        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:minHeight="?attr/actionBarSize"
-                        android:background="@android:color/transparent">
+                        android:minHeight="?attr/actionBarSize">
                         <arcus.app.common.view.ScleraTextView
                             android:id="@+id/toolbar_title"
                             android:textSize="12sp"

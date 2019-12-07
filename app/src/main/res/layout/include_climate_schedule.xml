@@ -23,7 +23,7 @@
     android:layout_gravity="center_vertical"
     android:gravity="center_vertical">
 
-    <androidx.legacy.widget.Space
+    <Space
         android:layout_width="0dp"
         android:layout_height="0dp"/>
 

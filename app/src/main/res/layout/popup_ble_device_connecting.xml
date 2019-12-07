@@ -38,8 +38,8 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        style="@style/ScleraProgressIndeterminateBar"
-        android:theme="@style/ScleraProgressIndeterminateBar"
+        style="@style/Widget.Arcus.ProgressBar.Indeterminate"
+        android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="30dp"
@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <androidx.legacy.widget.Space
+    <Space
         app:layout_constraintTop_toBottomOf="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="32dp"

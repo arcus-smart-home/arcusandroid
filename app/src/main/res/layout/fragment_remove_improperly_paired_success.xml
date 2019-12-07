@@ -35,7 +35,6 @@
         android:visibility="visible"/>
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/remove_success_title"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"

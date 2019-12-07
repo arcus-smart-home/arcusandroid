@@ -26,7 +26,7 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/ScleraColumnLayout"
+        style="@style/Widget.Arcus.Column"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/sclera_widget_edge_combined"
@@ -46,7 +46,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/promon_title"
-            style="@style/ScleraLineSpacing.1.37"
             scleraFontStyle="normal"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
@@ -64,7 +63,6 @@
 
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/promon_description"
-            style="@style/ScleraLineSpacing.1.37"
             scleraFontStyle="normal"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"

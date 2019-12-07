@@ -22,6 +22,7 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -29,7 +30,6 @@ import arcus.cornea.SessionController
 import arcus.app.R
 import arcus.app.common.utils.ImageUtils
 import arcus.app.common.utils.StringUtils.lowerCase
-import arcus.app.common.view.ScleraButton
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.presentation.pairing.device.customization.CustomizationStep
@@ -56,8 +56,8 @@ class SecurityModeFragment : Fragment(),
     private lateinit var securityTitle: ScleraTextView
     private lateinit var securityDescription: ScleraTextView
     private lateinit var securityInfo: ScleraTextView
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
     private lateinit var mCallback: CustomizationNavigationDelegate
     private lateinit var securityModesList: RadioGroup
     private lateinit var onPartialMode: RadioButton

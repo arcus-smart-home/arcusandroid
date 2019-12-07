@@ -41,7 +41,6 @@
             tools:src="@drawable/irrigation_zone_small"/>
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_info_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -58,7 +57,6 @@
             tools:text="Generic Info Title"/>
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_info_desc"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -93,7 +91,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bottom_divider"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:listitem="@layout/customization_step_list"/>
+            tools:listitem="@layout/customization_step_list"
+            tools:itemCount="3" />
 
         <LinearLayout
             android:id="@+id/buttons_container"
@@ -105,7 +104,7 @@
             app:layout_constraintTop_toBottomOf="@id/orbit_zone_recycler_view"
             app:layout_constraintVertical_bias="1.0"
             android:orientation="vertical"
-            style="@style/ScleraColumnLayout">
+            style="@style/Widget.Arcus.Column">
 
             <arcus.app.common.view.ScleraButton
                 android:id="@+id/next_button"

@@ -23,6 +23,7 @@
     <application
         android:name=".ArcusApplication"
         android:label="Arcus Debug"
+        android:usesCleartextTraffic="true"
         tools:replace="label"
         />
 

@@ -86,13 +86,13 @@
                 android:background="@drawable/button_done"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/registration_button_height" />
+                android:layout_height="@dimen/dp_40" />
             <Button
                 android:id="@+id/reject_button"
                 android:background="@drawable/button_contact_support"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/registration_button_height" />
+                android:layout_height="@dimen/dp_40" />
         </LinearLayout>
     </LinearLayout>
 

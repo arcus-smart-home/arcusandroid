@@ -90,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/switch_description"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        android:theme="@style/ScleraSwitchTheme"
+        android:theme="@style/Widget.Arcus.Switch"
         tools:checked="false"
         />
 

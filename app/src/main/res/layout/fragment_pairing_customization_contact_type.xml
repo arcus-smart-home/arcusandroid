@@ -44,7 +44,6 @@
                 tools:src="@drawable/image_placeholder"
                 />
             <arcus.app.common.view.ScleraTextView
-                style="@style/ScleraLineSpacing.1.37"
                 android:id="@+id/customization_contact_type_title"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
@@ -82,7 +81,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/divider">
 
                 <RadioButton
-                    style="@style/ScleraLineSpacing.1.37"
                     android:id="@+id/door_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,7 +101,6 @@
                     android:background="@color/sclera_divider_color" />
 
                 <RadioButton
-                    style="@style/ScleraLineSpacing.1.37"
                     android:id="@+id/window_radio-button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,7 +122,6 @@
                     android:background="@color/sclera_divider_color" />
 
                 <RadioButton
-                    style="@style/ScleraLineSpacing.1.37"
                     android:id="@+id/other_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

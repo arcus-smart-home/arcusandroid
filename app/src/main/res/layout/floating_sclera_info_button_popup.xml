@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        style="@style/ScleraColumnLayout">
+        style="@style/Widget.Arcus.Column">
         <arcus.app.common.view.ScleraTextView
             android:id="@+id/info_text_title"
             android:gravity="center"

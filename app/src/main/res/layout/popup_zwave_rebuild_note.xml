@@ -29,7 +29,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/title"
-        style="@style/ScleraLineSpacing.1.37"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +41,6 @@
         android:text="@string/zw_rebuild_note"/>
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/description"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"

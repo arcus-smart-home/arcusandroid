@@ -53,7 +53,7 @@
         <arcus.app.common.view.Version1Button
             android:id="@+id/fragment_account_parent_continue_btn"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/registration_button_height"
+            android:layout_height="@dimen/dp_40"
             android:layout_alignParentBottom="true"
             android:text="@string/pairing_next"
             app:buttonFont="demi"

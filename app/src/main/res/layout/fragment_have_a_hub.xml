@@ -45,7 +45,7 @@
 
         <RelativeLayout
             android:id="@+id/confetti_container"
-            style="@style/ScleraColumnLayout"
+            style="@style/Widget.Arcus.Column"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
@@ -120,7 +120,7 @@
                     android:layout_marginBottom="@dimen/dp_32"
                     android:gravity="center"
                     android:textSize="@dimen/pt_14"
-                    app:html="@string/take_to_dashboard"
+                    android:text="@string/take_to_dashboard"
                     />
 
             </LinearLayout>

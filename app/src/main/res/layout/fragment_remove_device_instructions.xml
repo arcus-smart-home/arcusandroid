@@ -29,8 +29,8 @@
         android:descendantFocusability="beforeDescendants">
         <ProgressBar
             android:id="@+id/progress"
-            style="@style/ScleraProgressIndeterminateBar"
-            android:theme="@style/ScleraProgressIndeterminateBar"
+            style="@style/Widget.Arcus.ProgressBar.Indeterminate"
+            android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_40"

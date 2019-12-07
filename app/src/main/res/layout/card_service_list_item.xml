@@ -78,7 +78,7 @@
             android:text="@null"
             android:textOff="@null"
             android:textOn="@null"
-            android:theme="@style/ScleraSwitchTheme" />
+            android:theme="@style/Widget.Arcus.Switch" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

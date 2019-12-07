@@ -13,7 +13,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -46,7 +47,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="5dp"
                          />
 
                 </LinearLayout>
@@ -78,16 +78,14 @@
                             android:src="@drawable/icon_alert_noconnection_outline"
                             android:tint="@color/white" />
 
-                        <arcus.app.common.view.ScleraTextView
+                        <TextView
                             android:id="@+id/error_banner_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/sclera_text_color_light"
-                            android:textColorLink="@color/sclera_text_color_light"
-                            android:textSize="12sp"
-                            app:html="@string/login_generic_error" />
+                            style="@style/Widget.Arcus.TextAppearance.ErrorBanner"
+                            android:text="@string/login_generic_error" />
 
                     </LinearLayout>
 
@@ -108,34 +106,38 @@
                             android:src="@drawable/icon_alert_noconnection_outline"
                             android:tint="@color/white" />
 
-                        <arcus.app.common.view.Version1TextView
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
                             android:text="@string/login_invalid_password"
-                            android:textColor="@color/sclera_text_color_light" />
+                            style="@style/Widget.Arcus.TextAppearance.ErrorBanner" />
 
                     </LinearLayout>
 
-                    <arcus.app.common.view.ScleraTextView
-                        style="@style/ScleraFontSubtitle"
+                    <TextView
+                        style="@style/Widget.Arcus.TextAppearance.Subtitle.Light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="4dp"
                         android:gravity="center"
-                        android:text="@string/login_title"
-                        android:textColor="@color/sclera_text_color_light" />
+                        android:text="@string/login_title" />
 
                 </RelativeLayout>
 
                 <LinearLayout
-                    style="@style/ScleraShadowBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="17dp"
+                    android:padding="14dp"
+                    android:background="@drawable/sclera_box"
+                    android:elevation="3dp"
+                    android:radius="2dp">
 
                     <arcus.app.common.view.ScleraEditText
                         android:id="@+id/email"
@@ -176,32 +178,34 @@
                         app:met_errorColor="@color/sclera_alert"
                         />
 
-                    <arcus.app.common.view.ScleraButton
+                    <Button
+                        style="@style/Widget.Arcus.Button.Purple"
                         android:id="@+id/login"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:text="@string/login_login"
-                        app:scleraButtonColor="purple" />
+                        />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <arcus.app.common.view.ScleraTextView
+                        <TextView
                             android:id="@+id/forgot_password"
-                            style="@style/ScleraFontBody3"
+                            style="@style/Widget.Arcus.TextAppearance.Body"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:paddingRight="15dp"
                             android:paddingTop="15dp"
-                            android:text="@string/login_forgot_password" />
+                            android:paddingRight="15dp"
+                            android:text="@string/login_forgot_password"
+                            />
 
-                        <arcus.app.common.view.ScleraTextView
+                        <TextView
                             android:id="@+id/use_invitation_code"
-                            style="@style/ScleraFontBody3"
+                            style="@style/Widget.Arcus.TextAppearance.Body"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -214,9 +218,9 @@
 
                 </LinearLayout>
 
-                <arcus.app.common.view.ScleraTextView
+                <TextView
                     android:id="@+id/create_account"
-                    style="@style/ScleraFontBody2"
+                    style="@style/Widget.Arcus.TextAppearance.Body.Medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -237,9 +241,12 @@
         android:layout_alignParentTop="true"
         android:background="@color/black_with_35"
         android:visibility="gone"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
-        <arcus.app.common.view.Version1IndeterminateProgress
+        <!-- TODO: Check color... -->
+        <ProgressBar
+            android:theme="@style/Widget.Arcus.ProgressBar.Indeterminate.White"
+            android:indeterminate="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"

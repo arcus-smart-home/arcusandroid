@@ -34,7 +34,6 @@
 
     <arcus.app.common.view.ScleraTextView
         android:id="@+id/step_content"
-        style="@style/ScleraLineSpacing.1.37"
         android:paddingStart="15dp"
         android:paddingEnd="0dp"
         android:layout_width="@dimen/match_constraint"

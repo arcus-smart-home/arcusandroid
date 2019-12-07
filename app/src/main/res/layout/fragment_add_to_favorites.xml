@@ -33,7 +33,6 @@
         android:orientation="vertical" >
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/favorites_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +44,6 @@
             tools:text="@string/favorites_title_text" />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/favorites_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +64,6 @@
             android:src="@drawable/heart_teal_unfill_81x75" />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/favorites_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

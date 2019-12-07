@@ -94,6 +94,12 @@
     <dimen name="match_constraint">@dimen/dp_0</dimen> <!-- Alias -->
     <dimen name="horizontal_divider_height">1dp</dimen>
 
+    <dimen name="keyline_0">2dp</dimen>
+    <dimen name="keyline_1">4dp</dimen>
+    <dimen name="keyline_2">8dp</dimen>
+    <dimen name="keyline_4">16dp</dimen>
+    <dimen name="keyline_5">24dp</dimen>
+
     <dimen name="pt_20">20sp</dimen>
     <dimen name="pt_18">18sp</dimen>
     <dimen name="pt_16">16sp</dimen>
@@ -102,4 +108,5 @@
 
     <dimen name="sclera_linespacingMultipler">1.37</dimen>
     <dimen name="sclera_linespacingAdd">1.37sp</dimen>
+    <dimen name="textViewLineSpacingMultiplier">1.10</dimen>
 </resources>

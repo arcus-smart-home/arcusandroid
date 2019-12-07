@@ -58,7 +58,7 @@
             style="@style/ExoMediaButton.Pause"
             />
 
-        <androidx.legacy.widget.Space
+        <Space
             android:layout_width="25dp"
             android:layout_height="match_parent"
             />

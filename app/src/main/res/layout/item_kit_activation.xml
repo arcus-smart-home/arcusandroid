@@ -46,7 +46,6 @@
         />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -61,7 +60,6 @@
         />
 
     <arcus.app.common.view.ScleraTextView
-        style="@style/ScleraLineSpacing.1.37"
         android:id="@+id/product_extra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

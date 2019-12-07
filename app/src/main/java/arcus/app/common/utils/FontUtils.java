@@ -19,7 +19,9 @@ import android.content.Context;
 import android.graphics.Typeface;
 import androidx.annotation.NonNull;
 
+import androidx.core.content.res.ResourcesCompat;
 import arcus.app.ArcusApplication;
+import arcus.app.R;
 
 
 public class FontUtils {
@@ -29,11 +31,12 @@ public class FontUtils {
     private static final Typeface BOLD;
     private static final Typeface ITALIC;
     static {
-        NORMAL = Typeface.createFromAsset(ArcusApplication.getContext().getAssets(), "fonts/avenir_regular.ttf");
-        LIGHT = Typeface.createFromAsset(ArcusApplication.getContext().getAssets(), "fonts/avenir_light.ttf");
-        DEMI = Typeface.createFromAsset(ArcusApplication.getContext().getAssets(), "fonts/avenir_demi.ttf");
-        BOLD = Typeface.createFromAsset(ArcusApplication.getContext().getAssets(), "fonts/avenir_bold.ttf");
-        ITALIC = Typeface.createFromAsset(ArcusApplication.getContext().getAssets(), "fonts/avenir_italic.ttf");
+        Context context = ArcusApplication.getContext();
+        NORMAL = ResourcesCompat.getFont(context, R.font.nunito);
+        LIGHT = ResourcesCompat.getFont(context, R.font.nunito_light);
+        DEMI = ResourcesCompat.getFont(context, R.font.nunito_demi);
+        BOLD = ResourcesCompat.getFont(context, R.font.nunito_bold);
+        ITALIC = ResourcesCompat.getFont(context, R.font.nunito_italic);
     }
 
     @Deprecated

@@ -44,7 +44,6 @@
             />
 
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_info_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -98,7 +97,6 @@
             app:layout_constraintTop_toBottomOf="@+id/zone_name">
 
             <arcus.app.common.view.ScleraTextView
-                style="@style/ScleraLineSpacing.1.37"
                 android:id="@+id/water_duration"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
@@ -111,7 +109,6 @@
                 app:scleraFontStyle="normal" />
 
             <arcus.app.common.view.ScleraTextView
-                style="@style/ScleraLineSpacing.1.37"
                 android:paddingTop="5dp"
                 android:id="@+id/description"
                 android:layout_width="@dimen/match_constraint"
@@ -126,7 +123,6 @@
                 app:scleraFontStyle="normal" />
 
             <arcus.app.common.view.ScleraTextView
-                style="@style/ScleraLineSpacing.1.37"
                 android:id="@+id/duration_slot"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
@@ -171,7 +167,7 @@
             app:layout_constraintTop_toBottomOf="@id/second_bottom_divider"
             app:layout_constraintVertical_bias="1.0"
             android:orientation="vertical"
-            style="@style/ScleraColumnLayout">
+            style="@style/Widget.Arcus.Column">
 
             <arcus.app.common.view.ScleraButton
                 android:id="@+id/next_button"

@@ -44,7 +44,6 @@
             tools:src="@drawable/add_place"
             />
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_info_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -60,7 +59,6 @@
             tools:text="Generic Info Title"
             />
         <arcus.app.common.view.ScleraTextView
-            style="@style/ScleraLineSpacing.1.37"
             android:id="@+id/customization_info_desc"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
