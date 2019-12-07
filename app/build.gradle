@@ -19,7 +19,6 @@ androidExtensions {
 
 android {
     compileSdkVersion compileSdk
-    buildToolsVersion androidToolsVersion
 
     defaultConfig {
         applicationId "arcus.app"

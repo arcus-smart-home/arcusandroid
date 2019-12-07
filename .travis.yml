@@ -7,6 +7,9 @@ before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
+before_install:
+  - yes | sdkmanager --licenses
+
 cache:
   directories:
     - $HOME/.gradle/caches/
@@ -20,7 +23,7 @@ android:
     # - platform-tools
 
     # The BuildTools version used by your project
-    - build-tools-28.0.3
+    - build-tools-29.0.2
 
     # The SDK version used to compile your project
     - android-28
