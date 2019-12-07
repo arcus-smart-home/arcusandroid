@@ -35,8 +35,7 @@ import arcus.app.activities.DashboardActivity
 import arcus.app.activities.GenericFragmentActivity
 import arcus.app.common.fragments.ModalBottomSheet
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraButton
-import arcus.app.common.view.ScleraButtonColor
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.searching.DeviceSearchingActivity
 import com.viewpagerindicator.CirclePageIndicator
@@ -67,9 +66,9 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
         private set
     lateinit var circlePageIndicator : CirclePageIndicator
         private set
-    lateinit var nextButton : ScleraButton
+    lateinit var nextButton : Button
         private set
-    lateinit var setupButton : ScleraButton
+    lateinit var setupButton : Button
         private set
 
     private lateinit var watchTutorialBanner : LinearLayout
@@ -323,7 +322,6 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
             circlePageIndicator.visibility = View.GONE
 
             nextButton.text = ""
-            nextButton.setColorScheme(ScleraButtonColor.SOLID_DISABLED)
             disableContinue()
         }
     }

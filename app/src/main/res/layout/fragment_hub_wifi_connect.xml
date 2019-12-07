@@ -129,7 +129,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/connect_to_wifi_button"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/unsecured_network_title"
                 app:scleraFontStyle="normal" />
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/unsecured_connect_to_wifi_button"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"

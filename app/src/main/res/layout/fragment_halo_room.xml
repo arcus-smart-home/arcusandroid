@@ -102,20 +102,20 @@
             app:layout_constraintTop_toBottomOf="@+id/step_modes_list"
             app:layout_constraintVertical_bias="1.0">
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/next_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:text="@string/pairing_next"
-                app:buttonColorScheme="purple" />
+                style="@style/Widget.Arcus.Button.Purple" />
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/cancel_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cancel_text"
-                app:scleraButtonColor="purple_outline" />
+                style="@style/Widget.Arcus.Button.PurpleOutline" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

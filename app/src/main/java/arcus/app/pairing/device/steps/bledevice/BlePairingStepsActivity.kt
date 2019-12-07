@@ -30,7 +30,8 @@ import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
 import arcus.app.common.view.DisableSwipeViewPager
 import arcus.app.common.fragment.TitledFragment
-import arcus.app.common.view.ScleraButtonColor
+import arcus.app.common.utils.setColorSchemePurple
+import arcus.app.common.utils.setColorSchemePurpleOutline
 import arcus.app.device.settings.wifi.BleWiFiReconfigureStepFragment
 import arcus.app.pairing.device.steps.bledevice.connect.BleConnectFragment
 import arcus.app.pairing.device.steps.PairingStepsActivity
@@ -41,7 +42,6 @@ import arcus.presentation.ble.AndroidBleConnector
 import arcus.presentation.ble.BleConnector
 import arcus.presentation.pairing.V03_HUB_PRODUCT_ADDRESS
 import kotlin.properties.Delegates
-
 
 interface BleStepsNavigationDelegate {
     /**
@@ -101,14 +101,14 @@ class BlePairingStepsActivity : PairingStepsActivity(), BleStepsNavigationDelega
                 currentFragment is BleWiFiReconfigureStepFragment && position == 0 -> {
                     backEnabled = false
                     // Setup becomes next, next becomes cancel
-                    setupButton.setColorScheme(ScleraButtonColor.SOLID_PURPLE)
+                    setupButton.setColorSchemePurple()
                     setupButton.text = getString(R.string.pairing_next)
                     setupButton.visibility = View.VISIBLE
                     setupButton.setOnClickListener {
                         viewPager.setCurrentItem(viewPager.currentItem + 1, true)
                     }
                     nextButton.isEnabled = true
-                    nextButton.setColorScheme(ScleraButtonColor.OUTLINE_PURPLE)
+                    nextButton.setColorSchemePurpleOutline()
                     nextButton.text = getString(R.string.cancel_text)
                     nextButton.setOnClickListener {
                         finish()
@@ -120,7 +120,7 @@ class BlePairingStepsActivity : PairingStepsActivity(), BleStepsNavigationDelega
                 else -> {
                     setupButton.visibility = View.GONE
                     backEnabled = true
-                    nextButton.setColorScheme(ScleraButtonColor.SOLID_PURPLE)
+                    nextButton.setColorSchemePurple()
                     updateNextButtonText(position)
                     enableContinue()
                 }
@@ -253,14 +253,14 @@ class BlePairingStepsActivity : PairingStepsActivity(), BleStepsNavigationDelega
         if (viewPager.currentItem == 0 && isForReconnect) {
             backEnabled = false
             // Setup becomes next, next becomes cancel
-            setupButton.setColorScheme(ScleraButtonColor.SOLID_PURPLE)
+            setupButton.setColorSchemePurple()
             setupButton.text = getString(R.string.pairing_next)
             setupButton.visibility = View.VISIBLE
             setupButton.setOnClickListener {
                 viewPager.setCurrentItem(viewPager.currentItem + 1, true)
             }
             nextButton.isEnabled = true
-            nextButton.setColorScheme(ScleraButtonColor.OUTLINE_PURPLE)
+            nextButton.setColorSchemePurpleOutline()
             nextButton.text = getString(R.string.cancel_text)
             nextButton.setOnClickListener {
                 finish()

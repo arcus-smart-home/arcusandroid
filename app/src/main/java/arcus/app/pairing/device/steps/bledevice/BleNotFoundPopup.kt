@@ -20,7 +20,7 @@ import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 class BleNotFoundPopup : ModalBottomSheet() {
     override fun allowDragging() = false
@@ -29,7 +29,7 @@ class BleNotFoundPopup : ModalBottomSheet() {
     override fun getLayoutResourceId() = R.layout.popup_ble_not_found
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<ScleraButton>(R.id.close_button).setOnClickListener {
+        view.findViewById<Button>(R.id.close_button).setOnClickListener {
             dismiss()
         }
     }

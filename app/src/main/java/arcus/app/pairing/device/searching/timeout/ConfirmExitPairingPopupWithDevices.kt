@@ -20,8 +20,11 @@ import androidx.core.content.ContextCompat
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
-import arcus.app.common.view.ScleraButtonColor
+import android.widget.Button
+import arcus.app.common.utils.setColorSchemePurple
+import arcus.app.common.utils.setColorSchemePurpleOutline
+import arcus.app.common.utils.setColorSchemeWhiteRedText
+import arcus.app.common.utils.setColorSchemeWhiteOutline
 import arcus.app.common.view.ScleraTextView
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
@@ -39,14 +42,14 @@ class ConfirmExitPairingPopupWithDevices : ModalBottomSheet() {
         val body = view.findViewById<ScleraTextView>(R.id.description_text_view)
         body.text = arguments?.getString(ARG_DESCRIPTION)
 
-        val cancelButton = view.findViewById<ScleraButton>(R.id.cancel_button)
+        val cancelButton = view.findViewById<Button>(R.id.cancel_button)
         cancelButton.text = getString(R.string.go_to_dashboard)
         cancelButton.setOnClickListener {
             dismiss()
             goToDashboardButtonListener.get()?.invoke()
         }
 
-        val okButton = view.findViewById<ScleraButton>(R.id.ok_button)
+        val okButton = view.findViewById<Button>(R.id.ok_button)
         okButton.text = arguments?.getString(ARG_TOP_BUTTON)
         okButton.setOnClickListener {
             dismiss()
@@ -59,15 +62,15 @@ class ConfirmExitPairingPopupWithDevices : ModalBottomSheet() {
             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.sclera_alert))
             title.setTextColor(white)
             body.setTextColor(white)
-            okButton.setColorScheme(ScleraButtonColor.SOLID_WHITE_RED_TEXT)
-            cancelButton.setColorScheme(ScleraButtonColor.OUTLINE_WHITE)
+            okButton.setColorSchemeWhiteRedText()
+            cancelButton.setColorSchemeWhiteOutline()
         } else {
             val dark  = ContextCompat.getColor(view.context, R.color.sclera_text_color_dark)
             view.setBackgroundColor(white)
             title.setTextColor(dark)
             body.setTextColor(dark)
-            okButton.setColorScheme(ScleraButtonColor.SOLID_PURPLE)
-            cancelButton.setColorScheme(ScleraButtonColor.OUTLINE_PURPLE)
+            okButton.setColorSchemePurple()
+            cancelButton.setColorSchemePurpleOutline()
         }
 
     }
@@ -78,6 +81,7 @@ class ConfirmExitPairingPopupWithDevices : ModalBottomSheet() {
     }
 
     override fun cleanUp() {
+        super.cleanUp()
         topButtonListener.clear()
         goToDashboardButtonListener.clear()
     }

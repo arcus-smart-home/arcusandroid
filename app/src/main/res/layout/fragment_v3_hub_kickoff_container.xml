@@ -80,22 +80,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/dp_16">
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:scleraButtonColor="purple"
+            style="@style/Widget.Arcus.Button.Purple"
             android:text="@string/next"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginBottom="@dimen/dp_8"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/ethernet_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             android:text="@string/user_ethernet"
             android:visibility="gone"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"

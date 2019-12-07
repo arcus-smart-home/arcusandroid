@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title_text"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,17 +93,17 @@
             app:layout_constraintBottom_toTopOf="@+id/connect_to_wifi_button"
             app:layout_constraintTop_toBottomOf="@+id/sub_title_text"
             app:layout_constraintVertical_bias="1.0"
-            app:scleraButtonColor="purple"
+            style="@style/Widget.Arcus.Button.Purple"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/connect_to_wifi_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_25"
             android:text="@string/connect_hub_wifi"
             app:layout_constraintBottom_toTopOf="@+id/go_to_dashboard_link"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             />
 
         <arcus.app.common.view.ScleraLinkView

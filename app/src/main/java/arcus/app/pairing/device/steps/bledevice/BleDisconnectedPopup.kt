@@ -20,7 +20,7 @@ import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 
 class BleDisconnectedPopup : ModalBottomSheet() {
@@ -33,7 +33,7 @@ class BleDisconnectedPopup : ModalBottomSheet() {
     override fun getLayoutResourceId() = R.layout.popup_ble_disconnected
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<ScleraButton>(R.id.ok_button).setOnClickListener {
+        view.findViewById<Button>(R.id.ok_button).setOnClickListener {
             dismiss()
             okButtonClickAction?.invoke()
         }

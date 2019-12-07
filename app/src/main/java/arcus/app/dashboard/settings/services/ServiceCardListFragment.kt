@@ -32,7 +32,7 @@ import arcus.app.R
 import arcus.app.common.fragment.FragmentContainerHolder
 import arcus.app.common.utils.GlobalSetting
 import arcus.app.common.utils.inflate
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 import arcus.app.dashboard.settings.adapters.InactiveServicesListAdapter
 import arcus.app.dashboard.settings.adapters.ServiceCardListAdapter
@@ -89,7 +89,7 @@ class ServiceCardListFragment : Fragment() {
         val makeCardsActive: ScleraLinkView = view.findViewById(R.id.make_cards_active)
         makeCardsActive.setLinkTextAndTarget(getString(R.string.make_cards_active), GlobalSetting.ACTIVATE_CARDS_URL)
 
-        view.findViewById<ScleraButton>(R.id.close_button).setOnClickListener {
+        view.findViewById<Button>(R.id.close_button).setOnClickListener {
             activity?.finish()
         }
     }

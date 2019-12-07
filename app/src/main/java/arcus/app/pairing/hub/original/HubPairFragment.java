@@ -29,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.iris.client.capability.Place;
@@ -42,8 +43,7 @@ import arcus.app.common.utils.ActivityUtils;
 import arcus.app.common.utils.Errors;
 import arcus.app.common.utils.GlobalSetting;
 import arcus.app.common.view.ProgressBarFromToAnimation;
-import arcus.app.common.view.ScleraButton;
-import arcus.app.common.view.ScleraButtonColor;
+import arcus.app.common.view.ButtonColor;
 import arcus.app.common.view.ScleraEditText;
 import arcus.app.common.view.ScleraTextView;
 import arcus.app.dashboard.HomeFragment;
@@ -73,8 +73,8 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
     ScleraEditText hubId;
     ScleraTextView exitPairing;
 
-    ScleraButton pairingButton;
-    ScleraButton supportButton;
+    Button pairingButton;
+    Button supportButton;
     ProgressBarTimerTask task;
 
     String title = "";
@@ -131,8 +131,8 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
         progressPercent = (ScleraTextView) view.findViewById(R.id.progress_percent);
         needHelp = (ScleraTextView) view.findViewById(R.id.need_help);
 
-        pairingButton = (ScleraButton) view.findViewById(R.id.hub_pairing_button);
-        supportButton = (ScleraButton) view.findViewById(R.id.call_support_button);
+        pairingButton = view.findViewById(R.id.hub_pairing_button);
+        supportButton = view.findViewById(R.id.call_support_button);
 
         hubId = (ScleraEditText) view.findViewById(R.id.hub_edittext_id);
         exitPairing = (ScleraTextView) view.findViewById(R.id.exit_pairing);
@@ -537,8 +537,8 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
                 promptBody,
                 getString(R.string.yes_dashboard).toUpperCase(),
                 getString(R.string.cancel).toUpperCase(),
-                ScleraButtonColor.SOLID_PURPLE,
-                ScleraButtonColor.OUTLINE_PURPLE,
+                ButtonColor.SOLID_PURPLE,
+                ButtonColor.OUTLINE_PURPLE,
                 false
         );
 

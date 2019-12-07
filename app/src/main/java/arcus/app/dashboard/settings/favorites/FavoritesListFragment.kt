@@ -28,7 +28,7 @@ import arcus.app.R
 import arcus.app.common.fragment.FragmentContainerHolder
 import arcus.app.common.utils.PreferenceUtils
 import arcus.app.common.utils.inflate
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 
 class FavoritesListFragment : Fragment() {

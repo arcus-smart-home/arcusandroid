@@ -22,7 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
@@ -46,8 +46,8 @@ class WaterHeaterModelSerialNumberFragment : Fragment(),
     private lateinit var modelNumber: ScleraEditText
     private lateinit var serialNumber: ScleraEditText
 
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
 
     private var callback by Delegates.notNull<CustomizationNavigationDelegate>()
 

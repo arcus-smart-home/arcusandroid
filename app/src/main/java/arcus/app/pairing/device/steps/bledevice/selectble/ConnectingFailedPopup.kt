@@ -19,7 +19,7 @@ import android.os.Bundle
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 
 
@@ -37,12 +37,12 @@ class ConnectingFailedPopup : ModalBottomSheet() {
             dismiss()
         }
 
-        view.findViewById<ScleraButton>(R.id.try_again_button).setOnClickListener {
+        view.findViewById<Button>(R.id.try_again_button).setOnClickListener {
             tryAgainButtonClickHandler?.invoke()
             dismiss()
         }
 
-        view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {
+        view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
             cancelButtonClickHandler?.invoke()
             dismiss()
         }

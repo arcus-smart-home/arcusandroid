@@ -25,7 +25,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.app.pairing.device.customization.favorite.FavoritesFragment
@@ -46,8 +46,8 @@ class HaloRoomFragment : Fragment(),
     private lateinit var customizationStep: CustomizationStep
     private lateinit var stepTitle: ScleraTextView
     private lateinit var stepDescription: ScleraTextView
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
     private lateinit var adapterCallback : HaloRoomAdapter.HaloRoomAdapterCallback
     private lateinit var mCallback: CustomizationNavigationDelegate
     private lateinit var recyclerView: RecyclerView

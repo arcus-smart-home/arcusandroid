@@ -83,13 +83,13 @@
         app:layout_constraintTop_toBottomOf="@id/step_title"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/next_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp_8"
         android:text="@string/next"
-        app:buttonColorScheme="purple"
+        style="@style/Widget.Arcus.Button.Purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

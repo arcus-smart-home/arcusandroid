@@ -20,7 +20,7 @@ import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 
 
@@ -56,14 +56,14 @@ class ModalErrorBottomSheet : ModalBottomSheet() {
         val errorDescriptionTextView = view.findViewById<ScleraTextView>(R.id.modal_error_description)
         errorDescriptionTextView?.text = errorDescription
 
-        view.findViewById<ScleraButton>(R.id.modal_error_support_button)?.text = topButtonText
-        view.findViewById<ScleraButton>(R.id.modal_error_dismiss_button)?.text = bottomButtonText
-        view.findViewById<ScleraButton>(R.id.modal_error_support_button)?.setOnClickListener {
+        view.findViewById<Button>(R.id.modal_error_support_button)?.text = topButtonText
+        view.findViewById<Button>(R.id.modal_error_dismiss_button)?.text = bottomButtonText
+        view.findViewById<Button>(R.id.modal_error_support_button)?.setOnClickListener {
             actionListener.invoke()
             dismiss()
         }
 
-        view.findViewById<ScleraButton>(R.id.modal_error_dismiss_button).setOnClickListener {
+        view.findViewById<Button>(R.id.modal_error_dismiss_button).setOnClickListener {
             dismiss()
         }
     }

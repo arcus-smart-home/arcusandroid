@@ -23,7 +23,7 @@ import android.widget.TextView
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 class FailedToWriteWiFiCredsPopup : ModalBottomSheet() {
     var tryAgainAction : (() -> Unit)? = null
@@ -44,7 +44,7 @@ class FailedToWriteWiFiCredsPopup : ModalBottomSheet() {
             }
         }
 
-        view.findViewById<ScleraButton>(R.id.try_again_button).setOnClickListener {
+        view.findViewById<Button>(R.id.try_again_button).setOnClickListener {
             dismiss()
             tryAgainAction?.invoke()
         }

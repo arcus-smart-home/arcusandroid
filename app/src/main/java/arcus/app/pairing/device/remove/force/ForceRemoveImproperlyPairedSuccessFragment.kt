@@ -21,7 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.fragment.TitledFragment
 
 class ForceRemoveImproperlyPairedSuccessFragment :
@@ -36,7 +36,7 @@ class ForceRemoveImproperlyPairedSuccessFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<ScleraButton>(R.id.force_remove_success_ok_button).setOnClickListener {
+        view.findViewById<Button>(R.id.force_remove_success_ok_button).setOnClickListener {
             activity?.finish()
         }
     }

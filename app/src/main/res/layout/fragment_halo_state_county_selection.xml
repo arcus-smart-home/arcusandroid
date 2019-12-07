@@ -184,21 +184,21 @@
             android:background="@color/sclera_divider_color"/>
 
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/next_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:text="@string/save_text"
-            app:buttonColorScheme="purple"
+            style="@style/Widget.Arcus.Button.Purple"
             app:layout_constraintBottom_toTopOf="@id/cancel_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/county_divider"
             app:layout_constraintVertical_bias="1.0"/>
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            app:scleraButtonColor="purple_outline"/>
+            style="@style/Widget.Arcus.Button.PurpleOutline"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -73,20 +73,20 @@
             android:layout_marginBottom="15dp"
             android:orientation="vertical">
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/btn_correct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/device_remove_force_remove"
-                app:buttonFont="demi" />
+                />
 
-            <arcus.app.common.view.ScleraButton
+            <Button
                 android:id="@+id/btn_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/device_remove_force_remove"
-                app:buttonFont="demi"/>
+                />
         </LinearLayout>
 
     </LinearLayout>

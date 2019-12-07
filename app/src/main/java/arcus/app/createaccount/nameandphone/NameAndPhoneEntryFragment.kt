@@ -30,7 +30,7 @@ import arcus.app.common.image.ImageManager
 import arcus.app.common.image.ImageRepository
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation
 import arcus.app.common.view.CircularImageView
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraEditText
 import arcus.app.createaccount.CreateAccountFlow
 import com.rengwuxian.materialedittext.validation.METValidator
@@ -49,7 +49,7 @@ class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
     }
 
     private lateinit var personImage  : CircularImageView
-    private lateinit var nextButton   : ScleraButton
+    private lateinit var nextButton   : Button
     private lateinit var firstName    : ScleraEditText
     private lateinit var lastName     : ScleraEditText
     private lateinit var phoneNumber  : ScleraEditText
@@ -136,7 +136,7 @@ class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
             }
         }
 
-        view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener {
+        view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
             callback.finishFlow()
         }
     }

@@ -35,7 +35,7 @@ import arcus.app.common.utils.PreferenceUtils
 import arcus.app.common.utils.enableViews
 import arcus.app.common.utils.inflate
 import arcus.app.common.validation.CustomEmailValidator
-import arcus.app.common.view.ScleraButtonWithProgress
+import arcus.app.common.view.ButtonWithProgress
 import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraLinkView
 import org.slf4j.LoggerFactory
@@ -46,7 +46,7 @@ class AccountLoginForgotFragment : Fragment() {
 
     private lateinit var email: ScleraEditText
     private lateinit var bypassLink: ScleraLinkView
-    private lateinit var submitBtn: ScleraButtonWithProgress
+    private lateinit var submitBtn: ButtonWithProgress
     private lateinit var cancelBtn: Button
     private lateinit var fieldEnableGroups: List<View>
 

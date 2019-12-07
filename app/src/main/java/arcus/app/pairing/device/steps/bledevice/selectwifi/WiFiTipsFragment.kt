@@ -23,7 +23,7 @@ import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 
 class WiFiTipsFragment : Fragment() {
@@ -39,7 +39,7 @@ class WiFiTipsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<ScleraButton>(R.id.ok_button).setOnClickListener {
+        view.findViewById<Button>(R.id.ok_button).setOnClickListener {
             activity?.finish()
         }
 

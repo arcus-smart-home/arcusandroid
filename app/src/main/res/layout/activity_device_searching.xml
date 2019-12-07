@@ -160,7 +160,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/center_content_container"
                 app:layout_constraintVertical_bias="1.0">
 
-                <arcus.app.common.view.ScleraButton
+                <Button
+                    style="@style/Widget.Arcus.Button.Purple"
                     android:id="@+id/pair_device_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -168,16 +169,15 @@
                     android:textAllCaps="true"
                     android:visibility="gone"
                     android:layout_marginBottom="10dp"
-                    app:scleraButtonColor="purple"
                     tools:visibility="visible" />
 
-                <arcus.app.common.view.ScleraButton
+                <Button
                     android:id="@+id/go_to_dashboard_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/device_searching_button_text"
                     android:textAllCaps="true"
-                    app:scleraButtonColor="purple_outline" />
+                    style="@style/Widget.Arcus.Button.PurpleOutline" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

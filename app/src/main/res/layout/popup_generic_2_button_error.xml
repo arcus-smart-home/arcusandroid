@@ -56,7 +56,7 @@
         tools:text="@string/unpinning_will_permanently_delete_the_video"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/top_button"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -66,12 +66,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description"
-        app:scleraButtonColor="white_with_red_text"
+        style="@style/Widget.Arcus.Button.White.RedText"
         tools:text="@string/no"
         />
 
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/bottom_button"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_button"
-        app:scleraButtonColor="white_with_red_text"
+        style="@style/Widget.Arcus.Button.White.RedText"
         tools:text="@string/yes"
         />
 

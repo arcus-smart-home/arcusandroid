@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/force_remove_success_ok_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
         android:layout_marginStart="@dimen/sclera_widget_edge_combined"
         android:layout_marginTop="8dp"
         android:text="@string/ok"
-        app:buttonColorScheme="purple"
+        style="@style/Widget.Arcus.Button.Purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

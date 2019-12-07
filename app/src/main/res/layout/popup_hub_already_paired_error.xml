@@ -72,7 +72,7 @@
         app:scleraFontStyle="normal"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/close_button"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/learn_more_link"
-        app:scleraButtonColor="white_with_red_text"
+        style="@style/Widget.Arcus.Button.White.RedText"
         />
 
     <Space

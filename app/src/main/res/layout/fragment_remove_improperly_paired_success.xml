@@ -65,12 +65,12 @@
         app:layout_constraintTop_toBottomOf="@+id/remove_success_title"
         app:layout_constraintVertical_bias="1.0">
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/remove_success_ok_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ok"
-            app:buttonColorScheme="purple" />
+            style="@style/Widget.Arcus.Button.Purple" />
 
     </LinearLayout>
 

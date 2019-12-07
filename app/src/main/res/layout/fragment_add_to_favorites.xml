@@ -83,21 +83,21 @@
         android:gravity="center|bottom"
         android:orientation="vertical" >
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pairing_next"
-            app:scleraButtonColor="purple" />
+            style="@style/Widget.Arcus.Button.Purple" />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/cancel"
             android:visibility="gone"
-            app:scleraButtonColor="purple_outline" />
+            style="@style/Widget.Arcus.Button.PurpleOutline" />
 
     </LinearLayout>
 

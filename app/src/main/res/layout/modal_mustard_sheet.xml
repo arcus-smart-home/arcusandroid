@@ -69,13 +69,13 @@
             android:textSize="@dimen/pt_16"
             android:text="@string/prompt_activate_all_of_the_devices_in_kit"/>
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/kit_devices_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_24"
             android:text="@string/finish_activation"
-            app:scleraButtonColor="purple" />
+            style="@style/Widget.Arcus.Button.Purple" />
 
         <arcus.app.common.view.ScleraDivider
             android:layout_width="match_parent"
@@ -112,13 +112,13 @@
             android:text="@string/follow_steps_to_resolve_improperly_paired_devices"
             android:textColor="@color/sclera_text_color_dark"/>
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/hub_devices_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_24"
             android:text="@string/resolve"
-            app:scleraButtonColor="purple" />
+            style="@style/Widget.Arcus.Button.Purple" />
 
         <arcus.app.common.view.ScleraDivider
             android:layout_width="match_parent"
@@ -135,7 +135,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"/>
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/modal_dismiss_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -147,6 +147,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:scleraButtonColor="purple_outline"/>
+        style="@style/Widget.Arcus.Button.PurpleOutline"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

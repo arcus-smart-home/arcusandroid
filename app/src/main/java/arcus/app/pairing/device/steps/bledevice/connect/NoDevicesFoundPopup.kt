@@ -23,7 +23,7 @@ import android.widget.TextView
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 
 class NoDevicesFoundPopup : ModalBottomSheet() {
@@ -41,7 +41,7 @@ class NoDevicesFoundPopup : ModalBottomSheet() {
                 ActivityUtils.launchUrl(bundle.getParcelable(ARG_FACTORY_RESET_LINK_URI))
             }
         }
-        view.findViewById<ScleraButton>(R.id.close_button).setOnClickListener {
+        view.findViewById<Button>(R.id.close_button).setOnClickListener {
             dismiss()
         }
     }

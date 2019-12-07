@@ -53,7 +53,7 @@
         app:scleraFontStyle="normal"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/ok_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,11 +61,11 @@
         android:layout_marginStart="@dimen/sclera_widget_edge_combined"
         android:layout_marginBottom="@dimen/sclera_button_to_button_spacing"
         android:text="@string/yes"
-        app:scleraButtonColor="white_with_red_text"
+        style="@style/Widget.Arcus.Button.White.RedText"
         android:textAllCaps="true"
         />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/cancel_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:layout_marginBottom="@dimen/sclera_screen_edge_LR_margin"
         android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
         android:text="@string/no"
-        app:scleraButtonColor="white_outline"
+        style="@style/Widget.Arcus.Button.WhiteOutline"
         android:textAllCaps="true"
         />
 </LinearLayout>

@@ -20,7 +20,7 @@ import android.view.View
 import arcus.app.R
 import arcus.app.activities.DashboardActivity
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
 
@@ -36,7 +36,7 @@ class ZWaveRebuildNotePopup : ModalBottomSheet() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<ScleraButton>(R.id.go_to_dashboard_button).setOnClickListener {
+        view.findViewById<Button>(R.id.go_to_dashboard_button).setOnClickListener {
             dismiss()
             goToDashboardListener.get()?.invoke()
         }

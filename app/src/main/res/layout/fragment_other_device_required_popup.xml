@@ -54,7 +54,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/pt_14" />
 
-    <arcus.app.common.view.ScleraButton
+    <Button
         android:id="@+id/dismiss_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,5 +66,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/required_body"
         app:layout_constraintVertical_bias="0.0"
-        app:scleraButtonColor="white_with_red_text" />
+        style="@style/Widget.Arcus.Button.White.RedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@ import androidx.annotation.LayoutRes
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
@@ -54,14 +54,14 @@ class Generic2ButtonErrorPopup : ModalBottomSheet() {
         view.findViewById<ScleraTextView>(R.id.title).text = titleText
         view.findViewById<ScleraTextView>(R.id.description).text = descriptionText
 
-        val topButton = view.findViewById<ScleraButton>(R.id.top_button)
+        val topButton = view.findViewById<Button>(R.id.top_button)
         topButton.text = topButtonText
         topButton.setOnClickListener {
             dismiss()
             topButtonListener.get()?.invoke()
         }
 
-        val bottomButton = view.findViewById<ScleraButton>(R.id.bottom_button)
+        val bottomButton = view.findViewById<Button>(R.id.bottom_button)
         bottomButton.text = bottomButtonText
         bottomButton.setOnClickListener {
             dismiss()
@@ -85,6 +85,7 @@ class Generic2ButtonErrorPopup : ModalBottomSheet() {
 
 
     override fun cleanUp() {
+        super.cleanUp()
         topButtonListener.clear()
         bottomButtonListener.clear()
     }

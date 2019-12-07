@@ -19,7 +19,7 @@ import android.os.Bundle
 import android.view.View
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraNumberPicker
 import arcus.app.common.view.ScleraTextView
 import arcus.presentation.pairing.device.customization.halo.statecounty.HaloStateAndCode
@@ -37,8 +37,8 @@ class HaloStateSelectionPopup : ModalBottomSheet() {
         super.onViewCreated(view, savedInstanceState)
         val title = view.findViewById<ScleraTextView>(R.id.spinner_title)
         val spinner = view.findViewById<ScleraNumberPicker>(R.id.spinning_picker)
-        val okButton = view.findViewById<ScleraButton>(R.id.ok_button)
-        val cancelButton = view.findViewById<ScleraButton>(R.id.cancel_button)
+        val okButton = view.findViewById<Button>(R.id.ok_button)
+        val cancelButton = view.findViewById<Button>(R.id.cancel_button)
 
         arguments?.let {
             initialState = it.getParcelable(ARG_CURRENT_STATE) as HaloStateAndCode?

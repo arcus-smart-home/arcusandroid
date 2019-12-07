@@ -30,7 +30,7 @@ import arcus.app.common.utils.ActivityUtils
 import arcus.app.common.utils.ImageUtils
 import arcus.app.common.utils.StringUtils
 import arcus.app.common.utils.inflate
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
@@ -52,8 +52,8 @@ class PromonUnlockedFragment : Fragment(),
     private lateinit var promonTitle: ScleraTextView
     private lateinit var promonDescription: ScleraTextView
     private lateinit var promonLink: ScleraLinkView
-    private lateinit var nextButton: ScleraButton
-    private lateinit var cancelButton: ScleraButton
+    private lateinit var nextButton: Button
+    private lateinit var cancelButton: Button
     private lateinit var alarmsContainer: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {

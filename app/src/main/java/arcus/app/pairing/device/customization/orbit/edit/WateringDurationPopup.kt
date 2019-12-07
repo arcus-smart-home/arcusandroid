@@ -21,7 +21,7 @@ import android.widget.NumberPicker
 import arcus.cornea.subsystem.lawnandgarden.utils.LNGDefaults
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 
 class WateringDurationPopup : ModalBottomSheet() {
     private lateinit var zoneDurationPicker : NumberPicker
@@ -50,8 +50,8 @@ class WateringDurationPopup : ModalBottomSheet() {
         val currentSelection = arguments?.getInt(ARG_CURRENT_VALUE, 1) ?: 1
         zoneDurationPicker.value = wateringTimes.indexOf(currentSelection)
 
-        view.findViewById<ScleraButton>(R.id.cancel_button).setOnClickListener { dismiss() }
-        view.findViewById<ScleraButton>(R.id.save_button).setOnClickListener { _ ->
+        view.findViewById<Button>(R.id.cancel_button).setOnClickListener { dismiss() }
+        view.findViewById<Button>(R.id.save_button).setOnClickListener { _ ->
             callback?.let {
                 it(wateringTimes[zoneDurationPicker.value])
                 dismiss()

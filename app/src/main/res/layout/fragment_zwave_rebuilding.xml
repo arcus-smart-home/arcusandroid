@@ -102,20 +102,20 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/continue_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/sclera_button_to_button_spacing"
             android:text="@string/zw_rebuild_to_dashboard"
-            app:scleraButtonColor="purple"
+            style="@style/Widget.Arcus.Button.Purple"
             app:layout_constraintBottom_toTopOf="@+id/cancel_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description"
             />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:scleraButtonColor="purple_outline"
+            style="@style/Widget.Arcus.Button.PurpleOutline"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -20,7 +20,7 @@ import android.view.View
 import arcus.app.R
 import arcus.app.activities.DashboardActivity
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraButton
+import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
@@ -39,14 +39,14 @@ class ConfirmExitPairingPopupNoDevices : ModalBottomSheet() {
         view.findViewById<ScleraTextView>(R.id.title_text_view).text = getString(R.string.exit_pairing_plain)
         view.findViewById<ScleraTextView>(R.id.description_text_view).text = getString(R.string.no_devices_found_yet)
 
-        val cancelButton = view.findViewById<ScleraButton>(R.id.cancel_button)
+        val cancelButton = view.findViewById<Button>(R.id.cancel_button)
         cancelButton.text = getString(R.string.go_to_dashboard)
         cancelButton.setOnClickListener {
             dismiss()
             goToDashboardListener.get()?.invoke()
         }
 
-        val okButton = view.findViewById<ScleraButton>(R.id.ok_button)
+        val okButton = view.findViewById<Button>(R.id.ok_button)
         okButton.text = getString(R.string.search_for_devices)
         okButton.setOnClickListener {
             dismiss()
@@ -68,6 +68,7 @@ class ConfirmExitPairingPopupNoDevices : ModalBottomSheet() {
     }
 
     override fun cleanUp() {
+        super.cleanUp()
         listener.clear()
     }
 }

@@ -127,7 +127,7 @@
             tools:listitem="@layout/item_kit_activation"
             tools:spanCount="2" />
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/go_to_dashboard_button"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"

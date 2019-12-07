@@ -101,20 +101,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" >
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/next_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/device_remove_retry_removing"
-            app:buttonColorScheme="purple"/>
+            style="@style/Widget.Arcus.Button.Purple"/>
 
-        <arcus.app.common.view.ScleraButton
+        <Button
             android:id="@+id/cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/sclera_button_to_button_spacing"
             android:text="@string/device_remove_force_remove"
-            app:scleraButtonColor="purple_outline"/>
+            style="@style/Widget.Arcus.Button.PurpleOutline"/>
 
         <arcus.app.common.view.ScleraLinkView
             android:id="@+id/cancel"

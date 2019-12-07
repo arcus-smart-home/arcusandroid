@@ -19,10 +19,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import arcus.app.R
 import arcus.app.common.image.UGCImageIntentResultHandler
-import arcus.app.common.view.ScleraButton
 import arcus.presentation.camera.AutoFitTextureView
 import arcus.presentation.camera.FLASH_ON
 import java.io.File
@@ -34,8 +34,8 @@ open class CameraFragment : BaseCameraFragment() {
     private lateinit var flipCameraButton : ImageButton
     private lateinit var takePictureButton : ImageButton
     private lateinit var savePictureButton : ImageButton
-    private lateinit var  cancelButton : ScleraButton
-    private lateinit var  retakeButton : ScleraButton
+    private lateinit var  cancelButton : Button
+    private lateinit var  retakeButton : Button
     private lateinit var pictureFile : File
 
     private val handler = UGCImageIntentResultHandler.getInstance()
