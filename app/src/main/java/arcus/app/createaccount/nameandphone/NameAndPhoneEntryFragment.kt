@@ -31,9 +31,12 @@ import arcus.app.common.image.ImageRepository
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation
 import arcus.app.common.view.CircularImageView
 import android.widget.Button
-import arcus.app.common.view.ScleraEditText
+import android.widget.EditText
+import arcus.app.common.utils.clearErrorsOnFocusChangedTo
+import arcus.app.common.validation.NotEmptyValidator
+import arcus.app.common.validation.PhoneNumberValidator
 import arcus.app.createaccount.CreateAccountFlow
-import com.rengwuxian.materialedittext.validation.METValidator
+import com.google.android.material.textfield.TextInputLayout
 
 class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
     private lateinit var callback : CreateAccountFlow
@@ -50,9 +53,12 @@ class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
 
     private lateinit var personImage  : CircularImageView
     private lateinit var nextButton   : Button
-    private lateinit var firstName    : ScleraEditText
-    private lateinit var lastName     : ScleraEditText
-    private lateinit var phoneNumber  : ScleraEditText
+    private lateinit var firstName    : EditText
+    private lateinit var firstNameContainer : TextInputLayout
+    private lateinit var lastName     : EditText
+    private lateinit var lastNameContainer : TextInputLayout
+    private lateinit var phoneNumber  : EditText
+    private lateinit var phoneNumberContainer : TextInputLayout
     private lateinit var focusHog     : View
 
     private val presenter : NameAndPhoneEntryPresenter = NameAndPhoneEntryPresenterImpl()
@@ -101,36 +107,27 @@ class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
                 .execute()
         }
 
+        firstNameContainer = view.findViewById(R.id.first_name_container)
         firstName = view.findViewById(R.id.first_name)
         firstName.filters = arrayOf(leadingSpaceFilter)
-        firstName.addValidator(object : METValidator(getString(R.string.missing_first_name)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean) = !isEmpty
-        })
-        firstName.onFocusChangeListener = getListenerFor(firstName)
+        firstNameContainer clearErrorsOnFocusChangedTo firstName
 
+        lastNameContainer = view.findViewById(R.id.last_name_container)
         lastName = view.findViewById(R.id.last_name)
         lastName.filters = arrayOf(leadingSpaceFilter)
-        lastName.addValidator(object : METValidator(getString(R.string.missing_last_name)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean) = !isEmpty
-        })
-        lastName.onFocusChangeListener = getListenerFor(lastName)
+        lastNameContainer clearErrorsOnFocusChangedTo lastName
 
+        phoneNumberContainer = view.findViewById(R.id.phone_number_container)
         phoneNumber = view.findViewById(R.id.phone_number)
         phoneNumber.addTextChangedListener(PhoneNumberFormattingTextWatcher())
-        phoneNumber.addValidator(object : METValidator(getString(R.string.missing_phone_number)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean) = !isEmpty
-        })
-        phoneNumber.addValidator(object : METValidator(getString(R.string.invalid_phone_number)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean) = presenter.phoneNumberValid(text)
-        })
-        phoneNumber.onFocusChangeListener = getListenerFor(phoneNumber)
+        phoneNumberContainer clearErrorsOnFocusChangedTo phoneNumber
 
         nextButton = view.findViewById(R.id.next_button)
         nextButton.setOnClickListener {
             focusHog.requestFocusFromTouch()
-            val firstNameOk = firstName.validate()
-            val lastNameOk  = lastName.validate()
-            val phoneNumberOk = phoneNumber.validate()
+            val firstNameOk = NotEmptyValidator(firstNameContainer, firstName, getString(R.string.missing_first_name)).isValid
+            val lastNameOk = NotEmptyValidator(lastNameContainer, lastName, getString(R.string.missing_last_name)).isValid
+            val phoneNumberOk = PhoneNumberValidator(context, phoneNumberContainer, phoneNumber).isValid
             if (firstNameOk && lastNameOk && phoneNumberOk) {
                 callback.nextFrom(this)
             }
@@ -138,15 +135,6 @@ class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
 
         view.findViewById<Button>(R.id.cancel_button).setOnClickListener {
             callback.finishFlow()
-        }
-    }
-
-    private fun getListenerFor(field: ScleraEditText) = View.OnFocusChangeListener { v, hasFocus ->
-        field.onFocusChange(v, hasFocus)
-        if (hasFocus) {
-            field.error = null
-        } else {
-            field.validate()
         }
     }
 
@@ -163,10 +151,7 @@ class NameAndPhoneEntryFragment : Fragment(), NameAndPhoneEntryView {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context !is CreateAccountFlow) {
-            throw IllegalStateException("Dev: Make sure the container implements CreateAccountFlow.")
-        }
-
+        check(context is CreateAccountFlow) { "Dev: Make sure the container implements CreateAccountFlow." }
         callback = context
     }
 

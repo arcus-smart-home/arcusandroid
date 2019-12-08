@@ -19,6 +19,9 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
+import androidx.annotation.Nullable;
 import arcus.app.R;
 
 import org.apache.commons.lang3.StringUtils;
@@ -27,6 +30,9 @@ import org.apache.commons.lang3.StringUtils;
 public class NotEmptyValidator implements InputValidator {
 
     private final EditText field;
+
+    private TextInputLayout layout;
+
     @NonNull
     private final String errorString;
 
@@ -44,15 +50,30 @@ public class NotEmptyValidator implements InputValidator {
         this.errorString = context.getString(errorStringResId, formatArgs);
     }
 
+    public NotEmptyValidator(TextInputLayout layout, EditText field, String errorString) {
+        this.layout = layout;
+        this.field = field;
+        this.errorString = errorString;
+    }
+
     @Override
     public boolean isValid() {
 
         // Disallow input that is all whitespace
         if (StringUtils.isEmpty(field.getText().toString())) {
-            field.setError(errorString);
+            setError(errorString);
             return false;
         }
 
+        setError(null);
         return true;
+    }
+
+    private void setError(@Nullable String error) {
+        if (layout != null) {
+            layout.setError(error);
+        } else {
+            field.setError(error);
+        }
     }
 }

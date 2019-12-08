@@ -30,8 +30,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.iris.client.capability.Place;
 import arcus.app.R;
 import arcus.app.common.backstack.BackstackManager;
@@ -44,16 +47,12 @@ import arcus.app.common.utils.Errors;
 import arcus.app.common.utils.GlobalSetting;
 import arcus.app.common.view.ProgressBarFromToAnimation;
 import arcus.app.common.view.ButtonColor;
-import arcus.app.common.view.ScleraEditText;
-import arcus.app.common.view.ScleraTextView;
 import arcus.app.dashboard.HomeFragment;
 
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-
 
 public class HubPairFragment extends BaseFragment implements IShowedFragment {
 
@@ -64,14 +63,15 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
     View hubUpdatesLayout;
     View buttonLayout;
 
-    ScleraTextView hubSearchingTitle;
-    ScleraTextView hubSearchDescription;
-    ScleraTextView hubActionTitle;
-    ScleraTextView hubActionDescription;
-    ScleraTextView progressPercent;
-    ScleraTextView needHelp;
-    ScleraEditText hubId;
-    ScleraTextView exitPairing;
+    TextView hubSearchingTitle;
+    TextView hubSearchDescription;
+    TextView hubActionTitle;
+    TextView hubActionDescription;
+    TextView progressPercent;
+    TextView needHelp;
+    EditText hubId;
+    TextInputLayout hubIdContainer;
+    TextView exitPairing;
 
     Button pairingButton;
     Button supportButton;
@@ -117,25 +117,26 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progress);
+        progressBar = view.findViewById(R.id.progress);
         progressLayout = view.findViewById(R.id.progress_layout);
         hubSearchingLayout = view.findViewById(R.id.hub_searching_layout);
         hubLongSearchLayout = view.findViewById(R.id.hub_long_search);
         hubUpdatesLayout = view.findViewById(R.id.hub_updates_layout);
         buttonLayout = view.findViewById(R.id.button_layout);
 
-        hubSearchingTitle = (ScleraTextView) view.findViewById(R.id.hub_searching_title);
-        hubSearchDescription = (ScleraTextView) view.findViewById(R.id.hub_search_description);
-        hubActionTitle = (ScleraTextView) view.findViewById(R.id.hub_action_title);
-        hubActionDescription = (ScleraTextView) view.findViewById(R.id.hub_action_description);
-        progressPercent = (ScleraTextView) view.findViewById(R.id.progress_percent);
-        needHelp = (ScleraTextView) view.findViewById(R.id.need_help);
+        hubSearchingTitle = view.findViewById(R.id.hub_searching_title);
+        hubSearchDescription = view.findViewById(R.id.hub_search_description);
+        hubActionTitle = view.findViewById(R.id.hub_action_title);
+        hubActionDescription = view.findViewById(R.id.hub_action_description);
+        progressPercent = view.findViewById(R.id.progress_percent);
+        needHelp = view.findViewById(R.id.need_help);
 
         pairingButton = view.findViewById(R.id.hub_pairing_button);
         supportButton = view.findViewById(R.id.call_support_button);
 
-        hubId = (ScleraEditText) view.findViewById(R.id.hub_edittext_id);
-        exitPairing = (ScleraTextView) view.findViewById(R.id.exit_pairing);
+        hubId = view.findViewById(R.id.hub_edittext_id);
+        hubIdContainer = view.findViewById(R.id.hub_edittext_id_container);
+        exitPairing = view.findViewById(R.id.exit_pairing);
 
         int color = 0xFF00BFB3; //0xFFFFFFEE;
         int colorBackground =  0xFFffffff; //0xFFC3C3C3;
@@ -148,7 +149,7 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
             public void onClick(View v) {
                 if(callback != null) {
                     hubSearchDescription.setVisibility(View.VISIBLE);
-                    hubId.setVisibility(View.GONE);
+                    hubIdContainer.setVisibility(View.GONE);
                     callback.errorBannerVisible(false);
                     callback.restartPairing(hubId.getText().toString());
                     hubId.setText("");
@@ -179,8 +180,7 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
         exitPairing.setOnClickListener(v -> showGoToDashboardPopup());
 
         hubId.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
-        hubId.setHint(getString(R.string.hub_id_hint_title));
-        hubId.setFloatingLabelText(getString(R.string.hub_id_edit_title));
+        hubIdContainer.setHint(getString(R.string.hub_id_hint_title));
         pairingButton.setEnabled(false);
         hubId.addTextChangedListener(new TextWatcher() {
             int len =0;
@@ -195,7 +195,7 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
             @Override
             public void afterTextChanged(@NonNull Editable s) {
                 if(s.length() == 0) {
-                    hubId.setError(getString(R.string.hub_id_missing));
+                    hubIdContainer.setError(getString(R.string.hub_id_missing));
                 }
                 if(s.length() == 3 && len < s.length()){
                     s.append("-");
@@ -205,9 +205,10 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
 
                 Matcher matcher = mPattern.matcher(s.toString());
                 if(!matcher.find() || s.length()>8) {
-                    hubId.setError(getString(R.string.hub_id_wrong_format));
+                    hubIdContainer.setError(getString(R.string.hub_id_wrong_format));
                     pairingButton.setEnabled(false);
                 } else {
+                    hubIdContainer.setError(null);
                     pairingButton.setEnabled(true);
                 }
             }
@@ -338,7 +339,7 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
             hubSearchingLayout.setVisibility(View.VISIBLE);
             progressLayout.setVisibility(View.VISIBLE);
             title = getString(R.string.pairing_hub).toUpperCase();
-            hubId.setVisibility(View.GONE);
+            hubIdContainer.setVisibility(View.GONE);
         }
     }
 
@@ -346,8 +347,8 @@ public class HubPairFragment extends BaseFragment implements IShowedFragment {
         hubSearchingLayout.setVisibility(View.VISIBLE);
         hubSearchDescription.setVisibility(View.GONE);
         hubLongSearchLayout.setVisibility(View.VISIBLE);
-        hubId.setHint(R.string.hub_id_hint_title);
-        hubId.setVisibility(View.VISIBLE);
+        hubIdContainer.setHint(getString(R.string.hub_id_hint_title));
+        hubIdContainer.setVisibility(View.VISIBLE);
         longSearch = true;
     }
 

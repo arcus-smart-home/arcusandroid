@@ -27,6 +27,7 @@ import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import arcus.app.R
 import arcus.app.activities.DashboardActivity
@@ -39,8 +40,6 @@ import arcus.app.common.utils.Errors
 import arcus.app.common.utils.GlobalSetting
 import arcus.app.common.utils.sealedWhen
 import arcus.app.common.utils.inflate
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
 import arcus.app.common.wifi.BleWiFiSecuritySelectionPopup
 import arcus.app.pairing.device.searching.DeviceSearchingActivity
 import arcus.app.pairing.device.steps.ViewPagerSelectedFragment
@@ -65,6 +64,7 @@ import arcus.presentation.pairing.device.steps.bledevice.IpcdTimedOut
 import arcus.presentation.pairing.device.steps.bledevice.WiFiConnectionStatus
 import arcus.presentation.pairing.device.steps.bledevice.bleconnect.AndroidBleConnectPresenter
 import arcus.presentation.pairing.device.steps.bledevice.bleconnect.BleConnectView
+import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
 class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectView,
@@ -76,13 +76,15 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
     }
 
     private lateinit var namedNetworkContainer : View
-    private lateinit var networkNameEntry : ScleraEditText
-    private lateinit var networkPassEntry : ScleraEditText
+    private lateinit var networkNameEntry : EditText
+    private lateinit var networkNameEntryContainer : TextInputLayout
+    private lateinit var networkPassEntry : EditText
+    private lateinit var networkPassEntryContainer : TextInputLayout
     private lateinit var securitySelectionGroup: Group
     private lateinit var securitySelectionRow: TextView
 
     private lateinit var unsecuredNetworkContainer : View
-    private lateinit var unsecuredNetworkTitle : ScleraTextView
+    private lateinit var unsecuredNetworkTitle : TextView
     private var disabledColor : Int = -1
     private var enabledColor : Int = -1
     private var popupShowing : ModalBottomSheet? = null
@@ -156,6 +158,7 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
 
         namedNetworkContainer = view.findViewById(R.id.named_network_container)
         networkNameEntry = view.findViewById(R.id.network_name)
+        networkNameEntryContainer = view.findViewById(R.id.network_name_container)
         networkNameEntry.filters = arrayOf(InputFilter { source, _, _, dest, _, _ ->
             if (dest?.length == 0 && source?.matches(MULTI_SPACES_FROM_START) == true) {
                 source.replace(MULTI_SPACES_FROM_START, "")
@@ -164,6 +167,7 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
             }
         })
         networkPassEntry = view.findViewById(R.id.network_password)
+        networkPassEntryContainer = view.findViewById(R.id.network_password_container)
 
         unsecuredNetworkContainer = view.findViewById(R.id.unsecured_network_container)
         unsecuredNetworkTitle = view.findViewById(R.id.unsecured_network_title)
@@ -218,17 +222,15 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
     }
 
     private fun updateFields(name: String, type: SelectionType) {
-        networkNameEntry.error = null
-        networkPassEntry.error = null
+        networkNameEntryContainer.error = null
+        networkPassEntryContainer.error = null
 
         if (name.isEmpty()) {
             networkNameEntry.text.clear()
             networkNameEntry.isEnabled = true
-            networkNameEntry.floatingLabelTextColor = enabledColor
         } else {
             networkNameEntry.setText(name, TextView.BufferType.EDITABLE)
             networkNameEntry.isEnabled = false
-            networkNameEntry.floatingLabelTextColor = disabledColor
         }
         networkPassEntry.text.clear()
 
@@ -290,7 +292,7 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
         return when (selectionType) {
             SelectionType.CUSTOM -> {
                 if (networkNameEntry.text.isNullOrEmpty()) {
-                    networkNameEntry.error = getString(R.string.wifi_ssid_missing_error)
+                    networkNameEntryContainer.error = getString(R.string.wifi_ssid_missing_error)
                     false
                 } else {
                     true
@@ -298,7 +300,7 @@ class BleConnectFragment : Fragment(), TitledFragment, BleConnected, BleConnectV
             }
             SelectionType.SECURED -> {
                 if (networkPassEntry.text.isNullOrEmpty()) {
-                    networkPassEntry.error = getString(R.string.wifi_password_missing_error)
+                    networkPassEntryContainer.error = getString(R.string.wifi_password_missing_error)
                     false
                 } else {
                     true

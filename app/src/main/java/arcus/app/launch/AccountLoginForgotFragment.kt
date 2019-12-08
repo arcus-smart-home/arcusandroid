@@ -22,6 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import arcus.cornea.CorneaService
 import arcus.cornea.utils.Listeners
 import arcus.cornea.utils.LooperExecutor
@@ -36,15 +37,16 @@ import arcus.app.common.utils.enableViews
 import arcus.app.common.utils.inflate
 import arcus.app.common.validation.CustomEmailValidator
 import arcus.app.common.view.ButtonWithProgress
-import arcus.app.common.view.ScleraEditText
 import arcus.app.common.view.ScleraLinkView
+import com.google.android.material.textfield.TextInputLayout
 import org.slf4j.LoggerFactory
 import kotlin.concurrent.thread
 
 // TODO: This should have it's logic put into a presenter so we're not calling Cornea directly from the app. We'll need to come back to this at some point if we ever hope to decouple the app from Cornea...
 class AccountLoginForgotFragment : Fragment() {
 
-    private lateinit var email: ScleraEditText
+    private lateinit var email: EditText
+    private lateinit var emailContainer: TextInputLayout
     private lateinit var bypassLink: ScleraLinkView
     private lateinit var submitBtn: ButtonWithProgress
     private lateinit var cancelBtn: Button
@@ -70,6 +72,7 @@ class AccountLoginForgotFragment : Fragment() {
         cancelBtn = view.findViewById(R.id.btnCancel)
         bypassLink = view.findViewById(R.id.email_entry_bypass_link)
         email = view.findViewById(R.id.email)
+        emailContainer = view.findViewById(R.id.email_container)
         fieldEnableGroups = listOf(submitBtn, cancelBtn, bypassLink, email)
 
         email.requestFocus()
@@ -80,11 +83,13 @@ class AccountLoginForgotFragment : Fragment() {
 
         submitBtn.setOnClickListener { _ ->
             val validator = CustomEmailValidator(
+                emailContainer,
                 email,
                 R.string.account_registration_missing_email_error_msg_v2,
                 R.string.account_registration_email_well_formed_error_msg_v2
             )
             if (validator.isValid) {
+                emailContainer.error = null
                 fieldEnableGroups.enableViews(false)
 
                 // Because we're using a hostname here, Netty (during bootstrap.connect) is doing an InetSockAddress creation...

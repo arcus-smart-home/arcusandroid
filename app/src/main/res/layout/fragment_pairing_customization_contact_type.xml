@@ -101,7 +101,7 @@
                     android:background="@color/sclera_divider_color" />
 
                 <RadioButton
-                    android:id="@+id/window_radio-button"
+                    android:id="@+id/window_radio_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_16"

@@ -37,38 +37,44 @@
 
         <include layout="@layout/page_index_image"/>
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:id="@+id/step_view_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="@string/name_your_hub"
             android:layout_marginTop="22dp"
-            android:textSize="18sp"
-            android:lineSpacingMultiplier="1.39"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Medium"
             android:id="@+id/step_view_sub_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/arcus_gray"
             android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            android:lineSpacingMultiplier="1.39"
             android:visibility="gone"/>
 
     </LinearLayout>
-    <arcus.app.common.view.ScleraEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:visibility="gone"
         tools:visibility="visible"
-        android:imeOptions="actionDone"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/step_view_device_name"
-        android:singleLine="true" />
+        android:id="@+id/step_view_device_name_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:hint="Custom Hint"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/step_view_device_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 </RelativeLayout>

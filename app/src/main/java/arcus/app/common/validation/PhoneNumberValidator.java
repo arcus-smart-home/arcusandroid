@@ -18,6 +18,11 @@ package arcus.app.common.validation;
 import android.content.Context;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import arcus.app.R;
 import arcus.app.common.utils.StringUtils;
 
@@ -29,12 +34,18 @@ public class PhoneNumberValidator implements InputValidator {
             "^\\(\\d{3}\\)(\\s)?(\\d{3})(-)?(\\d{4})$"
     };
 
+    @Nullable private TextInputLayout layout;
     private final EditText phoneNumber;
     private final Context context;
 
-    public PhoneNumberValidator (Context context, EditText phoneNumber) {
+    public PhoneNumberValidator(Context context, EditText phoneNumber) {
+        this(context, null, phoneNumber);
+    }
+
+    public PhoneNumberValidator(Context context, @Nullable TextInputLayout layout, EditText phoneNumber) {
         this.context = context;
         this.phoneNumber = phoneNumber;
+        this.layout = layout;
     }
 
     @Override
@@ -43,7 +54,7 @@ public class PhoneNumberValidator implements InputValidator {
         String phoneNumberString = phoneNumber.getText().toString();
 
         if (StringUtils.isEmpty(phoneNumberString)) {
-            phoneNumber.setError(context.getString(R.string.account_registration_phone_error_hint));
+            setError(layout, phoneNumber, R.string.account_registration_phone_error_hint);
             return false;
         }
 
@@ -53,7 +64,18 @@ public class PhoneNumberValidator implements InputValidator {
             }
         }
 
-        phoneNumber.setError(context.getString(R.string.account_registration_phone_error_hint));
+        setError(layout, phoneNumber, R.string.account_registration_phone_error_hint);
         return false;
+    }
+
+    private void setError(
+            @Nullable TextInputLayout layout,
+            @NonNull EditText editText,
+            @StringRes int stringRes) {
+        if (layout != null) {
+            layout.setError(context.getString(stringRes));
+        } else {
+            editText.setError(context.getString(stringRes));
+        }
     }
 }

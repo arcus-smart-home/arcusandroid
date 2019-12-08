@@ -33,8 +33,9 @@ import arcus.app.common.image.picasso.transformation.BlackWhiteInvertTransformat
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation
 import arcus.app.common.image.picasso.transformation.Invert
 import android.widget.Button
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.app.common.fragment.TitledFragment
 import arcus.presentation.pairing.device.customization.CustomizationStep
@@ -42,6 +43,7 @@ import arcus.presentation.pairing.device.customization.CustomizationType
 import arcus.presentation.pairing.device.customization.namephoto.NameAndPhotoPresenter
 import arcus.presentation.pairing.device.customization.namephoto.NameAndPhotoPresenterImpl
 import arcus.presentation.pairing.device.customization.namephoto.NameAndPhotoView
+import com.google.android.material.textfield.TextInputLayout
 import org.slf4j.LoggerFactory
 
 open class NameAndPhotoFragment : Fragment(),
@@ -55,13 +57,14 @@ open class NameAndPhotoFragment : Fragment(),
 
     private lateinit var step: CustomizationStep
     private lateinit var mCallback: CustomizationNavigationDelegate
-    private lateinit var deviceImage: AppCompatImageView
-    private lateinit var cameraImage: AppCompatImageView
+    private lateinit var deviceImage: ImageView
+    private lateinit var cameraImage: ImageView
     private lateinit var nextButton: Button
     private lateinit var cancelButton: Button
-    private lateinit var stepTitle: ScleraTextView
-    private lateinit var stepInstruction: ScleraTextView
-    private lateinit var inputField: ScleraEditText
+    private lateinit var stepTitle: TextView
+    private lateinit var stepInstruction: TextView
+    private lateinit var inputField: EditText
+    private lateinit var inputFieldContainer: TextInputLayout
     private lateinit var deviceAddress: String
     private lateinit var deviceName: String
 
@@ -83,6 +86,7 @@ open class NameAndPhotoFragment : Fragment(),
         stepTitle = view.findViewById(R.id.step_title)
         stepInstruction = view.findViewById(R.id.step_instructions)
         inputField = view.findViewById(R.id.input_field)
+        inputFieldContainer = view.findViewById(R.id.input_field_container)
         nextButton = view.findViewById(R.id.next_btn)
         cancelButton = view.findViewById(R.id.cancel_btn)
 
@@ -172,11 +176,9 @@ open class NameAndPhotoFragment : Fragment(),
 
         nextButton.setOnClickListener {
             if(deviceName.isEmpty() || deviceName == ""){
-                context?.let {
-                    inputField.errorColor = ContextCompat.getColor(it, R.color.sclera_alert)
-                }
-                inputField.error = getString(R.string.missing_device_name)
+                inputFieldContainer.error = getString(R.string.missing_device_name)
             } else {
+                inputFieldContainer.error = null
                 presenter.setName(deviceName)
                 mCallback.navigateForwardAndComplete(CustomizationType.NAME)
             }

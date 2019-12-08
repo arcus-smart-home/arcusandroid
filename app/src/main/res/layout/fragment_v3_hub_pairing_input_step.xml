@@ -16,7 +16,6 @@
 -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -24,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -32,7 +31,8 @@
             android:src="@drawable/v3hub_ethernet_step3_220x220"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
@@ -41,22 +41,24 @@
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:text="@string/v3_hub_step_3_pairing_text"
-            android:textSize="18sp"
             />
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/hub_id_entry"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/hub_id_entry_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hub_id_hint_title"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
-            android:layout_marginStart="@dimen/sclera_widget_edge_combined"
-            android:imeOptions="actionDone"
-            android:inputType="text"
-            app:met_errorColor="@color/sclera_alert"
-            app:resettable="false"
-            />
+            android:layout_marginStart="@dimen/sclera_widget_edge_combined">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/hub_id_entry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
 

@@ -18,11 +18,10 @@ package arcus.app.launch
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import arcus.cornea.SessionController
 import arcus.cornea.utils.Listeners
@@ -37,26 +36,31 @@ import arcus.app.activities.DashboardActivity
 import arcus.app.common.fragment.FragmentContainerHolder
 import arcus.app.common.utils.LoginUtils
 import arcus.app.common.utils.PreferenceUtils
+import arcus.app.common.utils.clearErrorsOnFocusChangedTo
 import arcus.app.common.utils.enableViews
 import arcus.app.common.utils.inflate
 import arcus.app.common.validation.CustomEmailValidator
+import arcus.app.common.validation.NotEmptyValidator
 import arcus.app.common.validation.PasswordValidator
 import arcus.app.common.view.ButtonWithProgress
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
+import com.google.android.material.textfield.TextInputLayout
 
 // TODO: This should have it's logic put into a presenter so we're not calling Cornea directly from the app. We'll need to come back to this at some point if we ever hope to decouple the app from Cornea...
 class AccountLoginEmailSentFragment : Fragment() {
     private var emailAddress: String? = null
     private var fromCustomerSupport: Boolean = false
 
-    private lateinit var headerText: ScleraTextView
-    private lateinit var subHeaderText: ScleraTextView
-    private lateinit var email: ScleraEditText
-    private lateinit var code: ScleraEditText
-    private lateinit var newPassword: ScleraEditText
-    private lateinit var confirmPassword: ScleraEditText
-    private lateinit var banner: ScleraTextView
+    private lateinit var headerText: TextView
+    private lateinit var subHeaderText: TextView
+    private lateinit var email: EditText
+    private lateinit var emailContainer: TextInputLayout
+    private lateinit var code: EditText
+    private lateinit var codeContainer: TextInputLayout
+    private lateinit var newPassword: EditText
+    private lateinit var newPasswordContainer: TextInputLayout
+    private lateinit var confirmPassword: EditText
+    private lateinit var confirmPasswordContainer: TextInputLayout
+    private lateinit var banner: EditText
     private lateinit var fieldEnableGroups: List<View>
     private lateinit var submitButtonWithProgress: ButtonWithProgress
     private var fragmentContainerHolder: FragmentContainerHolder? = null
@@ -82,10 +86,10 @@ class AccountLoginEmailSentFragment : Fragment() {
                 enableFieldGroup(true)
 
                 if (throwable is ErrorResponseException && throwable.code == ERROR_TOKEN_CODE) {
-                    banner.text = getString(R.string.error_fix_highlight)
-                    code.error = getString(R.string.invalid_code)
+                    banner.setText(getString(R.string.error_fix_highlight))
+                    codeContainer.error = getString(R.string.invalid_code)
                 } else {
-                    banner.text = getString(R.string.error_occurred)
+                    banner.setText(getString(R.string.error_occurred))
                 }
 
                 banner.visibility = View.VISIBLE
@@ -109,30 +113,19 @@ class AccountLoginEmailSentFragment : Fragment() {
         headerText = view.findViewById(R.id.email_sent_text)
         subHeaderText = view.findViewById(R.id.forgot_password_text_3)
         email = view.findViewById(R.id.email)
+        emailContainer = view.findViewById(R.id.email_container)
         code = view.findViewById(R.id.etCode)
+        codeContainer = view.findViewById(R.id.etCode_container)
         newPassword = view.findViewById(R.id.etNewPassword)
+        newPasswordContainer = view.findViewById(R.id.etNewPassword_container)
         confirmPassword = view.findViewById(R.id.etConfirmPassword)
+        confirmPasswordContainer = view.findViewById(R.id.etConfirmPassword_container)
         submitButtonWithProgress = view.findViewById(R.id.fragment_email_sent_btn)
         banner = view.findViewById(R.id.alert_banner)
         fieldEnableGroups = listOf(email, code, newPassword, confirmPassword, submitButtonWithProgress)
-        newPassword.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                confirmPassword.error = null
-            }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
-        confirmPassword.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                newPassword.error = null
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
+        newPasswordContainer clearErrorsOnFocusChangedTo newPassword
+        confirmPasswordContainer clearErrorsOnFocusChangedTo confirmPassword
 
         arguments?.let {
             emailAddress = it.getString(EMAIL_ADDRESS)
@@ -155,19 +148,15 @@ class AccountLoginEmailSentFragment : Fragment() {
             emailAddress = email.text.toString()
 
             val emailValidator = CustomEmailValidator(
+                emailContainer,
                 email,
                 R.string.account_registration_missing_email_error_msg_v2,
                 R.string.account_registration_email_well_formed_error_msg_v2
             )
-            val passwordValidator = PasswordValidator(activity, newPassword, confirmPassword, emailAddress)
-            val codeError = if (code.text.isNullOrBlank()) {
-                code.error = getString(R.string.missing_code)
-                true
-            } else {
-                false
-            }
+            val passwordValidator = PasswordValidator(activity, newPasswordContainer, newPassword, confirmPasswordContainer, confirmPassword, emailAddress)
+            val codeValidator = NotEmptyValidator(code.context, code, R.string.missing_code)
 
-            if (emailValidator.isValid && passwordValidator.isValid && !codeError) {
+            if (codeValidator.isValid && emailValidator.isValid && passwordValidator.isValid) {
                 enableFieldGroup(false)
                 val credentials = ResetPasswordCredentials(emailAddress, code.text.toString(), newPassword.text.toString())
                 credentials.connectionURL = PreferenceUtils.getPlatformUrl()

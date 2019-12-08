@@ -30,15 +30,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.iris.client.ClientEvent;
 import com.iris.client.capability.Place;
-import com.iris.client.event.Listener;
 import com.iris.client.exception.ErrorResponseException;
 import com.iris.client.model.HubModel;
-import com.iris.client.util.Result;
 import arcus.app.ArcusApplication;
 import arcus.app.R;
 import arcus.app.activities.BaseActivity;
@@ -54,12 +53,11 @@ import arcus.app.common.utils.ImageUtils;
 import arcus.app.common.utils.RegisterHubTask;
 import arcus.app.common.utils.VideoUtils;
 import arcus.app.common.view.NoSwipeViewPager;
-import arcus.app.common.view.ScleraEditText;
-import arcus.app.common.view.ScleraTextView;
 import arcus.app.dashboard.HomeFragment;
 import arcus.app.pairing.hub.original.adapter.StepsViewPagerAdapter;
 import arcus.app.pairing.hub.original.model.ArcusStep;
 import arcus.app.pairing.device.productcatalog.ProductCatalogActivity;
+import arcus.cornea.provider.HubModelProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +67,7 @@ public class HubParentFragment extends BaseFragment implements View.OnClickListe
 
     private View errorBanner;
     private ImageView errorBannerIcon;
-    private ScleraTextView errorBannerText;
+    private TextView errorBannerText;
 
     private Button nextBtn;
     private Button dashboardBtn;
@@ -157,7 +155,7 @@ public class HubParentFragment extends BaseFragment implements View.OnClickListe
 
         errorBanner = view.findViewById(R.id.error_banner);
         errorBannerIcon = (ImageView) view.findViewById(R.id.error_banner_icon) ;
-        errorBannerText = (ScleraTextView) view.findViewById(R.id.error_banner_text);
+        errorBannerText = view.findViewById(R.id.error_banner_text);
 
         nextBtn = view.findViewById(R.id.fragment_hub_parent_next_btn);
         dashboardBtn = view.findViewById(R.id.fragment_hub_parent_dashboard_btn);
@@ -296,29 +294,26 @@ public class HubParentFragment extends BaseFragment implements View.OnClickListe
                 nextBtn.setEnabled(false);
             }
             if (viewPager.getCurrentItem() == 7) {
-                ScleraEditText editText = (ScleraEditText) mView.findViewById(R.id.step_view_device_name);
+                EditText editText = mView.findViewById(R.id.step_view_device_name);
                 if (editText != null) {
                     showProgressBar();
                     nextBtn.setEnabled(false);
                     editText.setEnabled(false);
 
-                    SessionModelManager.instance().getHubModel().setName(editText.getText().toString());
-                    SessionModelManager.instance().getHubModel().commit().onCompletion(new Listener<Result<ClientEvent>>() {
-                        @Override
-                        public void onEvent(@NonNull Result<ClientEvent> result) {
+                    HubModel hubModel = HubModelProvider.instance().getHubModel();
+                    if (hubModel != null) {
+                        hubModel.setName(editText.getText().toString());
+                        hubModel.commit().onCompletion(result -> {
                             if (result.isError()) {
                                 logger.debug("Unable to name hub, Reason:", result.getError());
                             }
 
-                            mView.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    hideProgressBar();
-                                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);
-                                }
+                            mView.post(() -> {
+                                hideProgressBar();
+                                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);
                             });
-                        }
-                    });
+                        });
+                    }
                 }
             } else if (currentFragment instanceof HubSuccessFragment) {
                 Context context = getContext();

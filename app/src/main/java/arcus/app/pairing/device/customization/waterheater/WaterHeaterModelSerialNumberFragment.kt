@@ -23,8 +23,8 @@ import android.view.View
 import android.view.ViewGroup
 import arcus.app.R
 import android.widget.Button
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
+import android.widget.EditText
+import android.widget.TextView
 import arcus.app.pairing.device.customization.CustomizationNavigationDelegate
 import arcus.app.common.fragment.TitledFragment
 import arcus.presentation.pairing.device.customization.CustomizationStep
@@ -32,6 +32,7 @@ import arcus.presentation.pairing.device.customization.CustomizationType
 import arcus.presentation.pairing.device.customization.waterheater.WaterHeaterModelSerialPresenter
 import arcus.presentation.pairing.device.customization.waterheater.WaterHeaterModelSerialPresenterImpl
 import arcus.presentation.pairing.device.customization.waterheater.WaterHeaterModelSerialView
+import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
 class WaterHeaterModelSerialNumberFragment : Fragment(),
@@ -41,10 +42,12 @@ class WaterHeaterModelSerialNumberFragment : Fragment(),
     private lateinit var pairingDeviceAddress: String
     private lateinit var customizationStep: CustomizationStep
 
-    private lateinit var pageHeaderTitle: ScleraTextView
-    private lateinit var pageDescription: ScleraTextView
-    private lateinit var modelNumber: ScleraEditText
-    private lateinit var serialNumber: ScleraEditText
+    private lateinit var pageHeaderTitle: TextView
+    private lateinit var pageDescription: TextView
+    private lateinit var modelNumber: EditText
+    private lateinit var modelNumberContainer: TextInputLayout
+    private lateinit var serialNumber: EditText
+    private lateinit var serialNumberContainer: TextInputLayout
 
     private lateinit var nextButton: Button
     private lateinit var cancelButton: Button
@@ -77,7 +80,9 @@ class WaterHeaterModelSerialNumberFragment : Fragment(),
         pageHeaderTitle = view.findViewById(R.id.header_title)
         pageDescription = view.findViewById(R.id.description)
         modelNumber = view.findViewById(R.id.model_number)
+        modelNumberContainer = view.findViewById(R.id.model_number_container)
         serialNumber = view.findViewById(R.id.serial_number)
+        serialNumberContainer = view.findViewById(R.id.serial_number_container)
 
         nextButton = view.findViewById(R.id.next_button)
         nextButton.setText(nextButtonText)

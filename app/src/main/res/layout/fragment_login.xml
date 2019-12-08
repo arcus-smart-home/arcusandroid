@@ -139,44 +139,56 @@
                     android:elevation="3dp"
                     android:radius="2dp">
 
-                    <arcus.app.common.view.ScleraEditText
-                        android:id="@+id/email"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/emailTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/login_email"
-                        android:inputType="textEmailAddress"
-                        android:imeOptions="actionNext"
-                        android:textSize="20sp"
-                        app:clearable="true"
-                        app:met_errorColor="@color/sclera_alert"
-                        app:resettable="false" />
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:hint="@string/login_email">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            android:textSize="20sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:imeOptions="actionNext"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <arcus.app.common.view.ScleraEditText
-                        android:id="@+id/password"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:hint="@string/login_password"
-                        android:inputType="textPassword"
-                        app:clearable="false"
-                        android:imeActionLabel="Next"
-                        android:imeOptions="actionNext"
-                        app:met_errorColor="@color/sclera_alert"
-                        app:resettable="true"
-                        app:showable="true" />
+                        app:passwordToggleEnabled="true">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password"
+                            android:textSize="20sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:imeActionLabel="Next"
+                            android:imeOptions="actionNext"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <arcus.app.common.view.ScleraEditText
-                        android:id="@+id/platformUrl"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/platformTextInputLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:hint="@string/platform_url"
-                        android:inputType="textUri"
-                        app:clearable="false"
-                        android:imeOptions="actionDone"
-                        android:imeActionLabel="GO"
-                        app:met_errorColor="@color/sclera_alert"
-                        />
+                        android:hint="@string/platform_url">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/platformUrl"
+                            android:textSize="20sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textUri"
+                            android:imeOptions="actionDone"
+                            android:imeActionLabel="GO"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
                         style="@style/Widget.Arcus.Button.Purple"

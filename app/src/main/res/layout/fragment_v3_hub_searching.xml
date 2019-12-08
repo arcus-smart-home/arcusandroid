@@ -44,26 +44,26 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/error_banner_icon"
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="@dimen/dp_20"
                 android:layout_gravity="center_vertical"/>
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.Caption"
                 android:id="@+id/error_banner_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/pt_12"
                 android:paddingLeft="@dimen/dp_10"
-                android:lineSpacingMultiplier="1.36"
                 android:text="@string/hub_reporting_error_code"
-                app:scleraFontStyle="demi"/>
+                />
         </LinearLayout>
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:id="@+id/hub_taking_a_while"
             android:visibility="gone"
             tools:visibility="gone"
@@ -78,8 +78,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:scleraFontStyle="normal"
-            android:textSize="14sp"
             />
 
         <ProgressBar
@@ -99,7 +97,7 @@
             tools:visibility="gone"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
             android:id="@+id/progress_percent_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +109,8 @@
             tools:visibility="gone"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:id="@+id/hub_id_connecting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,7 +119,6 @@
             android:paddingEnd="@dimen/sclera_widget_edge_combined"
             app:layout_goneMarginTop="@dimen/dp_80"
             android:gravity="center_horizontal"
-            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/progress_percent_text"
@@ -159,7 +157,7 @@
             app:layout_constraintVertical_bias="0.0"
             tools:visibility="gone">
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -180,12 +178,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <arcus.app.common.view.ScleraTextView
+                <TextView
+                    style="@style/Widget.Arcus.TextAppearance.Body.Large"
                     android:id="@+id/wrong_hub_id_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:textSize="18sp"
                     android:text="@string/hub_longsearching_wrong_hub_id"
                     android:gravity="center_horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -193,20 +191,23 @@
                     app:layout_constraintTop_toBottomOf="@+id/need_help_link"
                     />
 
-                <arcus.app.common.view.ScleraEditText
-                    android:id="@+id/hub_id_entry"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/hub_id_entry_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:hint="@string/hub_id_hint_title"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/wrong_hub_id_text"
-                    app:met_errorColor="@color/sclera_alert"
-                    app:resettable="false"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/wrong_hub_id_text">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/hub_id_entry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/search_for_new_hub_button"
@@ -218,7 +219,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/hub_id_entry"
+                    app:layout_constraintTop_toBottomOf="@+id/hub_id_entry_container"
                     app:layout_constraintVertical_bias="1.0"
                     />
 

@@ -28,14 +28,15 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import arcus.app.R
 import arcus.app.common.image.ImageManager
 import arcus.app.common.utils.ActivityUtils
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.steps.StepsNavigationDelegate
 import arcus.presentation.pairing.device.steps.InputPairingStep
 import arcus.presentation.pairing.device.steps.PairingStepInputType
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import org.slf4j.LoggerFactory
 
 class InputPairingStepFragment : Fragment(), DataFragment {
@@ -44,8 +45,8 @@ class InputPairingStepFragment : Fragment(), DataFragment {
     private lateinit var mCallback: StepsNavigationDelegate
 
     private lateinit var productImage: ImageView
-    private lateinit var stepInstruction: ScleraTextView
-    private lateinit var instructionLink: ScleraTextView
+    private lateinit var stepInstruction: TextView
+    private lateinit var instructionLink: TextView
     private lateinit var inputContainer: LinearLayout
 
     private var inputTextSize: Float = 0F
@@ -112,7 +113,8 @@ class InputPairingStepFragment : Fragment(), DataFragment {
     }
 
     private fun updateUI() {
-        ImageManager.with(activity)
+        ImageManager
+                .with(activity)
                 .putPairingStepImage(step.productId, (step.stepNumber).toString())
                 .into(productImage)
                 .execute()
@@ -128,9 +130,9 @@ class InputPairingStepFragment : Fragment(), DataFragment {
             instructionLink.visibility = View.VISIBLE
             instructionLink.text = it.text
             val url = Uri.parse(it.url)
-            instructionLink.setOnClickListener({
+            instructionLink.setOnClickListener {
                 ActivityUtils.launchUrl(url)
-            })
+            }
         }
 
         // Add input fields
@@ -147,13 +149,17 @@ class InputPairingStepFragment : Fragment(), DataFragment {
                     // Set up the input fields
                     inputFieldsValid[input.keyName] = false
 
-                    val editText = ScleraEditText(context)
+                    val textInputLayoutContainer = TextInputLayout(context!!).apply {
+                        hint = input.label
+                        isCounterEnabled = true
+                        counterMaxLength = input.maxLength
+                    }
+
+                    val editText = TextInputEditText(context)
                     editText.textSize = inputTextSize
-                    editText.floatingLabelText = input.label
                     editText.hint = input.label
                     editText.setSingleLine()
                     editText.maxLines = 1
-                    editText.maxCharacters = input.maxLength
                     editText.filters = arrayOf(InputFilter.LengthFilter(input.maxLength))
                     if (index == step.inputs.lastIndex) {
                         editText.imeOptions = EditorInfo.IME_ACTION_DONE
@@ -182,7 +188,8 @@ class InputPairingStepFragment : Fragment(), DataFragment {
                         editText.setText(it)
                     }
 
-                    inputContainer.addView(editText)
+                    textInputLayoutContainer.addView(editText)
+                    inputContainer.addView(textInputLayoutContainer)
                 }
             }
         }

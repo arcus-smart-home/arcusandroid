@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         style="@style/Widget.Arcus.Column">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/product_image"
             android:layout_width="220dp"
             android:layout_height="220dp"
@@ -38,9 +38,11 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/image_placeholder"
+            />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/camera_image"
             android:layout_width="@dimen/dp_48"
             android:layout_height="@dimen/dp_48"
@@ -50,14 +52,13 @@
             app:layout_constraintBottom_toBottomOf="@+id/product_image"
             app:layout_constraintStart_toStartOf="@+id/guideline"/>
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:id="@+id/step_title"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/sclera_widget_edge_combined"
             android:gravity="center"
-            android:textSize="@dimen/pt_18"
-            app:scleraFontStyle="demi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -66,36 +67,38 @@
             tools:text="Give your device a name"
             />
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/input_field"
-            android:layout_width="@dimen/dp_0"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_field_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/device_name_generic"
             android:layout_marginTop="@dimen/sclera_widget_edge_combined"
-            android:ellipsize="end"
-            android:textSize="@dimen/pt_16"
-            android:maxLength="48"
-            android:imeOptions="actionDone"
-            android:maxLines="1"
-            android:inputType="textImeMultiLine"
-            app:met_floatingLabelText="@string/device_name_generic"
-            app:met_maxCharacters="48"
-            app:resettable="false"
-            tools:layout_height="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/step_title" />
+            app:layout_constraintTop_toBottomOf="@id/step_title">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLength="48"
+                android:inputType="textImeMultiLine"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:id="@+id/step_instructions"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_24"
             android:layout_marginBottom="@dimen/sclera_widget_edge_combined"
             android:gravity="center"
-            android:textSize="@dimen/pt_14"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_field"
+            app:layout_constraintTop_toBottomOf="@+id/input_field_container"
             app:layout_constraintBottom_toTopOf="@id/buttons_container"
             tools:text="We reommend using simple, identifying language that is easily recognizable by voice assistants"
             tools:visibility="visible"/>

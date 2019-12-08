@@ -31,12 +31,14 @@ import arcus.app.common.fragment.ValidationFragment
 import arcus.app.common.steps.StepFragment
 import arcus.app.pairing.hub.HubIdInputTextWatcher
 import arcus.app.pairing.hub.hubIdInputFilers
+import com.google.android.material.textfield.TextInputLayout
 
 
 class V3HubPairingInputStepFragment : StepFragment<V3HubPairingStepContainer>(),
     FragmentVisibilityListener,
     ValidationFragment {
     private lateinit var hubIdInput : EditText
+    private lateinit var hubIdInputContainer : TextInputLayout
     private val hubIdWatcher = HubIdInputTextWatcher()
 
     override fun onCreateView(
@@ -49,6 +51,7 @@ class V3HubPairingInputStepFragment : StepFragment<V3HubPairingStepContainer>(),
         super.onViewCreated(view, savedInstanceState)
 
         hubIdInput = view.findViewById(R.id.hub_id_entry)
+        hubIdInputContainer = view.findViewById(R.id.hub_id_entry_container)
         hubIdInput.addTextChangedListener(hubIdWatcher)
         hubIdInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -71,11 +74,12 @@ class V3HubPairingInputStepFragment : StepFragment<V3HubPairingStepContainer>(),
     }
 
     override fun inValidState(): Boolean = if (hubIdWatcher.isValid) {
+        hubIdInputContainer.error = null
         stepContainer.hubId = hubIdInput.text.toString()
         hideKeyboard()
         true
     } else {
-        hubIdInput.error = getString(hubIdWatcher.errorRes)
+        hubIdInputContainer.error = getString(hubIdWatcher.errorRes)
         false
     }
 

@@ -24,14 +24,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import arcus.app.R
 import android.widget.Button
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
-import com.rengwuxian.materialedittext.validation.METValidator
+import android.widget.EditText
+import arcus.app.common.utils.clearErrorsOnFocusChangedTo
+import arcus.app.common.validation.EmailValidator
+import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
 class UpdateEmailFragment : Fragment(), UpdateEmailView {
-    private lateinit var emailView    : ScleraEditText
-    private lateinit var alertBanner  : ScleraTextView
+    private lateinit var emailView    : EditText
+    private lateinit var emailViewContainer : TextInputLayout
+    private lateinit var alertBanner  : TextView
     private lateinit var focusHog     : View
     private var personAddress by Delegates.notNull<String>()
     private val presenter : UpdateEmailPresenter = UpdateEmailPresenterImpl()
@@ -51,22 +53,16 @@ class UpdateEmailFragment : Fragment(), UpdateEmailView {
         focusHog = view.findViewById(R.id.focus_hog)
         alertBanner = view.findViewById(R.id.alert_banner)
 
+        emailViewContainer = view.findViewById(R.id.email_container)
         emailView = view.findViewById(R.id.email)
-        emailView.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
-            emailView.onFocusChange(v, hasFocus)
-            if (hasFocus) {
-                emailView.error = null
-            }
+        emailViewContainer clearErrorsOnFocusChangedTo emailView
+        emailView.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) emailView.error = null
         }
-        emailView.addValidator(object : METValidator(getString(R.string.invalid_email)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean): Boolean {
-                return android.util.Patterns.EMAIL_ADDRESS.matcher(text).matches()
-            }
-        })
 
         view.findViewById<Button>(R.id.update_and_resend_button).setOnClickListener {
             focusHog.requestFocusFromTouch()
-            if (emailView.validate()) {
+            if (EmailValidator(emailViewContainer, emailView).isValid) {
                 presenter.updateEmailAndSendVerification(emailView.text.toString())
             }
         }

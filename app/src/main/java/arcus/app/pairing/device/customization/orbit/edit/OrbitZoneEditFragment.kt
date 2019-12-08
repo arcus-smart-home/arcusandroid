@@ -30,8 +30,7 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Button
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
+import android.widget.EditText
 import arcus.presentation.pairing.device.customization.orbit.edit.IrrigationZoneDetails
 import arcus.presentation.pairing.device.customization.orbit.edit.OrbitZoneEditPresenter
 import arcus.presentation.pairing.device.customization.orbit.edit.OrbitZoneEditPresenterImpl
@@ -45,8 +44,9 @@ class OrbitZoneEditFragment : Fragment(),
     private lateinit var pairingDeviceAddress: String
     private lateinit var customizationStep: CustomizationStep
     private lateinit var stepImage: ImageView
-    private lateinit var zoneName: ScleraEditText
-    private lateinit var zoneDuration: ScleraTextView
+    private lateinit var zoneName: EditText
+    private lateinit var zoneNameContainer: EditText
+    private lateinit var zoneDuration: TextView
     private lateinit var zoneInformationContainer: View
     private lateinit var nextButton: Button
     private lateinit var cancelButton: Button
@@ -84,9 +84,10 @@ class OrbitZoneEditFragment : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         zoneName = view.findViewById(R.id.zone_name)
+        zoneNameContainer = view.findViewById(R.id.zone_name_container)
+
         val zoneHint = getString(R.string.zone_name_hint_format, zoneInstance.replace("z", ""))
-        zoneName.hint = zoneHint
-        zoneName.floatingLabelText = zoneHint
+        zoneNameContainer.hint = zoneHint
         zoneDuration = view.findViewById(R.id.duration_slot)
         zoneInformationContainer = view.findViewById(R.id.zone_information)
 
@@ -103,7 +104,7 @@ class OrbitZoneEditFragment : Fragment(),
                 }
             })
 
-        with (view.findViewById<ScleraTextView>(R.id.customization_info_title)) {
+        with (view.findViewById<TextView>(R.id.customization_info_title)) {
             text = customizationStep.title ?: getString(R.string.edit_zone_defaults)
         }
 

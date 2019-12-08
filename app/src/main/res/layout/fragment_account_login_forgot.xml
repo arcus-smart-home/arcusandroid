@@ -32,7 +32,7 @@
             android:id="@+id/enable_disable_field_group"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="email,email_entry_bypass_link,btnSubmitForgot,btnCancel" />
+            app:constraint_referenced_ids="email_container,email_entry_bypass_link,btnSubmitForgot,btnCancel" />
 
         <ImageView
             android:id="@+id/mailIcon"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
             android:id="@+id/forgot_password_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
             android:id="@+id/forgot_password_text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,24 +73,29 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/email"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_30"
             android:hint="@string/login_email"
-            android:inputType="textEmailAddress"
-            app:met_errorColor="@color/sclera_alert"
-            app:resettable="true"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginBottom="@dimen/dp_30"
             app:layout_constraintTop_toBottomOf="@+id/forgot_password_text2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:nextFocusForward="@+id/etCode"
+                android:maxLines="1"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
             android:id="@+id/email_entry_bypass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,7 +104,7 @@
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginTop="@dimen/dp_24"
-            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/email_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />

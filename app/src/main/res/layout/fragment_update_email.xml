@@ -26,7 +26,8 @@
     android:focusableInTouchMode="true"
     tools:context="arcus.app.activities.GenericFragmentActivity">
 
-    <arcus.app.common.view.ScleraTextView
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.ErrorBanner"
         android:id="@+id/alert_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,15 +39,14 @@
         android:paddingStart="17dp"
         android:paddingTop="10dp"
         android:gravity="center_vertical"
-        android:textColor="@color/white"
-        android:textSize="@dimen/pt_12"
         android:visibility="gone"
         tools:visibility="visible"
         android:text="@string/error_fix_highlight"
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <arcus.app.common.view.ScleraTextView
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
         android:id="@+id/scleraTextView5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -56,31 +56,37 @@
         android:gravity="center"
         app:layout_constraintWidth_max="306dp"
         android:text="@string/update_email_blurb"
-        android:textSize="@dimen/pt_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alert_banner"
-        app:scleraFontStyle="normal"
         />
 
-    <arcus.app.common.view.ScleraEditText
-        android:id="@+id/email"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="83dp"
-        android:hint="@string/login_email"
-        app:resettable="false"
-        android:imeOptions="actionDone"
-        android:inputType="textEmailAddress"
         android:layout_marginStart="@dimen/sclera_widget_edge_combined"
         android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
+        android:hint="@string/login_email"
+        android:paddingTop="30dp"
         app:layout_constraintBottom_toTopOf="@+id/update_and_resend_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scleraTextView5"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="0.0">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:nextFocusDown="@+id/network_password"
+            tools:text="john.doe@john.doe.com"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/update_and_resend_button"

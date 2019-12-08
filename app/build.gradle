@@ -1,4 +1,4 @@
-apply from: '../common.gradle'
+apply from: "../common.gradle"
 
 buildscript {
     dependencies {
@@ -6,9 +6,9 @@ buildscript {
     }
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
 
 androidExtensions {
     experimental = true
@@ -54,7 +54,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
 
         debug {
@@ -67,11 +67,11 @@ android {
     }
 
     packagingOptions {
-        pickFirst 'META-INF/INDEX.LIST'
-        pickFirst 'META-INF/LICENSE.txt'
-        pickFirst 'META-INF/NOTICE.txt'
-        pickFirst 'LICENSE.txt'
-        pickFirst 'META-INF/io.netty.versions.properties'
+        pickFirst "META-INF/INDEX.LIST"
+        pickFirst "META-INF/LICENSE.txt"
+        pickFirst "META-INF/NOTICE.txt"
+        pickFirst "LICENSE.txt"
+        pickFirst "META-INF/io.netty.versions.properties"
     }
 
     dexOptions {
@@ -95,18 +95,18 @@ android {
 
     lintOptions {
         // Fail builds if we have // STOPSHIP tags, only checked in release builds.
-        // fatal 'StopShip'
+        // fatal "StopShip"
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ["*.jar"], dir: "libs")
 
-    implementation project(':cornea')
-    implementation project(':analytics')
-    implementation project(':presentation')
-    implementation project(':viewpager_indicator')
-    implementation project(':materialEditText')
+    implementation project(":cornea")
+    implementation project(":analytics")
+    implementation project(":presentation")
+    implementation project(":viewpager_indicator")
+    implementation project(":materialEditText")
 
     implementation deps.appcompat
     implementation deps.annotations
@@ -152,7 +152,7 @@ dependencies {
 }
 
 if (project.hasProperty("dexcount") && Boolean.valueOf(project.dexcount)) {
-    apply plugin: 'com.getkeepsafe.dexcount'
+    apply plugin: "com.getkeepsafe.dexcount"
 
     dexcount {
         includeClasses = false

@@ -21,45 +21,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <arcus.app.common.view.ScleraEditText
-        android:id="@+id/debug_menu_friendly_name"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/debug_menu_friendly_name_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        tools:text="text"
-        android:inputType="textAutoComplete"
-        android:imeOptions="actionNext"
-        android:nextFocusDown="@+id/debug_menu_url"
-        android:lines="1"
-        android:maxLines="1"
-        app:resettable="false"
         android:hint="@string/debug_menu_name_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/debug_menu_friendly_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@+id/debug_menu_url"
+            android:lines="1"
+            android:maxLines="1"
+            tools:text="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <arcus.app.common.view.ScleraEditText
-        android:id="@+id/debug_menu_url"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="@dimen/pt_14"
-        android:imeOptions="actionDone"
-        android:inputType="textWebEditText"
-        android:lines="1"
-        android:maxLines="1"
-        app:resettable="false"
+        android:hint="@string/debug_menu_url_hint"
+        app:helperText="@string/debug_menu_url_helper_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debug_menu_friendly_name"
-        android:hint="@string/debug_menu_url_hint"
-        tools:text="https://www.blah.com"
-        app:met_floatingLabel="normal"
-        app:met_helperText="@string/debug_menu_url_helper_text"
-        app:met_helperTextAlwaysShown="true"
-        />
+        app:layout_constraintTop_toBottomOf="@id/debug_menu_friendly_name_container">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/debug_menu_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textWebEditText"
+            android:lines="1"
+            android:maxLines="1"
+            tools:text="https://www.blah.com"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
