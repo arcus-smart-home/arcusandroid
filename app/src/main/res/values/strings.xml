@@ -96,7 +96,7 @@
     <string name="hub_searching_description">This may take 5–10 minutes\nand it is normal for the hub to blink.\nPlease leave the app open.</string>
     <string name="hub_longsearching_error">Hub ID, %s, is taking longer\nthan usual to connect.</string>
     <string name="v3_hub_longsearching_error">Hub ID, %s, is taking longer than usual.</string>
-    <string name="hub_longsearching_description"><![CDATA[<u>Need Help?<u>]]></string>
+    <string name="hub_longsearching_description"><u>Need Help?</u></string>
     <string name="hub_longsearching_wrong_hub_id">Wrong Hub ID? No worries.\nEnter the correct Hub ID below:</string>
     <string name="hub_reporting_error_code">Your Hub, %1$s, is reporting\nerror code %2$s.</string>
     <string name="hub_error_description">Please make sure the Hub ID, %1$s, was entered correctly. Tap the Call Support button below to speak with our support team.</string>
@@ -121,7 +121,7 @@
     <string name="download_failed">Download Failed</string>
     <string name="applying_update">Firmware Application in Progress</string>
     <string name="install_failed">Install Failed</string>
-    <string name="exit_pairing"><![CDATA[<u>Exit Pairing<u>]]></string>
+    <string name="exit_pairing"><u>Exit Pairing</u></string>
     <string name="exit_pairing_title">Exit Pairing</string>
 
     <!-- Device not support -->

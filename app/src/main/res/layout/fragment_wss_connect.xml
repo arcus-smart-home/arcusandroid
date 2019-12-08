@@ -31,37 +31,44 @@
         tools:visibility="gone"
         android:visibility="gone">
 
-        <arcus.app.common.view.ScleraEditText
-            android:paddingTop="30dp"
-            android:id="@+id/network_name"
-            android:layout_width="@dimen/match_constraint"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/network_name_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/wifi_network_hint"
+            android:paddingTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:met_errorColor="@color/sclera_alert"
-            app:resettable="false"
-            android:inputType="text"
-            android:maxLines="1"
-            android:imeOptions="actionNext"
-            android:nextFocusDown="@+id/network_password"
-            />
+            app:layout_constraintTop_toTopOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/network_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@+id/network_password"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/network_password"
-            android:layout_width="@dimen/match_constraint"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/network_password_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:hint="@string/login_password"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            app:resettable="false"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/network_name"
-            app:met_errorColor="@color/sclera_alert"
-            app:showable="true"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/network_name_container"
+            app:passwordToggleEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/network_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -78,17 +85,19 @@
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/wifi_unsecured_90x90"
                 />
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.Body.Medium"
                 android:id="@+id/unsecured_network_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,11 +107,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/image"
                 tools:text="@string/wifi_is_unsecured"
                 android:gravity="center_horizontal"
-                android:textSize="16sp"
-                app:scleraFontStyle="demi"
                 />
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.Body.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -111,8 +119,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/unsecured_network_title"
                 android:text="@string/wifi_unsecured_help_text"
                 android:gravity="center_horizontal"
-                android:textSize="16sp"
-                app:scleraFontStyle="normal"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

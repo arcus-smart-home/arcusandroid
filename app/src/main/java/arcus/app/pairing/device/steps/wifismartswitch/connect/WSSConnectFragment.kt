@@ -24,11 +24,10 @@ import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import arcus.app.R
 import arcus.app.common.fragments.ModalBottomSheet
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
 import arcus.app.common.fragment.TitledFragment
 import arcus.app.pairing.device.searching.DeviceSearchingActivity
 import arcus.presentation.pairing.device.steps.WiFiSmartSwitchPairingStep
@@ -37,6 +36,7 @@ import arcus.app.pairing.device.steps.wifismartswitch.WSSStepsNavigationDelegate
 import arcus.presentation.pairing.device.steps.wifismartswitch.connect.WSSConnectPresenter
 import arcus.presentation.pairing.device.steps.wifismartswitch.connect.WSSConnectView
 import arcus.presentation.pairing.device.steps.wifismartswitch.connect.WiFiConnectInformation
+import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
 class WSSConnectFragment : WiFiNetworkBaseFragment(),
@@ -50,11 +50,13 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
 
     override var continueSearchingInLoop = false
     private lateinit var namedNetworkContainer : View
-    private lateinit var networkNameEntry : ScleraEditText
-    private lateinit var networkPassEntry : ScleraEditText
+    private lateinit var networkNameEntry : EditText
+    private lateinit var networkNameEntryContainer : TextInputLayout
+    private lateinit var networkPassEntry : EditText
+    private lateinit var networkPassEntryContainer : TextInputLayout
 
     private lateinit var unsecuredNetworkContainer : View
-    private lateinit var unsecuredNetworkTitle : ScleraTextView
+    private lateinit var unsecuredNetworkTitle : TextView
     private var disabledColor : Int = -1
     private var enabledColor : Int = -1
     private var popupShowing : ModalBottomSheet? = null
@@ -99,6 +101,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
 
         namedNetworkContainer = view.findViewById(R.id.named_network_container)
         networkNameEntry = view.findViewById(R.id.network_name)
+        networkNameEntryContainer = view.findViewById(R.id.network_name_container)
         networkNameEntry.filters = arrayOf(InputFilter { source, _, _, dest, _, _ ->
             if (dest?.length == 0 && source?.matches(MULTI_SPACES_FROM_START) == true) {
                 source.replace(MULTI_SPACES_FROM_START, "")
@@ -107,6 +110,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
             }
         })
         networkPassEntry = view.findViewById(R.id.network_password)
+        networkPassEntryContainer = view.findViewById(R.id.network_password_container)
 
         unsecuredNetworkContainer = view.findViewById(R.id.unsecured_network_container)
         unsecuredNetworkTitle = view.findViewById(R.id.unsecured_network_title)
@@ -138,17 +142,15 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
     }
 
     private fun updateFields(name: String, type: SelectionType) {
-        networkNameEntry.error = null
-        networkPassEntry.error = null
+        networkNameEntryContainer.error = null
+        networkPassEntryContainer.error = null
 
         if (name.isEmpty()) {
             networkNameEntry.text.clear()
             networkNameEntry.isEnabled = true
-            networkNameEntry.floatingLabelTextColor = enabledColor
         } else {
             networkNameEntry.setText(name, TextView.BufferType.EDITABLE)
             networkNameEntry.isEnabled = false
-            networkNameEntry.floatingLabelTextColor = disabledColor
         }
         networkPassEntry.text.clear()
 
@@ -176,7 +178,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
         return when (selectionType) {
             SelectionType.CUSTOM -> {
                 if (networkNameEntry.text.isNullOrEmpty()) {
-                    networkNameEntry.error = getString(R.string.wifi_ssid_missing_error)
+                    networkNameEntryContainer.error = getString(R.string.wifi_ssid_missing_error)
                     false
                 } else {
                     true
@@ -184,7 +186,7 @@ class WSSConnectFragment : WiFiNetworkBaseFragment(),
             }
             SelectionType.SECURED -> {
                 if (networkPassEntry.text.isNullOrEmpty()) {
-                    networkPassEntry.error = getString(R.string.wifi_password_missing_error)
+                    networkPassEntryContainer.error = getString(R.string.wifi_password_missing_error)
                     false
                 } else {
                     true

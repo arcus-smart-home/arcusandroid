@@ -15,20 +15,32 @@
  */
 package arcus.app.common.validation;
 
-import androidx.annotation.NonNull;
 import android.widget.EditText;
 
-import arcus.app.ArcusApplication;
-import arcus.app.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.apache.commons.lang3.StringUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import arcus.app.ArcusApplication;
+import arcus.app.R;
 
 public class EmailValidator implements InputValidator {
    @NonNull
    private final EditText emailTB;
+
+   @Nullable
+   private final TextInputLayout layout;
+
    private final String emailAddress;
 
    public EmailValidator(@NonNull EditText emailTB) {
+      this(null, emailTB);
+   }
+
+   public EmailValidator(@Nullable TextInputLayout layout, @NonNull EditText emailTB) {
+      this.layout = layout;
       this.emailTB = emailTB;
 
       CharSequence chars = emailTB.getText();
@@ -42,15 +54,24 @@ public class EmailValidator implements InputValidator {
    @Override
    public boolean isValid() {
       if (StringUtils.isEmpty(emailAddress)) {
-         emailTB.setError(ArcusApplication.getContext().getString(R.string.account_registration_missing_email_error_msg));
+         setError(ArcusApplication.getContext().getString(R.string.account_registration_missing_email_error_msg));
          return false;
       }
 
       if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()) {
-         emailTB.setError(ArcusApplication.getContext().getResources().getString(R.string.account_registration_email_well_formed_error_msg));
+         setError(ArcusApplication.getContext().getString(R.string.account_registration_email_well_formed_error_msg));
          return false;
       }
 
+      setError(null);
       return true;
+   }
+
+   private void setError(@Nullable String error) {
+      if (layout != null) {
+         layout.setError(error);
+      } else {
+         emailTB.setError(error);
+      }
    }
 }

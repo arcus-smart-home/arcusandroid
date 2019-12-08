@@ -14,48 +14,38 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:background="@color/pink_banner"
     android:padding="10dp"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/icon_alert_noconnection"/>
+    android:layout_height="wrap_content"
+    tools:viewBindingIgnore="true">
 
     <TextView
-        android:id="@id/alert_close_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
+        android:drawableStart="@drawable/icon_alert_noconnection"
+        android:drawablePadding="10dp"
         android:layout_weight="1"
         android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:text="@string/lutron_bridge_error_banner_text"/>
+        android:text="@string/lutron_bridge_error_banner_text"
+        tools:viewBindingIgnore="true"
+        />
 
-    <LinearLayout
+    <TextView
         android:id="@+id/get_support_click"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@id/alert_close_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:textColor="@color/white_with_60"
-            android:layout_gravity="center"
-            android:text="@string/get_support"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/chevron_white"/>
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/chevron_white"
+        android:drawablePadding="10dp"
+        android:textColor="@color/white_with_60"
+        android:layout_gravity="center"
+        android:text="@string/get_support"
+        tools:viewBindingIgnore="true"
+        />
 
 </LinearLayout>

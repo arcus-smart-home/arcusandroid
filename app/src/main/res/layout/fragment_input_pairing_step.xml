@@ -39,7 +39,8 @@
             tools:src="@drawable/image_placeholder"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Medium"
             android:id="@+id/step_instructions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +51,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_image"
             android:gravity="center"
-            android:textSize="@dimen/pt_16"
             tools:text="Install the device as described in the manufacturer's instructions"
             />
 

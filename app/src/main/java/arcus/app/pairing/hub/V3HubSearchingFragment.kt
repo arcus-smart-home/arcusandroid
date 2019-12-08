@@ -23,7 +23,6 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.appcompat.widget.AppCompatImageView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -45,14 +44,13 @@ import arcus.app.common.utils.Errors
 import arcus.app.common.utils.GlobalSetting
 import android.widget.Button
 import arcus.app.common.view.ScleraLinkView
-import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.hub.customization.HubNameAndPictureFragment
 import arcus.presentation.pairing.device.steps.blehub.HubFirmwareStatus
 import arcus.presentation.pairing.device.steps.blehub.PairingHubPresenterImpl
 import arcus.presentation.pairing.device.steps.blehub.PairingHubView
+import com.google.android.material.textfield.TextInputLayout
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
-
 
 class V3HubSearchingFragment : Fragment(),
     BackPressInterceptor,
@@ -62,12 +60,13 @@ class V3HubSearchingFragment : Fragment(),
 
     private lateinit var hubTakingAWhileMustardBanner : TextView
     private lateinit var hubErrorsPinkBanner : LinearLayout
-    private lateinit var errorBannerIcon: AppCompatImageView
-    private lateinit var errorBannerText: ScleraTextView
+    private lateinit var errorBannerIcon: ImageView
+    private lateinit var errorBannerText: TextView
 
     private lateinit var needHelpViewSwitcher : ViewSwitcher
     private lateinit var searchForNewHubButton: Button
     private lateinit var hubIdEntry: EditText
+    private lateinit var hubIdEntryContainer: TextInputLayout
 
     private lateinit var progressBar: ProgressBar
     private lateinit var progressText: TextView
@@ -115,6 +114,7 @@ class V3HubSearchingFragment : Fragment(),
         }
 
         hubIdEntry = view.findViewById(R.id.hub_id_entry)
+        hubIdEntryContainer = view.findViewById(R.id.hub_id_entry_container)
         hubIdEntry.addTextChangedListener(hubIdWatcher)
         hubIdEntry.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -126,10 +126,11 @@ class V3HubSearchingFragment : Fragment(),
         hubIdEntry.filters = hubIdInputFilers
         hubIdEntry.setOnEditorActionListener { _, actionId, _ ->
             if (hubIdWatcher.isValid && actionId == EditorInfo.IME_ACTION_DONE) {
+                hubIdEntryContainer.error = null
                 searchForNewHubId(hubIdEntry.text.toString())
                 hideKeyboard()
             } else {
-                hubIdEntry.error = getString(hubIdWatcher.errorRes)
+                hubIdEntryContainer.error = getString(hubIdWatcher.errorRes)
             }
 
             true
@@ -280,6 +281,7 @@ class V3HubSearchingFragment : Fragment(),
 
     private fun searchForNewHubId(hubId: String) {
         if (hubIdWatcher.isValid) {
+            hubIdEntryContainer.error = null
             activity?.title = getString(R.string.pairing_hub)
             presenter.registerHub(hubId)
 
@@ -291,7 +293,7 @@ class V3HubSearchingFragment : Fragment(),
             startDefaultAnimator()
             consumeBackPress = true
         } else {
-            hubIdEntry.error = getString(hubIdWatcher.errorRes)
+            hubIdEntryContainer.error = getString(hubIdWatcher.errorRes)
         }
     }
 

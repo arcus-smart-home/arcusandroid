@@ -18,12 +18,12 @@ package arcus.app.pairing.hub.customization
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatImageView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import arcus.app.common.utils.inflate
@@ -39,6 +39,7 @@ import arcus.presentation.pairing.hub.HubKitCheckPresenterImpl
 import arcus.presentation.pairing.hub.HubKitCheckView
 import arcus.presentation.pairing.hub.ModelNameAndPhotoPresenterImpl
 import arcus.presentation.pairing.hub.ModelNameAndPhotoView
+import com.google.android.material.textfield.TextInputLayout
 import com.squareup.picasso.Picasso
 
 class HubNameAndPictureFragment : Fragment(),
@@ -46,9 +47,10 @@ class HubNameAndPictureFragment : Fragment(),
     HubKitCheckView,
     BackPressInterceptor {
     private lateinit var deviceName : EditText
-    private lateinit var nextButton : AppCompatButton
-    private lateinit var productImage : AppCompatImageView
-    private lateinit var cameraImage : AppCompatImageView
+    private lateinit var inputFieldContainer : TextInputLayout
+    private lateinit var nextButton : Button
+    private lateinit var productImage : ImageView
+    private lateinit var cameraImage : ImageView
     private lateinit var progressBar : ProgressBar
 
     private var fragmentContainerHolder: FragmentContainerHolder? = null
@@ -75,8 +77,9 @@ class HubNameAndPictureFragment : Fragment(),
 
         nextButton.setOnClickListener { _ ->
             if (deviceName.text.isNullOrBlank()) {
-                deviceName.error = getString(R.string.missing_device_name)
+                inputFieldContainer.error = getString(R.string.missing_device_name)
             } else {
+                inputFieldContainer.error = null
                 deviceName.clearFocus()
                 deviceName.isEnabled = false
 

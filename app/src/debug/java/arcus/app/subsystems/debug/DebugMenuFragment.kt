@@ -28,6 +28,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import arcus.cornea.SessionController
 import arcus.cornea.subsystem.cameras.ClipPreviewImageGetter
@@ -42,7 +43,6 @@ import arcus.app.ArcusApplication
 import arcus.app.R
 import arcus.app.common.utils.PreferenceCache
 import arcus.app.common.utils.PreferenceUtils
-import arcus.app.common.view.ScleraEditText
 import com.squareup.picasso.Picasso
 import org.slf4j.LoggerFactory
 import java.util.*
@@ -141,8 +141,8 @@ class DebugMenuFragment : Fragment(), SharedPreferences.OnSharedPreferenceChange
         onMainThreadWithActivity {
             val layoutInflater = LayoutInflater.from(it)
             val view = layoutInflater.inflate(R.layout.debug_menu_custom_environment, null)
-            val name = view.findViewById<ScleraEditText>(R.id.debug_menu_friendly_name)
-            val url = view.findViewById<ScleraEditText>(R.id.debug_menu_url)
+            val name = view.findViewById<EditText>(R.id.debug_menu_friendly_name)
+            val url = view.findViewById<EditText>(R.id.debug_menu_url)
 
             AlertDialog.Builder(it)
                     .setView(view)

@@ -47,17 +47,15 @@
             android:layout_height="20dp"
             android:layout_gravity="center_vertical" />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.ErrorBanner"
             android:id="@+id/error_banner_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
             android:paddingLeft="10dp"
-            android:lineSpacingMultiplier="1.36"
             android:text="@string/hub_reporting_error_code"
-            app:scleraFontStyle="demi"/>
+            />
 
     </LinearLayout>
 

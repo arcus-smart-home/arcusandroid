@@ -24,7 +24,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/product_image"
         android:layout_width="220dp"
         android:layout_height="220dp"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/camera_image"
         android:layout_width="@dimen/dp_48"
         android:layout_height="@dimen/dp_48"
@@ -48,40 +48,43 @@
         app:layout_constraintEnd_toEndOf="@+id/product_image"
         />
 
-    <arcus.app.common.view.ScleraTextView
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
         android:id="@+id/step_title"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sclera_widget_edge_combined"
         android:gravity="center"
-        android:textSize="@dimen/pt_18"
-        app:scleraFontStyle="demi"
+        android:text="@string/name_your_device_and_add_a_photo_if_you_like"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_image"
-        android:text="@string/name_your_device_and_add_a_photo_if_you_like"
         />
 
-    <arcus.app.common.view.ScleraEditText
-        android:id="@+id/input_field"
-        android:layout_width="@dimen/dp_0"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_field_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:textSize="@dimen/pt_16"
-        android:maxLength="48"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:inputType="textImeMultiLine"
-        app:met_floatingLabelText="@string/device_name_generic"
-        app:met_maxCharacters="48"
-        app:met_errorColor="@color/sclera_alert"
-        app:resettable="false"
+        android:hint="@string/wifi_network_hint"
+        android:paddingTop="30dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="48"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/step_title"
-        />
+        app:layout_constraintTop_toBottomOf="@id/step_title">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textImeMultiLine"
+            android:ellipsize="end"
+            android:maxLength="48"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/next_btn"
@@ -93,7 +96,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_field"
+        app:layout_constraintTop_toBottomOf="@+id/input_field_container"
         app:layout_constraintVertical_bias="1.0"
         />
 

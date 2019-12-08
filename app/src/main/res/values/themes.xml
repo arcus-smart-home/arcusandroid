@@ -65,6 +65,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:progressBarStyleInverse">@style/Widget.Arcus.ProgressBar.Indeterminate</item>
         <item name="progressBarStyle">@style/Widget.Arcus.ProgressBar.Indeterminate</item>
+        <item name="textInputStyle">@style/Widget.Arcus.TextInputLayout</item>
         <item name="android:editTextStyle">@style/Widget.Arcus.TextInputLayout.EditText</item>
         <item name="editTextStyle">@style/Widget.Arcus.TextInputLayout.EditText</item>
     </style>

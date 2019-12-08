@@ -35,15 +35,12 @@
 
     <ScrollView
         android:id="@+id/scroll_container"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_below="@+id/alert_banner"
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/loginLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,85 +58,109 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
                 android:id="@+id/email_sent_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_24"
                 android:gravity="center"
                 android:text="@string/forgot_password_email_sent"
-                android:textColor="@color/arcus_gray"
-                app:scleraFontStyle="demi"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/header_image" />
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
                 android:id="@+id/forgot_password_text_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/contact_support_forgot_password"
-                android:textColor="@color/arcus_gray"
                 android:layout_marginTop="@dimen/dp_24"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_sent_text"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
 
-            <arcus.app.common.view.ScleraEditText
-                android:id="@+id/email"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_email"
-                android:inputType="textEmailAddress"
                 android:layout_marginTop="@dimen/dp_20"
-                app:clearable="true"
-                app:resettable="false"
-                app:met_errorColor="@color/sclera_alert"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_3"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_3">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:nextFocusForward="@+id/etCode"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <arcus.app.common.view.ScleraEditText
-                android:id="@+id/etCode"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etCode_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/forgot_password_code"
-                android:inputType="text"
-                app:resettable="false"
                 android:layout_marginTop="@dimen/dp_5"
                 app:layout_goneMarginTop="@dimen/dp_20"
-                app:met_errorColor="@color/sclera_alert"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email" />
+                app:layout_constraintTop_toBottomOf="@+id/email_container">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:nextFocusForward="@+id/etCode"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <arcus.app.common.view.ScleraEditText
-                android:id="@+id/etNewPassword"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etNewPassword_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/forgot_password_new_password"
-                android:inputType="textPassword"
-                app:showable="true"
-                app:resettable="false"
                 android:layout_marginTop="@dimen/dp_5"
-                app:met_errorColor="@color/sclera_alert"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etCode" />
+                app:layout_constraintTop_toBottomOf="@+id/etCode_container"
+                app:passwordToggleEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNewPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:nextFocusForward="@+id/etCode"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <arcus.app.common.view.ScleraEditText
-                android:id="@+id/etConfirmPassword"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etConfirmPassword_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/forgot_password_confirm_password"
-                android:inputType="textPassword"
-                app:showable="true"
-                app:resettable="false"
                 android:layout_marginTop="@dimen/dp_5"
-                app:met_errorColor="@color/sclera_alert"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNewPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/etNewPassword_container"
+                app:passwordToggleEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:nextFocusForward="@+id/etCode"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
                 android:id="@+id/password_requirements"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,7 +168,7 @@
                 android:layout_marginTop="@dimen/dp_28"
                 android:text="@string/forgot_password_password_requirements"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword_container" />
 
             <arcus.app.common.view.ButtonWithProgress
                 android:theme="@style/Widget.Arcus.Button.Purple"

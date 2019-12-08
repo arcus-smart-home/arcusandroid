@@ -43,6 +43,7 @@
             android:maxWidth="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/addphoto_150x150"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -56,53 +57,68 @@
             app:layout_constraintBottom_toBottomOf="@+id/person_image"
             app:layout_constraintEnd_toEndOf="@+id/person_image" />
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/first_name"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/first_name_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/account_registration_first_name_hint"
-            android:imeOptions="actionNext"
-            android:inputType="text"
-            android:maxLines="1"
-            app:resettable="false"
-            app:met_errorColor="@color/sclera_alert"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/person_image" />
+            app:layout_constraintTop_toBottomOf="@+id/person_image">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                tools:text="John"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/last_name"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/last_name_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/account_registration_last_name_hint"
-            android:imeOptions="actionNext"
-            android:inputType="text"
-            android:maxLines="1"
-            app:resettable="false"
-            app:met_errorColor="@color/sclera_alert"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/first_name" />
+            app:layout_constraintTop_toBottomOf="@+id/first_name_container">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                tools:text="Doe"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/phone_number"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_number_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/account_registration_phone_number"
-            android:imeOptions="actionDone"
-            android:inputType="phone"
-            android:maxLength="14"
-            android:maxLines="1"
-            app:resettable="false"
-            app:met_errorColor="@color/sclera_alert"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/last_name" />
+            app:layout_constraintTop_toBottomOf="@+id/last_name_container">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="14"
+                android:maxLines="1"
+                tools:text="Doe"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
             android:id="@+id/blurb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,9 +129,9 @@
             app:layout_constraintBottom_toTopOf="@+id/next_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone_number"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number_container"
             app:layout_constraintVertical_bias="0.0"
-            app:scleraFontStyle="normal" />
+            />
 
         <Button
             android:id="@+id/next_button"
@@ -123,7 +139,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/next"
-            android:textAllCaps="true"
             app:layout_constraintBottom_toTopOf="@+id/cancel_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +149,6 @@
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:textAllCaps="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

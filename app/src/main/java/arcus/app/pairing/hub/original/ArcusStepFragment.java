@@ -27,9 +27,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.iris.client.model.DeviceModel;
 import com.iris.client.model.HubModel;
 import arcus.app.R;
@@ -43,11 +46,9 @@ import arcus.app.common.image.picasso.transformation.BlackWhiteInvertTransformat
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation;
 import arcus.app.common.image.picasso.transformation.Invert;
 import arcus.app.common.models.RegistrationContext;
-import arcus.app.common.models.SessionModelManager;
 import arcus.app.common.utils.GlobalSetting;
-import arcus.app.common.view.ScleraEditText;
-import arcus.app.common.view.ScleraTextView;
 import arcus.app.pairing.hub.original.model.ArcusStep;
+import arcus.cornea.provider.HubModelProvider;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -60,9 +61,10 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
     private ImageView stepImage;
     private ImageView profileImage;
     public ImageView indexIcon;
-    private ScleraTextView stepText;
-    private ScleraTextView stepSubText;
-    private ScleraEditText deviceName;
+    private TextView stepText;
+    private TextView stepSubText;
+    private EditText deviceName;
+    private TextInputLayout deviceNameContainer;
     private FrameLayout photoLayout;
     private boolean mIsLastStep;
     @Nullable
@@ -126,6 +128,7 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
         stepSubText = view.findViewById(R.id.step_view_sub_text);
 
         deviceName = view.findViewById(R.id.step_view_device_name);
+        deviceNameContainer = view.findViewById(R.id.step_view_device_name_container);
 
         deviceName.addTextChangedListener(new UpdateContextTextWatcher<RegistrationContext>(registrationContext) {
             @Override
@@ -179,12 +182,11 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
     private void loadHubData(){
         stepSubText.setVisibility(View.GONE);
         if(mIsLastStep) {
-            deviceName.setVisibility(View.VISIBLE);
+            deviceNameContainer.setVisibility(View.VISIBLE);
             deviceName.setImeOptions(EditorInfo.IME_ACTION_DONE);
             if(mStep.getCurrentStep() ==6){
                 deviceName.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
-                deviceName.setHint(getString(R.string.hub_id_hint_title));
-                deviceName.setFloatingLabelText(getString(R.string.hub_id_edit_title));
+                deviceNameContainer.setHint(getString(R.string.hub_id_hint_title));
 
                 deviceName.addTextChangedListener(new TextWatcher() {
                     int len =0;
@@ -209,10 +211,12 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
                         if((!matcher.find() || s.length()>8))
                         {
                             if (s.equals("") || s.length() == 0) {
-                                deviceName.setError(getString(R.string.hub_id_missing));
+                                deviceNameContainer.setError(getString(R.string.hub_id_missing));
                             }
                             else if (s.length() >= 8) {
-                                deviceName.setError(getString(R.string.hub_id_wrong_format));
+                                deviceNameContainer.setError(getString(R.string.hub_id_wrong_format));
+                            } else {
+                                deviceNameContainer.setError(null);
                             }
                             isMatch = false;
 
@@ -243,10 +247,9 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
                 photoLayout.setVisibility(View.GONE);
             } else {
                 indexIcon.setVisibility(View.GONE);
-                deviceName.setFloatingLabelText(getString(R.string.hub_name_label));
-                deviceName.setHint(getString(R.string.hub_name_hint));
+                deviceNameContainer.setHint(getString(R.string.hub_name_hint));
 
-                HubModel hubModel = SessionModelManager.instance().getHubModel();
+                HubModel hubModel = HubModelProvider.instance().getHubModel();
                 if (hubModel != null && !StringUtils.isEmpty(hubModel.getName())) {
                     deviceName.setText(hubModel.getName());
                 }
@@ -266,9 +269,8 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
 
     private void loadDeviceData(){
         if(mIsLastStep){
-            deviceName.setVisibility(View.VISIBLE);
-            deviceName.setFloatingLabelText(getString(R.string.device_name_hint));
-            deviceName.setHint(getString(R.string.device_name_hint));
+            deviceNameContainer.setVisibility(View.VISIBLE);
+            deviceNameContainer.setHint(getString(R.string.device_name_hint));
             photoLayout.setVisibility(View.VISIBLE);
             stepImage.setVisibility(View.GONE);
 
@@ -323,7 +325,7 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
 
                 String placeId = registrationContext.getPlaceModel().getId();
                 if (isHub) {
-                    hubModel = SessionModelManager.instance().getHubModel();
+                    hubModel = HubModelProvider.instance().getHubModel();
                     if (hubModel != null) {
                         deviceId = hubModel.getId();
                     }
@@ -362,7 +364,7 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
 
         if (isHub) {
 
-            HubModel hubModel = SessionModelManager.instance().getHubModel();
+            HubModel hubModel = HubModelProvider.instance().getHubModel();
             if (hubModel != null) {
                 ImageManager.with(getActivity())
                         .putLargeDeviceImage(hubModel)
@@ -398,11 +400,12 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     public boolean validate() {
-        if(deviceName.getVisibility() == View.VISIBLE){
+        if(deviceNameContainer.getVisibility() == View.VISIBLE){
             if(StringUtils.isBlank(deviceName.getText())) {
-                deviceName.setError(getActivity().getString(R.string.requiredField, deviceName.getHint()));
+                deviceNameContainer.setError(getActivity().getString(R.string.requiredField, deviceName.getHint()));
                 formOk = false;
             }else{
+                deviceNameContainer.setError(null);
                 formOk = isMatch;
             }
 
@@ -414,7 +417,7 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
 
     @Override
     public boolean submit() {
-        if(deviceName.getVisibility() == View.VISIBLE){
+        if(deviceNameContainer.getVisibility() == View.VISIBLE){
             return true;
         }else{
             return super.submit();
@@ -447,15 +450,6 @@ public class ArcusStepFragment extends BaseFragment implements View.OnClickListe
             case 5:
                 index.setImageResource(R.drawable.step6);
                 break;
-           /* case 6:
-                index.setImageResource(R.drawable.step_07);
-                break;
-            case 7:
-                index.setImageResource(R.drawable.step_08);
-                break;
-            case 8:
-                index.setImageResource(R.drawable.step_09);
-                break;*/
         }
     }
 }

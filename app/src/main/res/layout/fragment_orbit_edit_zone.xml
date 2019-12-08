@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/customization_info_image"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
@@ -43,16 +43,14 @@
             tools:src="@drawable/irrigation_zone_small"
             />
 
-        <arcus.app.common.view.ScleraTextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:id="@+id/customization_info_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:textSize="@dimen/pt_18"
-            app:scleraFontStyle="demi"
             android:paddingTop="16dp"
             android:paddingBottom="24dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,20 +69,26 @@
             android:background="@color/sclera_divider_color"
             />
 
-        <arcus.app.common.view.ScleraEditText
-            android:id="@+id/zone_name"
-            tools:hint="@string/zone_name"
-            android:paddingTop="20dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/zone_name_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/zone_name"
+            android:paddingTop="20dp"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
-            app:resettable="false"
-            android:maxLines="1"
-            android:inputType="textAutoComplete"
-            android:imeOptions="actionDone"
-            app:layout_constraintTop_toBottomOf="@+id/bottom_divider"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_divider">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/zone_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:inputType="textAutoComplete"
+                android:imeOptions="actionDone"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginTop="13dp"
@@ -94,9 +98,10 @@
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:paddingBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/zone_name">
+            app:layout_constraintTop_toBottomOf="@+id/zone_name_container">
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.Body.Large"
                 android:id="@+id/water_duration"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
@@ -105,10 +110,10 @@
                 app:layout_constraintEnd_toStartOf="@+id/duration_slot"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:textSize="@dimen/pt_18"
-                app:scleraFontStyle="normal" />
+                />
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.Caption"
                 android:paddingTop="5dp"
                 android:id="@+id/description"
                 android:layout_width="@dimen/match_constraint"
@@ -119,10 +124,9 @@
                 app:layout_constraintEnd_toStartOf="@+id/duration_slot"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/water_duration"
-                android:textSize="13sp"
-                app:scleraFontStyle="normal" />
+                />
 
-            <arcus.app.common.view.ScleraTextView
+            <TextView
                 android:id="@+id/duration_slot"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
@@ -130,18 +134,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/chevron"
                 app:layout_constraintTop_toTopOf="parent"
-                app:scleraFontStyle="normal"
                 tools:text="1 Min" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/chevron"
                 android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:scleraFontStyle="normal"
-                app:srcCompat="@drawable/chevron" />
+                app:srcCompat="@drawable/chevron"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -19,13 +19,15 @@ import androidx.annotation.StringRes
 import android.widget.EditText
 
 import arcus.app.ArcusApplication
+import com.google.android.material.textfield.TextInputLayout
 
 import org.apache.commons.lang3.StringUtils
 
 class CustomEmailValidator(
+    private val textInputLayout: TextInputLayout,
     private val emailTB: EditText,
-    @param:StringRes private val missingEmailError: Int,
-    @param:StringRes private val invalidEmailError: Int
+    @StringRes private val missingEmailError: Int,
+    @StringRes private val invalidEmailError: Int
 ) : InputValidator {
     private val emailAddress: String?
 
@@ -40,12 +42,12 @@ class CustomEmailValidator(
 
     override fun isValid(): Boolean {
         if (StringUtils.isEmpty(emailAddress)) {
-            emailTB.error = ArcusApplication.getContext().getString(missingEmailError)
+            textInputLayout.error = ArcusApplication.getContext().getString(missingEmailError)
             return false
         }
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailAddress!!).matches()) {
-            emailTB.error = ArcusApplication.getContext().resources.getString(invalidEmailError)
+            textInputLayout.error = ArcusApplication.getContext().resources.getString(invalidEmailError)
             return false
         }
 

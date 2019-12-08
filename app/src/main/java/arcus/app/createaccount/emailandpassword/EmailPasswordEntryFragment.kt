@@ -29,30 +29,34 @@ import arcus.app.R
 import arcus.app.common.utils.GlobalSetting
 import arcus.app.common.utils.PreferenceUtils
 import android.widget.Button
-import arcus.app.common.view.ScleraEditText
-import arcus.app.common.view.ScleraTextView
+import android.widget.EditText
+import android.widget.TextView
+import arcus.app.common.utils.clearErrorsOnFocusChangedTo
+import arcus.app.common.utils.textOrEmpty
+import arcus.app.common.validation.EmailValidator
 import arcus.app.createaccount.CreateAccountFlow
 import arcus.app.createaccount.nameandphone.NamePhoneAndImageLocation
-import com.rengwuxian.materialedittext.validation.METValidator
+import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
-
 
 class EmailPasswordEntryFragment : Fragment(), EmailPasswordEntryView {
     private lateinit var callback     : CreateAccountFlow
     private lateinit var userInfo     : NamePhoneAndImageLocation
 
     private lateinit var nextButton   : Button
-    private lateinit var email        : ScleraEditText
-    private lateinit var password     : ScleraEditText
-    private lateinit var confirmPass  : ScleraEditText
-    private lateinit var alertBanner  : ScleraTextView
+    private lateinit var email        : EditText
+    private lateinit var emailContainer : TextInputLayout
+    private lateinit var password     : EditText
+    private lateinit var passwordContainer : TextInputLayout
+    private lateinit var confirmPass  : EditText
+    private lateinit var confirmPassContainer : TextInputLayout
+    private lateinit var alertBanner  : TextView
     private lateinit var offersNPromo : CheckBox
     private lateinit var focusHog     : View
 
-    private val presenter : EmailPasswordEntryPresenter =
-        EmailPasswordEntryPresenterImpl(
+    private val presenter : EmailPasswordEntryPresenter = EmailPasswordEntryPresenterImpl(
             PreferenceUtils.getPlatformUrl()
-        )
+    )
 
     var personAddress by Delegates.notNull<String>()
 
@@ -76,43 +80,26 @@ class EmailPasswordEntryFragment : Fragment(), EmailPasswordEntryView {
         focusHog = view.findViewById(R.id.focus_hog)
 
         email = view.findViewById(R.id.email)
-        email.onFocusChangeListener = getFocusListenerFor(email)
-        email.addValidator(object : METValidator(getString(R.string.invalid_email)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean): Boolean {
-                return android.util.Patterns.EMAIL_ADDRESS.matcher(text).matches()
-            }
-        })
+        emailContainer = view.findViewById(R.id.email_container)
+        emailContainer clearErrorsOnFocusChangedTo email
 
         password = view.findViewById(R.id.password)
-        password.onFocusChangeListener = getFocusListenerFor(password)
-        password.addValidator(object : METValidator(getString(R.string.invalid_password)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean): Boolean {
-                return presenter.passwordIsValid(text)
-            }
-        })
-
-        confirmPass = view.findViewById(R.id.confirm_password)
-        confirmPass.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
-            confirmPass.onFocusChange(v, hasFocus)
+        passwordContainer = view.findViewById(R.id.password_container)
+        passwordContainer.clearErrorsOnFocusChangedTo(password) { hasFocus ->
             if (hasFocus) {
                 setAlertBannerVisibility(View.GONE)
-                confirmPass.error = null
-                if (password.error == "") {
-                    password.error = null
-                }
+                confirmPassContainer.error = null
             }
         }
-        confirmPass.addValidator(object : METValidator(getString(R.string.passwords_do_not_match)) {
-            override fun isValid(text: CharSequence, isEmpty: Boolean) : Boolean {
-                val isValid = presenter.passwordsMatch(password.text ?: "", text)
-                if (isValid && password.error == "") {
-                    password.error = null
-                } else if (!isValid) {
-                    password.error = ""
-                }
-                return isValid
+
+        confirmPass = view.findViewById(R.id.confirm_password)
+        confirmPassContainer = view.findViewById(R.id.confirm_password_container)
+        confirmPassContainer.clearErrorsOnFocusChangedTo(confirmPass) { hasFocus ->
+            if (hasFocus) {
+                setAlertBannerVisibility(View.GONE)
+                passwordContainer.error = null
             }
-        })
+        }
 
         nextButton = view.findViewById(R.id.next_button)
         nextButton.setOnClickListener { trySignUp() }
@@ -124,25 +111,30 @@ class EmailPasswordEntryFragment : Fragment(), EmailPasswordEntryView {
                 termsString,
                 privacyString
             )) as Spannable
-        val acceptText = view.findViewById<ScleraTextView>(R.id.terms_and_conditions_text)
+        val acceptText = view.findViewById<TextView>(R.id.terms_and_conditions_text)
         acceptText.text = clickAcceptCopy
         acceptText.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    private fun getFocusListenerFor(field: ScleraEditText) = View.OnFocusChangeListener { v, hasFocus ->
-        field.onFocusChange(v, hasFocus)
-        if (hasFocus) {
-            setAlertBannerVisibility(View.GONE)
-            field.error = null
-        } else {
-            field.validate()
-        }
-    }
-
     private fun trySignUp() {
         focusHog.requestFocusFromTouch()
-        val emailOk = email.validate()
-        if (emailOk && password.validate() && confirmPass.validate()) {
+        val emailOk = EmailValidator(emailContainer, email).isValid
+        val passwordOk = presenter.passwordIsValid(password.textOrEmpty()).apply {
+            if (!this) {
+                passwordContainer.error = getString(R.string.invalid_password)
+            }
+        }
+
+        val confirmPassOk = passwordOk && presenter.passwordsMatch(
+                password.textOrEmpty(),
+                confirmPass.textOrEmpty()
+        ).apply {
+            if (!this) {
+                passwordContainer.error = null
+                confirmPassContainer.error = getString(R.string.passwords_do_not_match)
+            }
+        }
+        if (emailOk && passwordOk && confirmPassOk) {
             presenter
                 .signupUsing(
                     NewAccountInformation(
@@ -157,10 +149,7 @@ class EmailPasswordEntryFragment : Fragment(), EmailPasswordEntryView {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context !is CreateAccountFlow) {
-            throw IllegalStateException("Dev: Make sure the host implements CreateAccountFlow.")
-        }
-
+        check(context is CreateAccountFlow) { "Dev: Make sure the host implements CreateAccountFlow." }
         callback = context
     }
 

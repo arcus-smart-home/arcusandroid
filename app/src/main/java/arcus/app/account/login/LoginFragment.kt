@@ -18,12 +18,15 @@ package arcus.app.account.login
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -34,13 +37,16 @@ import arcus.app.common.utils.LoginUtils
 import arcus.app.common.validation.EmailValidator
 import arcus.app.common.validation.NotEmptyValidator
 import arcus.app.common.validation.UrlValidator
-import arcus.app.common.view.ScleraEditText
 import arcus.app.createaccount.CreateAccountActivity
+import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
-
-    private lateinit var emailField: ScleraEditText
-    private lateinit var passwordField: ScleraEditText
+    private lateinit var emailFieldTIL: TextInputLayout
+    private lateinit var passwordFieldTIL: TextInputLayout
+    private lateinit var platformUrlEntryTIL: TextInputLayout
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var platformUrl: EditText
     private lateinit var errorBanner: LinearLayout
     private lateinit var genericErrorBanner: LinearLayout
     private lateinit var errorBannerText: TextView
@@ -49,11 +55,15 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
     private lateinit var createAccountLink: TextView
     private lateinit var loginButton: Button
     private lateinit var indeterminateProgress: RelativeLayout
-    private lateinit var platformUrlEntry: ScleraEditText
     private val presenter = LoginPresenter()
+    private val textWatcher = object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) { setCredentialErrorBannerVisible(false) }
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/* No-Op */ }
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { /* No-Op */ }
+    }
 
     private val isEmailValid: Boolean
-        get() = EmailValidator(emailField).isValid
+        get() = EmailValidator(emailFieldTIL, email).isValid
 
     private val placeId: String
         get() {
@@ -67,17 +77,20 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        errorBanner = view.findViewById<View>(R.id.error_banner) as LinearLayout
-        genericErrorBanner = view.findViewById<View>(R.id.generic_error_banner) as LinearLayout
+        emailFieldTIL = view.findViewById(R.id.emailTextInputLayout)
+        passwordFieldTIL = view.findViewById(R.id.passwordTextInputLayout)
+        platformUrlEntryTIL = view.findViewById(R.id.platformTextInputLayout)
+        email = view.findViewById(R.id.email)
+        password = view.findViewById(R.id.password)
+        platformUrl = view.findViewById(R.id.platformUrl)
+        errorBanner = view.findViewById(R.id.error_banner)
+        genericErrorBanner = view.findViewById(R.id.generic_error_banner)
         errorBannerText = view.findViewById(R.id.error_banner_text)
-        emailField = view.findViewById<View>(R.id.email) as ScleraEditText
-        passwordField = view.findViewById<View>(R.id.password) as ScleraEditText
         forgotPasswordLink = view.findViewById(R.id.forgot_password)
         useInviteCodeLink = view.findViewById(R.id.use_invitation_code)
         createAccountLink = view.findViewById(R.id.create_account)
         loginButton = view.findViewById(R.id.login)
-        indeterminateProgress = view.findViewById<View>(R.id.indeterminate_progress) as RelativeLayout
-        platformUrlEntry = view.findViewById(R.id.platformUrl)
+        indeterminateProgress = view.findViewById(R.id.indeterminate_progress)
     }
 
     override fun onResume() {
@@ -98,23 +111,23 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
         // Both email/password validation should fire together, do not short-circuit in if-statement
         context?.run {
             // Why isn't the presenter doing all of this?
-            val validEmail = LoginUtils.isMagicEmail(emailField.text.toString()) || isEmailValid
-            val validPassword = NotEmptyValidator(this, passwordField, R.string.account_registration_verify_password_blank_error_msg).isValid
-            val platformUrlValid = UrlValidator(platformUrlEntry).isValid
+            val validEmail = LoginUtils.isMagicEmail(email.text.toString()) || isEmailValid
+            val validPassword = NotEmptyValidator(passwordFieldTIL, password, getString(R.string.account_registration_verify_password_blank_error_msg)).isValid
+            val platformUrlValid = UrlValidator(platformUrlEntryTIL, platformUrl).isValid
 
             if (validEmail && validPassword && platformUrlValid) {
                 showProgressBar()
                 presenter.login(
                         placeId,
-                        emailField.text.toString(),
-                        passwordField.text.toString().toCharArray(),
-                        platformUrlEntry.text
+                        email.text.toString(),
+                        password.text.toString().toCharArray(),
+                        platformUrl.text.toString()
                 )
             }
         }
     }
 
-    override fun showPlatformUrlEntry(value: String?) = platformUrlEntry.setText(value)
+    override fun showPlatformUrlEntry(value: String?) = platformUrl.setText(value)
 
     override fun onLoginSucceeded() {
         context?.run {
@@ -180,8 +193,8 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
     private fun setCredentialErrorBannerVisible(visible: Boolean) {
         errorBanner.visibility = if (visible) View.VISIBLE else View.GONE
         if (visible) {
-            emailField.error = ""
-            passwordField.error = ""
+            emailFieldTIL.error = ""
+            passwordFieldTIL.error = ""
         }
     }
 
@@ -199,20 +212,25 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
         }
 
         // Validate email when user focuses other component
-        emailField.setLostFocusListener { isEmailValid }
-
-        // Validate password when user focuses other component
-        passwordField.setLostFocusListener {
-            context?.run {
-                NotEmptyValidator(this, passwordField, R.string.account_registration_verify_password_blank_error_msg).isValid
+        email.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                isEmailValid
             }
         }
 
-        // Hide error banner when user modifies email
-        emailField.setTextChangeListener { _, _ -> setCredentialErrorBannerVisible(false) }
+        // Validate password when user focuses other component
+        password.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                context?.run {
+                    val error = getString(R.string.account_registration_verify_password_blank_error_msg)
+                    NotEmptyValidator(passwordFieldTIL, password, error).isValid
+                }
+            }
+        }
 
-        // Hide error banner when user modifies password
-        passwordField.setTextChangeListener { _, _ -> setCredentialErrorBannerVisible(false) }
+        // Hide error banner when user modifies email or password
+        email.addTextChangedListener(textWatcher)
+        password.addTextChangedListener(textWatcher)
 
         val actionListener = TextView.OnEditorActionListener { v, _, _ ->
             attemptLogin()
@@ -222,8 +240,8 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
             true
         }
 
-        passwordField.setOnEditorActionListener(actionListener)
-        platformUrlEntry.setOnEditorActionListener(actionListener)
+        password.setOnEditorActionListener(actionListener)
+        platformUrl.setOnEditorActionListener(actionListener)
 
         createAccountLink.setOnClickListener { _ ->
             activity?.run {
@@ -234,8 +252,7 @@ class LoginFragment : Fragment(), LoginPresenterContract.LoginView {
     }
 
     companion object {
-
-        private val PLACE_ID = "PLACE_ID"
+        private const val PLACE_ID = "PLACE_ID"
 
         @JvmStatic
         fun newInstance(placeId: String?): LoginFragment {

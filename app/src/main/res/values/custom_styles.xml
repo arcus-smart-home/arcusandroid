@@ -129,10 +129,4 @@
         </attr>
         <attr name="html" format="reference|string"/>
     </declare-styleable>
-
-    <declare-styleable name="ScleraEditText">
-        <attr name="clearable" format="boolean" />
-        <attr name="showable" format="boolean" />
-        <attr name="resettable" format="boolean"/>
-    </declare-styleable>
 </resources>

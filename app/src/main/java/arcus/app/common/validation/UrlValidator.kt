@@ -20,8 +20,10 @@ import android.widget.EditText
 import androidx.annotation.StringRes
 
 import arcus.app.R
+import com.google.android.material.textfield.TextInputLayout
 
 class UrlValidator(
+        private val textInput: TextInputLayout? = null,
         private val input: EditText,
         private val errorText: String
 ) : InputValidator {
@@ -29,16 +31,24 @@ class UrlValidator(
 
     @JvmOverloads
     constructor(
+            textInput: TextInputLayout? = null,
             input: EditText,
             @StringRes errorTextResource: Int = R.string.invalid_url
-    ) : this(input, input.context.getString(errorTextResource))
+    ) : this(textInput, input, input.context.getString(errorTextResource))
 
     override fun isValid(): Boolean {
         if (urlText.isBlank() || !Patterns.WEB_URL.matcher(urlText).matches()) {
-            input.error = errorText
+            setError(errorText)
             return false
         }
 
+        setError(null)
         return true
+    }
+
+    private fun setError(error: String?) = if (textInput != null) {
+        textInput.error = error
+    } else {
+        input.error = error
     }
 }

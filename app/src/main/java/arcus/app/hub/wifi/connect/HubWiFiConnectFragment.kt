@@ -27,6 +27,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import arcus.app.R
 import arcus.app.common.fragment.FragmentContainerHolder
@@ -34,7 +35,6 @@ import arcus.app.common.fragments.ModalBottomSheet
 import arcus.app.common.popups.ScleraPopup
 import arcus.app.common.utils.enableViews
 import arcus.app.common.utils.inflate
-import arcus.app.common.view.ScleraEditText
 import arcus.app.common.wifi.WiFiSecuritySelectionPopup
 import arcus.presentation.common.wifi.DeviceWiFiNetworkSecurity
 import arcus.presentation.hub.wifi.connect.HubWiFiConnectPresenter
@@ -44,12 +44,15 @@ import arcus.presentation.hub.wifi.connect.HubWiFiConnectView
 import arcus.presentation.hub.wifi.connect.HubWiFiCredentials
 import arcus.presentation.hub.wifi.scan.HubAvailableWiFiNetwork
 import arcus.presentation.pairing.MULTI_SPACES_FROM_START
+import com.google.android.material.textfield.TextInputLayout
 import kotlin.properties.Delegates
 
 class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
     private lateinit var namedNetworkContainer: View
-    private lateinit var networkNameEntry: ScleraEditText
-    private lateinit var networkPassEntry: ScleraEditText
+    private lateinit var networkNameEntry: EditText
+    private lateinit var networkNameEntryContainer: TextInputLayout
+    private lateinit var networkPassEntry: EditText
+    private lateinit var networkPassEntryContainer: TextInputLayout
     private lateinit var unsecuredNetworkContainer: View
     private lateinit var unsecuredNetworkTitle: TextView
     private lateinit var securitySelectionGroup: Group
@@ -113,14 +116,14 @@ class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
                 }
             }
             HubWiFiConnectState.MISSING_OR_INVALID_SSID -> {
-                networkNameEntry.error = getString(R.string.wifi_ssid_missing_error)
+                networkNameEntryContainer.error = getString(R.string.wifi_ssid_missing_error)
             }
             HubWiFiConnectState.MISSING_OR_INVALID_PASS -> {
-                networkPassEntry.error = getString(R.string.wifi_password_missing_error)
+                networkPassEntryContainer.error = getString(R.string.wifi_password_missing_error)
             }
             HubWiFiConnectState.MISSING_OR_INVALID_SSID_AND_PASS -> {
-                networkNameEntry.error = getString(R.string.wifi_ssid_missing_error)
-                networkPassEntry.error = getString(R.string.wifi_password_missing_error)
+                networkNameEntryContainer.error = getString(R.string.wifi_ssid_missing_error)
+                networkPassEntryContainer.error = getString(R.string.wifi_password_missing_error)
             }
 
             HubWiFiConnectState.INITIAL -> {
@@ -161,7 +164,9 @@ class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
         super.onViewCreated(view, savedInstanceState)
         namedNetworkContainer = view.findViewById(R.id.named_network_container)
         networkNameEntry = view.findViewById(R.id.network_name)
+        networkNameEntryContainer = view.findViewById(R.id.network_name_container)
         networkPassEntry = view.findViewById(R.id.network_password)
+        networkPassEntryContainer = view.findViewById(R.id.network_password_container)
         unsecuredNetworkContainer = view.findViewById(R.id.unsecured_network_container)
         unsecuredNetworkTitle = view.findViewById(R.id.unsecured_network_title)
         securitySelectionGroup = view.findViewById(R.id.security_selection_group)
@@ -194,9 +199,9 @@ class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
                     securitySelectionRow.text = selected.friendlyName
                     if (selected == DeviceWiFiNetworkSecurity.NONE) {
                         networkPassEntry.text = null
-                        networkPassEntry.visibility = View.GONE
+                        networkPassEntryContainer.visibility = View.GONE
                     } else {
-                        networkPassEntry.visibility = View.VISIBLE
+                        networkPassEntryContainer.visibility = View.VISIBLE
                     }
                 }
                 .show(fragmentManager)
@@ -223,7 +228,7 @@ class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
             }
         })
 
-        networkNameEntry.error = null
+        networkNameEntryContainer.error = null
         networkPassEntry.run {
             error = null
             text.clear()
@@ -233,13 +238,11 @@ class HubWiFiConnectFragment : Fragment(), HubWiFiConnectView {
             networkNameEntry.run {
                 text.clear()
                 isEnabled = true
-                floatingLabelTextColor = enabledColor
             }
         } else {
             networkNameEntry.run {
                 setText(hubAvailableWiFiNetwork.ssid, TextView.BufferType.EDITABLE)
                 isEnabled = false
-                floatingLabelTextColor = disabledColor
             }
         }
 
