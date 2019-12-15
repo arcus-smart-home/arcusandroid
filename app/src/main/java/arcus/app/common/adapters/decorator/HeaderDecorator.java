@@ -67,7 +67,7 @@ public class HeaderDecorator extends RecyclerView.ItemDecoration {
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
         if (pinnedView != null && canvasClippedBounds != null) {
             canvasClippedBounds.top = 0; // Reset clip top, but still need the original bounds
-            c.clipRect(canvasClippedBounds, Region.Op.UNION);
+            c.clipRect(canvasClippedBounds);
 
             if (pinnedViewTop != 0) { // If we're starting to offset then translate the view's bounds so we don't overlap
                 c.translate(0, pinnedViewTop);
@@ -161,7 +161,7 @@ public class HeaderDecorator extends RecyclerView.ItemDecoration {
             fromHeight = rvHeight;
         }
 
-        return View.MeasureSpec.makeMeasureSpec(fromHeight, View.MeasureSpec.EXACTLY);
+        return View.MeasureSpec.makeMeasureSpec(fromHeight, View.MeasureSpec.UNSPECIFIED);
     }
 
     @SuppressWarnings("unchecked")
