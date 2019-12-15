@@ -53,7 +53,7 @@ public class ProMonitoringDashboardCardItemView extends DashboardFlipViewHolder 
         serviceName.setText(context.getString(R.string.card_alarms_title));
         serviceImage.setImageResource(R.drawable.dashboard_alarm);
         alarmStatus.setText(card.getSummary() == null ? "" : card.getSummary());
-        promonImage.setVisibility(SubscriptionController.isProfessional() ? View.VISIBLE : View.GONE);
+        promonImage.setVisibility(View.GONE);
 
         if (card.getAlarmState() == ProMonitoringDashboardCard.AlarmState.ALERT) {
             alerting = true;
