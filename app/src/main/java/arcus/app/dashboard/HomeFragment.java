@@ -30,6 +30,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dexafree.materialList.model.Card;
+
+import arcus.app.subsystems.alarm.promonitoring.views.ProMonitoringDashboardCardItemView;
 import arcus.cornea.SessionController;
 import arcus.cornea.controller.InvitationController;
 import arcus.cornea.model.PlaceAndRoleModel;
@@ -293,7 +295,14 @@ public class HomeFragment extends BaseFragment implements BackstackPopListener, 
                     BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(new HistoryFragment(), true);
                     HistoryServicePopupManager.getInstance().triggerPopups();
                 }
-		
+                else if (view instanceof ProMonitoringDashboardCardItemView) {
+                    if(((ProMonitoringDashboardCardItemView)view).isAlarmSubsystemEnabled()) {
+                        BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(new SecurityParentFragment(), true);
+                    } else {
+                        AlarmSubsystemActivationFragment activationFragment = AlarmSubsystemActivationFragment.newInstance();
+                        BackstackManager.getInstance().navigateToFloatingFragment(activationFragment, activationFragment.getClass().getName(), true);
+                    }
+                }
                 else if(view instanceof AlertCardItemView) {
                     if (((AlertCardItemView) view).getAlarmSystem() == AlertCard.ALARM_SYSTEM.SAFETY){
                         BackstackManager.withAnimation(TransitionEffect.FADE).navigateToFragment(new SafetyAlarmParentFragment(), true);

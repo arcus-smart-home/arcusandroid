@@ -529,7 +529,7 @@ public class SecurityFragment extends BaseFragment implements SecurityStatusCont
 
     public void showWalkthrough() {
         if(!walkthroughTriggered){
-            if (!PreferenceCache.getInstance().getBoolean(PreferenceUtils.SECURITY_WALKTHROUGH_DONT_SHOW_AGAIN, false)) {
+            if (!PreferenceCache.getInstance().getBoolean(PreferenceUtils.ALARMS_WALKTHROUGH_DONT_SHOW_AGAIN, false)) {
                 WalkthroughBaseFragment climate = WalkthroughBaseFragment.newInstance(WalkthroughType.SECURITY);
                 BackstackManager.getInstance().navigateToFloatingFragment(climate, climate.getClass().getName(), true);
                 walkthroughTriggered=true;
