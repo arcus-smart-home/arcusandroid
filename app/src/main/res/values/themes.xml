@@ -11,6 +11,7 @@
         <!--        <item name="colorOnPrimarySurface">@color/sclera_green</item>-->
         <!--        <item name="colorControlNormal">@color/sclera_green</item>-->
         <!--        <item name="android:colorPrimary">@color/sclera_green</item>-->
+        <item name="colorSurface">@color/white</item>
 
         <item name="android:windowAnimationStyle">@style/Widget.Arcus.Activity.Animation</item>
 

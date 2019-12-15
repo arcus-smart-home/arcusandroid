@@ -3,28 +3,32 @@ ext {
     compileSdk = 28
     targetSdk = 28
     renderScriptTarget = 21
-    supportLibraryVersion = '27.0.2'
-    googleVersion = '17.0.0'
-    constraintLayoutVersion = '1.1.1'
-    multiDexVersion = '1.0.3'
-    atslVersion = '1.0.1'
-    kotlin_version = '1.3.50'
-    exoplayerVersion = '2.8.1'
+    supportLibraryVersion = "27.0.2"
+    googleVersion = "17.0.0"
+    constraintLayoutVersion = "1.1.1"
+    multiDexVersion = "1.0.3"
+    atslVersion = "1.0.1"
+    kotlin_version = "1.3.61"
+    exoplayerVersion = "2.8.1"
+    daggerVersion = "2.25.2"
 
 
     deps = [:]
 
     deps.classpath = [:]
-    deps.classpath.gradleTools = 'com.android.tools.build:gradle:3.5.1'
-    deps.classpath.dexCount = 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2'
+    deps.classpath.gradleTools = "com.android.tools.build:gradle:3.6.0-beta05"
+    deps.classpath.dexCount = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2"
     deps.classpath.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
     // Deps
-    deps.appcompat = 'androidx.appcompat:appcompat:1.0.0'
-    deps.annotations = 'androidx.annotation:annotation:1.0.0'
-    deps.design = 'com.google.android.material:material:1.1.0-beta02'
+    deps.appcompat = "androidx.appcompat:appcompat:1.0.0"
+    deps.annotations = "androidx.annotation:annotation:1.0.0"
+    deps.design = "com.google.android.material:material:1.1.0-beta02"
     deps.androidLifecycle = "androidx.lifecycle:lifecycle-extensions:2.1.0"
     deps.swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    deps.androidCoreKtx = "androidx.core:core-ktx:1.1.0"
+    deps.dagger = "com.google.dagger:dagger:$daggerVersion"
+    deps.daggerApt = "com.google.dagger:dagger-compiler:$daggerVersion"
 
     deps.rx = "io.reactivex.rxjava2:rxjava:2.2.13"
     deps.rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
@@ -32,23 +36,23 @@ ext {
 
     deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    deps.constraintLayout = 'androidx.constraintlayout:constraintlayout:1.1.3'
-    deps.multiDex = 'androidx.multidex:multidex:2.0.0'
+    deps.constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
+    deps.multiDex = "androidx.multidex:multidex:2.0.0"
 
     deps.playServicesAuth = "com.google.android.gms:play-services-auth:$googleVersion"
     deps.playServicesGcm = "com.google.android.gms:play-services-gcm:$googleVersion"
     deps.locationServices = "com.google.android.gms:play-services-location:$googleVersion"
 
-    deps.eventBus = 'de.greenrobot:eventbus:2.4.0' // Apache 2
-    deps.gifDrawable = 'pl.droidsonroids.gif:android-gif-drawable:1.2.8' // MIT for animated gifs
-    deps.dexaMaterialList = 'com.github.dexafree:materiallist:2.4.5' // MIT for Card Based Dashboard
-    deps.advRecyclerView  = 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar' // Apache 2
+    deps.eventBus = "de.greenrobot:eventbus:2.4.0" // Apache 2
+    deps.gifDrawable = "pl.droidsonroids.gif:android-gif-drawable:1.2.8" // MIT for animated gifs
+    deps.dexaMaterialList = "com.github.dexafree:materiallist:2.4.5" // MIT for Card Based Dashboard
+    deps.advRecyclerView  = "com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar" // Apache 2
 
-    deps.picasso = 'com.squareup.picasso:picasso:2.5.2' // Apache 2
-    deps.okhttp = 'com.squareup.okhttp3:okhttp:4.2.2' // Apache 2
+    deps.picasso = "com.squareup.picasso:picasso:2.5.2" // Apache 2
+    deps.okhttp = "com.squareup.okhttp3:okhttp:4.2.2" // Apache 2
 
-    deps.ninedroids = 'com.nineoldandroids:library:2.4.0'
-    deps.noveoLogger = dependencies.create('com.noveogroup.android:android-logger:1.3.5') {
+    deps.ninedroids = "com.nineoldandroids:library:2.4.0"
+    deps.noveoLogger = dependencies.create("com.noveogroup.android:android-logger:1.3.5") {
         exclude group: "org.slf4j", module: "slf4j-api"
     }
 
@@ -57,11 +61,11 @@ ext {
     deps.exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:$exoplayerVersion"
 
     deps.test = [:]
-    deps.test.junit    = 'junit:junit:4.12'
-    deps.test.mockitoCore = 'org.mockito:mockito-core:2.13.0'
-    deps.test.mockitoAndroid = 'org.mockito:mockito-android:2.13.0'
-    deps.test.androidTestRunner = 'androidx.test.ext:junit:1.1.1'
-    deps.test.androidTestRules = 'androidx.test:rules:1.1.1'
-    deps.test.truth = 'com.google.truth:truth:0.37'
+    deps.test.junit    = "junit:junit:4.12"
+    deps.test.mockitoCore = "org.mockito:mockito-core:2.13.0"
+    deps.test.mockitoAndroid = "org.mockito:mockito-android:2.13.0"
+    deps.test.androidTestRunner = "androidx.test.ext:junit:1.1.1"
+    deps.test.androidTestRules = "androidx.test:rules:1.1.1"
+    deps.test.truth = "com.google.truth:truth:0.37"
     deps.test.mockitoKotlin = "com.nhaarman:mockito-kotlin:1.5.0"
 }

@@ -299,4 +299,30 @@ public class AlertPopup extends ArcusFloatingFragment {
         boolean errorButtonClicked();
         void close();
     }
+
+    /**
+     * A No-Op alert button callback, allowing the implementing class to override only the methods
+     * needed while providing "default behavior" for the remaining methods.
+     */
+    public static abstract class DefaultAlertButtonCallback implements AlertButtonCallback {
+        @Override
+        public boolean topAlertButtonClicked() {
+            return false;
+        }
+
+        @Override
+        public boolean bottomAlertButtonClicked() {
+            return false;
+        }
+
+        @Override
+        public boolean errorButtonClicked() {
+            return false;
+        }
+
+        @Override
+        public void close() {
+            /* No-Op */
+        }
+    }
 }

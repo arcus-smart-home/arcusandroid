@@ -14,85 +14,77 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/no_rules_layout"
-        android:orientation="vertical"
-        android:visibility="gone"
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
+        android:id="@+id/noRulesTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp">
+        android:text="@string/rules_connect_and_automate"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/keyline_5"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-        <arcus.app.common.view.Version1TextView
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:text="@string/rules_connect_and_automate"/>
-
-        <arcus.app.common.view.Version1TextView
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:textAlignment="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white_with_60"
-            android:text="@string/rules_on_the_dashboard"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rules_layout"
+    <TextView
+        android:id="@+id/noRulesDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:text="@string/rules_on_the_dashboard"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/noRulesTitle"
+        />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/noRulesLayoutGroup"
         android:visibility="gone"
-        >
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="noRulesTitle,noRulesDescription"
+        tools:visibility="visible"
+        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
+        android:id="@+id/rulesHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/keyline_5"
+        android:text="@string/rules_tap_to_schedule"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="horizontal">
+    <arcus.app.common.view.ScleraDivider
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/keyline_2"
+        app:layout_constraintTop_toBottomOf="@id/rulesHeader"
+        />
 
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:textSize="18sp"
-                    android:text="@string/rules_tap_to_schedule"
-                    android:textColor="@color/white"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rulesList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white_with_20"
-                />
-
-        </LinearLayout>
-
-        <ListView
-            android:id="@+id/rules_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/rulesLayoutGroup"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="rulesHeader,divider,rulesList"
+        tools:visibility="gone"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
