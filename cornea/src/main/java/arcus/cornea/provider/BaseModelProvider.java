@@ -111,7 +111,7 @@ public abstract class BaseModelProvider<M extends Model> {
     public ClientFuture<List<M>> load() {
         ClientFuture<List<M>> load = loadRef.get();
         if(load != null && load.isDone()) {
-            return load;
+            return Futures.succeededFuture(Lists.newArrayList(store.values()));
         }
         return reload();
     }

@@ -115,6 +115,7 @@ dependencies {
     implementation deps.constraintLayout
     implementation deps.androidLifecycle
     implementation deps.swipeRefreshLayout
+    implementation(deps.androidCoreKtx)
 
     implementation deps.playServicesAuth
     implementation deps.playServicesGcm

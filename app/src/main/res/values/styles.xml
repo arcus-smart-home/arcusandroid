@@ -166,7 +166,26 @@
         <item name="android:activityCloseExitAnimation">@anim/slide_out_through_bottom</item>
     </style>
 
+    <style name="Widget.Arcus.HeadingRow">
+        <item name="android:padding">@dimen/keyline_2</item>
+        <item name="android:background">@color/arcus_med_light_gray</item>
+        <item name="android:textViewStyle">@style/Widget.Arcus.TextView.HeadingRow</item>
+    </style>
 
+    <style name="Widget.Arcus.TextView.HeadingRow">
+        <item name="android:textColor">@color/arcus_dark_gray</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.Arcus.ImageView.ItemRow.Darken" parent="">
+        <item name="android:tint">@color/black</item>
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+
+    <style name="Widget.Arcus.ImageView.ItemRow.Lighten" parent="">
+        <item name="android:tint">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
 
     <!-- TODO: This need to be nuked... But slightly more sensitive to immediate nuking. -->
     <style name="Widget.Arcus.Column">

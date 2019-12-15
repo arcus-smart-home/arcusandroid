@@ -25,12 +25,10 @@
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:theme="@style/Widget.Arcus.HeadingRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text_container"
-        android:minHeight="@dimen/dp_40"
-        android:padding="8dp"
-        android:background="@color/arcus_med_light_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +39,6 @@
             android:layout_height="wrap_content"
             android:text="@string/total_devices"
             android:textAllCaps="true"
-            android:textColor="@color/arcus_dark_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/numberOfDevices"
             app:layout_constraintHorizontal_bias="0"
@@ -54,7 +51,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/numberOfDevices"
             android:gravity="end"
-            android:textColor="@color/arcus_dark_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
