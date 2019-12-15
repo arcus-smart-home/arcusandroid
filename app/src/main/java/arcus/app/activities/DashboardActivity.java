@@ -22,6 +22,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -31,6 +32,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import arcus.app.common.fragments.CoreFragment;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.subsystem.DashboardSubsystemController;
 import arcus.cornea.subsystem.alarm.AlarmSubsystemController;
@@ -191,7 +193,14 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
             return true;
         }
         Fragment frag = getSupportFragmentManager().findFragmentById(R.id.container);
-        if(!(frag instanceof BaseFragment)){
+        if (frag instanceof CoreFragment) {
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(false);
+            }
+            restoreActionBar();
+            return true;
+        } else if(!(frag instanceof BaseFragment)){
             return true;
         }else{
             final BaseFragment fragment = (BaseFragment) getSupportFragmentManager().findFragmentById(R.id.container);
@@ -204,10 +213,8 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
                 if(fragment instanceof HomeFragment) {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                     toolbar.setNavigationIcon(R.drawable.icon_side_menu);
-                    root.setPadding(0, 0, 0, 0);
                 } else {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                    root.setPadding(0, getSupportActionBar().getHeight(), 0, 0);
 
                     if (mToolbarColor != ToolbarColor.PINK && mToolbarColor != ToolbarColor.PURPLE
                           && mToolbarColor != ToolbarColor.EARLY_WARNING && mToolbarColor != ToolbarColor.WEATHER
