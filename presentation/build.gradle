@@ -78,4 +78,5 @@ dependencies {
     testImplementation(deps.test.junit)
     testImplementation(deps.test.truth)
     testImplementation(deps.test.mockitoKotlin)
+    testImplementation(deps.test.archCore)
 }
