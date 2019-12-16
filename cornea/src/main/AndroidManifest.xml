@@ -14,14 +14,6 @@
   limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="arcus.cornea">
-
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <application>
-        <service android:name=".CorneaService"
-                 android:exported="false"
-                 android:stopWithTask="true" />
-    </application>
-
 </manifest>
