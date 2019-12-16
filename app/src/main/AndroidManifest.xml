@@ -64,12 +64,9 @@
             android:name="asset_statements"
             android:resource="@string/asset_statements" />
 
-        <activity
-            android:name=".activities.LaunchActivity"
-            android:launchMode="singleTop"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Arcus.Splash">
+        <activity-alias
+            android:name=".activities.LaunchApplicationActivity"
+            android:targetActivity=".activities.LaunchActivity">
             <intent-filter>
                 <data
                     android:host="dev-app.example.com"
@@ -101,7 +98,15 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="arcus_custom_scheme" android:host="arcus_launch_host" />
             </intent-filter>
-        </activity>
+        </activity-alias>
+
+        <activity
+            android:name=".activities.LaunchActivity"
+            android:launchMode="singleTop"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Arcus.Splash"
+            />
         <activity
             android:name=".activities.DashboardActivity"
             android:launchMode="singleTop"
