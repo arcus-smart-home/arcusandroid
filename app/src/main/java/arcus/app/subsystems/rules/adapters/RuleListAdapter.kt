@@ -52,7 +52,7 @@ class RuleListAdapter(
             viewType: Int
     ): ViewHolder = when (viewType) {
         1 -> Header(parent.inflate(R.layout.section_heading_with_count))
-        else -> Item(parent.inflate(R.layout.rule_item))
+        else -> Item(parent.inflate(R.layout.list_item_rule))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
