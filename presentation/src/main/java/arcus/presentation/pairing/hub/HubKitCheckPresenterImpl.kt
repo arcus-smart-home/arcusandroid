@@ -22,7 +22,6 @@ import arcus.cornea.subsystem.pairing.PairingSubsystemController
 import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
 import org.slf4j.LoggerFactory
 
-
 class HubKitCheckPresenterImpl(
     private val pairingSubsystemController: PairingSubsystemController = PairingSubsystemControllerImpl
 ) : HubKitCheckPresenter, KBasePresenter<HubKitCheckView>() {

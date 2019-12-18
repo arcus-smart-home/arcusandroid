@@ -24,19 +24,18 @@ import com.iris.client.capability.PairingSubsystem
 import com.iris.client.event.ClientFuture
 import com.iris.client.model.ModelChangedEvent
 
-class FactoryResetWarningPresenterImpl():
-        FactoryResetWarningPresenter,
-        KBasePresenter<FactoryResetWarningView>()
-{
+class FactoryResetWarningPresenterImpl :
+    FactoryResetWarningPresenter,
+    KBasePresenter<FactoryResetWarningView>() {
 
-    private val pairingSubsystemController : PairingSubsystemController = PairingSubsystemControllerImpl
+    private val pairingSubsystemController: PairingSubsystemController = PairingSubsystemControllerImpl
     private val changedListener = Listeners.runOnUiThread<ModelChangedEvent> {
         it.changedAttributes.forEach { entry ->
             when (entry.key) {
                 PairingSubsystem.ATTR_PAIRINGMODE -> {
                     if (entry.value == PairingSubsystem.PAIRINGMODE_IDLE) {
                         onlyIfView { view ->
-                            if(!hasFactoryResetStarted) {
+                            if (!hasFactoryResetStarted) {
                                 view.onPairingModeTimedOut()
                             }
                         }
@@ -53,8 +52,8 @@ class FactoryResetWarningPresenterImpl():
         super.setView(view)
 
         controllerListener = pairingSubsystemController.setChangedListenerFor(
-                changedListener,
-                PairingSubsystem.ATTR_PAIRINGMODE
+            changedListener,
+            PairingSubsystem.ATTR_PAIRINGMODE
         )
         hasFactoryResetStarted = false
     }
@@ -62,46 +61,46 @@ class FactoryResetWarningPresenterImpl():
     override fun factoryReset() {
         hasFactoryResetStarted = true
         pairingSubsystemController.getFactoryResetSteps()
-                .onSuccessMain() {
-                    val factoryResetStepList = arrayListOf<FactoryResetStep>()
-                    it?.run {
-                        this.resetSteps.forEach {
-                            factoryResetStepList.add(
-                                FactoryResetStep(
-                                    it.id,
-                                    it.info,
-                                    it.instructions,
-                                    it.title
-                                )
+            .onSuccessMain {
+                val factoryResetStepList = arrayListOf<FactoryResetStep>()
+                it.run {
+                    this.resetSteps.forEach {
+                        factoryResetStepList.add(
+                            FactoryResetStep(
+                                it.id,
+                                it.info,
+                                it.instructions,
+                                it.title
                             )
-                        }
+                        )
                     }
-                    onlyIfView { presentedView ->
-                        presentedView.onFactoryResetStarted(factoryResetStepList)
-                    }
-                 }
-                 .onFailureMain {
-                     onlyIfView { presentedView ->
-                         presentedView.onGetResetStepsError(it)
-                     }
-                 }
+                }
+                onlyIfView { presentedView ->
+                    presentedView.onFactoryResetStarted(factoryResetStepList)
+                }
+            }
+            .onFailureMain {
+                onlyIfView { presentedView ->
+                    presentedView.onGetResetStepsError(it)
+                }
+            }
     }
 
     override fun getProductName() {
         val searchContext = pairingSubsystemController.getSearchContext()
         val productModel = ProductModelProvider.instance().getModel(searchContext)
         productModel
-                .load()
-                .onSuccess {
-                    onlyIfView { presentedView ->
-                        presentedView.onProductNameRetrieved(it.vendor + " " + it.shortName)
-                    }
+            .load()
+            .onSuccess {
+                onlyIfView { presentedView ->
+                    presentedView.onProductNameRetrieved(it.vendor + " " + it.shortName)
                 }
-                .onFailure {
-                    onlyIfView { presentedView ->
-                        presentedView.onProductNameRetrieved("Device")
-                    }
+            }
+            .onFailure {
+                onlyIfView { presentedView ->
+                    presentedView.onProductNameRetrieved("Device")
                 }
+            }
     }
 
     override fun isInPairingMode(): Boolean {
@@ -124,5 +123,4 @@ class FactoryResetWarningPresenterImpl():
             handler(it)
         })
     }
-
 }

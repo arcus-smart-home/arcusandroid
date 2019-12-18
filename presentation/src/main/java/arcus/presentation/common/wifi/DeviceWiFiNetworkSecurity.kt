@@ -18,9 +18,9 @@ package arcus.presentation.common.wifi
 import com.iris.client.capability.HubWiFi
 
 enum class DeviceWiFiNetworkSecurity(
-    val friendlyName : String,
-    val platformName : String = "",
-    val blePlatformName : String = "",
+    val friendlyName: String,
+    val platformName: String = "",
+    val blePlatformName: String = "",
     private val alternateRepresentations: List<String> = emptyList()
 ) {
     NONE(
@@ -84,7 +84,7 @@ enum class DeviceWiFiNetworkSecurity(
          * Convert a possibly null string into the Security representation we believe it belongs to
          */
         @JvmStatic
-        fun fromStringRepresentation(value: String?) : DeviceWiFiNetworkSecurity {
+        fun fromStringRepresentation(value: String?): DeviceWiFiNetworkSecurity {
             if (value == null) {
                 return UNKNOWN
             }

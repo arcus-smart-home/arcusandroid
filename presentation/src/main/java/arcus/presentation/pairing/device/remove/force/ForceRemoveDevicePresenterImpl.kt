@@ -19,9 +19,9 @@ import arcus.cornea.helpers.onFailureMain
 import arcus.cornea.helpers.onSuccessMain
 import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.provider.PairingDeviceModelProvider
+import arcus.presentation.pairing.device.remove.DeviceRemovalStep
 import com.iris.client.bean.PairingStep
 import com.iris.client.event.Futures
-import arcus.presentation.pairing.device.remove.DeviceRemovalStep
 import org.slf4j.LoggerFactory
 
 class ForceRemoveDevicePresenterImpl : ForceRemoveDevicePresenter, KBasePresenter<ForceRemoveDeviceView>() {

@@ -33,10 +33,9 @@ import com.iris.client.capability.HubWiFi
 import com.iris.client.event.ClientFuture
 import com.iris.client.event.Futures
 import com.iris.client.model.HubModel
-import org.slf4j.LoggerFactory
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
-
+import org.slf4j.LoggerFactory
 
 class HubWiFiScanPresenterImpl(
     private val client: IrisClient = CorneaClientFactory.getClient(),

@@ -28,8 +28,8 @@ data class HaloStateAndCode(
 
 @Parcelize
 data class HaloCounty(
-        val county: String,
-        val isPersonsCounty: Boolean = false
+    val county: String,
+    val isPersonsCounty: Boolean = false
 ) : Parcelable
 
 interface HaloStateCountySelectView {
@@ -45,7 +45,6 @@ interface HaloStateCountySelectView {
      */
     fun onStatesFailedToLoad()
 
-
     /**
      * Called when the list of available counties is ready
      *
@@ -57,7 +56,6 @@ interface HaloStateCountySelectView {
      * Called when the counties failed to load.
      */
     fun onCountiesFailedToLoad()
-
 
     /**
      * Called when the selection was saved successfully
@@ -102,4 +100,3 @@ interface HaloStateCountySelectPresenter : BasePresenterContract<HaloStateCounty
      */
     fun setSelectedStateAndCounty(state: HaloStateAndCode, county: String)
 }
-

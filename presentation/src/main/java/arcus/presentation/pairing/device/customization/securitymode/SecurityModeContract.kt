@@ -53,7 +53,7 @@ interface SecurityModePresenter : BasePresenterContract<SecurityModeView> {
     fun setMode(mode: SecurityMode)
 }
 
-enum class SecurityMode (val canonicalName: String) {
+enum class SecurityMode(val canonicalName: String) {
     ON("ON_ONLY"),
     PARTIAL("PARTIAL_ONLY"),
     ON_AND_PARTIAL("ON_AND_PARTIAL"),

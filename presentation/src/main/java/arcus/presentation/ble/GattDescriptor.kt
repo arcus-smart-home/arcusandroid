@@ -15,14 +15,13 @@
  */
 package arcus.presentation.ble
 
-import java.util.*
+import java.util.UUID
 
 enum class GattDescriptor(val uuid: UUID, val canonicalName: String) {
     CLIENT_CONFIGURATION(
         UUID.fromString("00002902-0000-1000-8000-00805f9b34fb"),
         "Client Configuration"
     ),
-
 
     UNKNOWN(
         UUID(0, 0),
@@ -32,6 +31,6 @@ enum class GattDescriptor(val uuid: UUID, val canonicalName: String) {
 
     companion object {
         @JvmStatic
-        fun fromUuid(uuid: UUID?) : GattDescriptor = values().firstOrNull { it.uuid == uuid } ?: UNKNOWN
+        fun fromUuid(uuid: UUID?): GattDescriptor = values().firstOrNull { it.uuid == uuid } ?: UNKNOWN
     }
 }

@@ -29,10 +29,10 @@ import com.iris.client.model.DeviceModel
 import com.iris.client.model.SubsystemModel
 
 class SecurityModePresenterImpl(
-        val controller: SecurityDeviceConfigController = SecurityDeviceConfigController.instance()
-) : SecurityModePresenter, KBasePresenter<SecurityModeView>(),  SecurityDeviceConfigController.SelectedDeviceCallback {
+    val controller: SecurityDeviceConfigController = SecurityDeviceConfigController.instance()
+) : SecurityModePresenter, KBasePresenter<SecurityModeView>(), SecurityDeviceConfigController.SelectedDeviceCallback {
 
-    private lateinit var securitySubsystem : SubsystemModel
+    private lateinit var securitySubsystem: SubsystemModel
     private var deviceModel: DeviceModel? = null
     private var listenerRegistration = Listeners.empty()
     private val errorListener = Listeners.runOnUiThread<Throwable> { error ->
@@ -43,44 +43,51 @@ class SecurityModePresenterImpl(
 
     override fun loadFromPairingAddress(pairingDeviceAddress: String) {
         PairingDeviceModelProvider
-                .instance()
-                .getModel(pairingDeviceAddress)
-                .load()
-                .chain { pairingDeviceModel ->
-                    pairingDeviceModel?.deviceAddress?.let {
-                        DeviceModelProvider
-                                .instance()
-                                .getModel(it)
-                                .load()
-                    } ?: Futures.failedFuture(RuntimeException("Cannot load null model. Failed."))
-                }
-                .onSuccess(Listeners.runOnUiThread {
-                    deviceModel = it
-                    securitySubsystem = SubsystemController.instance().getSubsystemModel(SecuritySubsystem.NAMESPACE).get()
+            .instance()
+            .getModel(pairingDeviceAddress)
+            .load()
+            .chain { pairingDeviceModel ->
+                pairingDeviceModel?.deviceAddress?.let {
+                    DeviceModelProvider
+                        .instance()
+                        .getModel(it)
+                        .load()
+                } ?: Futures.failedFuture(RuntimeException("Cannot load null model. Failed."))
+            }
+            .onSuccess(Listeners.runOnUiThread {
+                deviceModel = it
+                securitySubsystem = SubsystemController
+                    .instance()
+                    .getSubsystemModel(SecuritySubsystem.NAMESPACE)
+                    .get()
 
-                    val address: String = it.address
-                    val isSecurityDevice = controller.securitySubsystem?.securityDevices?.contains(address) == true
-                    val isPartial = BaseSubsystemController.set(securitySubsystem.get(ATTR_PARTIAL_DEVICES) as Collection<*>).contains(address)
-                    val isOn = BaseSubsystemController.set(securitySubsystem.get(ATTR_ON_DEVICES) as Collection<*>).contains(address)
+                val address: String = it.address
+                val isSecurityDevice = controller.securitySubsystem?.securityDevices?.contains(address) == true
+                val isPartial = BaseSubsystemController
+                    .set(securitySubsystem.get(ATTR_PARTIAL_DEVICES) as Collection<*>)
+                    .contains(address)
+                val isOn = BaseSubsystemController
+                    .set(securitySubsystem.get(ATTR_ON_DEVICES) as Collection<*>)
+                    .contains(address)
 
-                    val mode = if(isSecurityDevice){
-                        if(isPartial && isOn){
-                            SecurityMode.ON_AND_PARTIAL
-                        } else if (isPartial){
-                            SecurityMode.PARTIAL
-                        } else if (isOn){
-                            SecurityMode.ON
-                        } else {
-                            SecurityMode.NOT_PARTICIPATING
-                        }
-                    } else {
+                val mode = if (isSecurityDevice) {
+                    if (isPartial && isOn) {
                         SecurityMode.ON_AND_PARTIAL
+                    } else if (isPartial) {
+                        SecurityMode.PARTIAL
+                    } else if (isOn) {
+                        SecurityMode.ON
+                    } else {
+                        SecurityMode.NOT_PARTICIPATING
                     }
-                    onlyIfView { view ->
-                        view.onConfigurationLoaded(mode)
-                    }
-                })
-                .onFailure(errorListener)
+                } else {
+                    SecurityMode.ON_AND_PARTIAL
+                }
+                onlyIfView { view ->
+                    view.onConfigurationLoaded(mode)
+                }
+            })
+            .onFailure(errorListener)
     }
 
     override fun setMode(mode: SecurityMode) {
@@ -108,8 +115,8 @@ class SecurityModePresenterImpl(
         deviceModel?.let {
             listenerRegistration = controller.setSelectedDeviceCallback(it.id, this)
         }
-
     }
+
     override fun clearView() {
         super.clearView()
         Listeners.clear(listenerRegistration)

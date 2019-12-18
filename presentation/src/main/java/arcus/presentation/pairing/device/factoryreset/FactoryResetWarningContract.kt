@@ -72,8 +72,8 @@ interface FactoryResetWarningPresenter : BasePresenterContract<FactoryResetWarni
 
 @Parcelize
 data class FactoryResetStep(
-        val id: String,
-        val info: String? = null,
-        val instructions: List<String> = emptyList(),
-        val title: String? = null
+    val id: String,
+    val info: String? = null,
+    val instructions: List<String> = emptyList(),
+    val title: String? = null
 ) : Parcelable

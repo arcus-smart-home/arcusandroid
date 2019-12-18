@@ -20,8 +20,8 @@ import arcus.cornea.helpers.onSuccessMain
 import arcus.cornea.helpers.transformNonNull
 import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.provider.ProductModelProvider
-import com.iris.client.model.ProductModel
 import arcus.presentation.pairing.NON_ALPHA_NUMERIC
+import com.iris.client.model.ProductModel
 import org.slf4j.LoggerFactory
 
 /**
@@ -30,8 +30,8 @@ import org.slf4j.LoggerFactory
  * @param screenDensity Screen density - used in URL Generation
  */
 class BrandsOverviewPresenterImpl(
-    private val screenDensity : String,
-    private val srsBaseURL : String = SessionController.instance().staticResourceBaseUrl
+    private val screenDensity: String,
+    private val srsBaseURL: String = SessionController.instance().staticResourceBaseUrl
 ) : KBasePresenter<BrandsCatalogContractView>(),
     BrandsCatalogContractPresenter {
     override fun getAllBrands() {
@@ -42,12 +42,12 @@ class BrandsOverviewPresenterImpl(
         getProducts { it.hubRequired == hubRequired }
     }
 
-    private fun setMainUrlFor(name: String) : String {
+    private fun setMainUrlFor(name: String): String {
         val brandName = name.replace(NON_ALPHA_NUMERIC, "")
         return BRANDS_URL_FORMAT.format(srsBaseURL, brandName.toLowerCase(), screenDensity)
     }
 
-    private fun setBlackWhiteUrlFor(name: String) : String {
+    private fun setBlackWhiteUrlFor(name: String): String {
         val brandName = name.replace(NON_ALPHA_NUMERIC, "")
         return BW_BRANDS_URL_FORMAT.format(srsBaseURL, brandName.toLowerCase(), screenDensity)
     }
@@ -89,14 +89,14 @@ class BrandsOverviewPresenterImpl(
                     view.displayBrands(it.first, it.second)
                 }
             }
-            .onFailure {  error ->
+            .onFailure { error ->
                 logger.error("Failed to load catalog", error)
             }
     }
 
     companion object {
         private const val BRANDS_URL_FORMAT = "%s/o/brands/%s/brand_small_color-and-%s.png"
-        private const val BW_BRANDS_URL_FORMAT  = "%s/o/brands/%s/brand_small-and-%s.png"
+        private const val BW_BRANDS_URL_FORMAT = "%s/o/brands/%s/brand_small-and-%s.png"
 
         private val logger = LoggerFactory.getLogger(BrandsOverviewPresenterImpl::class.java)
     }

@@ -22,18 +22,18 @@ import arcus.cornea.provider.ProductModelProvider
 import arcus.cornea.subsystem.pairing.PairingSubsystemController
 import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
 import arcus.cornea.utils.Listeners
-import com.iris.client.bean.PairingCompletionStep
-import com.iris.client.capability.PairingSubsystem
-import com.iris.client.event.Futures
-import com.iris.client.model.ModelChangedEvent
 import arcus.presentation.pairing.CUSTOMIZATION_COMPLETE
 import arcus.presentation.pairing.DEVICE_DETECTED
 import arcus.presentation.pairing.UNNAMED_DEVICE
 import arcus.presentation.pairing.device.steps.WebLink
+import com.iris.client.bean.PairingCompletionStep
+import com.iris.client.capability.PairingSubsystem
+import com.iris.client.event.Futures
+import com.iris.client.model.ModelChangedEvent
 import org.slf4j.LoggerFactory
 
 class DeviceSearchingPresenterImpl(
-    private val controller : PairingSubsystemController = PairingSubsystemControllerImpl
+    private val controller: PairingSubsystemController = PairingSubsystemControllerImpl
 ) : KBasePresenter<DeviceSearchingView>(),
     DeviceSearchingPresenter {
     private val onErrorListener = Listeners.runOnUiThread<Throwable> { error ->
@@ -87,15 +87,15 @@ class DeviceSearchingPresenterImpl(
     }
 
     private var controllerListener = Listeners.empty()
-    private var storeListener      = Listeners.empty()
+    private var storeListener = Listeners.empty()
 
     override fun dismissAll() {
         controller.dismissAll()
                 .onSuccess(Listeners.runOnUiThread {
-                    val needsRebuild = it.any {  pairingCompletionStep ->
+                    val needsRebuild = it.any { pairingCompletionStep ->
                         pairingCompletionStep.action == PairingCompletionStep.ACTION_ZWAVE_REBUILD
                     }
-                    if(needsRebuild){
+                    if (needsRebuild) {
                         onlyIfView { view ->
                             view.dismissWithZwaveRebuild()
                         }
@@ -176,7 +176,9 @@ class DeviceSearchingPresenterImpl(
                 } else {
                     Futures.succeededFuture(list.mapNotNull { pairingDeviceModel ->
                         try {
-                            val isCustomized = pairingDeviceModel.customizations?.contains(CUSTOMIZATION_COMPLETE) == true
+                            val isCustomized = pairingDeviceModel
+                                .customizations
+                                ?.contains(CUSTOMIZATION_COMPLETE) == true
                             val pairingPhase = DevicePairingPhase.valueOf(pairingDeviceModel.pairingPhase)
                             val pairingState = DevicePairingState.valueOf(pairingDeviceModel.pairingState)
                             val errorState = pairingPhase == DevicePairingPhase.FAILED
@@ -234,7 +236,7 @@ class DeviceSearchingPresenterImpl(
             }
             .onFailure(onErrorListener)
             .onSuccess(Listeners.runOnUiThread { devices ->
-                onlyIfView {  view ->
+                onlyIfView { view ->
                     view.showPairedDevices(devices, controller.isInPairingMode())
                 }
             })
@@ -281,7 +283,7 @@ class DeviceSearchingPresenterImpl(
             })
     }
 
-    override fun allDevicesConfigured() : Boolean {
+    override fun allDevicesConfigured(): Boolean {
         val devices = PairingDeviceModelProvider.instance().filteredModels
         return devices.count() > 0 && devices.all { it.customizations.contains(CUSTOMIZATION_COMPLETE) }
     }
@@ -303,7 +305,7 @@ class DeviceSearchingPresenterImpl(
         Listeners.clear(storeListener)
     }
 
-    private fun String?.sanitizeToLower() : String = this?.replace(MULTI_SPACES, "")?.toLowerCase() ?: ""
+    private fun String?.sanitizeToLower(): String = this?.replace(MULTI_SPACES, "")?.toLowerCase() ?: ""
 
     companion object {
         private val logger = LoggerFactory.getLogger(DeviceSearchingPresenterImpl::class.java)

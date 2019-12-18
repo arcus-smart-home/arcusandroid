@@ -23,13 +23,13 @@ import com.iris.client.capability.HubZwave
 import com.iris.client.event.ListenerRegistration
 import com.iris.client.model.HubModel
 import com.iris.client.model.HubZwaveModel
-import org.slf4j.LoggerFactory
 import kotlin.math.roundToInt
+import org.slf4j.LoggerFactory
 
 class ZWaveRebuildPresenterImpl : ZWaveRebuildPresenter, KBasePresenter<ZWaveRebuildView>() {
     private var hubListener: ListenerRegistration = Listeners.empty()
 
-    override fun startRebuild()  {
+    override fun startRebuild() {
         getHubZWave()
                 ?.heal(false, null)
                 ?.onFailure(Listeners.runOnUiThread { throwable ->
@@ -57,7 +57,7 @@ class ZWaveRebuildPresenterImpl : ZWaveRebuildPresenter, KBasePresenter<ZWaveReb
                     it.onProgressUpdated(100) // We're done - oh oh oh it's magic!
                 }
             }
-        } ?:    logger.debug("Hub Z-Wave returned null. Cannot proceed.")
+        } ?: logger.debug("Hub Z-Wave returned null. Cannot proceed.")
     }
 
     override fun cancelRebuild() {

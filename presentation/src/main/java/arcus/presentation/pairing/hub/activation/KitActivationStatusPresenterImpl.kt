@@ -21,10 +21,9 @@ import arcus.cornea.provider.DeviceModelProvider
 import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.subsystem.pairing.PairingSubsystemController
 import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
-import com.iris.client.model.PairingDeviceModel
 import arcus.presentation.pairing.device.searching.DevicePairingState
+import com.iris.client.model.PairingDeviceModel
 import java.util.concurrent.atomic.AtomicBoolean
-
 
 class KitActivationStatusPresenterImpl(
     pairingSubsystemController: PairingSubsystemController = PairingSubsystemControllerImpl,
@@ -76,7 +75,7 @@ class KitActivationStatusPresenterImpl(
         }
     }
 
-    private fun getActivationStatus(pairDev: PairingDeviceModel) : String {
+    private fun getActivationStatus(pairDev: PairingDeviceModel): String {
         val pairingState = DevicePairingState.valueOf(pairDev.pairingState)
 
         return when (pairingState) {

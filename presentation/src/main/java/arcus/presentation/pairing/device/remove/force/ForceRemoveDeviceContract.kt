@@ -38,7 +38,6 @@ interface ForceRemoveDeviceView {
      * Called when the removal steps have been successfully received, and we can transition to the removal screen
      */
     fun onRetryRemoveSuccess(steps: List<DeviceRemovalStep>)
-
 }
 
 interface ForceRemoveDevicePresenter : BasePresenterContract<ForceRemoveDeviceView> {

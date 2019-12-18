@@ -73,8 +73,6 @@ data class KitDeviceInError(
     val description: String = "Improperly Paired"
 ) : KitDevice()
 
-
-
 interface KitDeviceActivationView : KitActivationStatusView {
     /**
      * Called when the initial item list is loaded
@@ -82,7 +80,8 @@ interface KitDeviceActivationView : KitActivationStatusView {
     fun onKitItemsLoaded(items: List<KitDevice>, allConfigured: Boolean)
 }
 
-interface KitDeviceActivationPresenter : BaseKitActivationStatusPresenter, BasePresenterContract<KitDeviceActivationView> {
+interface KitDeviceActivationPresenter :
+    BaseKitActivationStatusPresenter, BasePresenterContract<KitDeviceActivationView> {
     /**
      * Dismisses any configured kit items.
      */

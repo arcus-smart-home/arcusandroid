@@ -24,7 +24,6 @@ import com.iris.client.capability.Product
 import com.iris.client.capability.WiFi
 import com.iris.client.event.ListenerRegistration
 
-
 class NetworkSettingsPresenterImpl : NetworkSettingsPresenter, KBasePresenter<NetworkSettingsView>() {
 
     private var modelListener: ListenerRegistration = Listeners.empty()

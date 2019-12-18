@@ -28,8 +28,8 @@ import com.iris.client.capability.Contact
 import java.util.concurrent.TimeUnit
 
 class ContactTestPresenterImpl(
-        private var scheduledExecutor : ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
-) : ContactTestPresenter, KBasePresenter<ContactTestView>(){
+    private var scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
+) : ContactTestPresenter, KBasePresenter<ContactTestView>() {
 
     private var listenerRegistration = Listeners.empty()
     private val errorListener = Listeners.runOnUiThread<Throwable> { error ->
@@ -51,7 +51,7 @@ class ContactTestPresenterImpl(
             }
             .onSuccessMain { device ->
                 val contactState = device as Contact
-                val state = if(contactState.contact == Contact.CONTACT_OPENED){
+                val state = if (contactState.contact == Contact.CONTACT_OPENED) {
                     "open-off"
                 } else {
                     "closed-off"
@@ -66,8 +66,8 @@ class ContactTestPresenterImpl(
                     var initialState = ""
                     var delayedState = ""
 
-                    if(it.propertyName == Contact.ATTR_CONTACT){
-                        when(it.newValue) {
+                    if (it.propertyName == Contact.ATTR_CONTACT) {
+                        when (it.newValue) {
                             Contact.CONTACT_OPENED -> {
                                 initialState = "open-on"
                                 delayedState = "open-off"
@@ -80,7 +80,7 @@ class ContactTestPresenterImpl(
 
                         onMainWithView {
                             onContactStateUpdated(initialState)
-                            scheduledExecutor.executeDelayed(TimeUnit.SECONDS.toMillis(2)){
+                            scheduledExecutor.executeDelayed(TimeUnit.SECONDS.toMillis(2)) {
                                 onContactStateUpdated(delayedState)
                             }
                         }

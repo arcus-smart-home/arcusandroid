@@ -105,7 +105,7 @@ interface DeviceSearchingPresenter : BasePresenterContract<DeviceSearchingView> 
     /**
      * Checks to see if all devices are configured.
      */
-    fun allDevicesConfigured() : Boolean
+    fun allDevicesConfigured(): Boolean
 
     /**
      * Checks for paired devices during pairing
@@ -141,20 +141,20 @@ data class HelpStep(
 ) : Parcelable
 
 enum class DevicePairingPhase(val canonicalName: String) {
-    JOIN ("Found New Device"),
-    CONNECT ("Connecting to Device"),
-    IDENTIFY ("Discovering Device Features"),
-    PREPARE ("Preparing Device for Use"),
-    CONFIGURE ("Writing Initial Settings"),
-    FAILED ("Failed"),
-    PAIRED ("Paired"),
+    JOIN("Found New Device"),
+    CONNECT("Connecting to Device"),
+    IDENTIFY("Discovering Device Features"),
+    PREPARE("Preparing Device for Use"),
+    CONFIGURE("Writing Initial Settings"),
+    FAILED("Failed"),
+    PAIRED("Paired"),
 }
 
 enum class DevicePairingState(val canonicalName: String) {
-    PAIRING ("Pairing"),
-    MISPAIRED ("Improperly Paired"),
-    MISCONFIGURED ("Misconfigured"),
-    PAIRED ("Paired"),
+    PAIRING("Pairing"),
+    MISPAIRED("Improperly Paired"),
+    MISCONFIGURED("Misconfigured"),
+    PAIRED("Paired"),
 }
 
 @Parcelize
@@ -182,19 +182,19 @@ data class PairedDeviceModel(
     val pairingState: DevicePairingState
 ) {
     fun getViewType(): Int {
-        return if(errorState) {    // If the pairing phase is FAILED
+        return if (errorState) { // If the pairing phase is FAILED
             if (pairingState == DevicePairingState.MISCONFIGURED) {
-                Type.MISCONFIGURED_DEVICE    // Resolve chevron
+                Type.MISCONFIGURED_DEVICE // Resolve chevron
             } else {
-                Type.MISPAIRED_DEVICE        // Remove chevron
+                Type.MISPAIRED_DEVICE // Remove chevron
             }
-        } else if(pairingState != DevicePairingState.PAIRED) {
-            Type.PARTIALLY_PAIRED_DEVICE     // spinner
+        } else if (pairingState != DevicePairingState.PAIRED) {
+            Type.PARTIALLY_PAIRED_DEVICE // spinner
         } else {
             if (customized) {
-                Type.FULLY_PAIRED_DEVICE                // checkmark
+                Type.FULLY_PAIRED_DEVICE // checkmark
             } else {
-                Type.PAIRED_NEEDS_CUSTOMIZATION_DEVICE   // customize chevron
+                Type.PAIRED_NEEDS_CUSTOMIZATION_DEVICE // customize chevron
             }
         }
     }

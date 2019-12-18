@@ -45,7 +45,7 @@ interface PresenceAssignmentPresenter : BasePresenterContract<PresenceAssignment
      * Sets the person to the device
      *  @param to The person assigned to the device
      */
-    fun setAssignment(to: AssignmentOption) : Unit
+    fun setAssignment(to: AssignmentOption): Unit
 
     /**
      * Loads the pairing device and gets persons that can be assigned to the device,
@@ -53,9 +53,8 @@ interface PresenceAssignmentPresenter : BasePresenterContract<PresenceAssignment
      *
      * @param pairedDeviceAddress: Address of the device to be customized.
      */
-    fun loadFromPairingDevice(pairedDeviceAddress: String) : Unit
+    fun loadFromPairingDevice(pairedDeviceAddress: String): Unit
 }
-
 
 sealed class AssignmentOption : Parcelable
 

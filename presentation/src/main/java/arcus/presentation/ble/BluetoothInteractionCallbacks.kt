@@ -15,7 +15,7 @@
  */
 package arcus.presentation.ble
 
-import java.util.*
+import java.util.UUID
 
 abstract class BluetoothInteractionCallbacks {
     abstract fun onConnected()

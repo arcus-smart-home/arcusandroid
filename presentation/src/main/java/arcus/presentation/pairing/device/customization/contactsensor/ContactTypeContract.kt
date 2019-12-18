@@ -43,7 +43,7 @@ interface ContactTypePresenter : BasePresenterContract<ContactTypeView> {
      *
      *  @param type The contact type assigned to the Contact Sensor
      */
-    fun setMode(type: ContactSensorAssignment) : Unit
+    fun setMode(type: ContactSensorAssignment): Unit
 
     /**
      * Loads the pairing device and gets contact type, then calls
@@ -51,5 +51,5 @@ interface ContactTypePresenter : BasePresenterContract<ContactTypeView> {
      *
      * @param pairingDeviceAddress address of the device to be customized.
      */
-    fun loadFromPairingDevice(pairedDeviceAddress: String) : Unit
+    fun loadFromPairingDevice(pairedDeviceAddress: String): Unit
 }

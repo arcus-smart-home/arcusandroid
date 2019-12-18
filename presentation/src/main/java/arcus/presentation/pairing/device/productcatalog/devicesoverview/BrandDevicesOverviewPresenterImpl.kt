@@ -30,9 +30,9 @@ import com.iris.client.model.ProductModel
  *                             the platform.
  */
 class BrandDevicesOverviewPresenterImpl(
-        private val screenDensity : String,
-        private val productModelProvider: ProductModelProvider = ProductModelProvider.instance(),
-        private val srsBaseURL : String = SessionController.instance().staticResourceBaseUrl
+    private val screenDensity: String,
+    private val productModelProvider: ProductModelProvider = ProductModelProvider.instance(),
+    private val srsBaseURL: String = SessionController.instance().staticResourceBaseUrl
 ) : BrandDevicesOverviewPresenter, KBasePresenter<BrandDevicesOverviewView>() {
     override fun getAllProductsFor(brand: String) {
         productModelProvider
@@ -88,20 +88,20 @@ class BrandDevicesOverviewPresenterImpl(
             model.hubRequired
         )
 
-    private fun getMainUrlFor(productModel: ProductModel) : String {
+    private fun getMainUrlFor(productModel: ProductModel): String {
         val safeProductId = productModel.id?.replace(NON_ALPHA_NUMERIC, "") ?: ""
         return PRODUCTS_URL_FORMAT.format(srsBaseURL, safeProductId, screenDensity)
     }
 
-    private fun getBackupUrlFor(productModel: ProductModel) : String {
+    private fun getBackupUrlFor(productModel: ProductModel): String {
         val safeScreen = productModel.screen?.replace(NON_ALPHA_NUMERIC, "") ?: ""
         return D_TYPES_URL_FORMAT.format(srsBaseURL, safeScreen.toLowerCase(), screenDensity)
     }
 
     companion object {
-        private const val HUB_PRODUCT_ID      = "dee000"
+        private const val HUB_PRODUCT_ID = "dee000"
         private const val PRODUCTS_URL_FORMAT = "%s/o/products/%s/product_small-and-%s.png"
-        private const val D_TYPES_URL_FORMAT  = "%s/o/dtypes/%s/type_small-and-%s.png"
+        private const val D_TYPES_URL_FORMAT = "%s/o/dtypes/%s/type_small-and-%s.png"
 
         private val NON_ALPHA_NUMERIC = "[^a-zA-Z0-9]".toRegex()
     }

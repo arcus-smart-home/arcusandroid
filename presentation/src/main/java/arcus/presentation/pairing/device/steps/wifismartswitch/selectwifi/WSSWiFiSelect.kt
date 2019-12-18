@@ -37,7 +37,6 @@ data class WiFiNetwork(
     override fun compareTo(other: WiFiNetwork) = compareValuesBy(this, other, { it.isSelected }, { it.name })
 }
 
-
 typealias SelectedNetwork = WiFiNetwork
 
 interface WSSWiFiSelectPresenter<in T, in U> {
@@ -46,5 +45,5 @@ interface WSSWiFiSelectPresenter<in T, in U> {
         currentlySelected: WiFiNetwork?,
         currentlyConnectedTo: U?,
         otherWifiNetworkName: String
-    ) : Pair<List<WiFiNetwork>, SelectedNetwork?>
+    ): Pair<List<WiFiNetwork>, SelectedNetwork?>
 }

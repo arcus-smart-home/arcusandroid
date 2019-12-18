@@ -15,24 +15,30 @@
  */
 package arcus.presentation.ble
 
-import android.bluetooth.*
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothGatt
+import android.bluetooth.BluetoothGattCallback
+import android.bluetooth.BluetoothGattCharacteristic
+import android.bluetooth.BluetoothGattDescriptor
+import android.bluetooth.BluetoothGattService
+import android.bluetooth.BluetoothProfile
 import android.content.Context
 import android.os.Build
 import android.os.Handler
-import org.slf4j.LoggerFactory
-import java.util.*
+import java.util.UUID
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicReference
+import org.slf4j.LoggerFactory
 
 class AndroidBleConnector(
     private val handler: Handler
-): BleConnector<Context> {
+) : BleConnector<Context> {
     @Volatile // Always set on main, but can be read from a Binder thread.
-    override var interactionCallback : BluetoothInteractionCallbacks? = null
+    override var interactionCallback: BluetoothInteractionCallbacks? = null
 
-    override var serialNumber : String = ""
+    override var serialNumber: String = ""
 
     /**
      * The mac address identified during the scanning process.
@@ -40,18 +46,18 @@ class AndroidBleConnector(
      * Devices use the last 12 characters to put the mac address in the name.
      * Example: Cam_123456789012
      */
-    private var deviceMac : String = ""
+    private var deviceMac: String = ""
 
-    private var delayBetweenNetworkStatusReads : Long = 0L
+    private var delayBetweenNetworkStatusReads: Long = 0L
     private val isMonitoringNetworkStatus = AtomicBoolean(false)
 
     private val currentGattConnection = AtomicReference<BluetoothGatt?>(null)
     private val previousConnecteDevice = AtomicReference<BluetoothDevice?>(null)
 
     // Device seems to handle serial I/O best.
-    private val readWriteLock  = Semaphore(1)
+    private val readWriteLock = Semaphore(1)
 
-    private val bluetoothGattCallback : BluetoothGattCallback = object : BluetoothGattCallback() {
+    private val bluetoothGattCallback: BluetoothGattCallback = object : BluetoothGattCallback() {
         override fun onCharacteristicRead(
             gatt: BluetoothGatt?,
             ch: BluetoothGattCharacteristic?,
@@ -88,7 +94,10 @@ class AndroidBleConnector(
                     }
                 }
             } finally {
-                logger.debug("Releasing lock (reading) for: ${GattCharacteristic.fromUuid(ch?.uuid).canonicalName} Status: $status")
+                logger.debug(
+                    "Releasing lock (reading) for: " +
+                            "${GattCharacteristic.fromUuid(ch?.uuid).canonicalName} Status: $status"
+                )
                 readWriteLock.release()
             }
         }
@@ -107,7 +116,11 @@ class AndroidBleConnector(
                     }
                 }
             } finally {
-                logger.debug("Releasing lock (writing) for: ${GattCharacteristic.fromUuid(characteristic?.uuid).canonicalName}; Status: $status; Updated Value: ${characteristic?.getStringValue(0)};")
+                logger.debug(
+                    "Releasing lock (writing) for: " +
+                            "${GattCharacteristic.fromUuid(characteristic?.uuid).canonicalName}; " +
+                            "Status: $status; Updated Value: ${characteristic?.getStringValue(0)};"
+                )
                 readWriteLock.release()
             }
         }
@@ -117,7 +130,11 @@ class AndroidBleConnector(
             characteristic: BluetoothGattCharacteristic?
         ) {
             // Only called if we enable notifications for characteristics. Though this isn't always 100% it seems...
-            logger.debug("onCharacteristicChanged: ${GattCharacteristic.fromUuid(characteristic?.uuid).canonicalName}; String Value: ${characteristic?.getStringValue(0)};")
+            logger.debug(
+                "onCharacteristicChanged: " +
+                        "${GattCharacteristic.fromUuid(characteristic?.uuid).canonicalName}; " +
+                        "String Value: ${characteristic?.getStringValue(0)};"
+            )
         }
 
         override fun onConnectionStateChange(
@@ -144,7 +161,8 @@ class AndroidBleConnector(
                         previousConnecteDevice.set(previous?.device)
                         interactionCallback?.onDisconnected(previous != null)
                     }
-                    else -> { /* No Op - Ignoring: BluetoothProfile.STATE_CONNECTING */ }
+                    else -> { /* No Op - Ignoring: BluetoothProfile.STATE_CONNECTING */
+                    }
                 }
             }
         }
@@ -162,7 +180,8 @@ class AndroidBleConnector(
 
         private fun handleServicesDiscovered(gatt: BluetoothGatt, services: List<BluetoothGattService>) {
             services.forEach {
-                logger.debug("Found [${GattService.fromUuid(it.uuid).canonicalName}]. [${it.uuid}] Parsing Characteristics.")
+                logger.debug("Found [${GattService.fromUuid(it.uuid).canonicalName}]. " +
+                        "[${it.uuid}] Parsing Characteristics.")
                 (it.characteristics ?: emptyList()).forEach {
                     when (it.uuid) {
                         // Add more as needed... Ex:
@@ -182,7 +201,9 @@ class AndroidBleConnector(
             descriptor: BluetoothGattDescriptor?,
             status: Int
         ) {
-            logger.debug("Releasing lock; onDescriptorWrite: UUID: ${GattDescriptor.fromUuid(descriptor?.uuid).canonicalName}, Status: $status")
+            logger.debug("Releasing lock; onDescriptorWrite: " +
+                    "UUID: ${GattDescriptor.fromUuid(descriptor?.uuid).canonicalName}, " +
+                    "Status: $status")
             readWriteLock.release()
         }
 
@@ -190,7 +211,7 @@ class AndroidBleConnector(
             characteristic: BluetoothGattCharacteristic,
             andLog: Boolean = true,
             onlyPrintable: Boolean = true
-        ) : String {
+        ): String {
             val bytes = characteristic.value
             return if (bytes != null && bytes.isNotEmpty()) {
                 val sb = StringBuffer(bytes.size)
@@ -203,7 +224,10 @@ class AndroidBleConnector(
                 }
 
                 if (andLog) {
-                    logger.debug("Read new value for ${GattCharacteristic.fromUuid(characteristic.uuid).canonicalName} of [$sb]")
+                    logger.debug(
+                        "Read new value for " +
+                                "${GattCharacteristic.fromUuid(characteristic.uuid).canonicalName} of [$sb]"
+                    )
                 }
                 sb.toString()
             } else {
@@ -254,7 +278,7 @@ class AndroidBleConnector(
         }
     }
 
-    override fun reconnect(with: Context?, autoConnect: Boolean) : Boolean {
+    override fun reconnect(with: Context?, autoConnect: Boolean): Boolean {
         val device = previousConnecteDevice.get()
         return if (device == null) {
             false
@@ -272,11 +296,11 @@ class AndroidBleConnector(
         }
     }
 
-    override fun isConnected() : Boolean = currentGattConnection.get() != null
+    override fun isConnected(): Boolean = currentGattConnection.get() != null
 
-    override fun getConnectedDevice() : BluetoothDevice? = currentGattConnection.get()?.device
+    override fun getConnectedDevice(): BluetoothDevice? = currentGattConnection.get()?.device
 
-    override fun scanForWiFiNetworks() : Boolean {
+    override fun scanForWiFiNetworks(): Boolean {
         GattCharacteristic.SCAN_RESULTS.uuid // Reading this causes networks to be scanned on the camera.
         return currentGattConnection.get()?.let {
             requestWiFiServiceRead(it, GattCharacteristic.SCAN_RESULTS.uuid)
@@ -300,7 +324,10 @@ class AndroidBleConnector(
         val runnable = Runnable {
             if (characteristic.uuid != GattCharacteristic.STATUS.uuid || isMonitoringNetworkStatus.get()) {
                 readWriteLock.acquireUninterruptibly()
-                logger.debug("Acquired lock (read) for: ${GattCharacteristic.fromUuid(characteristic.uuid).canonicalName}")
+                logger.debug(
+                    "Acquired lock (read) for: " +
+                            GattCharacteristic.fromUuid(characteristic.uuid).canonicalName
+                )
                 gatt.readCharacteristic(characteristic)
             }
         }
@@ -312,7 +339,7 @@ class AndroidBleConnector(
         }
     }
 
-    override fun writeWiFiConfiguration(pass: String, network: String, securityType: String) : Boolean {
+    override fun writeWiFiConfiguration(pass: String, network: String, securityType: String): Boolean {
         return try {
             val cryptor = AESCrypt.forArcusBleDevice(deviceMac)
             val encPass = cryptor.encrypt(pass)
@@ -334,7 +361,8 @@ class AndroidBleConnector(
     private fun requestWiFiServiceWrite(
         gatt: BluetoothGatt,
         characteristicUUID: UUID,
-        value: ByteArray) {
+        value: ByteArray
+    ) {
 
         val wifiConfigService = gatt.getService(GattService.WIFI_CONFIG.uuid) ?: return
         val characteristic = wifiConfigService.getCharacteristic(characteristicUUID) ?: return
@@ -346,17 +374,22 @@ class AndroidBleConnector(
     private fun requestWriteCharacteristic(
         gatt: BluetoothGatt,
         characteristic: BluetoothGattCharacteristic,
-        value: ByteArray) {
+        value: ByteArray
+    ) {
 
         handler.post {
             readWriteLock.acquireUninterruptibly()
-            logger.debug("Acquired lock (write) for: ${GattCharacteristic.fromUuid(characteristic.uuid).canonicalName} to write value: [${String(value, charset("UTF-8"))}]")
+            logger.debug(
+                "Acquired lock (write) for: " +
+                        GattCharacteristic.fromUuid(characteristic.uuid).canonicalName +
+                        " to write value: [${String(value, charset("UTF-8"))}]"
+            )
             characteristic.value = value
             gatt.writeCharacteristic(characteristic)
         }
     }
 
-    override fun startMonitoringNetworkStatus(delayBetweenReads: Long, unit: TimeUnit) : Boolean {
+    override fun startMonitoringNetworkStatus(delayBetweenReads: Long, unit: TimeUnit): Boolean {
         return currentGattConnection.get()?.let { nnGatt ->
             // Looks like it goes to NO_INTERNET if it fails to connect but by then (even when I did this as quick as I could)
             // the device times out and we have to put it back into BLE mode and reconnect to it...

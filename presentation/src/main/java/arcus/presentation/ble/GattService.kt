@@ -15,7 +15,7 @@
  */
 package arcus.presentation.ble
 
-import java.util.*
+import java.util.UUID
 
 enum class GattService(val uuid: UUID, val canonicalName: String) {
     GENERIC_ACCESS(
@@ -31,7 +31,6 @@ enum class GattService(val uuid: UUID, val canonicalName: String) {
         "WiFi Config. Service"
     ),
 
-
     UNKNOWN(
         UUID(0, 0),
         "Unknown Service"
@@ -40,6 +39,6 @@ enum class GattService(val uuid: UUID, val canonicalName: String) {
 
     companion object {
         @JvmStatic
-        fun fromUuid(uuid: UUID?) : GattService = values().firstOrNull { it.uuid == uuid } ?: UNKNOWN
+        fun fromUuid(uuid: UUID?): GattService = values().firstOrNull { it.uuid == uuid } ?: UNKNOWN
     }
 }

@@ -57,8 +57,8 @@ class HaloRoomContract private constructor() {
         /**
          * Gets the currently selected room, if any
          */
-        fun getCurrentRoomSelection() : HaloRoom
+        fun getCurrentRoomSelection(): HaloRoom
     }
 }
 
-data class HaloRoom (val platformKey: String, val displayName: String)
+data class HaloRoom(val platformKey: String, val displayName: String)

@@ -26,7 +26,6 @@ interface OrbitZoneView {
      */
     fun onZonesLoaded(zones: List<IrrigationZone>)
 
-
     /**
      * Called when a Exception is thrown by the Presenter for the View to handle
      *
@@ -58,8 +57,9 @@ interface OrbitZonePresenter : BasePresenterContract<OrbitZoneView> {
  */
 @Parcelize
 data class IrrigationZone(
-        val zoneInstanceId: String = "z1",
-        val name: String = "",
-        val zone: String = "Zone 1",
-        val wateringTimeInMinutes: Int = 1,
-        val zoneNumber: Int = 1) : Parcelable
+    val zoneInstanceId: String = "z1",
+    val name: String = "",
+    val zone: String = "Zone 1",
+    val wateringTimeInMinutes: Int = 1,
+    val zoneNumber: Int = 1
+) : Parcelable

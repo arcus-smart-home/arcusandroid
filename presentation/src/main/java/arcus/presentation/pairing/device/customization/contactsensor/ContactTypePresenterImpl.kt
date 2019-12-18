@@ -53,17 +53,17 @@ class ContactTypePresenterImpl : ContactTypePresenter, KBasePresenter<ContactTyp
                 deviceModel = device
                 onlyIfView { presentedView ->
                     val hint = device[Contact.ATTR_USEHINT] as String? ?: ""
-                    when(hint) {
-                        Contact.USEHINT_DOOR-> {
+                    when (hint) {
+                        Contact.USEHINT_DOOR -> {
                             presentedView.onContactTypeLoaded(ContactSensorAssignment.DOOR)
                         }
-                        Contact.USEHINT_WINDOW-> {
+                        Contact.USEHINT_WINDOW -> {
                             presentedView.onContactTypeLoaded(ContactSensorAssignment.WINDOW)
                         }
-                        Contact.USEHINT_OTHER-> {
+                        Contact.USEHINT_OTHER -> {
                             presentedView.onContactTypeLoaded(ContactSensorAssignment.OTHER)
                         }
-                        Contact.USEHINT_UNKNOWN-> {
+                        Contact.USEHINT_UNKNOWN -> {
                             presentedView.onContactTypeLoaded(ContactSensorAssignment.DOOR)
                         }
                     }
@@ -71,5 +71,4 @@ class ContactTypePresenterImpl : ContactTypePresenter, KBasePresenter<ContactTyp
             }
             .onFailure(errorListener)
     }
-
 }

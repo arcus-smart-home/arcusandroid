@@ -22,9 +22,9 @@ import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.utils.Listeners
 import com.iris.client.event.Futures
 
-class HaloRoomPresenterImpl : HaloRoomContract.Presenter, KBasePresenter<HaloRoomContract.View>(){
+class HaloRoomPresenterImpl : HaloRoomContract.Presenter, KBasePresenter<HaloRoomContract.View>() {
 
-    private lateinit var controller : HaloRoomController
+    private lateinit var controller: HaloRoomController
     private val errorListener = Listeners.runOnUiThread<Throwable> { error ->
         onlyIfView { view ->
             view.onError(error)
@@ -53,7 +53,7 @@ class HaloRoomPresenterImpl : HaloRoomContract.Presenter, KBasePresenter<HaloRoo
                 .onFailure(errorListener)
     }
 
-    private fun getRoomModels(rooms: Map<String, String>) : List<HaloRoom>{
+    private fun getRoomModels(rooms: Map<String, String>): List<HaloRoom> {
         return rooms.map {
             HaloRoom(
                 it.key,

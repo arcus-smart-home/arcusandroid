@@ -15,15 +15,15 @@ sealed class ListItem : Parcelable, ContentsComparable<ListItem> {
 
     @Parcelize
     data class Header(
-            override val title: String,
-            val ruleCount: Int
-    ): ListItem(), ContentsComparable<ListItem> {
+        override val title: String,
+        val ruleCount: Int
+    ) : ListItem(), ContentsComparable<ListItem> {
         override fun areItemsTheSame(newItem: ListItem): Boolean =
                 title == newItem.title
 
-        override fun areContentsTheSame(newItem: ListItem): Boolean = newItem is Header
-                && ruleCount == newItem.ruleCount
-                && title == newItem.title
+        override fun areContentsTheSame(newItem: ListItem): Boolean = newItem is Header &&
+                ruleCount == newItem.ruleCount &&
+                title == newItem.title
     }
 
     /**
@@ -37,20 +37,20 @@ sealed class ListItem : Parcelable, ContentsComparable<ListItem> {
      */
     @Parcelize
     data class Rule(
-            override val title: String,
-            val subtitle: String,
-            val hasSchedule: Boolean,
-            val ruleAddress: String,
-            val templateId: String,
-            var isEnabled: Boolean
-    ): ListItem(), ContentsComparable<ListItem> {
+        override val title: String,
+        val subtitle: String,
+        val hasSchedule: Boolean,
+        val ruleAddress: String,
+        val templateId: String,
+        var isEnabled: Boolean
+    ) : ListItem(), ContentsComparable<ListItem> {
         override fun areItemsTheSame(newItem: ListItem): Boolean =
                 newItem is Rule && ruleAddress == newItem.ruleAddress
 
-        override fun areContentsTheSame(newItem: ListItem): Boolean = newItem is Rule
-                && title == newItem.title
-                && subtitle == newItem.subtitle
-                && isEnabled == newItem.isEnabled
-                && hasSchedule == newItem.hasSchedule
+        override fun areContentsTheSame(newItem: ListItem): Boolean = newItem is Rule &&
+                title == newItem.title &&
+                subtitle == newItem.subtitle &&
+                isEnabled == newItem.isEnabled &&
+                hasSchedule == newItem.hasSchedule
     }
 }

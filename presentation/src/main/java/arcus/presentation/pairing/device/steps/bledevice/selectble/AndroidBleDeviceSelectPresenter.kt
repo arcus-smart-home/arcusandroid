@@ -32,17 +32,16 @@ import arcus.presentation.ble.BleConnector
 import arcus.presentation.ble.BleDevice
 import arcus.presentation.ble.BluetoothInteractionCallbacks
 import arcus.presentation.pairing.device.steps.bledevice.BleConnectionStatus
-import org.slf4j.LoggerFactory
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.properties.Delegates
-
+import org.slf4j.LoggerFactory
 
 class AndroidBleDeviceSelectPresenter
 private constructor(
     private val namePrefix: String,
-    private var scheduledExecutor : ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
+    private var scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
 ) : BleDeviceSelectPresenter<Context>, KBasePresenter<BleDeviceSelectView>() {
     private val receiverRegistered = AtomicBoolean(false)
     private val bleAdapterRef = AtomicReference<BluetoothAdapter?>(null)
@@ -56,9 +55,9 @@ private constructor(
                 val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
 
                 // Must not be classic only - must be LE or LE+Classic
-                if (device != null
-                    && device.type != BluetoothDevice.DEVICE_TYPE_CLASSIC
-                    && device.name?.startsWith(namePrefix) == true
+                if (device != null &&
+                    device.type != BluetoothDevice.DEVICE_TYPE_CLASSIC &&
+                    device.name?.startsWith(namePrefix) == true
                 ) {
                     // Always keep the latest device
                     devicesFound[device.address] = device
@@ -70,8 +69,7 @@ private constructor(
     }
 
     private var bluetoothConnector by Delegates.notNull<BleConnector<Context>>()
-    private var handlerThread : HandlerThread? = null
-
+    private var handlerThread: HandlerThread? = null
 
     override fun setBleConnector(connector: BleConnector<Context>) {
         bluetoothConnector = connector
@@ -139,7 +137,7 @@ private constructor(
 
     override fun disconnect() = bluetoothConnector.disconnectAndClose()
 
-    override fun isConnected() : Boolean = bluetoothConnector.isConnected()
+    override fun isConnected(): Boolean = bluetoothConnector.isConnected()
 
     override fun setView(view: BleDeviceSelectView) {
         super.setView(view)
@@ -251,8 +249,9 @@ private constructor(
         }
     }
 
-    private fun Context.getBleManager() : BluetoothManager? = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager?
-    private fun Context.getBleAdapter() : BluetoothAdapter? = getBleManager()?.adapter
+    private fun Context.getBleManager(): BluetoothManager? =
+        getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager?
+    private fun Context.getBleAdapter(): BluetoothAdapter? = getBleManager()?.adapter
 
     companion object {
         private val logger = LoggerFactory.getLogger(AndroidBleDeviceSelectPresenter::class.java)

@@ -29,7 +29,7 @@ class HubWiFiCredentials(
         pass.fill('\u0000')
     }
 
-    fun getErrorState() : HubWiFiConnectState = when (security) {
+    fun getErrorState(): HubWiFiConnectState = when (security) {
         DeviceWiFiNetworkSecurity.WEP,
         DeviceWiFiNetworkSecurity.WPA_PSK,
         DeviceWiFiNetworkSecurity.WPA2_PSK,

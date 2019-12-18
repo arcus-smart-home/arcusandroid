@@ -21,9 +21,8 @@ import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.utils.Listeners
 import arcus.cornea.utils.LooperExecutor
 import com.iris.client.capability.DeviceOta
-import org.slf4j.LoggerFactory
 import kotlin.math.roundToInt
-
+import org.slf4j.LoggerFactory
 
 class OTAUpgradePresenterImpl : OTAUpgradePresenter, KBasePresenter<OTAUpgradeView>() {
     private var listenerReg = Listeners.empty()

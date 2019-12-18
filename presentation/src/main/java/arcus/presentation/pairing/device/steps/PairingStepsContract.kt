@@ -110,12 +110,12 @@ data class PairingStepInput(
  * Holds data pertaining to a web (internet) link
  *
  * @param text - The text to use for the link
- * @param url  - The url to navigate to when this link is activated
+ * @param url - The url to navigate to when this link is activated
  */
 @Parcelize
 data class WebLink(
-        val text: String,
-        val url: String
+    val text: String,
+    val url: String
 ) : Parcelable
 
 /**
@@ -135,8 +135,8 @@ enum class PairingModeType {
  */
 @Parcelize
 data class OAuthDetails(
-        val oAuthUrl: String?,
-        val oAuthStyle: String?
+    val oAuthUrl: String?,
+    val oAuthStyle: String?
 ) : Parcelable
 
 /**
@@ -198,7 +198,7 @@ data class AssistantPairingStep(
     val manufacturer: String? = null,
     val name: String? = null,
     private val order: Int,
-    val instructions : String? = null,
+    val instructions: String? = null,
     val appUrl: String? = null
 ) : ParsedPairingStep(order), Parcelable
 

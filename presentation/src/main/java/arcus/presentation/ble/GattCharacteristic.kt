@@ -15,7 +15,7 @@
  */
 package arcus.presentation.ble
 
-import java.util.*
+import java.util.UUID
 
 enum class GattCharacteristic(val uuid: UUID, val canonicalName: String) {
     // Generic Access
@@ -88,8 +88,6 @@ enum class GattCharacteristic(val uuid: UUID, val canonicalName: String) {
         UUID.fromString("9DAB269A-0005-4C87-805F-BC42474D3C0B"),
         "WiFi Frequency"
     ), // Would want "2.4".toByte()
-
-
 
     UNKNOWN(
         UUID(0, 0),

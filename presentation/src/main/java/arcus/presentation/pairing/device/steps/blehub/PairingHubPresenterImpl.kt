@@ -30,16 +30,16 @@ import com.iris.client.model.PlaceModel
 import java.util.concurrent.TimeUnit
 
 class PairingHubPresenterImpl(
-        private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
-        private val currentPlace: () -> ModelSource<PlaceModel> = {
-            PlaceModelProvider.getCurrentPlace()
-        },
-        private val modelCache : ModelCache = IrisClientFactory.getModelCache()
+    private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
+    private val currentPlace: () -> ModelSource<PlaceModel> = {
+        PlaceModelProvider.getCurrentPlace()
+    },
+    private val modelCache: ModelCache = IrisClientFactory.getModelCache()
 ) : PairingHubPresenter, KBasePresenter<PairingHubView>() {
     @Volatile
     private var hubRegistrationInProgress = false
 
-    override fun registerHub(hubId : String) {
+    override fun registerHub(hubId: String) {
         if (!hubRegistrationInProgress) {
             // Start hub pairing timeout
             scheduledExecutor.executeDelayed(MN_MAX_TIMEOUT) {

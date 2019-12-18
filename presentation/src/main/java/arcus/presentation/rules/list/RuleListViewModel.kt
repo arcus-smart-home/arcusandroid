@@ -36,11 +36,11 @@ import java.util.TreeMap
 
 // TODO: @Inject...
 class RuleListViewModel constructor(
-        private val ruleProvider: RuleModelProvider = RuleModelProvider.instance(),
-        private val templateProvider: RuleTemplateModelProvider = RuleTemplateModelProvider.instance(),
-        private val modelCache: ModelCache = CorneaClientFactory.getModelCache(),
-        private val client: IrisClient = CorneaClientFactory.getClient2(),
-        private val schedulerService: SchedulerService = CorneaClientFactory.getService(SchedulerService::class.java)
+    private val ruleProvider: RuleModelProvider = RuleModelProvider.instance(),
+    private val templateProvider: RuleTemplateModelProvider = RuleTemplateModelProvider.instance(),
+    private val modelCache: ModelCache = CorneaClientFactory.getModelCache(),
+    private val client: IrisClient = CorneaClientFactory.getClient2(),
+    private val schedulerService: SchedulerService = CorneaClientFactory.getService(SchedulerService::class.java)
 ) : ViewStateViewModel<List<ListItem>>() {
     fun refreshRules() {
         loadData()

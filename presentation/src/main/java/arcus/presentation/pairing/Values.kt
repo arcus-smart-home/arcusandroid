@@ -23,7 +23,7 @@ const val WIFI_SMART_SWITCH_PRODUCT_ID = "162918"
 const val BLE_SWANN_CAMERA_PRODUCT_ID = "fec5d9"
 const val BLE_GS_INDOOR_PLUG_PRODUCT_ID = "220a4a"
 const val BLE_GS_OUTDOOR_PLUG_PRODUCT_ID = "2a97b9"
-const val V03_HUB_PRODUCT_ADDRESS  = "SERV:product:dee001"
+const val V03_HUB_PRODUCT_ADDRESS = "SERV:product:dee001"
 const val VOICE_ASST_CATEGORY = "Voice Assistant"
 
 val NON_ALPHA_NUMERIC = "[^a-zA-Z0-9]".toRegex()

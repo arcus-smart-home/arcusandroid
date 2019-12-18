@@ -28,6 +28,8 @@ import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
 import arcus.cornea.utils.AndroidExecutor
 import arcus.cornea.utils.Listeners
 import arcus.cornea.utils.ScheduledExecutor
+import arcus.presentation.pairing.CUSTOMIZATION_COMPLETE
+import arcus.presentation.pairing.device.searching.DevicePairingState
 import com.iris.capability.util.Addresses
 import com.iris.client.capability.DeviceAdvanced
 import com.iris.client.capability.PairingDevice
@@ -37,13 +39,11 @@ import com.iris.client.model.DeviceModel
 import com.iris.client.model.HubModel
 import com.iris.client.model.ModelDeletedEvent
 import com.iris.client.model.PairingDeviceModel
-import arcus.presentation.pairing.CUSTOMIZATION_COMPLETE
-import arcus.presentation.pairing.device.searching.DevicePairingState
 import java.util.UUID
 
 class KitDeviceActivationPresenterImpl(
     private val screenDensity: String,
-    private val srsBaseUrl : String = CorneaClientFactory.getClient().sessionInfo?.staticResourceBaseUrl ?: "",
+    private val srsBaseUrl: String = CorneaClientFactory.getClient().sessionInfo?.staticResourceBaseUrl ?: "",
     private val productModelProvider: ProductModelProvider = ProductModelProvider.instance(),
     private val hubModelProvider: HubModelProvider = HubModelProvider.instance(),
     private val scheduledExecutor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!),
@@ -214,7 +214,6 @@ class KitDeviceActivationPresenterImpl(
             }
     }
 
-
     /**
      * Loads the hub model (so we can get the name of it....) and returns that with the passed in
      * [initial] meta devices.
@@ -224,7 +223,7 @@ class KitDeviceActivationPresenterImpl(
      */
     private fun getHubModelWithMetaDevices(
         initial: ParsedMetaDevices
-    ) : ClientFuture<Pair<ParsedMetaDevices, HubModel>>? = hubModelProvider
+    ): ClientFuture<Pair<ParsedMetaDevices, HubModel>>? = hubModelProvider
         .load()
         .transform {
             val hubModel = hubModelProvider.hubModel
@@ -234,7 +233,6 @@ class KitDeviceActivationPresenterImpl(
                 Pair(initial, hubModel)
             }
         }
-
 
     /**
      * Takes a list of pairing devices and converts them into a list of kit devices which could be
@@ -255,7 +253,7 @@ class KitDeviceActivationPresenterImpl(
      */
     private fun mapPairingDevicesToKitDevices(
         pairingDevices: List<PairDevPair>
-    ) : List<KitDevice> = pairingDevices
+    ): List<KitDevice> = pairingDevices
         .map { (productAddress, pairingDevice) ->
             val product = productModelProvider
                 .getModel(productAddress)
@@ -328,7 +326,7 @@ class KitDeviceActivationPresenterImpl(
 
     private fun mapDevicesToCustomizedKitDevices(
         deviceModels: List<DeviceModel>
-    ) : List<KitDevice> = deviceModels.map {
+    ): List<KitDevice> = deviceModels.map {
         val productAddress = Addresses.toServiceAddress(Product.NAMESPACE) + it.productId
         val product = productModelProvider
             .getModel(productAddress)
@@ -363,23 +361,23 @@ class KitDeviceActivationPresenterImpl(
         )
     }
 
-    private fun getPlugItInOrPullTabFromScreen(screen: String?) : String {
+    private fun getPlugItInOrPullTabFromScreen(screen: String?): String {
         val deviceScreen = screen ?: "unknown"
 
         return if (deviceScreen.equals(PLUG_IT_IN_SCREEN, true)) {
             PLUG_IT_IN
-        }  else {
+        } else {
             PULL_TAB
         }
     }
 
-    private fun generateUrlForScreen(screen: String?, activated: Boolean) : String {
+    private fun generateUrlForScreen(screen: String?, activated: Boolean): String {
         val safeScreen = screen?.toLowerCase()?.replace(MULTI_SPACES, "") ?: "unknown"
         val prefix = if (activated) "" else "un"
         return URL_FORMAT.format(srsBaseUrl, safeScreen, prefix, screenDensity)
     }
 
-    private fun String?.protocolId() : String = this?.substringAfterLast(":") ?: "_NULL_"
+    private fun String?.protocolId(): String = this?.substringAfterLast(":") ?: "_NULL_"
 
     companion object {
         private val MULTI_SPACES = "\\s+".toRegex()
@@ -387,11 +385,11 @@ class KitDeviceActivationPresenterImpl(
         private const val PLUG_IT_IN_SCREEN = "switch"
 
         private const val HUB_SCREEN = "hub"
-        private const val SMART_HUB  = "Smart Hub"
+        private const val SMART_HUB = "Smart Hub"
         private const val PLUG_IT_IN = "Plug it in"
-        private const val PULL_TAB   = "Pull Tab"
-        private const val CUSTOMIZE  = "Customize"
-        private const val UNKNOWN    = "Unknown"
+        private const val PULL_TAB = "Pull Tab"
+        private const val CUSTOMIZE = "Customize"
+        private const val UNKNOWN = "Unknown"
         private const val ERROR_DESCRIPTION = "Error"
 
         private const val URL_FORMAT = "%s/o/dtypes/%s/%sactivated_small-and-%s.png"
