@@ -29,4 +29,8 @@ abstract class ViewStateViewModel<T> : ViewModel() {
     val viewState: LiveData<ViewState<T>> get() = _viewState
 
     protected abstract fun loadData()
+
+    protected inline fun <reified T : Any> MutableLiveData<ViewState<T>>.postLoadedValue(value: T) {
+        postValue(ViewState.Loaded(value))
+    }
 }
