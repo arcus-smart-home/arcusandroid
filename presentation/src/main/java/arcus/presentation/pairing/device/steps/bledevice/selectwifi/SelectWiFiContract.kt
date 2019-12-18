@@ -19,7 +19,6 @@ import arcus.presentation.ble.BleWiFiNetwork
 import arcus.presentation.pairing.device.steps.bledevice.BleConnectedPresenter
 import arcus.presentation.pairing.device.steps.bledevice.BleConnectedView
 
-
 interface BleWiFiSelectView : BleConnectedView {
     fun onNetworksFound(networks: List<BleWiFiNetwork>)
 

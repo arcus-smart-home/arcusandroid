@@ -26,9 +26,8 @@ import com.iris.client.model.ModelDeletedEvent
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
-
 class AndroidRemoveDeviceInstructionsPresenterImpl(
-        private val controller : PairingSubsystemController = PairingSubsystemControllerImpl
+    private val controller: PairingSubsystemController = PairingSubsystemControllerImpl
 ) : RemoveDeviceInstructionsPresenter,
         KBasePresenter<RemoveDeviceInstructionsView>() {
     private var storeListener = Listeners.empty()

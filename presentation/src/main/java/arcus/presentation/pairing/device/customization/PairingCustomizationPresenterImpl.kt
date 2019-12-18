@@ -18,9 +18,9 @@ package arcus.presentation.pairing.device.customization
 import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.utils.Listeners
+import arcus.presentation.pairing.device.steps.WebLink
 import com.iris.client.bean.PairingCustomizationStep
 import com.iris.client.event.Futures
-import arcus.presentation.pairing.device.steps.WebLink
 import java.util.concurrent.atomic.AtomicReference
 
 class PairingCustomizationPresenterImpl : CustomizationPresenter, KBasePresenter<CustomizationView>() {
@@ -56,7 +56,9 @@ class PairingCustomizationPresenterImpl : CustomizationPresenter, KBasePresenter
                                 CustomizationType.fromPlatformType(
                                     platformStep.action
                                 )
-                            if (customizationType == CustomizationType.UNKNOWN || customizationType == CustomizationType.CUSTOMIZATION_COMPLETE) {
+                            if (customizationType == CustomizationType.UNKNOWN ||
+                                customizationType == CustomizationType.CUSTOMIZATION_COMPLETE
+                            ) {
                                 null
                             } else {
                                 CustomizationStep(
@@ -86,7 +88,7 @@ class PairingCustomizationPresenterImpl : CustomizationPresenter, KBasePresenter
                 }
             }
             .onSuccess(Listeners.runOnUiThread { items ->
-                onlyIfView {  view ->
+                onlyIfView { view ->
                     view.customizationSteps(items)
                 }
             })

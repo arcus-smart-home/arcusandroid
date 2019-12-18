@@ -24,7 +24,6 @@ import com.iris.client.capability.DeviceAdvanced
 import com.iris.client.event.ClientFuture
 import com.iris.client.event.Futures
 
-
 abstract class BaseKitDevicePresenter<T>(
     protected val pairingSubsystemController: PairingSubsystemController,
     protected val pairingDeviceModelProvider: PairingDeviceModelProvider,
@@ -35,7 +34,7 @@ abstract class BaseKitDevicePresenter<T>(
      *
      * @return Future of: Map<ProtocolAddress, ProductAddress>
      */
-    protected fun getKittedDevices() : ClientFuture<Map<ProtocolAddress, ProductAddress>?> {
+    protected fun getKittedDevices(): ClientFuture<Map<ProtocolAddress, ProductAddress>?> {
         return pairingSubsystemController
             .getKitInformation()
             .transform {
@@ -54,7 +53,7 @@ abstract class BaseKitDevicePresenter<T>(
      */
     protected fun getAdditionalMetaDevices(
         initial: Map<String, String>
-    ) : ClientFuture<InitialMetaDevices?> {
+    ): ClientFuture<InitialMetaDevices?> {
         return pairingDeviceModelProvider
             .loadUnfiltered()
             .transform { load ->
@@ -95,7 +94,7 @@ abstract class BaseKitDevicePresenter<T>(
      */
     protected fun mapMetaDevicesToStartingGridDevices(
         initial: InitialMetaDevices
-    ) : ParsedMetaDevices? {
+    ): ParsedMetaDevices? {
         val (kittedDevices, pairingDevices, deviceModels) = initial
         val kitDevices = kittedDevices.toMutableMap()
         val knownDevices = kittedDevices.mapNotNull { kitDevice ->
@@ -111,7 +110,7 @@ abstract class BaseKitDevicePresenter<T>(
 
         val pairedDevices = kitDevices
             .toMutableMap() // Iterate through the remaining devices
-            .mapNotNull {  kitDevice ->
+            .mapNotNull { kitDevice ->
                 deviceModels
                     .firstOrNull {
                         val protoId = it[DeviceAdvanced.ATTR_PROTOCOLID] as String? ?: "_UNKNOWN_"
@@ -126,4 +125,3 @@ abstract class BaseKitDevicePresenter<T>(
         return Triple(kitDevices.toMap(), knownDevices, pairedDevices)
     }
 }
-

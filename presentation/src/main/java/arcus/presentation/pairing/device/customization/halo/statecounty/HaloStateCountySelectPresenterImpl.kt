@@ -22,26 +22,26 @@ import arcus.cornea.device.smokeandco.halo.HaloLocationControllerImpl
 import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.utils.Listeners
-import com.iris.client.event.Futures
 import arcus.presentation.pairing.device.customization.halo.station.HaloStationSelectPresenterImpl
-import org.slf4j.LoggerFactory
+import com.iris.client.event.Futures
 import java.util.concurrent.atomic.AtomicBoolean
+import org.slf4j.LoggerFactory
 
 class HaloStateCountySelectPresenterImpl(
     @VisibleForTesting
-    private val createController : (String?) -> HaloLocationController = { address ->
+    private val createController: (String?) -> HaloLocationController = { address ->
         HaloLocationControllerImpl(address ?: "DRIV:dev:")
     },
     @VisibleForTesting
-    private val getPersonState : () -> String = {
+    private val getPersonState: () -> String = {
         SessionController.instance().place?.stateProv ?: ""
     },
     @VisibleForTesting
-    private val getPersonCounty : () -> String = {
+    private val getPersonCounty: () -> String = {
         SessionController.instance().place?.addrCounty ?: ""
     }
 ) : HaloStateCountySelectPresenter, KBasePresenter<HaloStateCountySelectView>() {
-    private var haloController : HaloLocationController? = null
+    private var haloController: HaloLocationController? = null
     private val savingSelection = AtomicBoolean(false)
 
     override fun loadFromPairingDevice(address: String) {
@@ -100,7 +100,7 @@ class HaloStateCountySelectPresenterImpl(
             controller
                 .getCountiesFor(state.sameCode)
                     .chain { listItems ->
-                        if(listItems == null || listItems.isEmpty()){
+                        if (listItems == null || listItems.isEmpty()) {
                             Futures.failedFuture(RuntimeException("List was null / empty - cannot process"))
                         } else {
                             val personCounty = getPersonCounty()
@@ -116,7 +116,7 @@ class HaloStateCountySelectPresenterImpl(
                         }
                     }
                 .onSuccess(Listeners.runOnUiThread { counties ->
-                    onlyIfView {  view ->
+                    onlyIfView { view ->
                         view.onCountiesLoaded(counties)
                     }
                 })

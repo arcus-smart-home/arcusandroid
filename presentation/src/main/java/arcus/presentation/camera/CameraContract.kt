@@ -55,12 +55,12 @@ interface CameraView {
     /**
      * Called once the camera has successfully taken the picture
      */
-    fun onPictureSaveSuccess(file : File)
+    fun onPictureSaveSuccess(file: File)
 
     /**
      * Called when we have toggled the flash state
      */
-    fun onFlashToggled(state : Int)
+    fun onFlashToggled(state: Int)
 }
 
 interface CameraPresenter : BasePresenterContract<CameraView> {

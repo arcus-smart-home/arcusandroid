@@ -15,10 +15,9 @@
  */
 package arcus.presentation.kits
 
-
 import android.content.Context
-import com.google.gson.Gson
 import arcus.cornea.presenter.KBasePresenter
+import com.google.gson.Gson
 
 class HubKitPresenterImpl : KBasePresenter<HubKitView>(), HubKitPresenter {
     private val gsonInstance = Gson()

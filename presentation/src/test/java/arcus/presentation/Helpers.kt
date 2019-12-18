@@ -20,4 +20,3 @@ import com.iris.client.event.Futures
 fun <T> dynamite(message: String = "Boom Goes The Dynamite") = Futures.failedFuture<T>(RuntimeException(message))
 
 fun <T> success(value: T) = Futures.succeededFuture(value)
-

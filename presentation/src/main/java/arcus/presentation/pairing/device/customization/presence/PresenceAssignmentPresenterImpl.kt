@@ -35,9 +35,9 @@ class PresenceAssignmentPresenterImpl : PresenceAssignmentPresenter, KBasePresen
     private var deviceModel: DeviceModel? = null
 
     override fun setAssignment(to: AssignmentOption) {
-        when(to) {
-            is PersonAssignmentOption -> {assignPersonToDevice(to.personAddress)}
-            is UnassignedAssignmentOption -> {unassignDevice()}
+        when (to) {
+            is PersonAssignmentOption -> { assignPersonToDevice(to.personAddress) }
+            is UnassignedAssignmentOption -> { unassignDevice() }
         }
     }
 
@@ -59,7 +59,7 @@ class PresenceAssignmentPresenterImpl : PresenceAssignmentPresenter, KBasePresen
                                 .load()
                     } ?: Futures.failedFuture(RuntimeException("Cannot load null pairing/device model."))
                 }
-                .transform{
+                .transform {
                     it?.let {
                         deviceModel = it
 
@@ -137,5 +137,4 @@ class PresenceAssignmentPresenterImpl : PresenceAssignmentPresenter, KBasePresen
             deviceModel?.commit()?.onFailure(errorListener)
         }
     }
-
 }

@@ -18,7 +18,6 @@ package arcus.presentation.pairing.device.customization.namephoto
 import arcus.cornea.presenter.BasePresenterContract
 import com.iris.client.model.DeviceModel
 
-
 interface NameAndPhotoView {
     /**
      * Called when we have loaded the device model and know its name

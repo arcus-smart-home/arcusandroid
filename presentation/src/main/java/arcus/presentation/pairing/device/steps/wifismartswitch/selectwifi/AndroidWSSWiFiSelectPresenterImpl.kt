@@ -19,7 +19,6 @@ import android.net.wifi.ScanResult
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 
-
 class AndroidWSSWiFiSelectPresenterImpl : WSSWiFiSelectPresenter<ScanResult, WifiInfo> {
     override fun parseScanResults(
         scanResults: List<ScanResult>?,

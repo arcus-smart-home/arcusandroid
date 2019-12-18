@@ -24,6 +24,12 @@ import arcus.cornea.subsystem.pairing.PairingSubsystemController
 import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
 import arcus.cornea.subsystem.pairing.StartPairingResponse
 import arcus.cornea.utils.Listeners
+import arcus.presentation.pairing.BLE_GS_INDOOR_PLUG_PRODUCT_ID
+import arcus.presentation.pairing.BLE_GS_OUTDOOR_PLUG_PRODUCT_ID
+import arcus.presentation.pairing.BLE_SWANN_CAMERA_PRODUCT_ID
+import arcus.presentation.pairing.V03_HUB_PRODUCT_ADDRESS
+import arcus.presentation.pairing.VOICE_ASST_CATEGORY
+import arcus.presentation.pairing.WIFI_SMART_SWITCH_PRODUCT_ID
 import com.iris.client.bean.PairingApplication
 import com.iris.client.bean.PairingInput
 import com.iris.client.bean.PairingStep
@@ -32,7 +38,6 @@ import com.iris.client.event.Futures
 import com.iris.client.event.Listener
 import com.iris.client.model.ModelChangedEvent
 import com.iris.client.model.ProductModel
-import arcus.presentation.pairing.*
 
 /**
  * Pairing Steps Presenter
@@ -41,8 +46,8 @@ import arcus.presentation.pairing.*
  * for the [PairingStepsView] if it's present.
  */
 class PairingStepsPresenterImpl(
-        private val tutorialUrl: String,
-        private val subsystemController: PairingSubsystemController = PairingSubsystemControllerImpl
+    private val tutorialUrl: String,
+    private val subsystemController: PairingSubsystemController = PairingSubsystemControllerImpl
 ) : PairingStepsPresenter, KBasePresenter<PairingStepsView>() {
     private val errorHandler = Listeners.runOnUiThread<Throwable> { error ->
         if (error !is ConnectivityException) {
@@ -109,7 +114,7 @@ class PairingStepsPresenterImpl(
                 val title = product.shortName.orEmpty()
                 val prodId = product.id
 
-                val reconnectInitialSteps : List<ParsedPairingStep> = steps.mapIndexed { index, itemMap ->
+                val reconnectInitialSteps: List<ParsedPairingStep> = steps.mapIndexed { index, itemMap ->
                     val instructions = (itemMap["text"] as? String?)?.let { textItem ->
                         listOf(textItem)
                     } ?: emptyList()
@@ -248,10 +253,10 @@ class PairingStepsPresenterImpl(
     }
 
     private fun getPairingSteps(
-            pairingResponse: StartPairingResponse,
-            productId: String,
-            pairingModeType: PairingModeType,
-            productModel: ProductModel
+        pairingResponse: StartPairingResponse,
+        productId: String,
+        pairingModeType: PairingModeType,
+        productModel: ProductModel
     ): MutableList<ParsedPairingStep> {
         val steps = pairingResponse.steps.mapIndexed { index, item ->
             val webLink = getWebLink(item)
@@ -301,9 +306,9 @@ class PairingStepsPresenterImpl(
     }
 
     private fun getAssistantPairingStep(
-            steps: List<PairingStep>,
-            productModel: ProductModel,
-            pairingModeType: PairingModeType
+        steps: List<PairingStep>,
+        productModel: ProductModel,
+        pairingModeType: PairingModeType
     ): AssistantPairingStep {
         val externalAppStep = steps.firstOrNull { it.externalApps?.isNotEmpty() == true }
         val appUrl: String = externalAppStep?.externalApps
@@ -327,9 +332,9 @@ class PairingStepsPresenterImpl(
     }
 
     private fun getWiFiSmartSwitchPairingSteps(
-            pairingResponse: StartPairingResponse,
-            productId: String,
-            pairingModeType: PairingModeType
+        pairingResponse: StartPairingResponse,
+        productId: String,
+        pairingModeType: PairingModeType
     ): MutableList<ParsedPairingStep> {
         val tmp = mutableListOf<ParsedPairingStep>()
         val item = pairingResponse.steps[0]
@@ -354,15 +359,15 @@ class PairingStepsPresenterImpl(
     }
 
     private fun getGenericBleDevicePairingSteps(
-            pairingResponse: StartPairingResponse?,
-            productId: String,
-            prefix: String,
-            pairingModeType: PairingModeType
+        pairingResponse: StartPairingResponse?,
+        productId: String,
+        prefix: String,
+        pairingModeType: PairingModeType
     ): MutableList<ParsedPairingStep> {
         val productModel = ProductModelProvider.instance().getByProductIDOrNull(productId)
         val tmp = mutableListOf<ParsedPairingStep>()
 
-        pairingResponse?.let{
+        pairingResponse?.let {
             val item = it.steps[0]
 
             val webLink = getWebLink(item)
@@ -380,7 +385,7 @@ class PairingStepsPresenterImpl(
 
         for (stepOrder in 2..6) {
             // If this is a hub, skip step 4 (enable Bluetooth on the camera step)
-            if(productId == V03_HUB_PRODUCT_ADDRESS.substringAfterLast(":") &&
+            if (productId == V03_HUB_PRODUCT_ADDRESS.substringAfterLast(":") &&
                 stepOrder == 4) {
                 continue
             }
@@ -449,6 +454,5 @@ class PairingStepsPresenterImpl(
          * The prefix of hub devices.
          */
         const val HUB_NAME_PREFIX_FILTER = "Iris_Hub"
-
     }
 }

@@ -17,8 +17,8 @@ package arcus.presentation.pairing.device.customization.orbit.edit
 
 import android.os.Parcelable
 import arcus.cornea.presenter.BasePresenterContract
-import kotlinx.android.parcel.Parcelize
 import java.util.concurrent.TimeUnit
+import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class IrrigationZoneDetails(

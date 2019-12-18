@@ -33,11 +33,11 @@ interface BrandDevicesOverviewPresenter : BasePresenterContract<BrandDevicesOver
 }
 
 data class ProductEntry(
-        val id : String,
-        val address: String,
-        val title : String,
-        val subTitle : String,
-        val iconUrl : String,
-        val backupIconUrl : String,
-        val isHubRequired : Boolean
+    val id: String,
+    val address: String,
+    val title: String,
+    val subTitle: String,
+    val iconUrl: String,
+    val backupIconUrl: String,
+    val isHubRequired: Boolean
 )

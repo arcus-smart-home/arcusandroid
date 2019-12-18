@@ -22,9 +22,8 @@ import arcus.cornea.utils.Listeners
 import com.iris.client.capability.AOSmithWaterHeaterController
 import com.iris.client.event.Futures
 
-
-class WaterHeaterModelSerialPresenterImpl
-    : WaterHeaterModelSerialPresenter, KBasePresenter<WaterHeaterModelSerialView>() {
+class WaterHeaterModelSerialPresenterImpl :
+    WaterHeaterModelSerialPresenter, KBasePresenter<WaterHeaterModelSerialView>() {
     override fun saveModelAndSerialNumbersToPairingDevice(
         address: String,
         model: CharSequence?,

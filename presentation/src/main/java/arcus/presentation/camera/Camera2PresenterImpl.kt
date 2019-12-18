@@ -20,8 +20,21 @@ import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
-import android.graphics.*
-import android.hardware.camera2.*
+import android.graphics.ImageFormat
+import android.graphics.Matrix
+import android.graphics.Point
+import android.graphics.Rect
+import android.graphics.RectF
+import android.graphics.SurfaceTexture
+import android.hardware.camera2.CameraAccessException
+import android.hardware.camera2.CameraCaptureSession
+import android.hardware.camera2.CameraCharacteristics
+import android.hardware.camera2.CameraDevice
+import android.hardware.camera2.CameraManager
+import android.hardware.camera2.CameraMetadata
+import android.hardware.camera2.CaptureRequest
+import android.hardware.camera2.CaptureResult
+import android.hardware.camera2.TotalCaptureResult
 import android.media.Image
 import android.media.ImageReader
 import android.os.Build
@@ -33,21 +46,26 @@ import android.util.SparseIntArray
 import android.view.Display
 import android.view.Surface
 import arcus.cornea.presenter.KBasePresenter
-import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Arrays
+import java.util.Collections
+import java.util.Date
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
+import org.slf4j.LoggerFactory
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@SuppressLint("MissingPermission")  // Activity handles permission checks
-class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFitTextureView) : Camera2Presenter, KBasePresenter<CameraView>() {
+@SuppressLint("MissingPermission") // Activity handles permission checks
+class Camera2PresenterImpl(
+    activity: Activity,
+    private val textureView: AutoFitTextureView
+) : Camera2Presenter, KBasePresenter<CameraView>() {
     private val cameraManager = activity.getSystemService(Context.CAMERA_SERVICE) as CameraManager
-    private var orientation : Int = 0
-    private var defaultDisplay : Display
+    private var orientation: Int = 0
+    private var defaultDisplay: Display
     init {
         orientation = activity.resources.configuration.orientation
         defaultDisplay = activity.windowManager.defaultDisplay
@@ -78,7 +96,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
     /**
      * The capture result image
      */
-    private lateinit var savingImage : Image
+    private lateinit var savingImage: Image
 
     /**
      * The current state of camera state for taking pictures.
@@ -211,8 +229,8 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             val afState = result.get(CaptureResult.CONTROL_AF_STATE)
             if (afState == null) {
                 captureStillPicture()
-            } else if (afState == CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED
-                    || afState == CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED) {
+            } else if (afState == CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED ||
+                    afState == CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED) {
                 // CONTROL_AE_STATE can be null on some devices
                 val aeState = result.get(CaptureResult.CONTROL_AE_STATE)
                 if (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED) {
@@ -224,15 +242,19 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             }
         }
 
-        override fun onCaptureProgressed(session: CameraCaptureSession,
-                                         request: CaptureRequest,
-                                         partialResult: CaptureResult) {
+        override fun onCaptureProgressed(
+            session: CameraCaptureSession,
+            request: CaptureRequest,
+            partialResult: CaptureResult
+        ) {
             process(partialResult)
         }
 
-        override fun onCaptureCompleted(session: CameraCaptureSession,
-                                        request: CaptureRequest,
-                                        result: TotalCaptureResult) {
+        override fun onCaptureCompleted(
+            session: CameraCaptureSession,
+            request: CaptureRequest,
+            result: TotalCaptureResult
+        ) {
             process(result)
         }
     }
@@ -245,7 +267,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
         savingImage = imageReader.acquireNextImage()
         backgroundHandler?.post(ImageSaver()).run {
             // If for some reason the screen is turned off after an image was saved, we just take a new photo
-            if(!reload) {
+            if (!reload) {
                 onlyIfView { view ->
                     view.onPictureSaveSuccess(file)
                 }
@@ -260,7 +282,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
      * Creates a new [CameraCaptureSession] for camera preview.
      */
     private fun createCameraPreviewSession() {
-        mCameraDevice?.let {camera ->
+        mCameraDevice?.let { camera ->
             try {
                 val texture = textureView.surfaceTexture
 
@@ -308,13 +330,13 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             } catch (ex: CameraAccessException) {
                 logger.error(ex.toString())
             }
-        } ?: return  // The camera is already closed
+        } ?: return // The camera is already closed
     }
 
     /**
      * Sets up member variables related to camera.
      *
-     * @param width  The width of available size for camera preview
+     * @param width The width of available size for camera preview
      * @param height The height of available size for camera preview
      */
     private fun setUpCameraOutputs(width: Int, height: Int) {
@@ -330,7 +352,6 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
 
                     supportedCaptureSizes = map.getOutputSizes(ImageFormat.JPEG)
                     Arrays.sort(supportedCaptureSizes, CompareSizesByArea())
-
 
                     if (currentCaptureSize == null) {
                         // For still image captures, we use the largest available size.
@@ -459,9 +480,11 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
 
             val captureCallback = object : CameraCaptureSession.CaptureCallback() {
 
-                override fun onCaptureCompleted(session: CameraCaptureSession,
-                                                request: CaptureRequest,
-                                                result: TotalCaptureResult) {
+                override fun onCaptureCompleted(
+                    session: CameraCaptureSession,
+                    request: CaptureRequest,
+                    result: TotalCaptureResult
+                ) {
                     // Reset the auto-focus trigger
                     previewRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER,
                             CameraMetadata.CONTROL_AF_TRIGGER_CANCEL)
@@ -479,7 +502,6 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
                     capture(it.build(), captureCallback, null)
                 }
             }
-
         } catch (ex: CameraAccessException) {
             logger.error(ex.toString())
         }
@@ -502,7 +524,6 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
         } catch (e: CameraAccessException) {
             e.printStackTrace()
         }
-
     }
 
     /**
@@ -533,7 +554,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
 
         try {
             // wait for the camera to open - 2.5 seconds
-            if(!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)){
+            if (!cameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 logger.error("Timed out waiting to lock camera.")
                 // TODO: what do if this happens?
                 onlyIfView { view ->
@@ -541,9 +562,9 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
                 }
             }
             cameraManager.openCamera(cameraId, stateCallback, backgroundHandler)
-        } catch (ex: CameraAccessException){
+        } catch (ex: CameraAccessException) {
             logger.error("Error accessing the camera {}", ex)
-        } catch (ex: InterruptedException){
+        } catch (ex: InterruptedException) {
             logger.error("Interrupted while trying to lock camera open", ex)
         }
     }
@@ -568,7 +589,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
     }
 
     override fun toggleCamera() {
-        synchronized(CAMERA_LOCK){
+        synchronized(CAMERA_LOCK) {
             releaseCamera()
             openCamera()
         }
@@ -576,7 +597,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
     }
 
     override fun flipCamera() {
-        cameraCurrentlyFacing = if(cameraCurrentlyFacing == CAMERA_FACING_BACK) {
+        cameraCurrentlyFacing = if (cameraCurrentlyFacing == CAMERA_FACING_BACK) {
             CAMERA_FACING_FRONT
         } else {
             CAMERA_FACING_BACK
@@ -584,7 +605,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
         toggleCamera()
     }
 
-    override fun takePicture(){
+    override fun takePicture() {
         getOutputMediaFile()?.let {
             file = it
             if (CameraCharacteristics.LENS_FACING_FRONT == cameraCurrentlyFacing) {
@@ -600,7 +621,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
     }
 
     override fun toggleFlashState() {
-        if(flashSupported) {
+        if (flashSupported) {
             flashMode = if (flashMode == FLASH_OFF) {
                 FLASH_ON
             } else {
@@ -632,7 +653,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
 
                 // Set new repeating request with our changed one
                 captureSession?.setRepeatingRequest(previewRequest, captureCallback, null)
-            } catch (ex : CameraAccessException){
+            } catch (ex: CameraAccessException) {
                 logger.error("Couldn't create a new request {}", ex)
             }
         }
@@ -643,7 +664,7 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
      * This method should be called after the camera preview size is determined in
      * setUpCameraOutputs and also the size of `cameraTextureView` is fixed.
      *
-     * @param viewWidth  The width of `cameraTextureView`
+     * @param viewWidth The width of `cameraTextureView`
      * @param viewHeight The height of `cameraTextureView`
      */
     override fun configureTransform(viewWidth: Int, viewHeight: Int) {
@@ -701,22 +722,22 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
      * size doesn't exist, choose the largest one that is at most as large as the respective max
      * size, and whose aspect ratio matches with the specified value.
      *
-     * @param choices           The list of sizes that the camera supports for the intended
+     * @param choices The list of sizes that the camera supports for the intended
      *                          output class
-     * @param textureViewWidth  The width of the texture view relative to sensor coordinate
+     * @param textureViewWidth The width of the texture view relative to sensor coordinate
      * @param textureViewHeight The height of the texture view relative to sensor coordinate
-     * @param maxWidth          The maximum width that can be chosen
-     * @param maxHeight         The maximum height that can be chosen
-     * @param aspectRatio       The aspect ratio
+     * @param maxWidth The maximum width that can be chosen
+     * @param maxHeight The maximum height that can be chosen
+     * @param aspectRatio The aspect ratio
      * @return The optimal `Size`, or an arbitrary one if none were big enough
      */
     private fun chooseOptimalSize(
-            choices: Array<Size>,
-            textureViewWidth: Int,
-            textureViewHeight: Int,
-            maxWidth: Int,
-            maxHeight: Int,
-            aspectRatio: Size
+        choices: Array<Size>,
+        textureViewWidth: Int,
+        textureViewHeight: Int,
+        maxWidth: Int,
+        maxHeight: Int,
+        aspectRatio: Size
     ): Size {
 
         // Collect the supported resolutions that are at least as big as the preview Surface
@@ -748,7 +769,6 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
         }
     }
 
-
     /**
      * Starts a background thread and its [Handler].
      */
@@ -772,9 +792,9 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
     }
 
     /** Create a File for saving an image or video */
-    private fun getOutputMediaFile() : File? {
+    private fun getOutputMediaFile(): File? {
         // Check that the SDCard is mounted
-        if(Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
+        if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
 
             // Specify the directory
             val mediaStorageDir = File(Environment.getExternalStorageDirectory(), "Arcus")
@@ -814,7 +834,6 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             }
         }
     }
-
 
     override fun setView(view: CameraView) {
         super.setView(view)
@@ -865,7 +884,6 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
         private const val STATE_PICTURE_TAKEN = 4
     }
 
-
     /**
      * Compares two `Size`s based on their areas.
      */
@@ -875,6 +893,5 @@ class Camera2PresenterImpl(activity : Activity, private val textureView: AutoFit
             // We cast here to ensure the multiplications won't overflow
             return java.lang.Long.signum(lhs.width.toLong() * lhs.height - rhs.width.toLong() * rhs.height)
         }
-
     }
 }

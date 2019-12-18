@@ -17,8 +17,8 @@ package arcus.presentation.kits
 
 import android.content.Context
 import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
 import arcus.cornea.presenter.BasePresenterContract
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 interface HubKitView {
@@ -61,12 +61,10 @@ sealed class ProductAddModel {
 
 @Parcelize
 data class ProductDataModel(
-        override val name: String,
-        val id: String,
-        val canUseBle: Boolean
+    override val name: String,
+    val id: String,
+    val canUseBle: Boolean
 ) : ProductAddModel(), Parcelable
 
 @Parcelize
 data class ProductHeaderModel(override val name: String) : ProductAddModel(), Parcelable
-
-

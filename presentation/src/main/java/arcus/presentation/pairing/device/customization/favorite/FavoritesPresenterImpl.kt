@@ -19,10 +19,9 @@ import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.provider.DeviceModelProvider
 import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.utils.Listeners
+import arcus.presentation.pairing.FAVORITE_TAG
 import com.iris.client.event.Futures
 import com.iris.client.model.DeviceModel
-import arcus.presentation.pairing.FAVORITE_TAG
-
 
 class FavoritesPresenterImpl : FavoritesPresenter, KBasePresenter<FavoritesView>() {
 
@@ -72,5 +71,4 @@ class FavoritesPresenterImpl : FavoritesPresenter, KBasePresenter<FavoritesView>
         @JvmStatic
         private val FAVORITE_SET = setOf(FAVORITE_TAG)
     }
-
 }

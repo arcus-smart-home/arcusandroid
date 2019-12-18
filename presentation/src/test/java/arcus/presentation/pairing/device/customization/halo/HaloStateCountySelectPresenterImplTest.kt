@@ -15,25 +15,24 @@
  */
 package arcus.presentation.pairing.device.customization.halo
 
-import com.google.common.truth.Truth
 import arcus.cornea.device.smokeandco.halo.HaloLocationController
 import arcus.cornea.utils.LooperExecutor
-import com.iris.client.ClientEvent
-import com.iris.client.bean.SameState
-import com.iris.client.event.ClientFuture
 import arcus.presentation.dynamite
 import arcus.presentation.pairing.device.customization.halo.statecounty.HaloCounty
 import arcus.presentation.pairing.device.customization.halo.statecounty.HaloStateAndCode
 import arcus.presentation.pairing.device.customization.halo.statecounty.HaloStateCountySelectPresenterImpl
 import arcus.presentation.pairing.device.customization.halo.statecounty.HaloStateCountySelectView
 import arcus.presentation.success
+import com.google.common.truth.Truth
+import com.iris.client.ClientEvent
+import com.iris.client.bean.SameState
+import com.iris.client.event.ClientFuture
 import com.nhaarman.mockito_kotlin.argumentCaptor
-import org.junit.Test
-
+import kotlin.properties.Delegates
 import org.junit.Before
+import org.junit.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.mock
-import kotlin.properties.Delegates
 
 class HaloStateCountySelectPresenterImplTest {
     private val statesForBean = listOf(
@@ -43,10 +42,10 @@ class HaloStateCountySelectPresenterImplTest {
     )
     private val states = listOf(
         HaloStateAndCode("California", "CA"),
-        HaloStateAndCode("North Carolina", "NC",true),
+        HaloStateAndCode("North Carolina", "NC", true),
         HaloStateAndCode("Federated States of Micronesia", "FM")
     )
-    private val counties = listOf("Chuuk*","Kosrae","Pohnpeit*","Yap")
+    private val counties = listOf("Chuuk*", "Kosrae", "Pohnpeit*", "Yap")
     private val haloCounties = listOf(
         HaloCounty(
             "Chuuk*",
@@ -153,6 +152,7 @@ class HaloStateCountySelectPresenterImplTest {
 
         override fun getStateNames(): ClientFuture<List<SameState>> = stateResponse
         override fun getCountiesFor(stateCode: String): ClientFuture<List<String>> = countiesResponse
-        override fun setLocationUsing(stateCode: String, county: String): ClientFuture<ClientEvent> = setLocationResponse
+        override fun setLocationUsing(stateCode: String, county: String): ClientFuture<ClientEvent> =
+            setLocationResponse
     }
 }

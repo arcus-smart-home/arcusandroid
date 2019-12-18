@@ -22,12 +22,12 @@ interface BleConnector<in T> {
     /**
      * The callback to notify when something interesting happens during the bluetooth conection
      */
-    var interactionCallback : BluetoothInteractionCallbacks?
+    var interactionCallback: BluetoothInteractionCallbacks?
 
     /**
      * The serial number of the device which is read from [GattCharacteristic.MANUFACTURER]
      */
-    var serialNumber : String
+    var serialNumber: String
 
     /**
      * Connect to the device using the specified object [with]
@@ -46,14 +46,14 @@ interface BleConnector<in T> {
     /**
      * Checks to see if we have an active connection to a device.
      */
-    fun isConnected() : Boolean
+    fun isConnected(): Boolean
 
     /**
      * Gets the currently connected device from the Gatt object.
      *
      * @return the ble device if connected - null if not connected
      */
-    fun getConnectedDevice() : BluetoothDevice?
+    fun getConnectedDevice(): BluetoothDevice?
 
     /**
      * Attempts to reconnect to the last device connected to.
@@ -63,7 +63,7 @@ interface BleConnector<in T> {
      *
      * @return true if an attempt will be made, flase if no attempt will be made
      */
-    fun reconnect(with: T?, autoConnect: Boolean = false) : Boolean
+    fun reconnect(with: T?, autoConnect: Boolean = false): Boolean
 
     /**
      * Scans for wifi networks using the [GattService.WIFI_CONFIG] services characteristic:
@@ -71,7 +71,7 @@ interface BleConnector<in T> {
      *
      * @return true if was able to request a scan, false if not.
      */
-    fun scanForWiFiNetworks() : Boolean
+    fun scanForWiFiNetworks(): Boolean
 
     /**
      * Writes the wifi information to the device.
@@ -80,7 +80,7 @@ interface BleConnector<in T> {
      * @param network the network SSID to connect to
      * @param securityType the security type of the network that is being connected to
      */
-    fun writeWiFiConfiguration(pass: String, network: String, securityType: String) : Boolean
+    fun writeWiFiConfiguration(pass: String, network: String, securityType: String): Boolean
 
     /**
      * Starts monitoring network connection status.
@@ -90,7 +90,7 @@ interface BleConnector<in T> {
      *
      * @return true if was able to start the monitor, false if not
      */
-    fun startMonitoringNetworkStatus(delayBetweenReads: Long = 2, unit: TimeUnit = TimeUnit.SECONDS) : Boolean
+    fun startMonitoringNetworkStatus(delayBetweenReads: Long = 2, unit: TimeUnit = TimeUnit.SECONDS): Boolean
 
     /**
      * Stops monitoring network connection status.

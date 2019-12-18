@@ -25,23 +25,28 @@ import android.os.Environment
 import android.view.Display
 import android.view.Surface
 import arcus.cornea.presenter.KBasePresenter
-import org.slf4j.LoggerFactory
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Collections
+import java.util.Date
+import org.slf4j.LoggerFactory
 
 @Suppress("DEPRECATION")
-class Camera1PresenterImpl(val activity : Activity, private val textureView: AutoFitTextureView) : CameraPresenter, KBasePresenter<CameraView>() {
+class Camera1PresenterImpl(
+    val activity: Activity,
+    private val textureView: AutoFitTextureView
+) : CameraPresenter, KBasePresenter<CameraView>() {
     private var cameraRotate = 0
     private var cameraFacing = CAMERA_FACING_BACK
     private var flashState = FLASH_OFF
     private var camera: Camera? = null
     private var params: Camera.Parameters? = null
-    private var orientation : Int = 0
-    private var defaultDisplay : Display
+    private var orientation: Int = 0
+    private var defaultDisplay: Display
+
     init {
         orientation = activity.resources.configuration.orientation
         defaultDisplay = activity.windowManager.defaultDisplay
@@ -50,7 +55,7 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
     private val pictureCallback = Camera.PictureCallback { data, _ ->
         val pictureFile = getOutputMediaFile()
 
-        if(pictureFile == null){
+        if (pictureFile == null) {
             logger.debug("Error creating media file, check storage permissions.")
             return@PictureCallback
         }
@@ -131,7 +136,7 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
     }
 
     override fun toggleCamera() {
-        synchronized(CAMERA_LOCK){
+        synchronized(CAMERA_LOCK) {
             releaseCamera()
             openCamera()
         }
@@ -139,7 +144,7 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
 
     override fun flipCamera() {
         cameraFacing = if (cameraFacing == CAMERA_FACING_BACK) {
-             CAMERA_FACING_FRONT
+            CAMERA_FACING_FRONT
         } else {
             CAMERA_FACING_BACK
         }
@@ -163,25 +168,26 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
     override fun toggleFlashState() {
         flashState = if (flashState == FLASH_ON) {
             FLASH_OFF
-        } else { FLASH_ON }
+        } else {
+            FLASH_ON
+        }
 
         onlyIfView {
             it.onFlashToggled(flashState)
         }
     }
 
-    private fun setFlashState() : String {
+    private fun setFlashState(): String {
         return when (flashState) {
-            FLASH_ON ->  Camera.Parameters.FLASH_MODE_ON
+            FLASH_ON -> Camera.Parameters.FLASH_MODE_ON
             else -> Camera.Parameters.FLASH_MODE_OFF
         }
     }
 
-
     /** Create a File for saving an image or video */
-    private fun getOutputMediaFile() : File? {
+    private fun getOutputMediaFile(): File? {
         // Check that the SDCard is mounted
-        if(Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
+        if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
 
             // Specify the directory
             val mediaStorageDir = File(Environment.getExternalStorageDirectory(), "Arcus")
@@ -195,13 +201,15 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
 
             // Create a media file name
             val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-            return File(mediaStorageDir.path + File.separator +
-                    "IMG_" + timeStamp + ".jpg")
+            return File(
+                mediaStorageDir.path + File.separator +
+                        "IMG_" + timeStamp + ".jpg"
+            )
         }
         return null
     }
 
-    private fun getCameraId() : Int {
+    private fun getCameraId(): Int {
         return if (cameraFacing == CAMERA_FACING_BACK) {
             Camera.CameraInfo.CAMERA_FACING_BACK
         } else {
@@ -210,13 +218,17 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
     }
 
     private fun setCameraPreview(width: Int, height: Int) {
-        //set autoFocus automatically
+        // set autoFocus automatically
         params?.let { params ->
             if (params.supportedFocusModes.contains(
-                            Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
+                    Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO
+                )
+            ) {
                 params.focusMode = Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO
             } else if (params.supportedFocusModes.contains(
-                            Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)) {
+                    Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE
+                )
+            ) {
                 params.focusMode = Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE
             }
 
@@ -242,20 +254,22 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
                 maxPreviewHeight = MAX_PREVIEW_HEIGHT
             }
 
-
             val sizeList = params.supportedPictureSizes
-            val previewSize = chooseOptimalSize(sizeList,
-                    rotatedPreviewWidth, rotatedPreviewHeight, maxPreviewWidth,
-                    maxPreviewHeight, Collections.max(sizeList, CompareSizesByArea()))
-
+            val previewSize = chooseOptimalSize(
+                sizeList,
+                rotatedPreviewWidth, rotatedPreviewHeight, maxPreviewWidth,
+                maxPreviewHeight, Collections.max(sizeList, CompareSizesByArea())
+            )
 
             // Set the aspect ratio of TextureView to the size of preview.
             if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 textureView.setAspectRatio(
-                        previewSize.width, previewSize.height)
+                    previewSize.width, previewSize.height
+                )
             } else {
                 textureView.setAspectRatio(
-                        previewSize.height, previewSize.width)
+                    previewSize.height, previewSize.width
+                )
             }
 
 //                    params.setPreviewSize(previewSize.width,previewSize.height);
@@ -278,8 +292,8 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
 
         if (cameraFacing == CAMERA_FACING_FRONT) {
             cameraRotate = (cameraInfo.orientation + degrees) % 360
-            cameraRotate = (360 - cameraRotate) % 360  // compensate the mirror
-        } else {  // back-facing
+            cameraRotate = (360 - cameraRotate) % 360 // compensate the mirror
+        } else { // back-facing
             cameraRotate = (cameraInfo.orientation - degrees + 360) % 360
         }
         params?.setRotation(cameraRotate)
@@ -287,7 +301,6 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
         if ("Nexus 5X" == Build.MODEL) {
             params?.setRotation(270)
         }
-
 
         camera?.setDisplayOrientation(cameraRotate)
     }
@@ -299,21 +312,23 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
      * doesn't exist, choose the largest one that is at most as large as the respective max size,
      * and whose aspect ratio matches with the specified value.
      *
-     * @param choices           The list of sizes that the camera supports for the intended output
+     * @param choices The list of sizes that the camera supports for the intended output
      * class
-     * @param textureViewWidth  The width of the texture view relative to sensor coordinate
+     * @param textureViewWidth The width of the texture view relative to sensor coordinate
      * @param textureViewHeight The height of the texture view relative to sensor coordinate
-     * @param maxWidth          The maximum width that can be chosen
-     * @param maxHeight         The maximum height that can be chosen
-     * @param aspectRatio       The aspect ratio
+     * @param maxWidth The maximum width that can be chosen
+     * @param maxHeight The maximum height that can be chosen
+     * @param aspectRatio The aspect ratio
      * @return The optimal `Size`, or an arbitrary one if none were big enough
      */
-    private fun chooseOptimalSize(choices: List<Camera.Size>,
-                                  textureViewWidth: Int,
-                                  textureViewHeight: Int,
-                                  maxWidth: Int,
-                                  maxHeight: Int,
-                                  aspectRatio: Camera.Size): Camera.Size {
+    private fun chooseOptimalSize(
+        choices: List<Camera.Size>,
+        textureViewWidth: Int,
+        textureViewHeight: Int,
+        maxWidth: Int,
+        maxHeight: Int,
+        aspectRatio: Camera.Size
+    ): Camera.Size {
 
         // Collect the supported resolutions that are at least as big as the preview Surface
         val bigEnough = ArrayList<Camera.Size>()
@@ -323,8 +338,9 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
         val h = aspectRatio.height
         for (option in choices) {
             if (option.width <= maxWidth &&
-                    option.height <= maxHeight &&
-                    option.height == option.width * h / w) {
+                option.height <= maxHeight &&
+                option.height == option.width * h / w
+            ) {
                 if (option.width >= textureViewWidth && option.height >= textureViewHeight) {
                     bigEnough.add(option)
                 } else {
@@ -352,7 +368,6 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
         private val logger = LoggerFactory.getLogger(Camera1PresenterImpl::class.java)
     }
 
-
     /**
      * Compares two `Size`s based on their areas.
      */
@@ -362,6 +377,5 @@ class Camera1PresenterImpl(val activity : Activity, private val textureView: Aut
             // We cast here to ensure the multiplications won't overflow
             return java.lang.Long.signum(lhs.width.toLong() * lhs.height - rhs.width.toLong() * rhs.height)
         }
-
     }
 }

@@ -50,14 +50,22 @@ data class HubAvailableWiFiNetwork(
     val selected: Boolean = false,
     val isOtherNetwork: Boolean = false
 ) : Parcelable {
-    fun isSecure(): Boolean = security != DeviceWiFiNetworkSecurity.NONE && security != DeviceWiFiNetworkSecurity.UNKNOWN
+    fun isSecure(): Boolean = security != DeviceWiFiNetworkSecurity.NONE &&
+            security != DeviceWiFiNetworkSecurity.UNKNOWN
 
     companion object {
         @JvmField
         val EMPTY = HubAvailableWiFiNetwork("None", DeviceWiFiNetworkSecurity.NONE, 0, 0)
 
         @JvmField
-        val OTHER_NETWORK = HubAvailableWiFiNetwork("Other Network", DeviceWiFiNetworkSecurity.UNKNOWN, 0, 0, false, true)
+        val OTHER_NETWORK = HubAvailableWiFiNetwork(
+            ssid = "Other Network",
+            security = DeviceWiFiNetworkSecurity.UNKNOWN,
+            signal = 0,
+            channel = 0,
+            selected = false,
+            isOtherNetwork = true
+        )
 
         @Suppress("UNCHECKED_CAST")
         @JvmStatic

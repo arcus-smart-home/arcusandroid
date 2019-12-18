@@ -22,16 +22,16 @@ import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.provider.PairingDeviceModelProvider
 import arcus.cornea.utils.Listeners
 import com.iris.client.event.Futures
-import org.slf4j.LoggerFactory
 import java.util.concurrent.atomic.AtomicBoolean
+import org.slf4j.LoggerFactory
 
 class HaloStationSelectPresenterImpl(
     @VisibleForTesting
-    private val createController : (String?) -> HaloRadioController = { address ->
+    private val createController: (String?) -> HaloRadioController = { address ->
         HaloRadioControllerImpl(address ?: "DRIV:dev:")
     }
 ) : HaloStationSelectPresenter, KBasePresenter<HaloStationSelectView>() {
-    private var haloController : HaloRadioController? = null
+    private var haloController: HaloRadioController? = null
     private val scanInProgress = AtomicBoolean(false)
 
     override fun loadFromPairingDevice(address: String) {

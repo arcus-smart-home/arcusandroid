@@ -56,7 +56,7 @@ interface PairingHubPresenter : BasePresenterContract<PairingHubView> {
      *
      * @param hubId the Hub Id (ABC-1234) to register
      */
-    fun registerHub(hubId : String)
+    fun registerHub(hubId: String)
 
     /**
      * Stop any in progress hub registration calls

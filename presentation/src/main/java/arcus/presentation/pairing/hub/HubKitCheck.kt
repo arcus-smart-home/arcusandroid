@@ -17,7 +17,6 @@ package arcus.presentation.pairing.hub
 
 import arcus.cornea.presenter.BasePresenterContract
 
-
 interface HubKitCheckView {
     /**
      * Invoked when it is know if the hub has associated kit items.

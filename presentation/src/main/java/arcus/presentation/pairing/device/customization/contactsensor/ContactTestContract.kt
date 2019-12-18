@@ -25,7 +25,6 @@ interface ContactTestView {
      */
     fun onContactStateUpdated(state: String)
 
-
     /**
      * Called when an Exception is thrown by the View to handle
      *
@@ -33,7 +32,6 @@ interface ContactTestView {
      */
     fun onError(error: Throwable)
 }
-
 
 interface ContactTestPresenter : BasePresenterContract<ContactTestView> {
     /**

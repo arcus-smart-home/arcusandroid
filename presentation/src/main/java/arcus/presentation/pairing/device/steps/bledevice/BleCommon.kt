@@ -18,7 +18,6 @@ package arcus.presentation.pairing.device.steps.bledevice
 import arcus.cornea.presenter.BasePresenterContract
 import arcus.presentation.ble.BleConnector
 
-
 enum class BleConnectionStatus {
     BLE_DISCONNECTED,
     BLE_CONNECTED,

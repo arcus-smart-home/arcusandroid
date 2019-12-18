@@ -25,15 +25,6 @@ import arcus.cornea.subsystem.pairing.PairingSubsystemControllerImpl
 import arcus.cornea.utils.AndroidExecutor
 import arcus.cornea.utils.Listeners
 import arcus.cornea.utils.ScheduledExecutor
-import com.iris.client.ClientRequest
-import com.iris.client.IrisClient
-import com.iris.client.capability.Capability
-import com.iris.client.capability.HubWiFi
-import com.iris.client.capability.PairingDevice
-import com.iris.client.capability.Place
-import com.iris.client.capability.WiFi
-import com.iris.client.exception.ErrorResponseException
-import com.iris.client.service.BridgeService
 import arcus.presentation.ble.BleConnector
 import arcus.presentation.ble.BluetoothInteractionCallbacks
 import arcus.presentation.ble.GattCharacteristic
@@ -45,12 +36,20 @@ import arcus.presentation.pairing.device.steps.bledevice.IpcdConnected
 import arcus.presentation.pairing.device.steps.bledevice.IpcdNotFound
 import arcus.presentation.pairing.device.steps.bledevice.IpcdTimedOut
 import arcus.presentation.pairing.device.steps.bledevice.WiFiConnectionStatus
-import org.slf4j.LoggerFactory
+import com.iris.client.ClientRequest
+import com.iris.client.IrisClient
+import com.iris.client.capability.Capability
+import com.iris.client.capability.HubWiFi
+import com.iris.client.capability.PairingDevice
+import com.iris.client.capability.Place
+import com.iris.client.capability.WiFi
+import com.iris.client.exception.ErrorResponseException
+import com.iris.client.service.BridgeService
 import java.util.Timer
 import java.util.TimerTask
 import java.util.UUID
 import java.util.concurrent.TimeUnit
-
+import org.slf4j.LoggerFactory
 
 class AndroidBleConnectPresenter(
     private val pairingSubsystemController: PairingSubsystemController = PairingSubsystemControllerImpl,
@@ -68,7 +67,7 @@ class AndroidBleConnectPresenter(
     private var expectedNetwork = ""
 
     private var hubRegistrationPollingTimer = Timer("HUB_REG_TIMER")
-    private var devicePrefix : String? = null
+    private var devicePrefix: String? = null
     private val maxWaitForWiFiConnection = {
         onMainWithView {
             onWiFiStatusChange(WiFiConnectionStatus.WIFI_FAILED_TO_CONNECT)
@@ -85,7 +84,7 @@ class AndroidBleConnectPresenter(
         }
     }
 
-    private lateinit var bleConnector : BleConnector<Context>
+    private lateinit var bleConnector: BleConnector<Context>
     private val timeoutRunnable = {
         ipcdRegistrationInProgress = false
         cleanUp()
@@ -163,8 +162,9 @@ class AndroidBleConnectPresenter(
 
                                     messageListener = client.addMessageListener {
                                         val attributes = it?.event?.attributes ?: emptyMap()
-                                        if (attributes[HubWiFi.ATTR_WIFISSID] == expectedNetwork
-                                            || attributes[WiFi.ATTR_SSID] == expectedNetwork) {
+                                        if (attributes[HubWiFi.ATTR_WIFISSID] == expectedNetwork ||
+                                            attributes[WiFi.ATTR_SSID] == expectedNetwork
+                                        ) {
                                             onMainWithView {
                                                 onWiFiSSIDNotUpdatedSuccess(expectedNetwork)
                                             }
@@ -195,21 +195,24 @@ class AndroidBleConnectPresenter(
                 }
             }
 
-            private fun isConnectedWifiConfigStatus(value: String) : Boolean {
+            private fun isConnectedWifiConfigStatus(value: String): Boolean {
                 return value.equals(CONNECTED_WIFI_CFG_STATUS, true)
             }
 
-            private fun isNotConnectedWifiConfigStatus(value: String) : Boolean {
-                return value.equals(NO_INTERNET_WIFI_CFG_STATUS, true)
-                        || value.equals(DISCONNECTED_WIFI_CFG_STATUS, true) && !isPlug() && !isInitialAttempt
-                        || value.equals(NO_SERVER, true) && !isInitialAttempt // The hub seems to get stuck on this one when we get it...
-                        || value.equals(BAD_SSID, true)
-                        || value.equals(BAD_PASSWORD, true)
-                        || value.equals(BAD_PASS, true)
-                        || value.equals(FAILED, true)
+            private fun isNotConnectedWifiConfigStatus(value: String): Boolean {
+                return value.equals(NO_INTERNET_WIFI_CFG_STATUS, true) ||
+                        value.equals(DISCONNECTED_WIFI_CFG_STATUS, true) && !isPlug() && !isInitialAttempt ||
+                        value.equals(
+                            NO_SERVER,
+                            true
+                        ) && !isInitialAttempt || // The hub seems to get stuck on this one when we get it...
+                        value.equals(BAD_SSID, true) ||
+                        value.equals(BAD_PASSWORD, true) ||
+                        value.equals(BAD_PASS, true) ||
+                        value.equals(FAILED, true)
             }
 
-            private fun isPlug() : Boolean = devicePrefix?.contains("plug", true) ?: false
+            private fun isPlug(): Boolean = devicePrefix?.contains("plug", true) ?: false
         }
     }
 
@@ -266,7 +269,9 @@ class AndroidBleConnectPresenter(
                 val event = it.event
 
                 // Wait for the pairing device to come in - ohhhh yeah. It's like the Koolaid man! ooooooh yeaaaahhh!
-                if (event is Capability.AddedEvent && event.attributes[Capability.ATTR_TYPE] == PairingDevice.NAMESPACE) {
+                if (event is Capability.AddedEvent &&
+                    event.attributes[Capability.ATTR_TYPE] == PairingDevice.NAMESPACE
+                ) {
                     logger.debug("Got Added Event -> Guess this is our stop! Posing notification to the view.")
                     cleanUp()
                     pairingSubsystemController.exitPairing()
@@ -317,7 +322,8 @@ class AndroidBleConnectPresenter(
                             }
                         } else {
                             // Keep searching - la la la.
-                            logger.warn("Received error. Not found yet - will try again!! [$attemptNumber/$MAX_ATTEMPTS] ${it.message}")
+                            logger.warn("Received error. Not found yet - will try again!! " +
+                                    "[$attemptNumber/$MAX_ATTEMPTS] ${it.message}")
                             scheduledExecutor.executeDelayed(MS_DELAY_BETWEEN_ATTEMPTS) {
                                 doRegisterIPCD(nextAttempt, request)
                             }
@@ -339,7 +345,7 @@ class AndroidBleConnectPresenter(
         hubRegistrationPollingTimer = Timer("HUB_REG_TIMER")
         hubRegistrationPollingTimer.schedule(object : TimerTask() {
             override fun run() {
-                if(!hubRegistrationInProgress){
+                if (!hubRegistrationInProgress) {
                     return
                 }
                 doRegisterHub()
@@ -349,7 +355,7 @@ class AndroidBleConnectPresenter(
         hubRegistrationInProgress = true
     }
 
-    private fun doRegisterHub(){
+    private fun doRegisterHub() {
         val hubId = bleConnector.serialNumber
 
         try {
@@ -358,7 +364,8 @@ class AndroidBleConnectPresenter(
                     .onSuccess { event ->
                         if (event.state == Place.RegisterHubV2Response.STATE_DOWNLOADING ||
                             event.state == Place.RegisterHubV2Response.STATE_APPLYING ||
-                            event.state == Place.RegisterHubV2Response.STATE_REGISTERED) {
+                            event.state == Place.RegisterHubV2Response.STATE_REGISTERED
+                        ) {
                             cancelHubRegistration()
 
                             // Update the UI
@@ -367,7 +374,7 @@ class AndroidBleConnectPresenter(
                             }
                         }
                     }
-                    .onFailure {  throwable ->
+                    .onFailure { throwable ->
                         cancelHubRegistration()
                         var error = ""
                         if (throwable is RuntimeException) run {

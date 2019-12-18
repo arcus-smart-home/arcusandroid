@@ -29,11 +29,13 @@ interface BrandsCatalogContractView {
 interface BrandsCatalogContractPresenter : BasePresenterContract<BrandsCatalogContractView> {
     fun getAllBrands()
 
-    fun getBrandsHubFiltered( hubRequired: Boolean )
+    fun getBrandsHubFiltered(hubRequired: Boolean)
 }
 
-data class BrandCategoryProxyModel(val count: Int,
-                                   val name: String,
-                                   val mainUrl: String,
-                                   val backupUrl: String,
-                                   val cachedImageUrl: String )
+data class BrandCategoryProxyModel(
+    val count: Int,
+    val name: String,
+    val mainUrl: String,
+    val backupUrl: String,
+    val cachedImageUrl: String
+)

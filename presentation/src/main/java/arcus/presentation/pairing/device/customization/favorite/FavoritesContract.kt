@@ -41,7 +41,7 @@ interface FavoritesPresenter : BasePresenterContract<FavoritesView> {
      *
      *  @param isFavorite
      */
-    fun favorite(isFavorite: Boolean) : Unit
+    fun favorite(isFavorite: Boolean): Unit
 
     /**
      * Loads the pairing device and gets the device name and Favorite state, then calls
@@ -49,5 +49,5 @@ interface FavoritesPresenter : BasePresenterContract<FavoritesView> {
      *
      * @param pairingDeviceAddress address of the device to be customized.
      */
-    fun loadFromPairingDevice(pairedDeviceAddress: String) : Unit
+    fun loadFromPairingDevice(pairedDeviceAddress: String): Unit
 }

@@ -38,7 +38,7 @@ interface BleDeviceSelectPresenter<T> : BleConnectedPresenter<BleDeviceSelectVie
 
     fun connectToDevice(with: T?, device: BleDevice, autoReconnect: Boolean = false)
 
-    fun isConnected() : Boolean
+    fun isConnected(): Boolean
 
     fun disconnect()
 }

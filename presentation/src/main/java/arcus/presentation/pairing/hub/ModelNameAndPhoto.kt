@@ -17,7 +17,6 @@ package arcus.presentation.pairing.hub
 
 import arcus.cornea.presenter.BasePresenterContract
 
-
 interface ModelNameAndPhotoView {
     /**
      * Called when we have loaded the device model and know its name

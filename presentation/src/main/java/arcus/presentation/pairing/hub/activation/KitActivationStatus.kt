@@ -20,14 +20,14 @@ import arcus.cornea.presenter.BasePresenterContract
 data class DeviceActivationStatus(
     val needsCustomization: Int = 0,
     val needsActivation: Int = 0,
-    val needsAttention: Int= 0,
+    val needsAttention: Int = 0,
     val inError: Int = 0
 ) {
-    fun isOk() : Boolean =
-        needsActivation == 0
-                && needsAttention == 0
-                && needsAttention == 0
-                && inError == 0
+    fun isOk(): Boolean =
+        needsActivation == 0 &&
+                needsAttention == 0 &&
+                needsAttention == 0 &&
+                inError == 0
 }
 
 interface KitActivationStatusView {

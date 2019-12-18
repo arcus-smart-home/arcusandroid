@@ -30,14 +30,13 @@ interface RemoveDeviceView {
      * Called when we have received the removal steps from the platform and can proceed to show
      * the user how to remove the device
      */
-    fun onRemovalStepsLoaded(steps : List<DeviceRemovalStep>)
+    fun onRemovalStepsLoaded(steps: List<DeviceRemovalStep>)
 
     /**
      * Called when we the mispaired device is a Hue device so we can update the view with
      * the appropriate text
      */
     fun onHueDeviceMispaired(shortName: String)
-
 }
 
 interface RemoveDevicePresenter : BasePresenterContract<RemoveDeviceView> {
@@ -56,8 +55,8 @@ interface RemoveDevicePresenter : BasePresenterContract<RemoveDeviceView> {
 
 @Parcelize
 data class DeviceRemovalStep(
-        val id: String,
-        val instructions: List<String> = emptyList(),
-        val order: Int = 1,
-        val title: String? = null
+    val id: String,
+    val instructions: List<String> = emptyList(),
+    val order: Int = 1,
+    val title: String? = null
 ) : Parcelable

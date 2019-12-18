@@ -27,13 +27,13 @@ sealed class ViewState<T> {
     /**
      * The data is loaded and there is a result [item].
      */
-    data class Loaded<T>(val item: T): ViewState<T>()
+    data class Loaded<T>(val item: T) : ViewState<T>()
 
     /**
      * There was an [error] of some sorts loading the data of type [errorType].
      */
     data class Error<T, R : Enum<R>>(
-            val error: Throwable,
-            val errorType: R
-    ): ViewState<T>()
+        val error: Throwable,
+        val errorType: R
+    ) : ViewState<T>()
 }

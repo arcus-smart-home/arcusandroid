@@ -25,12 +25,11 @@ import com.iris.client.capability.HubWiFi
 import com.iris.client.event.ClientFuture
 import com.iris.client.model.HubModel
 
-
 class HubPairedSuccessPresenterImpl(
-    private val reloadHub : () -> ClientFuture<List<HubModel>> = {
+    private val reloadHub: () -> ClientFuture<List<HubModel>> = {
         HubModelProvider.instance().reload()
     },
-    private val currentHubModel : () -> HubModel? = {
+    private val currentHubModel: () -> HubModel? = {
         HubModelProvider.instance().hubModel
     }
 ) : HubPairedSuccessPresenter, KBasePresenter<HubPairedSuccessView>() {

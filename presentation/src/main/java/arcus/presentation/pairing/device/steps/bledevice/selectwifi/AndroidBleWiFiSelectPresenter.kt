@@ -17,19 +17,24 @@ package arcus.presentation.pairing.device.steps.bledevice.selectwifi
 
 import android.content.Context
 import android.os.Looper
-import com.google.gson.Gson
 import arcus.cornea.presenter.KBasePresenter
 import arcus.cornea.utils.AndroidExecutor
 import arcus.cornea.utils.ScheduledExecutor
-import arcus.presentation.ble.*
+import arcus.presentation.ble.BLEScanResults
+import arcus.presentation.ble.BleConnector
+import arcus.presentation.ble.BleNetworkScanResult
+import arcus.presentation.ble.BleWiFiNetwork
+import arcus.presentation.ble.BluetoothInteractionCallbacks
+import arcus.presentation.ble.GattCharacteristic
 import arcus.presentation.pairing.device.steps.bledevice.BleConnectionStatus
-import org.slf4j.LoggerFactory
-import java.util.*
+import com.google.gson.Gson
+import java.util.UUID
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
+import org.slf4j.LoggerFactory
 
 class AndroidBleWiFiSelectPresenter(
-    private val executor : ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
+    private val executor: ScheduledExecutor = AndroidExecutor(Looper.myLooper()!!)
 ) :
     BleWiFiSelectPresenter<Context>,
     KBasePresenter<BleWiFiSelectView>() {
@@ -94,7 +99,7 @@ class AndroidBleWiFiSelectPresenter(
         }
     }
 
-    internal fun parseScanResultsFrom(value: String) : BLEScanResults {
+    internal fun parseScanResultsFrom(value: String): BLEScanResults {
         return try {
             val realString = if (NA_TEXT.equals(value, true)) {
                 // Le sigh. BLE Camera does this between reads :(
@@ -111,7 +116,7 @@ class AndroidBleWiFiSelectPresenter(
         }
     }
 
-    internal fun addAllNetworksToCurrent(scanResults: List<BleNetworkScanResult>) : List<BleWiFiNetwork> {
+    internal fun addAllNetworksToCurrent(scanResults: List<BleNetworkScanResult>): List<BleWiFiNetwork> {
         networks.addAll(scanResults
             .map {
                 BleWiFiNetwork(
@@ -144,7 +149,8 @@ class AndroidBleWiFiSelectPresenter(
             // Git rid of cruft that sometimes shows up.
             it.name.matches(Xs_AND_Ohs)
         }
-        .filterNot { // Exclude blank names
+        .filterNot {
+            // Exclude blank names
             it.name.isBlank()
         }
         .groupBy {
@@ -176,13 +182,15 @@ class AndroidBleWiFiSelectPresenter(
                 it.name
             }
         )
-        .plus(BleWiFiNetwork(
-            OTHER_NETWORK_NAME,
-            NO_SECURITY_LABEL,
-            50,
-            true,
-            selectedWiFiNetwork?.isOtherNetwork == true
-        ))
+        .plus(
+            BleWiFiNetwork(
+                OTHER_NETWORK_NAME,
+                NO_SECURITY_LABEL,
+                50,
+                true,
+                selectedWiFiNetwork?.isOtherNetwork == true
+            )
+        )
 
     override fun setBleConnector(connector: BleConnector<Context>) {
         bluetoothConnector = connector

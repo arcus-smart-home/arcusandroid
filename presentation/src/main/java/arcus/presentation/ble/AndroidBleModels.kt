@@ -32,13 +32,13 @@ data class BleDevice(
     val bluetoothDevice: BluetoothDevice,
     var isConnected: Boolean = false
 ) {
-    val address : String
+    val address: String
         get() = bluetoothDevice.address ?: "00:00:00:00:00:00"
 
-    val name : String
+    val name: String
         get() = bluetoothDevice.name ?: "Unknown"
 
-    val type : Int
+    val type: Int
         get() = bluetoothDevice.type
 }
 
@@ -63,5 +63,5 @@ data class BleNetworkScanResult(
     @SerializedName("signal")
     var signal: Double = 0.0
 ) {
-    fun signalAsInt() : Int = signal.toInt()
+    fun signalAsInt(): Int = signal.toInt()
 }

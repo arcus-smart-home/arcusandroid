@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory
  * and updates the [ProductCatalogView] when devices are added, if the view exits
  */
 class ProductCatalogPresenterImpl(
-    private val controller : PairingSubsystemController = PairingSubsystemControllerImpl
+    private val controller: PairingSubsystemController = PairingSubsystemControllerImpl
 ) : KBasePresenter<ProductCatalogView>(), ProductCatalogPresenter {
     private var listenerRegistration = Listeners.empty()
 
@@ -66,10 +66,10 @@ class ProductCatalogPresenterImpl(
     override fun exitPairing() {
         controller.dismissAll()
                 .onSuccess(Listeners.runOnUiThread {
-                    val needsRebuild = it.any {  pairingCompletionStep ->
+                    val needsRebuild = it.any { pairingCompletionStep ->
                         pairingCompletionStep.action == PairingCompletionStep.ACTION_ZWAVE_REBUILD
                     }
-                    if(needsRebuild){
+                    if (needsRebuild) {
                         onlyIfView { view ->
                             view.dismissWithZwaveRebuild()
                         }
@@ -105,6 +105,5 @@ class ProductCatalogPresenterImpl(
     companion object {
         @JvmStatic
         private val logger = LoggerFactory.getLogger(ProductCatalogPresenterImpl::class.java)
-
     }
 }

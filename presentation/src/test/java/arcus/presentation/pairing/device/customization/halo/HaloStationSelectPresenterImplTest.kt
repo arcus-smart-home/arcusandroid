@@ -15,23 +15,22 @@
  */
 package arcus.presentation.pairing.device.customization.halo
 
-import com.google.common.truth.Truth
 import arcus.cornea.device.smokeandco.halo.HaloRadioController
 import arcus.cornea.utils.LooperExecutor
-import com.iris.client.ClientEvent
-import com.iris.client.capability.WeatherRadio
-import com.iris.client.event.ClientFuture
 import arcus.presentation.dynamite
 import arcus.presentation.pairing.device.customization.halo.station.HaloStationSelectPresenterImpl
 import arcus.presentation.pairing.device.customization.halo.station.HaloStationSelectView
 import arcus.presentation.pairing.device.customization.halo.station.RadioStation
 import arcus.presentation.success
+import com.google.common.truth.Truth
+import com.iris.client.ClientEvent
+import com.iris.client.capability.WeatherRadio
+import com.iris.client.event.ClientFuture
 import com.nhaarman.mockito_kotlin.argumentCaptor
-import org.junit.Test
-
-import org.junit.Before
-import org.mockito.Mockito
 import kotlin.properties.Delegates
+import org.junit.Before
+import org.junit.Test
+import org.mockito.Mockito
 
 class HaloStationSelectPresenterImplTest {
     private val mockController = MockStationController()
@@ -128,8 +127,8 @@ class HaloStationSelectPresenterImplTest {
 
         Mockito.verify(mockView).onStationsFound(firstThreeCaptor.capture(), secondThreeCaptor.capture())
 
-        Truth.assertThat(firstThreeCaptor.allValues).containsExactly(scanResults4.subList(0,3))
-        Truth.assertThat(secondThreeCaptor.allValues).containsExactly(scanResults4.subList(3,scanResults4.size))
+        Truth.assertThat(firstThreeCaptor.allValues).containsExactly(scanResults4.subList(0, 3))
+        Truth.assertThat(secondThreeCaptor.allValues).containsExactly(scanResults4.subList(3, scanResults4.size))
     }
 
     @Test

@@ -26,7 +26,6 @@ import javax.crypto.NoSuchPaddingException
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
-
 class AESCrypt
     @Throws(
         NoSuchAlgorithmException::class,
@@ -85,12 +84,12 @@ class AESCrypt
     }
 
     companion object {
-        private const val SHARED_IV  = "BE988AEC227543F692CAB1E7EC7B0AC0"
+        private const val SHARED_IV = "BE988AEC227543F692CAB1E7EC7B0AC0"
         private const val SHARED_KEY = "2E2C183DBB77493DB08A"
 
-        private const val CIPHER    = "AES/CBC/PKCS7Padding"
+        private const val CIPHER = "AES/CBC/PKCS7Padding"
         private const val ALGORITHM = "AES"
-        private const val CHARSET   = "UTF-8"
+        private const val CHARSET = "UTF-8"
 
         private val hexDigits = "0123456789ABCDEF".toCharArray()
 

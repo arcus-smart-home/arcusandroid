@@ -124,4 +124,3 @@ interface HaloStationSelectPresenter : BasePresenterContract<HaloStationSelectVi
      */
     fun stopPlayingStations()
 }
-

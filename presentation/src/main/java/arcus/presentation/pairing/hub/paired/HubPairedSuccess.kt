@@ -30,7 +30,7 @@ class HubConnectionInfo(
     val wifiNetworkName: String?,
     val connectionType: ConnectionType
 ) {
-    fun hasWiFiSetup() : Boolean = !wifiNetworkName.isNullOrBlank()
+    fun hasWiFiSetup(): Boolean = !wifiNetworkName.isNullOrBlank()
 
     companion object {
         @JvmField
@@ -58,5 +58,5 @@ interface HubPairedSuccessPresenter : BasePresenterContract<HubPairedSuccessView
     /**
      * Gets the hub wifi name for some copy...
      */
-    fun getHubWiFiNetworkName() : String
+    fun getHubWiFiNetworkName(): String
 }

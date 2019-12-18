@@ -16,17 +16,16 @@
 @file:JvmName("KitCommonExt")
 package arcus.presentation.pairing.hub.activation
 
+import arcus.presentation.pairing.CUSTOMIZATION_COMPLETE
 import com.iris.client.model.DeviceModel
 import com.iris.client.model.PairingDeviceModel
-import arcus.presentation.pairing.CUSTOMIZATION_COMPLETE
-
 
 typealias ProtocolAddress = String
-typealias ProductAddress  = String
+typealias ProductAddress = String
 typealias InitialMetaDevices = Triple<Map<ProtocolAddress, ProductAddress>, List<PairingDeviceModel>, List<DeviceModel>>
 typealias PairDevPair = Pair<ProductAddress, PairingDeviceModel>
 typealias ParsedMetaDevices = Triple<Map<ProtocolAddress, ProductAddress>, List<PairDevPair>, List<DeviceModel>>
 
 internal const val KIT_TAG = "KIT"
-internal fun PairingDeviceModel.isKitDevice() : Boolean = tags?.any { KIT_TAG.equals(it, true) } == true
-internal fun PairingDeviceModel.isCustomized() : Boolean = customizations?.contains(CUSTOMIZATION_COMPLETE) == true
+internal fun PairingDeviceModel.isKitDevice(): Boolean = tags?.any { KIT_TAG.equals(it, true) } == true
+internal fun PairingDeviceModel.isCustomized(): Boolean = customizations?.contains(CUSTOMIZATION_COMPLETE) == true

@@ -25,15 +25,14 @@ import arcus.cornea.provider.HubModelProvider
 import arcus.cornea.utils.AndroidExecutor
 import arcus.cornea.utils.Listeners
 import arcus.cornea.utils.ScheduledExecutor
+import arcus.presentation.common.wifi.DeviceWiFiNetworkSecurity
 import com.iris.client.IrisClient
 import com.iris.client.capability.Hub
 import com.iris.client.capability.HubWiFi
 import com.iris.client.event.ClientFuture
 import com.iris.client.model.HubModel
-import arcus.presentation.common.wifi.DeviceWiFiNetworkSecurity
-import org.slf4j.LoggerFactory
 import java.util.concurrent.TimeUnit
-
+import org.slf4j.LoggerFactory
 
 class HubWiFiConnectPresenterImpl(
     private val hubLoader: () -> ClientFuture<HubModel?> = {

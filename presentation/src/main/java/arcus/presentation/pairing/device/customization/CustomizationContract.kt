@@ -83,7 +83,7 @@ enum class CustomizationType {
 
     companion object {
         @JvmStatic
-        fun fromPlatformType(type: String?) : CustomizationType {
+        fun fromPlatformType(type: String?): CustomizationType {
             return if (type == null) {
                 UNKNOWN
             } else {
