@@ -80,6 +80,12 @@
         <item quantity="one">%d Device needs attention.</item>
         <item quantity="other">%d Devices need attention.</item>
     </plurals>
+
+    <plurals name="actions_plural">
+        <item quantity="zero">No Actions</item>
+        <item quantity="one">%d Action</item>
+        <item quantity="other">%d Actions</item>
+    </plurals>
     <!-- Since, in the case of a plural in english, 0 will be treated as "other" -->
 
     <string name="clip_expires_days">Expires in %s Days</string>

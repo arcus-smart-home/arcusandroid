@@ -14,85 +14,69 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
-    <LinearLayout
-        android:id="@+id/no_scenes_layout"
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
+        android:id="@+id/noScenesTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:text="@string/scenes_no_scenes_title"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/keyline_5"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-        <arcus.app.common.view.Version1TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="@string/scenes_no_scenes_title"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="16dp"/>
-
-        <arcus.app.common.view.Version1TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="@string/scenes_no_scenes_subtitle"
-            android:textAlignment="center"
-            android:textColor="@color/overlay_white_with_60"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/scenes_layout"
+    <TextView
+        android:id="@+id/noScenesDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_marginTop="15dp"
+        android:text="@string/scenes_no_scenes_subtitle"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/noScenesTitle"
+        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white_with_35"
-            android:orientation="vertical">
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/noScenesLayoutGroup"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="noScenesTitle,noScenesDescription"
+        tools:visibility="visible"
+        />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+    <include
+        layout="@layout/section_heading_with_count"
+        tools:layout_width="match_parent"
+        tools:layout_height="wrap_content"
+        />
 
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="5dp"
-                    android:text="@string/scenes_all"
-                    android:textColor="@color/white"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scenesList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/sectionField"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/list_item_scene"
+        tools:itemCount="5"
+        />
 
-                <arcus.app.common.view.Version1TextView
-                    android:id="@+id/scenes_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:layout_marginRight="5dp"
-                    android:textColor="@color/white"/>
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/scenesLayoutGroup"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="sectionField,scenesList"
+        tools:visibility="gone"
+        />
 
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <ListView
-            android:id="@+id/scenes_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

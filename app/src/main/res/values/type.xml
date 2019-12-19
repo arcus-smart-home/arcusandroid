@@ -64,4 +64,13 @@
     <style name="Widget.Arcus.TextAppearance.Title.Italic">
         <item name="android:fontFamily">@font/nunito_demi</item>
     </style>
+
+    <style name="Widget.Arcus.TextAppearance.Body.Large.ErrorTitle">
+        <item name="android:fontFamily">@font/nunito_demi</item>
+        <item name="android:textColor">@color/sclera_text_color_light</item>
+    </style>
+
+    <style name="Widget.Arcus.TextAppearance.Body.ErrorDescription">
+        <item name="android:textColor">@color/sclera_text_color_light</item>
+    </style>
 </resources>
