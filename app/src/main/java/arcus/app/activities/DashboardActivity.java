@@ -65,7 +65,7 @@ import arcus.app.subsystems.alarm.DeprecatedAlertFragment;
 import arcus.app.subsystems.alarm.safety.EarlySmokeWarningFragment;
 import arcus.app.subsystems.care.CareParentFragment;
 import arcus.app.subsystems.rules.RuleListFragment;
-import arcus.app.subsystems.scenes.SceneListFragment;
+import arcus.app.subsystems.scenes.list.SceneListFragment;
 import arcus.app.subsystems.weather.WeatherWarningFragment;
 
 import de.greenrobot.event.EventBus;
