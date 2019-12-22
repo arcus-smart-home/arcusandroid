@@ -36,7 +36,7 @@ import arcus.app.R;
 import arcus.app.account.registration.controller.AccountCreationSequenceController;
 import arcus.app.account.registration.model.AccountTypeSequence;
 import arcus.app.account.settings.SettingsUpdatePin;
-import arcus.app.account.settings.SideNavSettingsFragment;
+import arcus.app.account.settings.settings.list.SideNavSettingsFragment;
 import arcus.app.activities.LaunchActivity;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.backstack.TransitionEffect;
@@ -250,6 +250,7 @@ public class InvitationFragment extends BaseFragment {
                                .onFailure(genericErrorListener)
                                .onSuccess(Listeners.runOnUiThread(new Listener<Person.RejectInvitationResponse>() {
                                    @Override public void onEvent(Person.RejectInvitationResponse rejectInvitationResponse) {
+                                       // TODO: Should this really go back to here?...
                                        hideProgressBar();BackstackManager.withAnimation(TransitionEffect.FADE).navigateBackToFragment(
                                                SideNavSettingsFragment.newInstance());
                                    }

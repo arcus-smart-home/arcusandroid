@@ -54,6 +54,8 @@ import java.util.concurrent.atomic.AtomicReference;
  * Base class for controllers that manage a single type of
  * object, such as Devices, Subsystems, etc
  */
+// TODO: This could use a "load and observe" method to be able to pickup changes on the fly as well without having
+//  to hook into the store/cache directly.
 public abstract class BaseModelProvider<M extends Model> {
     private static final Logger logger = LoggerFactory.getLogger(BaseModelProvider.class);
 

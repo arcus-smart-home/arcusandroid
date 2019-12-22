@@ -16,241 +16,215 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/side_nav_settings_container"
-    android:animateLayoutChanges="true"
-    android:visibility="invisible"
-    tools:visibility="visible"
-    android:layout_marginTop="15dp"
-    android:layout_marginLeft="15dp"
+    android:paddingTop="@dimen/keyline_4"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    >
 
+    <!-- Profile -->
     <RelativeLayout
-        android:id="@+id/profile_container"
+        android:id="@+id/profileContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp">
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginEnd="@dimen/keyline_4"
+        >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:layout_toStartOf="@+id/imageView1">
-            <arcus.app.common.view.Version1TextView
+            android:layout_toStartOf="@+id/imageView1"
+            >
+
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
                 android:text="@string/profile"
-                android:textAllCaps="true"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/keyline_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12dp"
-                app:customFont="demi"
-                tools:textColor="@color/black"
                 />
 
-            <arcus.app.common.view.Version1TextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
                 android:text="@string/sidenav_settings_account_bottom"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white_with_60"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:layout_marginBottom="@dimen/keyline_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:customFont="italic"
-                tools:textColor="@color/black_with_60"
                 />
         </LinearLayout>
 
         <ImageView
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken"
             android:contentDescription="@string/content_description_chevron"
             android:id="@+id/imageView1"
-            android:src="@drawable/chevron_white"
-            tools:src="@drawable/chevron"
+            android:src="@drawable/chevron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             />
     </RelativeLayout>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"
-        tools:background="@color/black_with_20"
-        android:background="@color/white_with_20" />
+        style="@style/Widget.Arcus.Divider"
+        android:layout_marginTop="@dimen/keyline_2"
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginBottom="@dimen/keyline_2"
+        />
 
 
     <!-- People -->
     <RelativeLayout
-        android:id="@+id/people_container"
+        android:id="@+id/peopleContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp">
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginEnd="@dimen/keyline_4"
+        >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/imageView2"
-            android:layout_toStartOf="@+id/imageView2">
-            <arcus.app.common.view.Version1TextView
+            android:layout_toStartOf="@+id/imageView2"
+            >
+
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
                 android:text="@string/sidenav_settings_people_top"
-                android:textAllCaps="true"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/keyline_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12dp"
-                app:customFont="demi"
-                tools:textColor="@color/black"
                 />
 
-            <arcus.app.common.view.Version1TextView
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
                 android:text="@string/sidenav_settings_people_bottom"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white_with_60"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:layout_marginBottom="@dimen/keyline_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:customFont="italic"
-                tools:textColor="@color/black_with_60"
                 />
         </LinearLayout>
 
         <ImageView
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken"
             android:contentDescription="@string/content_description_chevron"
             android:id="@+id/imageView2"
-            android:src="@drawable/chevron_white"
-            tools:src="@drawable/chevron"
+            android:src="@drawable/chevron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             />
     </RelativeLayout>
 
+    <View
+        style="@style/Widget.Arcus.Divider"
+        android:layout_marginTop="@dimen/keyline_2"
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginBottom="@dimen/keyline_2"
+        />
+
     <!-- Places -->
     <RelativeLayout
-        android:id="@+id/places_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/divider_billing"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
-            tools:background="@color/black_with_20"
-            android:background="@color/white_with_20" />
-        <RelativeLayout
-            tools:visibility="visible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_below="@id/divider_billing">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/imageView3"
-                android:layout_toStartOf="@+id/imageView3">
-                <arcus.app.common.view.Version1TextView
-                    android:text="@string/sidenav_settings_places_top"
-                    android:textAllCaps="true"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12dp"
-                    app:customFont="demi"
-                    tools:textColor="@color/black"
-                    />
-
-                <arcus.app.common.view.Version1TextView
-                    android:text="@string/sidenav_settings_places_bottom"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/white_with_60"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:customFont="italic"
-                    tools:textColor="@color/black_with_60"
-                    />
-            </LinearLayout>
-
-            <ImageView
-                android:contentDescription="@string/content_description_chevron"
-                android:id="@+id/imageView3"
-                android:src="@drawable/chevron_white"
-                tools:src="@drawable/chevron"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                />
-        </RelativeLayout>
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"
-        tools:background="@color/black_with_20"
-        android:background="@color/white_with_20" />
-
-    <!-- Invitation(s) -->
-    <RelativeLayout
-        android:id="@+id/invitation_container"
+        android:id="@+id/placesContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp">
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginEnd="@dimen/keyline_4"
+        >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/imageView4"
-            android:layout_toStartOf="@+id/imageView4">
-            <arcus.app.common.view.Version1TextView
-                android:text="@string/sidenav_settings_invitation_top"
-                android:textAllCaps="true"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/white"
+            android:layout_toStartOf="@+id/imageView3"
+            >
+
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
+                android:text="@string/sidenav_settings_places_top"
+                android:layout_marginTop="@dimen/keyline_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12dp"
-                app:customFont="demi"
-                tools:textColor="@color/black"
                 />
 
-            <arcus.app.common.view.Version1TextView
-                android:text="@string/sidenav_settings_invitation_bottom"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white_with_60"
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:text="@string/sidenav_settings_places_bottom"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:layout_marginBottom="@dimen/keyline_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:customFont="italic"
-                tools:textColor="@color/black_with_60"
                 />
         </LinearLayout>
 
         <ImageView
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken"
             android:contentDescription="@string/content_description_chevron"
-            android:id="@+id/imageView4"
-            android:src="@drawable/chevron_white"
-            tools:src="@drawable/chevron"
+            android:id="@+id/imageView3"
+            android:src="@drawable/chevron"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+
+    <View
+        style="@style/Widget.Arcus.Divider"
+        android:layout_marginTop="@dimen/keyline_2"
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginBottom="@dimen/keyline_2"
+        />
+
+    <!-- Invitation(s) -->
+    <RelativeLayout
+        android:id="@+id/invitationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginEnd="@dimen/keyline_4"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/imageView4"
+            >
+
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
+                android:text="@string/sidenav_settings_invitation_top"
+                android:layout_marginTop="@dimen/keyline_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:text="@string/sidenav_settings_invitation_bottom"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:layout_marginBottom="@dimen/keyline_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken"
+            android:contentDescription="@string/content_description_chevron"
+            android:id="@+id/imageView4"
+            android:src="@drawable/chevron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             />
     </RelativeLayout>

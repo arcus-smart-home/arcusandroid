@@ -145,6 +145,12 @@
         <item name="android:textSize">14pt</item>
     </style>
 
+    <style name="Widget.Arcus.Divider">
+        <item name="android:background">@color/black_with_20</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
     <style name="Widget.Arcus.Activity.Animation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/enter_from_right</item>
         <item name="android:activityOpenExitAnimation">@anim/fade_out</item>

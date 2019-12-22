@@ -45,7 +45,7 @@ import com.iris.client.model.HubModel;
 import arcus.app.R;
 import arcus.app.account.creation.CreateAccountSuccessFragment;
 import arcus.app.account.settings.SettingsWalkthroughFragment;
-import arcus.app.account.settings.SideNavSettingsFragment;
+import arcus.app.account.settings.settings.list.SideNavSettingsFragment;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.backstack.TransitionEffect;
 import arcus.app.common.banners.core.BannerActivity;
