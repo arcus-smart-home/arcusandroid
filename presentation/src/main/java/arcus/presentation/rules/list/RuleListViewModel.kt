@@ -19,11 +19,11 @@ import arcus.cornea.CorneaClientFactory
 import arcus.cornea.helpers.transformNonNull
 import arcus.cornea.provider.RuleModelProvider
 import arcus.cornea.provider.RuleTemplateModelProvider
+import arcus.cornea.provider.SchedulerModelProvider
 import arcus.presentation.common.view.ViewError
 import arcus.presentation.common.view.ViewState
 import arcus.presentation.common.view.ViewStateViewModel
 import com.iris.capability.util.Addresses
-import com.iris.client.IrisClient
 import com.iris.client.capability.Rule
 import com.iris.client.capability.RuleTemplate
 import com.iris.client.exception.ErrorResponseException
@@ -31,7 +31,6 @@ import com.iris.client.model.ModelCache
 import com.iris.client.model.RuleModel
 import com.iris.client.model.RuleTemplateModel
 import com.iris.client.model.SchedulerModel
-import com.iris.client.service.SchedulerService
 import java.util.TreeMap
 
 // TODO: @Inject...
@@ -39,8 +38,7 @@ class RuleListViewModel constructor(
     private val ruleProvider: RuleModelProvider = RuleModelProvider.instance(),
     private val templateProvider: RuleTemplateModelProvider = RuleTemplateModelProvider.instance(),
     private val modelCache: ModelCache = CorneaClientFactory.getModelCache(),
-    private val client: IrisClient = CorneaClientFactory.getClient2(),
-    private val schedulerService: SchedulerService = CorneaClientFactory.getService(SchedulerService::class.java)
+    private val schedulerModelProvider: SchedulerModelProvider = SchedulerModelProvider.instance()
 ) : ViewStateViewModel<List<ListItem>>() {
     fun refreshRules() {
         loadData()
@@ -50,17 +48,8 @@ class RuleListViewModel constructor(
         _viewState.postValue(ViewState.Loading())
         templateProvider
                 .load()
-                .chain {
-                    schedulerService.listSchedulers(client.activePlace.toString(), false)
-                }
-                .transform { response ->
-                    val schedulersParsed = mutableMapOf<String, SchedulerModel>()
-                    response?.schedulers?.forEach { attributes ->
-                        val model = modelCache.addOrUpdate(attributes) as SchedulerModel
-                        schedulersParsed[model.target] = model
-                    }
-                    schedulersParsed
-                }
+                .chain { schedulerModelProvider.load() }
+                .transform { schedules -> schedules?.map { it.target to it }?.toMap() ?: emptyMap() }
                 .chain { schedulers ->
                     ruleProvider
                             .load()
