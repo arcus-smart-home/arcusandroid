@@ -62,7 +62,7 @@
     </style>
 
     <style name="Widget.Arcus.TextAppearance.Title.Italic">
-        <item name="android:fontFamily">@font/nunito_demi</item>
+        <item name="android:fontFamily">@font/nunito_italic</item>
     </style>
 
     <style name="Widget.Arcus.TextAppearance.Body.Large.ErrorTitle">

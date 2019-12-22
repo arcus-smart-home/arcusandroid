@@ -31,7 +31,6 @@ import arcus.app.common.image.ImageManager;
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation;
 import arcus.app.common.models.ModelTypeListItem;
 import arcus.cornea.common.ViewRenderType;
-import arcus.app.common.view.Version1TextView;
 
 import java.util.List;
 
@@ -123,7 +122,7 @@ public class PeopleAndPlacesRVAdapter extends RecyclerView.Adapter<RecyclerView.
         TextView headingText;
         public HeaderVH(View itemView) {
             super(itemView);
-            headingText = (TextView) itemView.findViewById(R.id.heading_text);
+            headingText = itemView.findViewById(R.id.heading_text);
             headingText.setTextColor(Color.WHITE);
         }
 
@@ -135,19 +134,19 @@ public class PeopleAndPlacesRVAdapter extends RecyclerView.Adapter<RecyclerView.
     class PersonViewHolder extends RecyclerView.ViewHolder {
         View topDivider, bottomDivider;
         ImageView imageIcon, chevron;
-        Version1TextView title, description, description1, description2, description3, abstractText;
+        TextView title, description, description1, description2, description3, abstractText;
 
         public PersonViewHolder(View itemView) {
             super(itemView);
             topDivider = itemView.findViewById(R.id.top_divider);
-            imageIcon = (ImageView) itemView.findViewById(R.id.image_icon);
-            title = (Version1TextView) itemView.findViewById(R.id.title);
-            description = (Version1TextView) itemView.findViewById(R.id.list_item_description);
-            description1 = (Version1TextView) itemView.findViewById(R.id.list_item_sub_description1);
-            description2 = (Version1TextView) itemView.findViewById(R.id.list_item_sub_description2);
-            description3 = (Version1TextView) itemView.findViewById(R.id.list_item_sub_description3);
-            abstractText = (Version1TextView)itemView.findViewById(R.id.abstract_text);
-            chevron = (ImageView) itemView.findViewById(R.id.image_chevron);
+            imageIcon = itemView.findViewById(R.id.image_icon);
+            title = itemView.findViewById(R.id.title);
+            description = itemView.findViewById(R.id.list_item_description);
+            description1 = itemView.findViewById(R.id.list_item_sub_description1);
+            description2 = itemView.findViewById(R.id.list_item_sub_description2);
+            description3 = itemView.findViewById(R.id.list_item_sub_description3);
+            abstractText = itemView.findViewById(R.id.abstract_text);
+            chevron = itemView.findViewById(R.id.image_chevron);
             bottomDivider = itemView.findViewById(R.id.bottom_divider);
         }
 

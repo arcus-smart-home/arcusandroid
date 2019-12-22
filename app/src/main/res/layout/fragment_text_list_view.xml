@@ -45,22 +45,18 @@
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <arcus.app.common.view.Version1TextView
+                <TextView
                     android:id="@+id/text_view1"
+                    style="@style/Widget.Arcus.TextAppearance.Body.Large"
                     android:gravity="center"
-                    android:textSize="18sp"
-                    android:layout_margin="30dp"
-                    android:textColor="@color/white"
+                    android:layout_margin="@dimen/keyline_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="Top Text View Text"
-                    tools:textColor="@color/black_with_60"
                     />
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/white_with_20"
+                    style="@style/Widget.Arcus.Divider"
                     />
             </LinearLayout>
 
