@@ -24,6 +24,8 @@
         <item name="android:fontFamily">@font/nunito_demi</item>
         <item name="buttonCompat">@drawable/sclera_checkbox_selector</item>
         <item name="android:button">@drawable/sclera_checkbox_selector</item>
+        <item name="buttonTint">@color/sclera_green_tutorial_banner</item>
+        <item name="android:buttonTint">@color/sclera_green_tutorial_banner</item>
     </style>
 
     <!-- Button -->
