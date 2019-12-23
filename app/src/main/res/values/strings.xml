@@ -1803,7 +1803,7 @@
     <!-- Invitations -->
     <string name="invitations">INVITATIONS</string>
     <string name="invitation_title">INVITATION</string>
-    <string name="invitation_code">INVITATION CODE</string>
+    <string name="invitation_code">Invitation Code</string>
     <string name="invitation_invite_title">To accept your invitation to someone\'s\nplace, enter the invitation code and\nthe email address it was sent to.</string>
     <string name="invitation_invite_bottom">If you already have an Arcus account\nlog in and enter the invitation code\n under Settings > Invitation Code</string>
     <string name="invitation_success_title">Hi %s!</string>
@@ -1825,10 +1825,10 @@
     <string name="decline">Decline</string>
     <string name="accept_invitation_title">Accept Invite</string>
     <string name="accept_invitation_desc">You\'ve been invited to\n\'%1$s\' by %2$s.\nWould you like to accept the invitation?</string>
-    <string name="code_not_valid_title">EMAIL AND/OR INVITATION CODE NOT RECOGNIZED</string>
+    <string name="code_not_valid_title">EMAIL/CODE NOT RECOGNIZED</string>
     <string name="code_not_valid_desc">Please check the email address and invitation code and try again.\n\nInvitation codes expire after 7 days.\n\nIf you are trying to accept an invitation on someone\'s behalf, log out and tap USE INVITATION CODE.\n\n </string>
     <string name="code_not_valid_short_desc">Please check the email address and invitation code and try again.\n\nInvitation codes expire after 7 days.\n\n</string>
-    <string name="invite_not_valid_title">INVITATION NOT VALID</string>
+    <string name="invite_not_valid_title">Invitation Not Valid</string>
     <string name="invite_not_valid_desc">Contact the account owner for details.  You may need to be re-invited.\n\n</string>
     <string name="invitations_pending_title">Tap on the invitation(s)\nbelow to accept.</string>
     <string name="invitations_youve_been_invited">You\'ve been invited!</string>

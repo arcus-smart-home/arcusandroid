@@ -14,62 +14,79 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="arcus.app.activities.InvitationActivity">
+    android:padding="@dimen/keyline_4"
+    tools:context="arcus.app.activities.InvitationActivity"
+    >
 
-    <arcus.app.common.view.Version1TextView
+    <TextView
         android:id="@+id/title"
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_marginBottom="20dp"
-        android:text="@string/invitation_invite_title"/>
+        android:layout_marginBottom="@dimen/keyline_4"
+        android:text="@string/invitation_invite_title"
+        />
 
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/etEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:hint="@string/contact_info_email_hint"
-        android:inputType="textEmailAddress"
-        android:nextFocusDown="@+id/etEmail" />
+        android:hint="@string/login_email"
+        android:layout_marginTop="@dimen/keyline_4"
+        android:layout_below="@id/title"
+        >
 
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/etInvitation"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEntry"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nextFocusDown="@id/invitationCodeEntry"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/invitationCodeContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etEmail"
         android:hint="@string/invitation_code"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword" />
+        android:layout_marginTop="@dimen/keyline_4"
+        android:layout_below="@id/emailContainer"
+        >
 
-    <arcus.app.common.view.Version1TextView
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/invitationCodeEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
         android:id="@+id/bottom_description"
+        style="@style/Widget.Arcus.TextAppearance.Body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_above="@+id/btnNext"
-        android:layout_marginBottom="20dp"
-        android:text="@string/invitation_invite_bottom"/>
+        android:layout_marginBottom="@dimen/keyline_4"
+        android:text="@string/invitation_invite_bottom"
+        />
 
-    <arcus.app.common.view.Version1Button
+    <Button
         android:id="@id/btnNext"
+        style="@style/Widget.Arcus.Button.Purple"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/pairing_next"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:textSize="12sp"
-        app:customFont="bold"
-        app:tracking="true" />
+        android:text="@string/pairing_next"
+        />
 
 </RelativeLayout>

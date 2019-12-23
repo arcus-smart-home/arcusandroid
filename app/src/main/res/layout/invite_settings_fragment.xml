@@ -16,51 +16,62 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp">
+    android:padding="@dimen/keyline_4">
 
-    <arcus.app.common.view.Version1TextView
-        tools:textColor="@color/black"
-        android:text="@string/invitation_invite_title"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="45dp"
+    <TextView
+        style="@style/Widget.Arcus.TextAppearance.Body.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/keyline_4"
+        android:layout_marginBottom="@dimen/keyline_5"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:text="@string/invitation_invite_title"
+        />
 
-    <arcus.app.common.view.Version1EditText
-        android:hint="@string/contact_info_email_hint"
-        android:id="@+id/etEmail"
-        app:iet_style="light"
-        android:inputType="textEmailAddress"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="@string/login_email"
+        android:layout_marginTop="@dimen/keyline_4"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEntry"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <arcus.app.common.view.Version1EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/invitationCodeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/invitation_code"
-        android:id="@+id/etInvitation"
-        app:iet_style="light"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="@dimen/keyline_4"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/invitationCodeEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <arcus.app.common.view.Version1Button
+        <Button
             android:id="@+id/btnNext"
-            app:buttonColorScheme="light"
+            style="@style/Widget.Arcus.Button.Purple"
             android:text="@string/pairing_next"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:buttonFont="demi" />
+            />
     </RelativeLayout>
 </LinearLayout>
