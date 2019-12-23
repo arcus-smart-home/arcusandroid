@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import arcus.app.common.fragments.CoreFragment;
+import arcus.app.common.fragments.NoViewModelFragment;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.subsystem.DashboardSubsystemController;
 import arcus.cornea.subsystem.alarm.AlarmSubsystemController;
@@ -193,7 +194,7 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
             return true;
         }
         Fragment frag = getSupportFragmentManager().findFragmentById(R.id.container);
-        if (frag instanceof CoreFragment) {
+        if (frag instanceof NoViewModelFragment) {
             ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(false);
