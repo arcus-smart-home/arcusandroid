@@ -69,7 +69,7 @@ public class PeopleAndPlacesRVAdapter extends RecyclerView.Adapter<RecyclerView.
 
             default:
             case ViewRenderType.HEADER_VIEW:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.heading_item, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.section_heading_with_count, parent, false);
                 return new HeaderVH(view);
         }
     }
@@ -122,8 +122,7 @@ public class PeopleAndPlacesRVAdapter extends RecyclerView.Adapter<RecyclerView.
         TextView headingText;
         public HeaderVH(View itemView) {
             super(itemView);
-            headingText = itemView.findViewById(R.id.heading_text);
-            headingText.setTextColor(Color.WHITE);
+            headingText = itemView.findViewById(R.id.sectionName);
         }
 
         public void bind(String text) {
