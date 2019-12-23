@@ -584,7 +584,7 @@
     <string name="account_setting_save_btn">SAVE</string>
 
     <!--Settings: marketing-->
-    <string name="settings_marketing_offers_promo">OFFERS &amp; PROMOTIONS</string>
+    <string name="settings_marketing_offers_promo">Offers &amp; Promotions</string>
     <string name="settings_marketing_offers_promo_instr">Send me information about new products as well as coupons and in-store specials.</string>
     <string name="settings_marketing_monthly_summary">MONTHLY SUMMARY</string>
     <string name="settings_marketing_monthly_summary_instr">Send me a summary each month of Arcus usage.</string>

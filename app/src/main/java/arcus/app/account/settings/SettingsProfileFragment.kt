@@ -24,6 +24,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import arcus.app.R
 import arcus.app.account.registration.AccountSecurityQuestionsFragment
+import arcus.app.account.settings.settings.marketing.SettingsMarketingFragment
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.fragments.NoViewModelFragment
 import arcus.app.common.image.ImageManager

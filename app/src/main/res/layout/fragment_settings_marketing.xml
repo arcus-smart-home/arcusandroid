@@ -14,115 +14,73 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:padding="15dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/keyline_4"
+    >
+
+    <RadioButton
+        android:id="@+id/settings_marketing_offers_promo"
+        style="@style/Widget.Arcus.RadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_setting_marketing_offers_container"
+        tools:checked="true"
+        />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/fragment_setting_marketing_offers_container"
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:id="@+id/fragment_setting_marketing_offers_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ToggleButton
-                android:id="@+id/settings_marketing_offers_promo"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerInParent="true"
-                android:layout_alignParentLeft="true"
-                android:clickable="false"
-                android:checked="false"
-                android:textOn=""
-                android:textOff=""
-                android:background="@drawable/icon_checkmark_selector"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/settings_marketing_offers_promo"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/settings_marketing_offers_promo"/>
-
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:customFont="italic"
-                    android:textColor="@color/overlay_white_with_60"
-                    android:text="@string/settings_marketing_offers_promo_instr"/>
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="30dp"
-            android:background="@color/overlay_white_with_20"/>
-
-        <RelativeLayout
-            android:id="@+id/fragment_setting_marketing_monthly_summary_container"
-            android:layout_width="match_parent"
+        android:paddingStart="@dimen/keyline_4"
+        android:paddingEnd="0dp"
+        app:layout_constraintStart_toEndOf="@id/settings_marketing_offers_promo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Medium"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone">
+            android:text="@string/settings_marketing_offers_promo"
+            />
 
-            <ToggleButton
-                android:id="@+id/settings_marketing_monthly_summary"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerInParent="true"
-                android:layout_alignParentLeft="true"
-                android:clickable="false"
-                android:checked="false"
-                android:textOn=""
-                android:textOff=""
-                android:background="@drawable/icon_checkmark_selector"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/settings_marketing_monthly_summary"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="@string/settings_marketing_monthly_summary"/>
-
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:customFont="italic"
-                    android:textColor="@color/overlay_white_with_60"
-                    android:text="@string/settings_marketing_monthly_summary_instr"/>
-            </LinearLayout>
-        </RelativeLayout>
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_2"
+            android:layout_marginBottom="@dimen/keyline_2"
+            android:text="@string/settings_marketing_offers_promo_instr"
+            />
     </LinearLayout>
 
+    <View
+        style="@style/Widget.Arcus.Divider"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/keyline_2"
+        android:layout_marginBottom="@dimen/keyline_2"
+        android:layout_marginStart="@dimen/keyline_4"
+        app:layout_constraintStart_toStartOf="@id/fragment_setting_marketing_offers_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_setting_marketing_offers_container"
+        />
 
-    <arcus.app.common.view.Version1Button
+    <Button
         android:id="@+id/setting_marketing_save_btn"
+        style="@style/Widget.Arcus.Button.Purple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:textColor="@color/black"
         android:text="@string/account_setting_save_btn"
-        app:buttonFont="demi" />
-</RelativeLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
