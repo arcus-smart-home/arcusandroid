@@ -20,6 +20,8 @@
         <item name="android:textColorLink">@color/sclera_text_color_dark</item>
         <item name="android:textColorLinkInverse">@color/white</item>
         <item name="android:fontFamily">@font/nunito</item>
+
+        <item name="drawableTint">@color/black</item>
     </style>
 
     <style name="Widget.Arcus.TextAppearance.ErrorBanner">
