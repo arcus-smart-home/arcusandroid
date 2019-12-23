@@ -14,18 +14,11 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <!--<ImageView-->
-    <!--android:id="@+id/fragment_account_camera"-->
-    <!--android:layout_width="150dp"-->
-    <!--android:layout_height="150dp"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:layout_centerVertical="true"-->
-    <!--android:scaleType="centerCrop"-->
-    <!--android:src="@drawable/icon_profile_pic"/>-->
     <FrameLayout
         android:id="@+id/photo_layout"
         android:layout_width="wrap_content"
@@ -33,15 +26,14 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/sclera_widget_edge_combined">
 
-
         <arcus.app.common.view.CircularImageView
             android:id="@+id/fragment_account_camera"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:scaleType="centerCrop" />
-
+            android:scaleType="centerCrop"
+            tools:background="@drawable/android2x_image_placeholder"
+            />
 
         <ImageView
             android:id="@+id/cloud_image"
@@ -49,7 +41,8 @@
             android:src="@drawable/cloud_large_white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|right" />
+            android:layout_gravity="top|end"
+            />
 
         <ImageView
             android:id="@+id/camera_image"
@@ -57,8 +50,7 @@
             android:layout_height="48dp"
             android:layout_gravity="bottom|end"
             android:scaleType="centerCrop"
-            android:src="@drawable/button_camera" />
-
+            android:src="@drawable/camera_button"
+            />
     </FrameLayout>
-
 </merge>

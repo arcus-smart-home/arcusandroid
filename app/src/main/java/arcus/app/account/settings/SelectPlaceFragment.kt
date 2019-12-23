@@ -270,8 +270,8 @@ class SelectPlaceFragment : NoViewModelFragment(), PlacesAndPeopleController.Cal
     ) {
         progressContainer.isGone = true
         personsMap = personsMapping
-        personPlaceListing.visibility = View.VISIBLE
-        pinPlaceContainer.visibility = View.GONE
+        personPlaceListing.isVisible = true
+        pinPlaceContainer.isGone = true
         personPlaceListing.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         val adapter = PeopleAndPlacesRVAdapter(requireActivity(), persons, true)
         adapter.setPersonClickedCallback(OnItemClicked { item ->
