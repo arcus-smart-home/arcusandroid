@@ -14,9 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -26,64 +24,63 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <arcus.app.common.view.Version1TextView
+        <TextView
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="@string/manage_push_notifications"
-            android:textColor="@color/white"
-            tools:textColor="@color/black"
-            android:textSize="18dp" />
+            android:text="@string/manage_push_notifications" />
 
         <LinearLayout
-            android:id="@+id/mobile_notifications_info_container"
+            android:id="@+id/mobileNotificationsInfoContainer"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
-                android:contentDescription="@string/type_mobile"
                 android:id="@+id/mobile_notifications_info"
+                style="@style/Widget.Arcus.ImageView.ItemRow.Darken"
+                android:contentDescription="@string/type_mobile"
                 android:src="@drawable/white_info"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:layout_marginEnd="@dimen/keyline_4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <arcus.app.common.view.Version1TextView
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/manage_push_notifications_desc"
-                android:textColor="@color/white_with_60"
-                tools:textColor="@color/black_with_60"/>
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:text="@string/manage_push_notifications_desc" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/current_device_section"
+            android:id="@+id/currentDeviceSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/white_with_10" />
+            <View style="@style/Widget.Arcus.Divider" />
 
             <include layout="@layout/cell_mobile_device" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/other_devices_section"
+            android:id="@+id/otherDevicesSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="75dp"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,47 +88,44 @@
                 android:animateLayoutChanges="true"
                 android:background="@color/white_with_30">
 
-                <arcus.app.common.view.Version1TextView
+                <TextView
+                    style="@style/Widget.Arcus.TextAppearance.Body"
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_height="@dimen/keyline_5"
+                    android:layout_marginStart="@dimen/keyline_2"
                     android:gravity="center_vertical"
                     android:text="@string/other_devices"
                     android:textColor="@color/white"
-                    tools:textColor="@color/black"
-                    />
+                    tools:textColor="@color/black" />
 
             </LinearLayout>
 
             <ListView
-                android:id="@+id/mobile_device_list"
+                android:id="@+id/mobileDeviceList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:animateLayoutChanges="true"
                 android:divider="@null"
-                android:dividerHeight="0dp" />
+                tools:listitem="@layout/cell_mobile_device"
+                tools:listItemCount="3" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white_with_20"
-        android:layout_above="@+id/bottom_text"
-        />
+        style="@style/Widget.Arcus.Divider"
+        android:layout_above="@+id/bottom_text" />
 
-    <arcus.app.common.view.Version1TextView
+    <TextView
         android:id="@+id/bottom_text"
+        style="@style/Widget.Arcus.TextAppearance.Body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="@dimen/keyline_2"
+        android:layout_marginBottom="@dimen/keyline_4"
         android:gravity="center"
-        android:textColor="@color/white_with_60"
-        tools:textColor="@color/black_with_60"
         android:text="@string/turn_off_push_notifications" />
 
 </RelativeLayout>
