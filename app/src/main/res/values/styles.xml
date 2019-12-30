@@ -190,9 +190,9 @@
         <item name="android:backgroundTint">@color/black</item>
     </style>
 
-    <style name="Widget.Arcus.ImageView.ItemRow.Darken.ImageOnly" parent="">
+    <style name="Widget.Arcus.ImageView.ItemRow.Darken.ImageOnly">
         <item name="android:tintMode">src_in</item>
-        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:backgroundTint">@null</item>
     </style>
 
     <style name="Widget.Arcus.ImageView.ItemRow.Lighten" parent="">
