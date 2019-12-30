@@ -16,6 +16,7 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -25,9 +26,125 @@
         android:layout_height="match_parent"
         />
 
-    <include
-        layout="@layout/icon_text_and_abstract_item"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/top_divider"
+            style="@style/Widget.Arcus.Divider"
+            android:visibility="gone"
+            android:layout_alignStart="@id/text_container"
+            tools:visibility="visible"
+            />
+
+        <ImageView
+            android:id="@+id/image_icon"
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken.ImageOnly"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/keyline_4"
+            android:layout_marginEnd="@dimen/keyline_2"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/content_description_camera"
+            tools:src="@drawable/wifi_white_5_24x20"
+            />
+
+        <LinearLayout
+            android:id="@+id/text_container"
+            android:paddingTop="@dimen/keyline_2"
+            android:paddingBottom="@dimen/keyline_2"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/chevron_and_abstract_container"
+            android:layout_toEndOf="@id/image_icon"
+            android:layout_alignParentTop="true"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/keyline_1"
+                android:gravity="center_vertical"
+                tools:text="Title"
+                />
+
+            <TextView
+                android:id="@+id/list_item_description"
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Description"
+                />
+
+            <arcus.app.common.view.Version1TextView
+                android:id="@+id/list_item_sub_description1"
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Description 1"
+                />
+
+            <TextView
+                android:id="@+id/list_item_sub_description2"
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Description 2"
+                />
+
+            <TextView
+                android:id="@+id/list_item_sub_description3"
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                tools:text="Description 3"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:gravity="end|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chevron_and_abstract_container"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="@dimen/keyline_2"
+            android:paddingEnd="0dp">
+            <TextView
+                android:id="@+id/abstract_text"
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/keyline_1"
+                android:paddingEnd="@dimen/keyline_2"
+                tools:text="5"
+                />
+            <ImageView
+                android:id="@+id/image_chevron"
+                style="@style/Widget.Arcus.ImageView.ItemRow.Darken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/keyline_4"
+                android:contentDescription="@string/dashboard_settings_title"
+                android:src="@drawable/chevron_white"
+                />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/bottom_divider"
+            style="@style/Widget.Arcus.Divider"
+            android:layout_alignStart="@id/text_container"
+            android:layout_below="@id/text_container"
+            />
+
+    </RelativeLayout>
 </LinearLayout>
