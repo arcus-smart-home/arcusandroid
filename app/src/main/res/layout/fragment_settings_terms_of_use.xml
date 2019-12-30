@@ -22,8 +22,6 @@
     <ListView
         android:id="@+id/settings_terms_of_use_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="1dp"
-        android:divider="@color/divider_color"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

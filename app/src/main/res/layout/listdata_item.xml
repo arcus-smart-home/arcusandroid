@@ -16,6 +16,7 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -26,19 +27,19 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:visibility="gone"
             android:id="@+id/imageIcon"
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken.ImageOnly"
+            android:visibility="gone"
+            tools:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:contentDescription="@string/content_description_chevron" />
+            android:layout_marginStart="@dimen/keyline_2"
+            android:contentDescription="@string/content_description_chevron"
+            tools:src="@drawable/device_purple_45x45" />
 
         <LinearLayout
-            android:layout_toRightOf="@id/imageIcon"
             android:layout_toEndOf="@id/imageIcon"
             android:id="@+id/textLayout"
             android:gravity="center_vertical"
@@ -46,60 +47,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <arcus.app.common.view.Version1TextView
+            <TextView
                 android:id="@+id/tvTopText"
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="45dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                app:customFont="demi"  />
+                android:layout_marginEnd="@dimen/keyline_2"
+                android:layout_marginStart="@dimen/keyline_2"
+                android:layout_marginTop="@dimen/keyline_4"
+                tools:text="List Item Header" />
 
-            <arcus.app.common.view.Version1TextView
+            <TextView
                 android:id="@+id/tvBottomText"
+                style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="45dp"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/white_with_35"
-                app:customFont="italic"
-                android:textSize="14sp" />
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:layout_marginEnd="@dimen/keyline_2"
+                android:layout_marginStart="@dimen/keyline_2"
+                tools:text="List Item Description" />
 
             <View
                 android:id="@+id/icon_offset_divider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/black_with_10"
+                style="@style/Widget.Arcus.Divider"
                 android:visibility="gone" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageChevron"
+            style="@style/Widget.Arcus.ImageView.ItemRow.Darken.ImageOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:contentDescription="@string/content_description_chevron" />
+            android:layout_marginEnd="@dimen/keyline_2"
+            android:contentDescription="@string/content_description_chevron"
+            tools:src="@drawable/chevron_white"/>
 
     </RelativeLayout>
 
     <View
         android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black_with_10"
+        style="@style/Widget.Arcus.Divider"
         android:visibility="visible" />
 
 </LinearLayout>
