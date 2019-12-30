@@ -14,52 +14,47 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="15dp">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:background="@color/button_blue_text_color"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/keyline_4">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/title"
+        style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/fingerprint_login_yes"
+        android:paddingStart="@dimen/keyline_2"
+        android:paddingEnd="@dimen/keyline_4"
+        android:paddingBottom="@dimen/keyline_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fingerprintSwitch" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/keyline_2"
+        android:paddingEnd="@dimen/keyline_4"
+        android:text="@string/fingerprint_unlock_desc"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fingerprintSwitch" />
+
+    <Switch
+        android:id="@+id/fingerprintSwitch"
+        android:theme="@style/Widget.Arcus.Switch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingRight="35dp"
-            android:layout_toLeftOf="@+id/toggle"
-            android:orientation="vertical">
-            <arcus.app.common.view.Version1TextView
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/description"
+        tools:checked="true" />
 
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textAllCaps="true"
-                app:customFont="demi"/>
-
-            <arcus.app.common.view.Version1TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/overlay_white_with_60"
-                app:customFont="italic" />
-        </LinearLayout>
-
-        <arcus.app.common.view.Version1Toggle
-            android:id="@+id/toggle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:textOn=""
-            android:textOff=""
-            android:background="@drawable/toggle_off_with_opacity"/>
-
-    </RelativeLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
