@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import arcus.app.account.settings.remove.SettingsRemoveFragment;
 import arcus.cornea.SessionController;
 import arcus.cornea.model.PlaceAndRoleModel;
 import arcus.cornea.utils.CachedModelSource;
