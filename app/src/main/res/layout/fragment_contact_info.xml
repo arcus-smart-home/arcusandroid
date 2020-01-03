@@ -14,129 +14,139 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/keyline_4">
 
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/fragment_contact_firstName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_contact_firstName_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/list_edittext_height"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:hint="@string/contact_info_first_name_hint"
-        android:inputType="textPersonName"
-        android:nextFocusDown="@+id/fragment_contact_lastName"
-        android:singleLine="true" />
-
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/fragment_contact_lastName"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_edittext_height"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="@string/contact_info_last_name_hint"
-        android:inputType="textPersonName"
-        android:nextFocusDown="@+id/fragment_contact_phone_number"
-        android:singleLine="true" />
-
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/fragment_contact_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_edittext_height"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="@string/contact_info_phone_number_hint"
-        android:inputType="phone"
-        android:maxLength="15"
-        android:nextFocusDown="@+id/fragment_contact_email"
-        android:singleLine="true" />
-
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/fragment_contact_email"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_edittext_height"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="@string/contact_info_email_hint"
-        android:inputType="textEmailAddress"
-        android:nextFocusDown="@+id/fragment_contact_confirm_email"
-        android:singleLine="true" />
-
-    <arcus.app.common.view.Version1EditText
-        android:id="@+id/fragment_contact_confirm_email"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_edittext_height"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="@string/people_confirm_email_addr"
-        android:inputType="textEmailAddress"
-        android:visibility="gone"
-        android:nextFocusDown="@+id/fragment_contact_password"
-        android:singleLine="true" />
-
-    <RelativeLayout
-        android:id="@+id/change_password_region"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/list_edittext_height">
-
-        <arcus.app.common.view.Version1EditText
-            android:id="@+id/fragment_contact_password_star"
-            android:layout_width="match_parent"
-            android:hint="@string/contact_info_password_hint"
-            android:layout_height="@dimen/list_edittext_height"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:focusable="false"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:text="@string/contact_info_stars"
-            android:textColor="@color/white" />
-
-        <RelativeLayout
-            android:gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageChevron"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/chevron_white"
-                android:contentDescription="@string/content_description_chevron" />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_vertical">
-
-        <arcus.app.common.view.Version1Button
-            android:id="@+id/fragment_contact_done_btn"
+        android:paddingTop="@dimen/keyline_4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_contact_firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:text="@string/contact_info_done_btn"
-            android:visibility="gone"
-            app:buttonFont="demi"/>
+            android:inputType="textPersonName"
+            android:nextFocusDown="@+id/fragment_contact_lastName"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_contact_lastName_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_info_last_name_hint"
+        app:layout_constraintTop_toBottomOf="@id/fragment_contact_firstName_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_contact_lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:nextFocusDown="@+id/fragment_contact_phone_number"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_contact_phone_number_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_info_phone_number_hint"
+        app:layout_constraintTop_toBottomOf="@id/fragment_contact_lastName_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_contact_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:maxLength="15"
+            android:nextFocusDown="@+id/fragment_contact_email"
+            android:singleLine="true"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_contact_email_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_info_email_hint"
+        app:layout_constraintTop_toBottomOf="@id/fragment_contact_phone_number_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_contact_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@+id/fragment_contact_confirm_email"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_contact_confirm_email_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/people_confirm_email_addr"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/fragment_contact_email_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_contact_confirm_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@+id/fragment_contact_password"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/change_password_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/fragment_contact_confirm_email_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fragment_contact_password_star_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contact_info_password_hint">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_contact_password_star"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:text="@string/contact_info_stars"
+                android:drawableEnd="@drawable/chevron" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-</LinearLayout>
-
+    <Button
+        android:id="@+id/fragment_contact_done_btn"
+        style="@style/Widget.Arcus.Button.Purple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_info_done_btn"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

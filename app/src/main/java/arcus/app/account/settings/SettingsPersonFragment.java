@@ -29,6 +29,8 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.common.collect.ImmutableMap;
+
+import arcus.app.account.settings.contact.SettingsContactInfoFragment;
 import arcus.cornea.model.PersonModelProxy;
 import arcus.cornea.model.PlaceAndRoleModel;
 import arcus.cornea.platformcall.PPARemovalController;
