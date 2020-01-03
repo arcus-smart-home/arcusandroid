@@ -16,8 +16,7 @@
 package arcus.presentation.settings.marketing
 
 import arcus.cornea.SessionController
-import arcus.cornea.helpers.chainNonNull
-import arcus.presentation.common.view.ViewError
+import arcus.cornea.helpers.await
 import arcus.presentation.common.view.ViewState
 import arcus.presentation.common.view.ViewStateViewModel
 import java.util.Date
@@ -27,32 +26,29 @@ class SettingsMarketingViewModel(
     private val sessionController: SessionController = SessionController.instance()
 ) : ViewStateViewModel<MarketingSettings>() {
     override fun loadData() {
-        _viewState.value = ViewState.Loading()
-        sessionController
-            .personRef
-            .load()
-            .onSuccess {
-                val consent = it.consentOffersPromotions ?: Date(0)
-                _viewState.postLoadedValue(
-                    MarketingSettings(
-                        consentOffersPromotions = OPT_OUT.compareTo(consent) != 0
-                    )
+        safeLaunch {
+            _viewState.value = ViewState.Loading()
+
+            val personModel = sessionController.personRef.load().await()
+            val consent = personModel.consentOffersPromotions ?: Date(0)
+            _viewState.value = ViewState.Loaded(
+                MarketingSettings(
+                    consentOffersPromotions = OPT_OUT.compareTo(consent) != 0
                 )
-            }
+            )
+        }
     }
 
     fun saveSettings(marketingSettings: MarketingSettings) {
-        _viewState.value = ViewState.Loading()
-        sessionController
-            .personRef
-            .load()
-            .chainNonNull {
-                val consentDate = if (marketingSettings.consentOffersPromotions) Date() else OPT_OUT
-                it.consentOffersPromotions = consentDate
-                it.commit()
-            }
-            .onSuccess { _viewState.postLoadedValue(marketingSettings) }
-            .onFailure { _viewState.postValue(ViewState.Error(it, ViewError.GENERIC)) }
+        safeLaunch {
+            _viewState.value = ViewState.Loading()
+            val personModel = sessionController.personRef.load().await()
+
+            val consentDate = if (marketingSettings.consentOffersPromotions) Date() else OPT_OUT
+            personModel.consentOffersPromotions = consentDate
+            personModel.commit().await()
+            _viewState.value = ViewState.Loaded(marketingSettings)
+        }
     }
 
     companion object {
