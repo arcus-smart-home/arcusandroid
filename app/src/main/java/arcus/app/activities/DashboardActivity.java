@@ -32,7 +32,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import arcus.app.common.fragments.CoreFragment;
 import arcus.app.common.fragments.NoViewModelFragment;
 import arcus.cornea.CorneaClientFactory;
 import arcus.cornea.subsystem.DashboardSubsystemController;
@@ -46,7 +45,7 @@ import com.iris.client.model.HubModel;
 import arcus.app.R;
 import arcus.app.account.creation.CreateAccountSuccessFragment;
 import arcus.app.account.settings.SettingsWalkthroughFragment;
-import arcus.app.account.settings.settings.list.SideNavSettingsFragment;
+import arcus.app.account.settings.list.SideNavSettingsFragment;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.backstack.TransitionEffect;
 import arcus.app.common.banners.core.BannerActivity;

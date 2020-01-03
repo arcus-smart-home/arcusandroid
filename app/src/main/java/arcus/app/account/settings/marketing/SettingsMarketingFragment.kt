@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings.settings.marketing
+package arcus.app.account.settings.marketing
 
 import android.os.Bundle
 import android.view.View
