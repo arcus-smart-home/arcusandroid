@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import arcus.app.R
 import arcus.app.account.registration.AccountSecurityQuestionsFragment
 import arcus.app.account.settings.billing.SettingsBillingFragment
+import arcus.app.account.settings.contact.SettingsContactInfoFragment
 import arcus.app.account.settings.marketing.SettingsMarketingFragment
 import arcus.app.account.settings.remove.SettingsRemoveFragment
 import arcus.app.common.backstack.BackstackManager
