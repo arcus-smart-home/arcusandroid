@@ -66,6 +66,9 @@ dependencies {
     implementation deps.okhttp
     implementation deps.okHttpLoggingInterceptor
 
+    implementation deps.coroutines
+    implementation deps.coroutinesAndroid
+
     testImplementation deps.test.mockitoCore
     testImplementation deps.test.junit
     testImplementation deps.test.truth
