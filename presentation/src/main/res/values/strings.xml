@@ -14,4 +14,12 @@
   limitations under the License.
 -->
 <resources>
+    <string name="premium_plan">Premium Plan</string>
+    <string name="premium_annual_plan">Premium Annual Plan</string>
+    <string name="basic_plan">Basic Plan</string>
+    <string name="premium_free_plan">Premium Free Plan</string>
+    <string name="pro_monitoring_plan">Professional Monitoring Plan</string>
+    <string name="pro_monitoring_annual_plan">Professional Monitoring Annual Plan</string>
+    <string name="pro_monitoring_free_plan">Professional Monitoring Free Plan</string>
+    <string name="backup_cellular">Backup Cellular</string>
 </resources>

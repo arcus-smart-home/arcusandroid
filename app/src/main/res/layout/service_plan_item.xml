@@ -16,8 +16,7 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="@dimen/keyline_2"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -33,71 +32,58 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="@dimen/keyline_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <arcus.app.common.view.Version1TextView
-            tools:text="Place Name"
-            tools:textColor="@color/black_with_80"
+        <TextView
             android:id="@+id/place_name"
-            android:textColor="@color/white"
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12dp"
-            app:customFont="demi"
+            tools:text="Place Name"
             />
 
-        <arcus.app.common.view.Version1TextView
-            tools:text="Place Location"
-            tools:textColor="@color/black_with_80"
+        <TextView
             android:id="@+id/place_street"
-            android:textColor="@color/white_with_60"
-            android:paddingTop="5dp"
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
-
-        <arcus.app.common.view.Version1TextView
+            android:paddingTop="@dimen/keyline_1"
             tools:text="Place Location"
-            tools:textColor="@color/black_with_80"
+            />
+
+        <TextView
             android:id="@+id/place_location"
-            android:textColor="@color/white_with_60"
-            android:paddingTop="5dp"
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/keyline_1"
+            tools:text="Place Location"
             />
 
-        <arcus.app.common.view.Version1TextView
-            tools:text="Place Service Level"
-            tools:textColor="@color/black_with_80"
+        <TextView
             android:id="@+id/plan_service_level"
-            android:textColor="@color/white_with_60"
-            android:paddingTop="5dp"
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:customFont="italic"
+            android:paddingTop="@dimen/keyline_1"
+            tools:text="Place Service Level"
             />
 
-        <arcus.app.common.view.Version1TextView
-            tools:text="Place Addons"
-            tools:textColor="@color/black_with_80"
+        <TextView
             android:id="@+id/plan_addons"
-            android:textColor="@color/white_with_60"
-            android:paddingTop="5dp"
+            style="@style/Widget.Arcus.TextAppearance.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/keyline_1"
+            tools:text="Place Addons"
             />
 
         <View
             android:id="@+id/divider"
-            android:visibility="invisible"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/white_with_20"
-            tools:visibility="visible"
-            tools:background="@color/black_with_35"
+            style="@style/Widget.Arcus.Divider"
+            android:layout_marginTop="@dimen/keyline_1"
             />
     </LinearLayout>
 </LinearLayout>
