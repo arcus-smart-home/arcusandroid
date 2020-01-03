@@ -15,9 +15,9 @@
  */
 package arcus.presentation.settings.list
 
+import arcus.cornea.helpers.await
 import arcus.cornea.model.PlacesWithRoles
 import arcus.cornea.provider.AvailablePlacesProvider
-import arcus.presentation.common.view.ViewError
 import arcus.presentation.common.view.ViewState
 import arcus.presentation.common.view.ViewStateViewModel
 
@@ -30,9 +30,11 @@ class SettingsListViewModel(
     private val availablePlacesProvider: AvailablePlacesProvider = AvailablePlacesProvider.instance()
 ) : ViewStateViewModel<PlacesWithRoles>() {
     override fun loadData() {
-        availablePlacesProvider
-            .loadPlacesWithRoles()
-            .onFailure { _viewState.postValue(ViewState.Error(it, ViewError.GENERIC)) }
-            .onSuccess { _viewState.postLoadedValue(it) }
+        safeLaunch {
+            _viewState.value = ViewState.Loading()
+
+            val placesAndRoles = availablePlacesProvider.loadPlacesWithRoles().await()
+            _viewState.value = ViewState.Loaded(placesAndRoles)
+        }
     }
 }

@@ -15,7 +15,6 @@
  */
 package arcus.presentation.settings.billing
 
-import androidx.lifecycle.viewModelScope
 import arcus.cornea.CorneaClientFactory
 import arcus.cornea.SessionController
 import arcus.cornea.helpers.await
@@ -26,7 +25,6 @@ import com.iris.client.capability.Place
 import com.iris.client.model.ModelCache
 import com.iris.client.model.PlaceModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 // TODO: Inject...
@@ -35,7 +33,9 @@ class BillingViewModel(
     private val modelCache: ModelCache = CorneaClientFactory.getModelCache()
 ) : ViewStateViewModel<List<BillablePlace>>() {
     override fun loadData() {
-        viewModelScope.launch {
+        safeLaunch {
+            _viewState.value = ViewState.Loading()
+
             val account = sessionController.accountRef.load().await()
             val listPlaceResponse = account.listPlaces().await()
 
