@@ -19,12 +19,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ScrollView
         android:id="@+id/have_service_plan_container"
         android:visibility="gone"
+        tools:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -34,170 +34,134 @@
             android:orientation="vertical">
             <LinearLayout
                 android:orientation="vertical"
+                android:id="@+id/payment_info_cell"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:id="@+id/payment_info_cell"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true">
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="true">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/keyline_2"
+                    android:paddingTop="@dimen/keyline_2"
+                    android:paddingBottom="@dimen/keyline_2"
+                    android:layout_marginStart="@dimen/keyline_4">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:layout_marginLeft="15dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:orientation="vertical"
+                        android:layout_gravity="start">
+                        <TextView
+                            style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:orientation="vertical"
-                            android:layout_gravity="start">
-                            <arcus.app.common.view.Version1TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/payment_info_text"
-                                app:customFont="demi"
-                                tools:textColor="@color/black_with_80"
-                                android:textColor="@color/white"
-                                android:singleLine="true" />
-                            <arcus.app.common.view.Version1TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/white"
-                                app:customFont="italic"
-                                android:paddingTop="5dp"
-                                tools:textColor="@color/black_with_80"
-                                android:text="@string/payment_info_edit_text"
-                                android:singleLine="true" />
-                        </LinearLayout>
+                            android:text="@string/payment_info_text" />
+                        <TextView
+                            style="@style/Widget.Arcus.TextAppearance.ListItemDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/keyline_1"
+                            android:text="@string/payment_info_edit_text" />
+                    </LinearLayout>
 
-                        <ImageView
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentEnd="true"
-                            android:id="@+id/payment_info_cell_chevron"
-                            android:layout_centerVertical="true"
-                            android:paddingStart="10dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:paddingEnd="10dp"
-                            android:src="@drawable/chevron_white"
-                            tools:src="@drawable/chevron"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_marginLeft="15dp"
-                        android:layout_height="1dp"
-                        android:background="@color/white_with_20"
-                        tools:background="@color/black_with_35"
-                        />
-                </LinearLayout>
-
-                <arcus.app.common.view.Version1TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/service_plans_text"
-                    app:customFont="demi"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    tools:textColor="@color/black_with_80"
-                    android:textColor="@color/white"
-                    android:singleLine="true" />
+                    <ImageView
+                        android:id="@+id/payment_info_cell_chevron"
+                        style="@style/Widget.Arcus.ImageView.ItemRow.Darken.ImageOnly"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/keyline_2"
+                        android:src="@drawable/chevron_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/white_with_20"
-                    tools:background="@color/black_with_35"
+                    style="@style/Widget.Arcus.Divider"
+                    android:layout_marginStart="@dimen/keyline_5"
                     />
+            </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/service_plan_container"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="30dp"
+            <TextView
+                style="@style/Widget.Arcus.TextAppearance.ListItemHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/service_plans_text"
+                android:layout_marginTop="@dimen/keyline_2"
+                android:layout_marginStart="@dimen/keyline_4" />
+
+            <View
+                style="@style/Widget.Arcus.Divider"
+                android:layout_marginStart="@dimen/keyline_5"
+                android:layout_marginTop="@dimen/keyline_4"
+                />
+
+            <LinearLayout
+                android:id="@+id/service_plan_container"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/keyline_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                style="@style/Widget.Arcus.Divider"
+                android:layout_marginTop="@dimen/keyline_2"
+                />
+
+            <LinearLayout
+                android:id="@+id/service_level_change_instructions"
+                android:layout_marginTop="@dimen/keyline_4"
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <TextView
+                    style="@style/Widget.Arcus.TextAppearance.Body"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/white_with_20"
-                    tools:background="@color/black_with_35"
-                    />
-
-                <LinearLayout
-                    android:id="@+id/service_level_change_instructions"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                    <arcus.app.common.view.Version1TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:customFont="light"
-                        android:gravity="center"
-                        tools:textColor="@color/black_with_80"
-                        android:textColor="@color/white"
-                        android:text="@string/update_service_plan_text"
-                        android:singleLine="false" />
-                </LinearLayout>
+                    android:gravity="center"
+                    android:text="@string/update_service_plan_text" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
     <RelativeLayout
         android:id="@+id/no_service_plan_container"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <arcus.app.common.view.Version1TextView
-            android:gravity="center"
-            android:textColor="@color/white"
-            tools:textColor="@color/black"
-            android:textSize="18sp"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="gone"
+        android:layout_marginTop="@dimen/keyline_5"
+        android:layout_marginStart="@dimen/keyline_4"
+        android:layout_marginEnd="@dimen/keyline_4">
+        <TextView
             android:id="@+id/top"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="15dp"
-            android:text="@string/no_service_plans_title"
+            style="@style/Widget.Arcus.TextAppearance.Body.Large"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <arcus.app.common.view.Version1TextView
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/keyline_4"
             android:gravity="center"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="30dp"
-            android:textColor="@color/white_with_60"
-            tools:textColor="@color/black"
-            android:id="@+id/bottom"
-            android:text="@string/no_service_plans_desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/top"/>
+            android:text="@string/no_service_plans_title"
+            />
 
-        <arcus.app.common.view.Version1Button
-            android:id="@+id/shop_now"
-            android:text="@string/generic_shop_text"
-            android:layout_gravity="bottom"
-            app:buttonColorScheme="light"
+        <TextView
+            android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_alignParentBottom="true"/>
+            android:layout_below="@+id/top"
+            android:gravity="center"
+            android:text="@string/no_service_plans_desc" />
+
+        <Button
+            android:id="@+id/shop_now"
+            style="@style/Widget.Arcus.Button.Purple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/keyline_4"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:text="@string/generic_shop_text"
+            />
     </RelativeLayout>
 </LinearLayout>
