@@ -26,7 +26,7 @@ import arcus.app.R
 import arcus.app.account.registration.controller.AccountCreationSequenceController
 import arcus.app.account.registration.model.AccountTypeSequence
 import arcus.app.account.settings.SettingsUpdatePin
-import arcus.app.account.settings.settings.list.SideNavSettingsFragment
+import arcus.app.account.settings.list.SideNavSettingsFragment
 import arcus.app.activities.LaunchActivity
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.backstack.TransitionEffect
