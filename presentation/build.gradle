@@ -62,6 +62,7 @@ dependencies {
     implementation(deps.annotations)
     implementation(deps.okhttp)
     implementation(deps.androidLifecycle)
+    implementation(deps.androidLifecycleViewModel)
     implementation(deps.dagger)
     implementation(deps.androidCoreKtx)
     kapt(deps.daggerApt)
