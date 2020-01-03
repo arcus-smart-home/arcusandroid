@@ -18,8 +18,17 @@ package arcus.presentation.common.view
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.launch
+import org.slf4j.LoggerFactory
+import kotlin.coroutines.CoroutineContext
 
 abstract class ViewStateViewModel<T> : ViewModel() {
+    private val logger = LoggerFactory.getLogger(this::class.java)
+
     protected val _viewState: MutableLiveData<ViewState<T>> = object : MutableLiveData<ViewState<T>>() {
         override fun onActive() {
             super.onActive()
@@ -33,4 +42,22 @@ abstract class ViewStateViewModel<T> : ViewModel() {
     protected inline fun <reified T : Any> MutableLiveData<ViewState<T>>.postLoadedValue(value: T) {
         postValue(ViewState.Loaded(value))
     }
+
+    /**
+     * Launches a coroutine from within the [viewModelScope] and captures the output as a `ViewState.Error` if the
+     * [block] fails with an exception.
+     *
+     * @see launch for explanation of params.
+     */
+    protected fun safeLaunch(
+        context: CoroutineContext = CoroutineExceptionHandler { _, throwable ->
+            _viewState.value = ViewState.Error(throwable, ViewError.GENERIC)
+            logger.error(
+                "Unhandled exception in ViewModel: ${this@ViewStateViewModel::class.java.simpleName}",
+                throwable
+            )
+        },
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+        block: suspend CoroutineScope.() -> Unit
+    ) = viewModelScope.launch(context, start, block)
 }
