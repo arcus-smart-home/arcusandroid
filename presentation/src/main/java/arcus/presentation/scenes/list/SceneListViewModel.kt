@@ -16,10 +16,9 @@
 package arcus.presentation.scenes.list
 
 import arcus.cornea.CorneaClientFactory
-import arcus.cornea.helpers.chainNonNull
+import arcus.cornea.helpers.await
 import arcus.cornea.provider.SceneModelProvider
 import arcus.cornea.provider.SchedulerModelProvider
-import arcus.presentation.common.view.ViewError
 import arcus.presentation.common.view.ViewState
 import arcus.presentation.common.view.ViewStateViewModel
 import arcus.presentation.scenes.Scene
@@ -30,6 +29,8 @@ import com.iris.client.model.ModelCache
 import com.iris.client.model.SceneModel
 import com.iris.client.model.SchedulerModel
 import com.iris.client.service.SchedulerService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 // TODO: Inject...
 class SceneListViewModel(
@@ -39,24 +40,21 @@ class SceneListViewModel(
     private val schedulerService: SchedulerService = CorneaClientFactory.getService(SchedulerService::class.java)
 ) : ViewStateViewModel<SceneListItems>() {
     override fun loadData() {
-        _viewState.postValue(ViewState.Loading())
-        scheduleModelProvider
-            .load()
-            .transform { schedulers ->
-                schedulers?.map { it.target!! to it }?.toMap() ?: emptyMap()
+        safeLaunch {
+            emitLoading()
+            val schedules = scheduleModelProvider.load().await()
+            val scenes = sceneModelProvider.load().await()
+            val parsedScenes = withContext(Dispatchers.Default) {
+                val schedulers = schedules.map { it.target!! to it }.toMap()
+                scenes.map { it.toScene(schedulers[it.address]) }
             }
-            .chainNonNull { schedulers ->
-                sceneModelProvider.load().transform { Pair(it!!, schedulers) }
-            }
-            .onSuccess { (scenes, schedulers) ->
-                val sceneList = scenes.map { it.toScene(schedulers[it.address]) }
 
-                if (sceneList.isEmpty()) {
-                    _viewState.postLoadedValue(SceneListItems.Empty)
-                } else {
-                    _viewState.postLoadedValue(SceneListItems.SceneItems(sceneList.size, sceneList))
-                }
+            if (parsedScenes.isEmpty()) {
+                _viewState.value = ViewState.Loaded(SceneListItems.Empty)
+            } else {
+                _viewState.value = ViewState.Loaded(SceneListItems.SceneItems(parsedScenes.size, parsedScenes))
             }
+        }
     }
 
     fun handleSceneCheckAreaClick(scene: Scene, isEditMode: Boolean) {
@@ -68,25 +66,23 @@ class SceneListViewModel(
     }
 
     private fun delete(scene: Scene) {
-        val cache = modelCache[scene.address] as? SceneModel?
-        cache?.let { model ->
-            model
-                .delete()
-                .onSuccess { loadData() }
-                .onFailure { _viewState.postValue(ViewState.Error(it, ViewError.GENERIC)) }
-        } ?: _viewState.postValue(ViewState.Error(RuntimeException("Unable to locate model."), ViewError.GENERIC))
+        safeLaunch {
+            emitLoading()
+            val model = modelCache[scene.address] as SceneModel
+            model.delete().await()
+            loadData()
+        }
     }
 
     private fun toggleEnabled(scene: Scene) {
-        schedulerService
-            .getScheduler(scene.address)
-            .chainNonNull {
-                val schedulerModel = modelCache.addOrUpdate(it.scheduler) as SchedulerModel
-                schedulerModel[ATTR_ENABLED] = !scene.isEnabled
-                schedulerModel.commit()
-            }
-            .onSuccess { loadData() }
-            .onFailure { _viewState.postValue(ViewState.Error(it, ViewError.GENERIC)) }
+        safeLaunch {
+            emitLoading()
+            val schedulerResponse = schedulerService.getScheduler(scene.address).await()
+            val schedulerModel = modelCache.addOrUpdate(schedulerResponse.scheduler) as SchedulerModel
+            schedulerModel[ATTR_ENABLED] = !scene.isEnabled
+            schedulerModel.commit().await()
+            loadData()
+        }
     }
 
     private fun SceneModel.toScene(schedulerModel: SchedulerModel?): Scene = if (schedulerModel == null) {
