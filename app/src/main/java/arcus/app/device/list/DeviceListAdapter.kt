@@ -11,26 +11,14 @@ import arcus.app.R
 import arcus.app.common.image.ImageManager
 import arcus.app.common.image.picasso.transformation.CropCircleTransformation
 import arcus.app.common.utils.inflate
+import arcus.presentation.device.list.DeviceListItem
+import arcus.presentation.device.list.ListItem
 
 class DeviceListAdapter(
         private val itemClickListener: ItemClickListener
 ) : ListAdapter<ListItem, ViewHolder>(object : ItemCallback<ListItem>() {
-    override fun areItemsTheSame(oldItem: ListItem, newItem: ListItem): Boolean = when {
-        oldItem is FooterListItem && newItem is FooterListItem -> true
-        oldItem is DeviceListItem && newItem is DeviceListItem -> oldItem.id == newItem.id
-        else -> false
-    }
-
-    override fun areContentsTheSame(oldItem: ListItem, newItem: ListItem): Boolean = when {
-        oldItem is FooterListItem && newItem is FooterListItem -> true
-        oldItem is DeviceListItem && newItem is DeviceListItem -> {
-            val bothCloudConnected = oldItem.isCloudConnected && newItem.isCloudConnected
-            val bothOffline = oldItem.isOffline && newItem.isOffline
-            val sameName = oldItem.name == newItem.name
-            bothCloudConnected && bothOffline && sameName
-        }
-        else -> false
-    }
+    override fun areItemsTheSame(oldItem: ListItem, newItem: ListItem): Boolean = oldItem.areItemsTheSame(newItem)
+    override fun areContentsTheSame(oldItem: ListItem, newItem: ListItem): Boolean = oldItem.areContentsTheSame(newItem)
 }) {
     interface ItemClickListener {
         /**

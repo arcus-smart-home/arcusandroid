@@ -1,12 +1,13 @@
-package arcus.app.device.list
+package arcus.presentation.device.list
 
+import arcus.presentation.common.view.ContentsComparable
 import com.iris.client.model.DeviceModel
 
 /**
  * The current view state with the number of [devices] and the full [deviceList] that can be
  * displayed.
  */
-data class ViewState(val devices: Int, val deviceList: List<ListItem>)
+data class Devices(val devices: Int, val deviceList: List<ListItem>)
 
 /**
  * The type of view represented.
@@ -19,12 +20,15 @@ enum class ViewType {
 /**
  * An entry in a list of a particular [viewType].
  */
-sealed class ListItem(val viewType: ViewType)
+sealed class ListItem(val viewType: ViewType): ContentsComparable<ListItem>
 
 /**
  * A footer list item.
  */
-object FooterListItem : ListItem(ViewType.FOOTER)
+object FooterListItem : ListItem(ViewType.FOOTER) {
+    override fun areItemsTheSame(newItem: ListItem): Boolean = newItem is FooterListItem
+    override fun areContentsTheSame(newItem: ListItem): Boolean = true
+}
 
 /**
  * A device entry.
@@ -41,4 +45,11 @@ data class DeviceListItem(
         val isCloudConnected: Boolean,
         val isOffline: Boolean,
         val device: DeviceModel // For ImageManager...
-) : ListItem(ViewType.DEVICE)
+) : ListItem(ViewType.DEVICE), ContentsComparable<ListItem> {
+    override fun areItemsTheSame(newItem: ListItem): Boolean = newItem is DeviceListItem && id == newItem.id
+
+    override fun areContentsTheSame(newItem: ListItem): Boolean = newItem is DeviceListItem &&
+            isCloudConnected == newItem.isCloudConnected &&
+            isOffline == newItem.isOffline &&
+            name == newItem.name
+}
