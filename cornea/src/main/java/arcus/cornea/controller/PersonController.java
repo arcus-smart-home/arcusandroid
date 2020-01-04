@@ -91,8 +91,7 @@ public class PersonController {
     private Listener<Throwable> failureListener = Listeners.runOnUiThread(new Listener<Throwable>() {
         @Override
         public void onEvent(Throwable throwable) {
-            ErrorResponseException errorResponseException = (ErrorResponseException) throwable;
-            if (errorResponseException.getCode().equals("pin.notUniqueAtPlace")) {
+            if (isNotUniqueError(throwable)) {
                 // Calling updateView on the pin page will cause goNext() to be called so we
                 // only call on error in this case.
                 Callback callback = callbackRef.get();
@@ -100,18 +99,29 @@ public class PersonController {
                     callback.onError(throwable);
                 }
             } else {
-                personModel
-                        .reload()
-                        .onSuccess(
-                                Listeners.runOnUiThread(updatedModel -> {
-                                    Callback callback = callbackRef.get();
-                                    if (callback != null) {
-                                        callback.updateView(updatedModel);
-                                        callback.onError(throwable);
-                                    }
-                                })
-                        );
+                reloadPersonAndEmitError(throwable);
             }
+        }
+
+        private boolean isNotUniqueError(Throwable throwable) {
+            return throwable instanceof ErrorResponseException &&
+                    ((ErrorResponseException) throwable).getCode().equals("pin.notUniqueAtPlace");
+        }
+
+        private void reloadPersonAndEmitError(final Throwable throwable) {
+            personModel
+                    .reload()
+                    .onCompletion(
+                            Listeners.runOnUiThread(result -> {
+                                Callback callback = callbackRef.get();
+                                if (callback != null) {
+                                    if (result.isValue()) {
+                                        callback.updateView(result.getValue());
+                                    }
+                                    callback.onError(throwable);
+                                }
+                            })
+                    );
         }
     });
 
