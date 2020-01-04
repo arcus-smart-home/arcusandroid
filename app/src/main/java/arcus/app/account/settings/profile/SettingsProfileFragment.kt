@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings
+package arcus.app.account.settings.profile
 
 import android.os.Bundle
 import android.view.View
@@ -24,6 +24,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import arcus.app.R
 import arcus.app.account.registration.AccountSecurityQuestionsFragment
+import arcus.app.account.settings.places.SelectPlaceFragment
+import arcus.app.account.settings.fingerprint.SettingsFingerprintFragment
+import arcus.app.account.settings.terms.SettingsTermsOfUseFragment
 import arcus.app.account.settings.billing.SettingsBillingFragment
 import arcus.app.account.settings.contact.SettingsContactInfoFragment
 import arcus.app.account.settings.marketing.SettingsMarketingFragment
@@ -146,12 +149,11 @@ class SettingsProfileFragment : NoViewModelFragment(), View.OnClickListener {
             R.id.security_questions_container -> AccountSecurityQuestionsFragment
                 .newInstance(AccountSecurityQuestionsFragment.ScreenVariant.SETTINGS)
                 .navigateTo()
-            R.id.pin_code_container -> SelectPlaceFragment
-                .newInstance(
-                    SelectPlaceFragment.PIN_CODE_SCREEN,
-                    getString(R.string.pin_code_place_selection),
-                    placesWithRoles
-                )
+            R.id.pin_code_container -> SelectPlaceFragment.newInstance(
+                SelectPlaceFragment.PIN_CODE_SCREEN,
+                getString(R.string.pin_code_place_selection),
+                placesWithRoles
+            )
                 .navigateTo()
             R.id.fingerprint_container -> if (isVisible) SettingsFingerprintFragment.newInstance().navigateTo()
             R.id.push_notifications_container -> SettingsPushNotificationsFragment.newInstance().navigateTo()

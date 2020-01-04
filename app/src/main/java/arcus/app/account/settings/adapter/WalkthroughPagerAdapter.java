@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import arcus.app.account.settings.data.WalkthroughType;
+import arcus.app.account.settings.WalkthroughType;
 import arcus.app.account.settings.walkthroughs.ClimateWalkthroughFragment;
 import arcus.app.account.settings.walkthroughs.HistoryWalkthroughFragment;
 import arcus.app.account.settings.walkthroughs.IntroductionArcusFragment;

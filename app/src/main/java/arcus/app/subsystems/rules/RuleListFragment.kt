@@ -27,7 +27,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import arcus.app.R
-import arcus.app.account.settings.data.WalkthroughType
+import arcus.app.account.settings.WalkthroughType
 import arcus.app.account.settings.walkthroughs.WalkthroughBaseFragment
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.error.ErrorManager.`in` as errorIn

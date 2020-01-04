@@ -13,9 +13,8 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings
+package arcus.app.account.settings.places
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -30,8 +29,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import arcus.app.R
+import arcus.app.account.settings.SettingsPeopleDetailsList
+import arcus.app.account.settings.SettingsPlaceOverviewFragment
 import arcus.app.account.settings.adapter.PeopleAndPlacesRVAdapter
 import arcus.app.account.settings.adapter.PeopleAndPlacesRVAdapter.OnItemClicked
+import arcus.app.account.settings.pin.SettingsUpdatePin
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.controller.PlacesAndPeopleController
 import arcus.app.common.error.ErrorManager
@@ -83,11 +85,15 @@ class SelectPlaceFragment : NoViewModelFragment(), PlacesAndPeopleController.Cal
         super.onCreate(savedInstanceState)
         val args = arguments
         if (args == null) {
-            nextFrag = PIN_CODE_SCREEN
+            nextFrag =
+                PIN_CODE_SCREEN
             topText = null
             return
         }
-        nextFrag = args.getInt(NEXT_FRAG, PIN_CODE_SCREEN)
+        nextFrag = args.getInt(
+            NEXT_FRAG,
+            PIN_CODE_SCREEN
+        )
         topTextString = args.getString(TOP_TEXT, null)
 
         val placesAndRoles = args.getParcelable(PLACE_ROLE) as PlacesWithRoles?
@@ -193,10 +199,11 @@ class SelectPlaceFragment : NoViewModelFragment(), PlacesAndPeopleController.Cal
                 val fragment: Fragment
                 when (nextFrag) {
                     PLACES_SCREEN -> {
-                        fragment = SettingsPlaceOverviewFragment.newInstance(
-                            next.data as PlaceAndRoleModel,
-                            placesWithRoles.totalPlaces
-                        )
+                        fragment =
+                            SettingsPlaceOverviewFragment.newInstance(
+                                next.data as PlaceAndRoleModel,
+                                placesWithRoles.totalPlaces
+                            )
                     }
                     PIN_CODE_SCREEN -> fragment = SettingsUpdatePin.newInstance(
                         SettingsUpdatePin.ScreenVariant.SETTINGS,
@@ -281,7 +288,11 @@ class SelectPlaceFragment : NoViewModelFragment(), PlacesAndPeopleController.Cal
             val models = personsMap[item.associatedPlaceModel] ?: return@OnItemClicked
             val person = item.additionalData as PersonModelProxy?
             BackstackManager.getInstance().navigateToFragment(
-                SettingsPeopleDetailsList.newInstance(models, person, item.associatedPlaceModel),
+                SettingsPeopleDetailsList.newInstance(
+                    models,
+                    person,
+                    item.associatedPlaceModel
+                ),
                 true
             )
         })

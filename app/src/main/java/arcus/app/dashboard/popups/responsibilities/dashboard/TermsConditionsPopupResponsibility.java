@@ -18,7 +18,7 @@ package arcus.app.dashboard.popups.responsibilities.dashboard;
 import androidx.fragment.app.Fragment;
 
 import arcus.cornea.SessionController;
-import arcus.app.account.TermsAndConditionsUpdateFragment;
+import arcus.app.account.settings.terms.TermsAndConditionsUpdateFragment;
 import arcus.app.common.backstack.BackstackManager;
 
 

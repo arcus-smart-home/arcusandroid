@@ -28,7 +28,7 @@ import arcus.app.account.registration.AccountBillingInfoFragment;
 import arcus.app.account.registration.AccountEmailPasswordFragment;
 import arcus.app.account.registration.AccountSecurityQuestionsFragment;
 import arcus.app.account.registration.model.AccountTypeSequence;
-import arcus.app.account.settings.SettingsUpdatePin;
+import arcus.app.account.settings.pin.SettingsUpdatePin;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.error.ErrorManager;
 import arcus.app.common.sequence.CachedSequenceController;

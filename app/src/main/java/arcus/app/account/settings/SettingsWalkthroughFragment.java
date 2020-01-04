@@ -23,7 +23,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import arcus.app.R;
-import arcus.app.account.settings.data.WalkthroughType;
 import arcus.app.account.settings.walkthroughs.WalkthroughBaseFragment;
 import arcus.app.common.adapters.IconizedChevronListAdapter;
 import arcus.app.common.controller.BackstackPopListener;
