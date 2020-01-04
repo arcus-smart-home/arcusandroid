@@ -27,6 +27,7 @@ import arcus.app.account.registration.AccountSecurityQuestionsFragment
 import arcus.app.account.settings.billing.SettingsBillingFragment
 import arcus.app.account.settings.contact.SettingsContactInfoFragment
 import arcus.app.account.settings.marketing.SettingsMarketingFragment
+import arcus.app.account.settings.notifications.SettingsPushNotificationsFragment
 import arcus.app.account.settings.remove.SettingsRemoveFragment
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.fragments.NoViewModelFragment
