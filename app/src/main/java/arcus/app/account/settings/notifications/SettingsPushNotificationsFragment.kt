@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings
+package arcus.app.account.settings.notifications
 
 import android.os.Bundle
 import android.view.Menu
@@ -129,8 +129,8 @@ class SettingsPushNotificationsFragment : NoViewModelFragment(),
 
         // Special case: User has nada devices receiving push notifications
         if (!hasCurrentDevice && !hasOtherDevices) {
-            //BackstackManager.getInstance().navigateBack()
-            //FullscreenFragmentActivity.launch(activity!!, SettingsTurnOnNotificationsFragment::class.java)
+            BackstackManager.getInstance().navigateBack()
+            FullscreenFragmentActivity.launch(requireActivity(), SettingsTurnOnNotificationsFragment::class.java)
         }
 
         // Update the edit/done menu visibility on the presence of other devices
@@ -187,6 +187,7 @@ class SettingsPushNotificationsFragment : NoViewModelFragment(),
 
     companion object {
         @JvmStatic
-        fun newInstance(): SettingsPushNotificationsFragment = SettingsPushNotificationsFragment()
+        fun newInstance(): SettingsPushNotificationsFragment =
+            SettingsPushNotificationsFragment()
     }
 }
