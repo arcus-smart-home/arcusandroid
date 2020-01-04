@@ -17,8 +17,8 @@ import kotlinx.coroutines.withContext
 
 // TODO: @Inject, Clicks parsed in VM and sent to View as Navigation events.
 class DeviceListViewModel(
-        private val deviceProvider: DeviceModelProvider = DeviceModelProvider.instance(),
-        private val hubProvider: HubModelProvider = HubModelProvider.instance()
+    private val deviceProvider: DeviceModelProvider = DeviceModelProvider.instance(),
+    private val hubProvider: HubModelProvider = HubModelProvider.instance()
 ) : ViewStateViewModel<Devices>() {
     private var deviceListener: ListenerRegistration = deviceProvider.store.addListener { loadData() }
     private var hubListener: ListenerRegistration = hubProvider.store.addListener { loadData() }

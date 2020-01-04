@@ -20,7 +20,7 @@ enum class ViewType {
 /**
  * An entry in a list of a particular [viewType].
  */
-sealed class ListItem(val viewType: ViewType): ContentsComparable<ListItem>
+sealed class ListItem(val viewType: ViewType) : ContentsComparable<ListItem>
 
 /**
  * A footer list item.
@@ -40,11 +40,11 @@ object FooterListItem : ListItem(ViewType.FOOTER) {
  * @property device the device/hubDTO model - only present b/c of ImageManager..
  */
 data class DeviceListItem(
-        val id: String,
-        val name: String,
-        val isCloudConnected: Boolean,
-        val isOffline: Boolean,
-        val device: DeviceModel // For ImageManager...
+    val id: String,
+    val name: String,
+    val isCloudConnected: Boolean,
+    val isOffline: Boolean,
+    val device: DeviceModel // For ImageManager...
 ) : ListItem(ViewType.DEVICE), ContentsComparable<ListItem> {
     override fun areItemsTheSame(newItem: ListItem): Boolean = newItem is DeviceListItem && id == newItem.id
 
