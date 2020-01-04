@@ -19,19 +19,23 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import arcus.app.R
 import arcus.app.common.backstack.BackstackManager
-import arcus.app.common.fragments.BaseFragment
+import arcus.app.common.fragments.CoreFragment
 import arcus.app.device.details.DeviceDetailParentFragment
 import arcus.app.device.list.DeviceListAdapter.ItemClickListener
 import arcus.app.device.zwtools.controller.ZWaveToolsSequence
+import arcus.presentation.common.view.ViewState
+import arcus.presentation.device.list.DeviceListViewModel
 
-class DeviceListingFragment : BaseFragment() {
+class DeviceListingFragment : CoreFragment<DeviceListViewModel>() {
     private lateinit var deviceListAdapter: DeviceListAdapter
     private lateinit var numOfDevices: TextView
-    private lateinit var viewModel: DeviceListViewModel
+
+    override val title: String get() = getString(R.string.sidenav_devices_title)
+    override val layoutId: Int = R.layout.fragment_device_listing
+    override val viewModelClass: Class<DeviceListViewModel> = DeviceListViewModel::class.java
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,19 +57,14 @@ class DeviceListingFragment : BaseFragment() {
             }
         })
         deviceList.adapter = deviceListAdapter
-        viewModel = ViewModelProviders.of(this).get(DeviceListViewModel::class.java)
-        viewModel.devices.observe(this, Observer { (devices, deviceList1) ->
-            numOfDevices.text = devices.toString()
-            deviceListAdapter.submitList(deviceList1)
+        viewModel.viewState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is ViewState.Loaded -> {
+                    val (devices, deviceListItems) = it.item
+                    numOfDevices.text = devices.toString()
+                    deviceListAdapter.submitList(deviceListItems)
+                }
+            }
         })
     }
-
-    override fun onResume() {
-        super.onResume()
-        setTitle()
-        viewModel.loadDevices()
-    }
-
-    override fun getTitle(): String = getString(R.string.sidenav_devices_title)
-    override fun getLayoutId(): Int = R.layout.fragment_device_listing
 }
