@@ -33,7 +33,7 @@ import com.iris.client.model.PersonModel;
 import arcus.app.R;
 import arcus.app.account.registration.controller.AccountCreationSequenceController;
 import arcus.app.account.registration.model.AccountTypeSequence;
-import arcus.app.account.settings.SettingsUpdatePin;
+import arcus.app.account.settings.pin.SettingsUpdatePin;
 import arcus.app.common.adapters.PendingInvitationListItemAdapter;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.error.ErrorManager;

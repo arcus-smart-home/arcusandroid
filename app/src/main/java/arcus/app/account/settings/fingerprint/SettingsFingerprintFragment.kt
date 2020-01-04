@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings
+package arcus.app.account.settings.fingerprint
 
 import android.os.Bundle
 import android.view.View
@@ -55,6 +55,7 @@ class SettingsFingerprintFragment : NoViewModelFragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(): SettingsFingerprintFragment = SettingsFingerprintFragment()
+        fun newInstance(): SettingsFingerprintFragment =
+            SettingsFingerprintFragment()
     }
 }

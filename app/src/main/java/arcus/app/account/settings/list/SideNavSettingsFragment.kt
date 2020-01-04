@@ -20,8 +20,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import arcus.app.R
-import arcus.app.account.settings.SelectPlaceFragment
-import arcus.app.account.settings.SettingsProfileFragment
+import arcus.app.account.settings.places.SelectPlaceFragment
+import arcus.app.account.settings.profile.SettingsProfileFragment
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.fragments.CoreFragment
 import arcus.app.launch.InvitationFragment

@@ -28,7 +28,6 @@ import androidx.core.view.isVisible
 import arcus.app.R
 import arcus.app.account.settings.adapter.MobileDeviceListAdapter
 import arcus.app.account.settings.adapter.MobileDeviceListAdapter.OnDeleteListener
-import arcus.app.account.settings.controller.SettingsPushNotificationsFragmentController
 import arcus.app.activities.FullscreenFragmentActivity
 import arcus.app.common.backstack.BackstackManager
 import arcus.app.common.error.ErrorManager

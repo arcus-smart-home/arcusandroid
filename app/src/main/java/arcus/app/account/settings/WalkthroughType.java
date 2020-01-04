@@ -13,11 +13,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings.data;
-
+package arcus.app.account.settings;
 
 public enum WalkthroughType {
-
         CLIMATE,
         HISTORY,
         INTRO,
@@ -25,5 +23,4 @@ public enum WalkthroughType {
         SCENES,
         SECURITY,
         SETUP
-
 }

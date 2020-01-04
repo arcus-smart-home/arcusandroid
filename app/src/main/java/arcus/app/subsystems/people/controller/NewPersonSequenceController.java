@@ -19,7 +19,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 
 import arcus.cornea.model.InviteModel;
-import arcus.app.account.settings.SettingsUpdatePin;
+import arcus.app.account.settings.pin.SettingsUpdatePin;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.sequence.AbstractStaticSequenceController;
 import arcus.app.common.sequence.Sequenceable;

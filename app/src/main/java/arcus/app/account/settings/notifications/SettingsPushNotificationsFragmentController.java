@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package arcus.app.account.settings.controller;
+package arcus.app.account.settings.notifications;
 
 import android.app.Activity;
 

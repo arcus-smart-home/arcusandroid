@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 
 import arcus.app.R;
 import arcus.app.account.settings.adapter.WalkthroughPagerAdapter;
-import arcus.app.account.settings.data.WalkthroughType;
+import arcus.app.account.settings.WalkthroughType;
 import arcus.app.common.fragments.BaseFragment;
 import com.viewpagerindicator.CirclePageIndicator;
 

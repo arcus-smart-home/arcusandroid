@@ -344,6 +344,8 @@ public class DashboardActivity extends BaseActivity implements BannerActivity, N
 
         if (isBaseFragment(fragment)) {
             eventConsumed = ((BaseFragment) fragment).onBackPressed();
+        } else if (fragment instanceof NoViewModelFragment) {
+            eventConsumed = ((NoViewModelFragment) fragment).onBackPressed();
         }
 
         if (!eventConsumed) {

@@ -15,7 +15,7 @@
  */
 package arcus.app.dashboard.popups.responsibilities.dashboard;
 
-import arcus.app.account.settings.data.WalkthroughType;
+import arcus.app.account.settings.WalkthroughType;
 import arcus.app.account.settings.walkthroughs.WalkthroughBaseFragment;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.utils.PreferenceUtils;

@@ -24,6 +24,7 @@ import android.view.ViewGroup
 import android.view.ViewStub
 import androidx.annotation.LayoutRes
 import androidx.annotation.MenuRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import arcus.app.R
 import org.slf4j.Logger
@@ -97,6 +98,29 @@ abstract class NoViewModelFragment : Fragment() {
         requireActivity().let {
             it.title = title
             it.invalidateOptionsMenu()
+        }
+    }
+
+    // TODO: This should really use the callback dispatcher, but leaving for now...
+    open fun onBackPressed(): Boolean = false // Allow "normal" handling of this...
+
+    protected fun showActionBar() = showHideActionBar(false)
+    protected fun hideActionBar() = showHideActionBar(true)
+
+    private fun showHideActionBar(hide: Boolean) {
+        val currentActivity = activity
+        if (currentActivity is AppCompatActivity) {
+            if (hide) {
+                currentActivity.supportActionBar?.hide()
+            } else {
+                currentActivity.supportActionBar?.show()
+            }
+        } else {
+            if (hide) {
+                currentActivity?.actionBar?.hide()
+            } else {
+                currentActivity?.actionBar?.show()
+            }
         }
     }
 }

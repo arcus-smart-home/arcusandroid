@@ -29,7 +29,7 @@ import com.iris.client.event.Listener;
 import com.iris.client.model.PlaceModel;
 import arcus.app.ArcusApplication;
 import arcus.app.account.registration.controller.task.SaveHomeTask;
-import arcus.app.account.settings.SettingsUpdatePin;
+import arcus.app.account.settings.pin.SettingsUpdatePin;
 import arcus.app.common.backstack.BackstackManager;
 import arcus.app.common.image.ImageCategory;
 import arcus.app.common.image.ImageRepository;

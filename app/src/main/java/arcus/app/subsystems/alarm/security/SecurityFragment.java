@@ -39,7 +39,7 @@ import com.iris.client.event.ListenerRegistration;
 import com.iris.client.model.DeviceModel;
 import com.iris.client.model.PersonModel;
 import arcus.app.R;
-import arcus.app.account.settings.data.WalkthroughType;
+import arcus.app.account.settings.WalkthroughType;
 import arcus.app.account.settings.walkthroughs.SecurityWalkthroughFragment;
 import arcus.app.account.settings.walkthroughs.WalkthroughBaseFragment;
 import arcus.app.common.backstack.BackstackManager;

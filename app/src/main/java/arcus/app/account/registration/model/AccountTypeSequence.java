@@ -24,7 +24,7 @@ import arcus.app.account.registration.AccountCongratsFragment;
 import arcus.app.account.registration.AccountEmailPasswordFragment;
 import arcus.app.account.registration.AccountPremiumPlanFragment;
 import arcus.app.account.registration.AccountSecurityQuestionsFragment;
-import arcus.app.account.settings.SettingsUpdatePin;
+import arcus.app.account.settings.pin.SettingsUpdatePin;
 import arcus.app.common.sequence.SequencedFragment;
 import arcus.app.common.sequence.StaticSequence;
 import arcus.app.subsystems.people.PersonInvitationCongratsFragment;
