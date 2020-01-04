@@ -15,6 +15,7 @@
  */
 package arcus.presentation.common.view
 
+import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -41,6 +42,11 @@ abstract class ViewStateViewModel<T> : ViewModel() {
 
     protected inline fun <reified T : Any> MutableLiveData<ViewState<T>>.postLoadedValue(value: T) {
         postValue(ViewState.Loaded(value))
+    }
+
+    @MainThread
+    protected fun emitLoading() {
+        _viewState.value = ViewState.Loading()
     }
 
     /**
