@@ -28,6 +28,14 @@
         <item name="android:buttonTint">@color/sclera_green_tutorial_banner</item>
     </style>
 
+    <!-- CheckedText -->
+    <style name="Widget.Arcus.CheckedTextItem" parent="Widget.AppCompat.TextView">
+        <item name="android:drawableStart">@drawable/sclera_checkbox_selector</item>
+        <item name="drawableTint">@color/checked_text_enabled_disabled_tint</item>
+        <item name="android:drawablePadding">@dimen/keyline_2</item>
+        <item name="android:textAppearance">@style/Widget.Arcus.TextAppearance.Body.Medium</item>
+    </style>
+
     <!-- Button -->
     <style name="Widget.Arcus.Button" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:fontFamily">@font/nunito_demi</item>

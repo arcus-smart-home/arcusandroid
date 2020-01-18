@@ -16,9 +16,9 @@
 -->
 <resources>
     <style name="Widget.Arcus.TextAppearance">
-        <item name="android:textColor">@color/sclera_text_color_dark</item>
-        <item name="android:textColorLink">@color/sclera_text_color_dark</item>
-        <item name="android:textColorLinkInverse">@color/white</item>
+        <item name="android:textColor">@color/text_enabled_disabled</item>
+        <item name="android:textColorLink">@color/text_enabled_disabled</item>
+        <item name="android:textColorLinkInverse">@color/text_enabled_disabled_light</item>
         <item name="android:fontFamily">@font/nunito</item>
 
         <item name="drawableTint">@color/black</item>
@@ -27,9 +27,9 @@
     <style name="Widget.Arcus.TextAppearance.ErrorBanner">
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/nunito</item>
-        <item name="android:textColor">@color/sclera_text_color_light</item>
-        <item name="android:textColorLink">@color/sclera_text_color_light</item>
-        <item name="android:textColorLinkInverse">@color/sclera_text_color_dark</item>
+        <item name="android:textColor">@color/text_enabled_disabled_light</item>
+        <item name="android:textColorLink">@color/text_enabled_disabled_light</item>
+        <item name="android:textColorLinkInverse">@color/text_enabled_disabled</item>
     </style>
 
     <style name="Widget.Arcus.TextAppearance.Caption">
@@ -69,11 +69,11 @@
 
     <style name="Widget.Arcus.TextAppearance.Body.Large.ErrorTitle">
         <item name="android:fontFamily">@font/nunito_demi</item>
-        <item name="android:textColor">@color/sclera_text_color_light</item>
+        <item name="android:textColor">@color/text_enabled_disabled_light</item>
     </style>
 
     <style name="Widget.Arcus.TextAppearance.Body.ErrorDescription">
-        <item name="android:textColor">@color/sclera_text_color_light</item>
+        <item name="android:textColor">@color/text_enabled_disabled_light</item>
     </style>
 
     <style name="Widget.Arcus.TextAppearance.ListItemHeader">
@@ -84,6 +84,6 @@
     <style name="Widget.Arcus.TextAppearance.ListItemDescription">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/nunito_italic</item>
-        <item name="android:textColor">@color/black_with_60</item>
+        <item name="android:textColor">@color/text_enabled_disabled</item>
     </style>
 </resources>
