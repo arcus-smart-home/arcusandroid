@@ -29,7 +29,6 @@ import arcus.app.common.fragments.BaseFragment;
 import arcus.app.common.utils.PreferenceCache;
 import arcus.app.common.utils.PreferenceUtils;
 import arcus.app.common.view.Version1TextView;
-import com.viewpagerindicator.CirclePageIndicator;
 
 public class HistoryWalkthroughFragment extends BaseFragment {
 
@@ -41,7 +40,6 @@ public class HistoryWalkthroughFragment extends BaseFragment {
 
 
     private View closeButton;
-    private CirclePageIndicator indicator;
     private Version1TextView title;
     private Version1TextView description;
     private ImageView introArcusPhoto;
@@ -81,8 +79,6 @@ public class HistoryWalkthroughFragment extends BaseFragment {
 
         if (view != null) {
             int position = getArguments().getInt("POSITION", 0);
-
-            indicator = (CirclePageIndicator) view.findViewById(R.id.introduction_indicator);
             title = (Version1TextView) view.findViewById(R.id.intro_arcus_title);
             description = (Version1TextView) view.findViewById(R.id.intro_arcus_des);
             introArcusPhoto = (ImageView) view.findViewById(R.id.intro_arcus_photo);

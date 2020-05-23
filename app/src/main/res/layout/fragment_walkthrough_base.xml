@@ -15,6 +15,7 @@
   limitations under the License.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:clickable="true"
     android:background="@drawable/purple_gradient"
@@ -26,12 +27,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.viewpagerindicator.CirclePageIndicator
-        android:id="@+id/introduction_indicator"
+    <TextView
+        android:id="@+id/page_counter"
+        style="@style/Widget.Arcus.TextView.Light"
         android:layout_width="match_parent"
-        android:layout_height="26dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_alignParentBottom="true"
-         />
+        android:padding="@dimen/small_padding"
+        tools:text="1/2"
+        />
 
 </RelativeLayout>

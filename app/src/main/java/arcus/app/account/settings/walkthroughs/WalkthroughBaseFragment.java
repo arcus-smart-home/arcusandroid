@@ -16,28 +16,28 @@
 package arcus.app.account.settings.walkthroughs;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import arcus.app.R;
-import arcus.app.account.settings.adapter.WalkthroughPagerAdapter;
-import arcus.app.account.settings.WalkthroughType;
-import arcus.app.common.fragments.BaseFragment;
-import com.viewpagerindicator.CirclePageIndicator;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
+
+import arcus.app.R;
+import arcus.app.account.settings.WalkthroughType;
+import arcus.app.account.settings.adapter.WalkthroughPagerAdapter;
+import arcus.app.common.fragments.BaseFragment;
 
 public class WalkthroughBaseFragment extends BaseFragment {
     public interface DestroyedCallback {
         void walkthroughFragmentDestroyed();
     }
 
-    private CirclePageIndicator indicator;
+    private TextView pageCountTextView;
+    private WalkthroughPagerAdapter adapter;
     private Reference<DestroyedCallback> callbackRef = new WeakReference<>(null);
 
 
@@ -81,11 +81,15 @@ public class WalkthroughBaseFragment extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = super.onCreateView(inflater, container, savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Bundle args = getArguments();
+        if (args == null) {
+            return;
+        }
 
-        WalkthroughType walkthroughType = (WalkthroughType) getArguments().getSerializable("WALKTHROUGH_TYPE");
-        WalkthroughPagerAdapter adapter = null;
+        WalkthroughType walkthroughType = (WalkthroughType) args.getSerializable("WALKTHROUGH_TYPE");
+        adapter = null;
         switch(walkthroughType){
             case CLIMATE:
                 adapter = new WalkthroughPagerAdapter(getFragmentManager(), 5, WalkthroughType.CLIMATE);
@@ -106,12 +110,18 @@ public class WalkthroughBaseFragment extends BaseFragment {
                 adapter = new WalkthroughPagerAdapter(getFragmentManager(), 6, WalkthroughType.RULES);
                 break;
         }
-        ViewPager viewPager = (ViewPager) v.findViewById(R.id.walkthrough_view_pager);
+
+        if (adapter == null) {
+            return;
+        }
+
+        ViewPager viewPager = view.findViewById(R.id.walkthrough_view_pager);
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(1);
         viewPager.getCurrentItem();
-        indicator = (CirclePageIndicator) v.findViewById(R.id.introduction_indicator);
-        indicator.setViewPager(viewPager);
+
+        pageCountTextView = view.findViewById(R.id.page_counter);
+        pageCountTextView.setText(getPageCountText(1));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i2) {
@@ -119,7 +129,7 @@ public class WalkthroughBaseFragment extends BaseFragment {
 
             @Override
             public void onPageSelected( int i) {
-                indicator.setCurrentItem(i);
+                pageCountTextView.setText(getPageCountText(i + 1));
             }
 
             @Override
@@ -127,7 +137,10 @@ public class WalkthroughBaseFragment extends BaseFragment {
 
             }
         });
-        return v;
+    }
+
+    private String getPageCountText(int onPage) {
+        return onPage + "/" + adapter.getCount();
     }
 
     @Nullable
