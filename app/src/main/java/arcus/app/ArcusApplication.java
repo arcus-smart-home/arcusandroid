@@ -20,24 +20,23 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.DefaultLifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.multidex.MultiDex;
-
-import arcus.cornea.CorneaService;
-
-import arcus.app.common.models.RegistrationContext;
-import arcus.app.common.utils.PreferenceUtils;
-import arcus.cornea.network.NetworkConnectionMonitor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import arcus.app.common.models.RegistrationContext;
+import arcus.app.common.utils.PreferenceUtils;
+import arcus.cornea.CorneaService;
+import arcus.cornea.network.NetworkConnectionMonitor;
 
 public class ArcusApplication extends Application {
     private static final AtomicBoolean shouldReload = new AtomicBoolean(false);
@@ -115,9 +114,9 @@ public class ArcusApplication extends Application {
         ProcessLifecycleOwner
                 .get()
                 .getLifecycle()
-                .addObserver(new LifecycleObserver() {
-                    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-                    public void onForeground() {
+                .addObserver(new DefaultLifecycleObserver() {
+                    @Override
+                    public void onResume(@NonNull LifecycleOwner owner) {
                         NetworkConnectionMonitor.getInstance().startListening(ArcusApplication.this);
 
                         // Go back to 30-second timeout
@@ -127,8 +126,8 @@ public class ArcusApplication extends Application {
                         handler.removeCallbacks(closeCorneaRunnable);
                     }
 
-                    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-                    public void onBackground() {
+                    @Override
+                    public void onPause(@NonNull LifecycleOwner owner) {
                         logger.debug("Application is backgrounded, posting delayed connection close.");
                         handler.postDelayed(closeCorneaRunnable, DELAY_BEFORE_CLOSE_MS);
                         NetworkConnectionMonitor.getInstance().stopListening(ArcusApplication.this);
