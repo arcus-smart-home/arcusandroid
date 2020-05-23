@@ -65,7 +65,7 @@ class SettingsProfileFragment : NoViewModelFragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let { args ->
-            placesWithRoles = args.getParcelable(PLACE_ROLE) as PlacesWithRoles
+            placesWithRoles = args.getParcelable(PLACE_ROLE)!!
         }
     }
 

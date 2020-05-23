@@ -1,77 +1,113 @@
 ext {
     minSdk = 21
-    compileSdk = 28
-    targetSdk = 28
+    compileSdk = 29
+    targetSdk = 29
     renderScriptTarget = 21
-    supportLibraryVersion = "27.0.2"
-    googleVersion = "17.0.0"
-    constraintLayoutVersion = "1.1.1"
-    multiDexVersion = "1.0.3"
-    atslVersion = "1.0.1"
-    kotlin_version = "1.3.61"
-    exoplayerVersion = "2.8.1"
-    daggerVersion = "2.25.2"
-    ktlintVersion = "0.36.0"
 
+    versions = [
+        advRecView: "0.11.0",
+        annotation: "1.1.0",
+        appcompat: "1.1.0",
+        coreKtx: "1.2.0",
+        coroutinesAndroid: "1.3.3",
+        coroutinesCore: "1.3.3",
+        constraintLayout: "1.1.3",
+        dagger: '2.27',
+        dexcountGradle: "0.8.2",
+        dexList: '2.4.5',
+        exoplayer: "2.8.1",
+        eventBus: "2.4.0",
+        gifDrawable: "1.2.8",
+        gmsAuth: '18.0.0',
+        gmsGcm: "17.0.0",
+        gmsLocation: "17.0.0",
+        gradleTools: "4.0.0-rc01",
+        kotlin: "1.3.72",
+        ktlint: "0.36.0",
+        ktlintGradle: "9.1.1",
+        lifecycleCommonJava8: "2.2.0",
+        lifecycleExtensions: '2.2.0',
+        lifecycleViewModelKtx: "2.2.0",
+        material: '1.2.0-alpha06',
+        multidex: "2.0.1",
+        ninedroids: "2.4.0",
+        noveo: "1.3.6",
+        okhttp: '4.7.2',
+        okhttpLoggingInterceptor: '4.7.2',
+        picasso: '2.5.2',
+        rxAndroid: "2.1.1",
+        rxJava: "2.2.13",
+        swipeRefreshLayout: "1.0.0",
+
+        // Test
+        androidTestRules: "1.2.0",
+        androidTestRunner: "1.1.1",
+        archCore: "2.1.0",
+        junit: '4.13',
+        mockitoCore: "2.19.0",
+        mockitoAndroid: "2.13.0",
+        mockitoKotlin: "1.5.0",
+        truth: '1.0.1',
+    ]
 
     deps = [:]
-
     deps.classpath = [:]
-    deps.classpath.gradleTools = "com.android.tools.build:gradle:3.6.0-rc01"
-    deps.classpath.dexCount = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.2"
-    deps.classpath.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    deps.classpath.ktlintPlugin = "org.jlleitschuh.gradle:ktlint-gradle:9.1.1"
+    deps.classpath.gradleTools = "com.android.tools.build:gradle:${versions.gradleTools}"
+    deps.classpath.dexCount = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:${versions.dexcountGradle}"
+    deps.classpath.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+    deps.classpath.ktlintPlugin = "org.jlleitschuh.gradle:ktlint-gradle:${versions.ktlintGradle}"
 
     // Deps
-    deps.appcompat = "androidx.appcompat:appcompat:1.0.0"
-    deps.annotations = "androidx.annotation:annotation:1.0.0"
-    deps.design = "com.google.android.material:material:1.1.0-beta02"
-    deps.androidLifecycle = "androidx.lifecycle:lifecycle-extensions:2.1.0"
-    deps.androidLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
-    deps.swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-    deps.androidCoreKtx = "androidx.core:core-ktx:1.1.0"
-    deps.dagger = "com.google.dagger:dagger:$daggerVersion"
-    deps.daggerApt = "com.google.dagger:dagger-compiler:$daggerVersion"
+    deps.appcompat = "androidx.appcompat:appcompat:${versions.appcompat}"
+    deps.annotations = "androidx.annotation:annotation:${versions.annotation}"
+    deps.design = "com.google.android.material:material:${versions.material}"
+    deps.androidLifecycle = "androidx.lifecycle:lifecycle-extensions:${versions.lifecycleExtensions}"
+    deps.androidLifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleCommonJava8}"
+    deps.androidLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleViewModelKtx}"
+    deps.swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${versions.swipeRefreshLayout}"
+    deps.androidCoreKtx = "androidx.core:core-ktx:${versions.coreKtx}"
+    deps.dagger = "com.google.dagger:dagger:${versions.dagger}"
+    deps.daggerApt = "com.google.dagger:dagger-compiler:${versions.dagger}"
 
-    deps.rx = "io.reactivex.rxjava2:rxjava:2.2.13"
-    deps.rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
-    deps.coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3"
-    deps.coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3"
-    deps.okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.2.2"
+    deps.rx = "io.reactivex.rxjava2:rxjava:${versions.rxJava}"
+    deps.rxAndroid = "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+    deps.coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutinesCore}"
+    deps.coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutinesAndroid}"
+    deps.okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttpLoggingInterceptor}"
 
-    deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    deps.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
 
-    deps.constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
-    deps.multiDex = "androidx.multidex:multidex:2.0.0"
+    deps.constraintLayout = "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+    deps.multiDex = "androidx.multidex:multidex:${versions.multidex}"
 
-    deps.playServicesAuth = "com.google.android.gms:play-services-auth:$googleVersion"
-    deps.playServicesGcm = "com.google.android.gms:play-services-gcm:$googleVersion"
-    deps.locationServices = "com.google.android.gms:play-services-location:$googleVersion"
+    deps.playServicesAuth = "com.google.android.gms:play-services-auth:${versions.gmsAuth}"
+    deps.playServicesGcm = "com.google.android.gms:play-services-gcm:${versions.gmsGcm}"
+    deps.locationServices = "com.google.android.gms:play-services-location:${versions.gmsLocation}"
 
-    deps.eventBus = "de.greenrobot:eventbus:2.4.0" // Apache 2
-    deps.gifDrawable = "pl.droidsonroids.gif:android-gif-drawable:1.2.8" // MIT for animated gifs
-    deps.dexaMaterialList = "com.github.dexafree:materiallist:2.4.5" // MIT for Card Based Dashboard
-    deps.advRecyclerView  = "com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.11.0@aar" // Apache 2
+    deps.eventBus = "de.greenrobot:eventbus:${versions.eventBus}" // Apache 2
+    deps.gifDrawable = "pl.droidsonroids.gif:android-gif-drawable:${versions.gifDrawable}" // MIT for animated gifs
+    deps.dexaMaterialList = "com.github.dexafree:materiallist:${versions.dexList}" // MIT for Card Based Dashboard
+    deps.advRecyclerView  = "com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:${versions.advRecView}@aar" // Apache 2
 
-    deps.picasso = "com.squareup.picasso:picasso:2.5.2" // Apache 2
-    deps.okhttp = "com.squareup.okhttp3:okhttp:4.2.2" // Apache 2
+    deps.picasso = "com.squareup.picasso:picasso:${versions.picasso}" // Apache 2
+    deps.okhttp = "com.squareup.okhttp3:okhttp:${versions.okhttp}" // Apache 2
 
-    deps.ninedroids = "com.nineoldandroids:library:2.4.0"
-    deps.noveoLogger = dependencies.create("com.noveogroup.android:android-logger:1.3.5") {
+    deps.ninedroids = "com.nineoldandroids:library:${versions.ninedroids}"
+    deps.noveoLogger = dependencies.create("com.noveogroup.android:android-logger:${versions.noveo}") {
         exclude group: "org.slf4j", module: "slf4j-api"
     }
 
-    deps.exoplayer_core = "com.google.android.exoplayer:exoplayer-core:$exoplayerVersion"
-    deps.exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:$exoplayerVersion"
-    deps.exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:$exoplayerVersion"
+    deps.exoplayer_core = "com.google.android.exoplayer:exoplayer-core:${versions.exoplayer}"
+    deps.exoplayer_ui = "com.google.android.exoplayer:exoplayer-ui:${versions.exoplayer}"
+    deps.exoplayer_hls = "com.google.android.exoplayer:exoplayer-hls:${versions.exoplayer}"
 
     deps.test = [:]
-    deps.test.junit    = "junit:junit:4.12"
-    deps.test.mockitoCore = "org.mockito:mockito-core:2.13.0"
-    deps.test.mockitoAndroid = "org.mockito:mockito-android:2.13.0"
-    deps.test.androidTestRunner = "androidx.test.ext:junit:1.1.1"
-    deps.test.androidTestRules = "androidx.test:rules:1.1.1"
-    deps.test.truth = "com.google.truth:truth:0.37"
-    deps.test.mockitoKotlin = "com.nhaarman:mockito-kotlin:1.5.0"
-    deps.test.archCore = "android.arch.core:core-testing:2.1.0"
+    deps.test.junit = "junit:junit:${versions.junit}"
+    deps.test.mockitoCore = "org.mockito:mockito-core:${versions.mockitoCore}"
+    deps.test.mockitoAndroid = "org.mockito:mockito-android:${versions.mockitoAndroid}"
+    deps.test.androidTestRunner = "androidx.test.ext:junit:${versions.androidTestRunner}"
+    deps.test.androidTestRules = "androidx.test:rules:${versions.androidTestRules}"
+    deps.test.truth = "com.google.truth:truth:${versions.truth}"
+    deps.test.mockitoKotlin = "com.nhaarman:mockito-kotlin:${versions.mockitoKotlin}"
+    deps.test.archCore = "android.arch.core:core-testing:${versions.archCore}"
 }

@@ -155,7 +155,7 @@ class InputPairingStepFragment : Fragment(), DataFragment {
                         counterMaxLength = input.maxLength
                     }
 
-                    val editText = TextInputEditText(context)
+                    val editText = TextInputEditText(context!!)
                     editText.textSize = inputTextSize
                     editText.hint = input.label
                     editText.setSingleLine()

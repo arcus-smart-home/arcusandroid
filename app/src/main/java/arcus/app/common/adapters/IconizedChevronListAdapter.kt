@@ -33,12 +33,12 @@ import java.util.ArrayList
 open class IconizedChevronListAdapter : ArrayAdapter<ListItemModel?> {
     var isUseLightColorScheme = true
 
-    constructor(context: Context?) : super(context, 0)
-    constructor(context: Context?, data: ArrayList<ListItemModel>) : super(context, 0) {
+    constructor(context: Context?) : super(context!!, 0)
+    constructor(context: Context?, data: ArrayList<ListItemModel>) : super(context!!, 0) {
         super.addAll(data)
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.listdata_item, parent, false)

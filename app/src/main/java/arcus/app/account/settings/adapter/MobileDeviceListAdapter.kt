@@ -26,7 +26,7 @@ import arcus.app.R
 import com.iris.client.model.MobileDeviceModel
 
 class MobileDeviceListAdapter(context: Context?) :
-    ArrayAdapter<MobileDeviceModel?>(context, 0) {
+    ArrayAdapter<MobileDeviceModel?>(context!!, 0) {
     var editEnabled = false
         set(enabled) {
             field = enabled
@@ -38,7 +38,7 @@ class MobileDeviceListAdapter(context: Context?) :
         fun onDelete(mobileDeviceModel: MobileDeviceModel?)
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.cell_mobile_device, parent, false)

@@ -122,7 +122,7 @@ class SettingsPushNotificationsFragment : NoViewModelFragment(),
 
         if (hasOtherDevices) {
             mobileDeviceListAdapter.clear()
-            mobileDeviceListAdapter.addAll(otherDevices)
+            mobileDeviceListAdapter.addAll(otherDevices ?: emptyList())
             mobileDeviceListAdapter.notifyDataSetInvalidated()
         }
 
