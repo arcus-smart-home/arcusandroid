@@ -54,7 +54,6 @@ import de.greenrobot.event.EventBus;
 
 public class DeviceDetailParentFragment extends BaseFragment implements DeviceDetailFragment.DeviceDetailCallback, SlidingTabLayout.TabClickCallback {
     private static final String SELECTED_POSITION = "selected_position";
-    private static final String DEVICE_TYPE = "DEVICE_TYPE";
 
     private int mCurrentSelectedPosition = 0;
 
@@ -67,7 +66,7 @@ public class DeviceDetailParentFragment extends BaseFragment implements DeviceDe
     @NonNull
     public static DeviceDetailParentFragment newInstance(String deviceAddress) {
         int position = SessionModelManager.instance().indexOf(CorneaUtils.getIdFromAddress(deviceAddress), true);
-        return newInstance(position < 0 ? 0 : position);
+        return newInstance(Math.max(position, 0));
     }
 
     @NonNull
@@ -147,13 +146,10 @@ public class DeviceDetailParentFragment extends BaseFragment implements DeviceDe
             }
         });
 
-        viewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                viewPager.setCurrentItem(mCurrentSelectedPosition, false);
-                if (mCurrentSelectedPosition == 0) {
-                    updatePageUI(mCurrentSelectedPosition);
-                }
+        viewPager.post(() -> {
+            viewPager.setCurrentItem(mCurrentSelectedPosition, false);
+            if (mCurrentSelectedPosition == 0) {
+                updatePageUI(mCurrentSelectedPosition);
             }
         });
 
@@ -177,14 +173,18 @@ public class DeviceDetailParentFragment extends BaseFragment implements DeviceDe
 
     private void populate(){
         if(adapter == null) {
-            adapter = new DeviceDetailViewPagerAdapter(getActivity(), getChildFragmentManager(), getFragments());
+            adapter = new DeviceDetailViewPagerAdapter(
+                    requireContext().getResources(),
+                    getChildFragmentManager(),
+                    getFragments()
+            );
         }
         adapter.notifyDataSetChanged();
         viewPager.setAdapter(adapter);
     }
 
     public void updatePageUI(int position){
-        final BaseFragment fragment = (BaseFragment) adapter.getFragment(position);
+        final BaseFragment fragment = (BaseFragment) adapter.getItem(position);
 
         updatePageContents(fragment);
 
@@ -197,25 +197,21 @@ public class DeviceDetailParentFragment extends BaseFragment implements DeviceDe
         int color = -1;
         if (fragment instanceof DeviceMoreFragment) {
             moveViewBelow(R.id.banner_placeholder);
-            DeviceDetailFragment detailsFragment = (DeviceDetailFragment) adapter.getFragment(0);
-            if (detailsFragment != null) {
-                String device = detailsFragment.getCurrentDeviceId();
-                ((DeviceMoreFragment) fragment).setDeviceId(device);
-                DeviceModel model = detailsFragment.getCurrentDeviceModel();
-                if(model != null) {
-                    if(model instanceof HubModel) {
-                        fragment.updateBackground(!Hub.STATE_DOWN.equals(model.get(Hub.ATTR_STATE)));
-                    }
-                    else {
-                        DeviceConnection connection = (DeviceConnection) model;
-                        fragment.updateBackground(!DeviceConnection.STATE_OFFLINE.equals(connection.getState()));
-                    }
-
+            DeviceDetailFragment detailsFragment = (DeviceDetailFragment) adapter.getItem(0);
+            String device = detailsFragment.getCurrentDeviceId();
+            ((DeviceMoreFragment) fragment).setDeviceId(device);
+            DeviceModel model = detailsFragment.getCurrentDeviceModel();
+            if(model != null) {
+                if(model instanceof HubModel) {
+                    fragment.updateBackground(!Hub.STATE_DOWN.equals(model.get(Hub.ATTR_STATE)));
                 }
+                else {
+                    DeviceConnection connection = (DeviceConnection) model;
+                    fragment.updateBackground(!DeviceConnection.STATE_OFFLINE.equals(connection.getState()));
+                }
+
             }
-            if(fragment != null) {
-                color = fragment.getColorFilterValue();
-            }
+            color = fragment.getColorFilterValue();
         } else {
             moveViewBelow(0);
             if(fragment != null) {
@@ -274,13 +270,13 @@ public class DeviceDetailParentFragment extends BaseFragment implements DeviceDe
 
     @Override
     public void update() {
-        final BaseFragment fragment = (BaseFragment) adapter.getFragment(mCurrentSelectedPosition);
+        final BaseFragment fragment = (BaseFragment) adapter.getItem(mCurrentSelectedPosition);
         updatePageContents(fragment);
     }
 
     @Override
     public boolean enableTabClick(int position) {
-        DeviceDetailFragment detailsFragment = (DeviceDetailFragment) adapter.getFragment(0);
+        DeviceDetailFragment detailsFragment = (DeviceDetailFragment) adapter.getItem(0);
         DeviceModel deviceModel = detailsFragment.getCurrentDeviceModel();
 
         if (deviceModel != null && detailsFragment.isUpgradingFirmware() && position == 1) {

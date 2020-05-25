@@ -15,40 +15,38 @@
  */
 package arcus.app.device.adapter;
 
-import android.content.Context;
-import android.os.Bundle;
+import android.content.res.Resources;
+
+import org.jetbrains.annotations.NotNull;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import android.view.ViewGroup;
 
-import java.util.HashMap;
+import arcus.app.R;
+
 import java.util.List;
-import java.util.Map;
-
 
 public class DeviceDetailViewPagerAdapter extends FragmentPagerAdapter {
-
     @NonNull
-    private String[] tabTitles = {"DEVICE", "MORE"};
+    private final String[] tabTitles;
+    private final List<Fragment> fragments;
 
-    private List<Fragment> fragments;
-
-    private FragmentManager fm;
-    private Map<Integer,String> fragmentTags;
-
-    private Context context;
-
-    public DeviceDetailViewPagerAdapter(Context context,FragmentManager fm, List<Fragment> fragments) {
-        super(fm);
-        this.context = context;
-        this.fm = fm;
+    public DeviceDetailViewPagerAdapter(
+            Resources resources,
+            FragmentManager fragmentManager,
+            List<Fragment> fragments
+    ) {
+        super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.fragments = fragments;
-        fragmentTags = new HashMap<>();
+        tabTitles = new String[] {
+                resources.getString(R.string.history_filter_device),
+                resources.getString(R.string.homenfamily_tab_more)
+        };
     }
 
+    @NotNull
     @Override
     public Fragment getItem(int position) {
         return fragments.get(position);
@@ -62,28 +60,5 @@ public class DeviceDetailViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return tabTitles[position];
-    }
-
-    @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        Object object = super.instantiateItem(container, position);
-        if(object instanceof Fragment){
-            //record fragment tag here
-            Fragment f = (Fragment) object;
-            String tag = f.getTag();
-            fragmentTags.put(position, tag);
-        }
-        return object;
-    }
-
-    public void addFragment(@NonNull Class<Fragment> fragment, String title,Bundle b){
-        fragments.add(Fragment.instantiate(context,fragment.getName(),b));
-    }
-
-    @Nullable
-    public Fragment getFragment(int position){
-        String tag = fragmentTags.get(position);
-        if(tag ==null) return null;
-        return fm.findFragmentByTag(tag);
     }
 }
