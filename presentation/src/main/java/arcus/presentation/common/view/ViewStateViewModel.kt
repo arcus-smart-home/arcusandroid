@@ -66,4 +66,25 @@ abstract class ViewStateViewModel<T> : ViewModel() {
         start: CoroutineStart = CoroutineStart.DEFAULT,
         block: suspend CoroutineScope.() -> Unit
     ) = viewModelScope.launch(context, start, block)
+
+    /**
+     * Launches a coroutine from within the [viewModelScope] and captures the output as a `ViewState.Error` if the
+     * [block] fails with an exception. This sets the view state to loading _before_ calling [block].
+     *
+     * @see launch for explanation of params.
+     */
+    protected fun safeLoad(
+        context: CoroutineContext = CoroutineExceptionHandler { _, throwable ->
+            _viewState.value = ViewState.Error(throwable, ViewError.GENERIC)
+            logger.error(
+                "Unhandled exception in ViewModel: ${this@ViewStateViewModel::class.java.simpleName}",
+                throwable
+            )
+        },
+        start: CoroutineStart = CoroutineStart.DEFAULT,
+        block: suspend CoroutineScope.() -> Unit
+    ) = safeLaunch(context, start) {
+        emitLoading()
+        block()
+    }
 }
