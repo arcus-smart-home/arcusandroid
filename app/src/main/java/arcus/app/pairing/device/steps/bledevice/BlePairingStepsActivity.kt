@@ -91,7 +91,7 @@ class BlePairingStepsActivity : PairingStepsActivity(), BleStepsNavigationDelega
                 return
             }
 
-            circlePageIndicator.setCurrentItem(position)
+            setPageIndicatorText(position + 1)
             if (snackBar?.isShownOrQueued() == true) {
                 snackBar?.dismiss()
             }
@@ -206,7 +206,7 @@ class BlePairingStepsActivity : PairingStepsActivity(), BleStepsNavigationDelega
         }
 
         if (isForReconnect) {
-            circlePageIndicator.visibility = View.GONE
+            pageIndicator.visibility = View.GONE
             (viewPager as? DisableSwipeViewPager)?.disableSwipe = DisableSwipeViewPager.DisableSwipe.BOTH
         }
     }

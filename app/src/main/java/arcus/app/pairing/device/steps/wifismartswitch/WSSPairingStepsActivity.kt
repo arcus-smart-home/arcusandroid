@@ -59,7 +59,7 @@ class WSSPairingStepsActivity : PairingStepsActivity(), WSSStepsNavigationDelega
             }
 
             override fun onPageSelected(position: Int) {
-                circlePageIndicator.setCurrentItem(position)
+                setPageIndicatorText(position + 1)
                 if (snackBar?.isShownOrQueued() == true) {
                     snackBar?.dismiss()
                 }

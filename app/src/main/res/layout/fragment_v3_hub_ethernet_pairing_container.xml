@@ -17,6 +17,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true">
@@ -52,8 +53,9 @@
         app:layout_constraintBottom_toTopOf="@id/next_button"
         />
 
-    <com.viewpagerindicator.CirclePageIndicator
+    <TextView
         android:id="@+id/page_indicator"
+        style="@style/Widget.Arcus.TextAppearance.Subtitle"
         android:layout_width="@dimen/match_constraint"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
@@ -63,12 +65,8 @@
         app:layout_constraintBottom_toTopOf="@+id/next_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:fillColor="@color/sclera_tab_green"
-        app:pageColor="@color/sclera_paging_indicator_not_selected_page"
-        app:strokeColor="@android:color/transparent"
-        app:radius="@dimen/sclera_page_indicator_radius"
-        app:snap="false"
-        app:extraSpacing="@dimen/sclera_extra_page_indicator_spacing"
+        android:gravity="center"
+        tools:text="1/20"
         />
 
     <Button

@@ -16,6 +16,7 @@
 package arcus.app.pairing.device.steps
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -38,10 +39,11 @@ import arcus.app.common.utils.ActivityUtils
 import android.widget.Button
 import arcus.app.common.view.ScleraTextView
 import arcus.app.pairing.device.searching.DeviceSearchingActivity
-import com.viewpagerindicator.CirclePageIndicator
 import android.text.Spannable
 import android.text.style.ForegroundColorSpan
 import android.text.SpannableString
+import android.widget.TextView
+import androidx.fragment.app.FragmentPagerAdapter
 import arcus.app.activities.ConnectedActivity
 import arcus.app.common.utils.GlobalSetting
 import arcus.app.pairing.device.steps.deviceadded.DeviceAddedSnackBar
@@ -64,7 +66,7 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
         private set
     lateinit var viewPager : ViewPager
         private set
-    lateinit var circlePageIndicator : CirclePageIndicator
+    lateinit var pageIndicator : TextView
         private set
     lateinit var nextButton : Button
         private set
@@ -92,7 +94,7 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
 
         productAddress = intent.getStringExtra(ARG_PRODUCT_ADDRESS) ?: "_ERROR_NO_ADDRESS_FOUND_"
         viewPager = findViewById(R.id.view_pager)
-        circlePageIndicator = findViewById(R.id.circle_page_indicator)
+        pageIndicator = findViewById(R.id.page_indicator)
         nextButton = findViewById(R.id.next_button)
         setupButton = findViewById(R.id.setup_button)
         watchTutorialBanner = findViewById(R.id.watch_tutorial_banner)
@@ -160,16 +162,24 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
                 ) == PackageManager.PERMISSION_GRANTED
             val fragments = StepFragmentFactory.forStepList(steps, hasLocationPermission)
 
-            adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {
+            adapter = object : FragmentStatePagerAdapter(
+                supportFragmentManager,
+                FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+            ) {
                 override fun getItem(position: Int): Fragment = fragments[position]
                 override fun getCount(): Int = fragments.size
             }
             viewPager.adapter = adapter
 
-            circlePageIndicator.setViewPager(viewPager)
-            circlePageIndicator.setOnPageChangeListener(getPageChangedListener(fragments))
+            setPageIndicatorText(1)
+            viewPager.addOnPageChangeListener(getPageChangedListener(fragments))
             updateNextButtonText(0)
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    protected fun setPageIndicatorText(currentPage: Int) {
+        pageIndicator.text = "$currentPage/${viewPager.adapter?.count ?: currentPage}"
     }
 
     open fun getPageChangedListener(fragments: List<Fragment>) : ViewPager.OnPageChangeListener {
@@ -183,7 +193,7 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
             }
 
             override fun onPageSelected(position: Int) {
-                circlePageIndicator.setCurrentItem(position)
+                setPageIndicatorText(position + 1)
                 if (snackBar?.isShownOrQueued() == true) {
                     snackBar?.dismiss()
                 }
@@ -319,7 +329,7 @@ open class PairingStepsActivity : ConnectedActivity(), PairingStepsView, StepsNa
 
             viewPager.adapter = adapter
 
-            circlePageIndicator.visibility = View.GONE
+            pageIndicator.visibility = View.GONE
 
             nextButton.text = ""
             disableContinue()

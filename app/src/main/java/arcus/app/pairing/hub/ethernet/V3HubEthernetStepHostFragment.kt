@@ -15,23 +15,24 @@
  */
 package arcus.app.pairing.hub.ethernet
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import arcus.app.R
 import arcus.app.common.fragment.ValidationFragment
 import arcus.app.common.steps.container.StepContainerFragment
 import arcus.app.common.utils.VideoUtils
 import arcus.app.pairing.hub.V3HubSearchingFragment
-import com.viewpagerindicator.CirclePageIndicator
 
 
 class V3HubEthernetStepHostFragment : StepContainerFragment(),
     V3HubPairingStepContainer {
-    private lateinit var pageIndicator: CirclePageIndicator
+    private lateinit var pageIndicator: TextView
     private lateinit var nextButton: Button
     private lateinit var viewPager: ViewPager
 
@@ -55,6 +56,7 @@ class V3HubEthernetStepHostFragment : StepContainerFragment(),
 
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
         if (fragments.isEmpty()) {
@@ -77,8 +79,17 @@ class V3HubEthernetStepHostFragment : StepContainerFragment(),
                 override fun getCount(): Int = fragments.size
             })
 
-            pageIndicator.setOnPageChangeListener(pageChangedListener)
-            pageIndicator.setViewPager(viewPager, viewPager.currentItem)
+            pageIndicator.text = "1/${viewPager.adapter?.count ?: 1}"
+            viewPager.addOnPageChangeListener(pageChangedListener)
+            viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrollStateChanged(state: Int) {}
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+                override fun onPageSelected(position: Int) {
+                    val pos = position + 1 // `position` is 0 based, we don't want that.
+                    pageIndicator.text = "$pos/${viewPager.adapter?.count ?: pos}"
+                }
+            })
         }
 
         setTitle(getString(R.string.pairing_hub))

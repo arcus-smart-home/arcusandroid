@@ -77,23 +77,20 @@
             tools:visibility="visible"
             />
 
-        <com.viewpagerindicator.CirclePageIndicator
-            android:id="@+id/circle_page_indicator"
+        <TextView
+            android:id="@+id/page_indicator"
+            style="@style/Widget.Arcus.TextAppearance.Subtitle"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/sclera_status_bar_top_margin"
             android:layout_marginBottom="@dimen/sclera_status_bar_top_margin"
             android:layout_marginEnd="@dimen/sclera_widget_edge_combined"
             android:layout_marginStart="@dimen/sclera_widget_edge_combined"
+            android:gravity="center"
             app:layout_constraintBottom_toTopOf="@+id/setup_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:fillColor="@color/sclera_tab_green"
-            app:pageColor="@color/sclera_paging_indicator_not_selected_page"
-            app:strokeColor="@android:color/transparent"
-            app:radius="@dimen/sclera_page_indicator_radius"
-            app:snap="false"
-            app:extraSpacing="@dimen/sclera_extra_page_indicator_spacing"
+            tools:text="1/20"
             />
 
         <include layout="@layout/banner_sclera_chevron"/>
@@ -126,7 +123,7 @@
             android:layout_width="@dimen/match_constraint"
             android:layout_height="@dimen/match_constraint"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/circle_page_indicator"
+            app:layout_constraintBottom_toTopOf="@+id/page_indicator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/watch_tutorial_banner" />

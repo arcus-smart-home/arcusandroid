@@ -108,7 +108,6 @@ dependencies {
     implementation project(":cornea")
     implementation project(":analytics")
     implementation project(":presentation")
-    implementation project(":viewpager_indicator")
     implementation project(":materialEditText")
 
     implementation deps.appcompat

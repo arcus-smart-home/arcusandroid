@@ -15,12 +15,14 @@
  */
 package arcus.app.pairing.hub.kickoff
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import arcus.app.R
 import arcus.app.activities.GenericConnectedFragmentActivity
 import arcus.app.common.steps.container.StepContainerFragment
@@ -28,12 +30,11 @@ import arcus.app.common.utils.GlobalSetting
 import arcus.app.common.utils.VideoUtils
 import arcus.app.pairing.device.steps.bledevice.BlePairingStepsActivity
 import arcus.app.pairing.hub.ethernet.V3HubEthernetStepHostFragment
-import com.viewpagerindicator.CirclePageIndicator
 
 class V3HubKickoffStepHostFragment : StepContainerFragment(),
         V3HubKickoffStepContainer {
 
-    private lateinit var pageIndicator: CirclePageIndicator
+    private lateinit var pageIndicator: TextView
     private lateinit var nextButton: Button
     private lateinit var ethernetButton: Button
     private lateinit var viewPager: ViewPager
@@ -68,17 +69,30 @@ class V3HubKickoffStepHostFragment : StepContainerFragment(),
         loadFragments()
 
         if (!viewPagerHasAdapter()) {
-            setPagerAdapter(object: FragmentPagerAdapter(childFragmentManager) {
+            setPagerAdapter(object: FragmentPagerAdapter(childFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
                 override fun getItem(position: Int) = fragments[position]
                 override fun getCount(): Int = fragments.size
             })
 
             addPageChangedListener(this)
-            pageIndicator.setViewPager(viewPager, viewPager.currentItem)
+            setPageIndicatorText(1)
+            viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrollStateChanged(state: Int) {}
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+                override fun onPageSelected(position: Int) {
+                    setPageIndicatorText(position + 1)
+                }
+            })
         }
 
         setTitle(getString(R.string.hub_title))
         showBackButtonOnToolbar(true)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setPageIndicatorText(currentPage: Int) {
+        pageIndicator.text = "$currentPage/${viewPager.adapter?.count ?: currentPage}"
     }
 
     override fun getViewPager(view: View): ViewPager = view.findViewById(R.id.view_pager)
@@ -162,6 +176,6 @@ class V3HubKickoffStepHostFragment : StepContainerFragment(),
 
     companion object {
         @JvmStatic
-    fun newInstance() = V3HubKickoffStepHostFragment()
+        fun newInstance() = V3HubKickoffStepHostFragment()
     }
 }
