@@ -33,7 +33,7 @@ class DeviceListViewModel(
                     .load()
                     .await()
                     .map { it.toListItem() }
-                    .sortedBy { it.name }
+                    .sortedWith(compareBy(String.CASE_INSENSITIVE_ORDER) { it.name })
                     .plus(hub)
             }
 
